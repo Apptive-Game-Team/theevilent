@@ -29,7 +29,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             실시간 카드 조합 대전 전략 게임 '아케인 캐스터즈'를 개발하는 인디 게임 팀
           </p>
 
-          <div style={styles.heroBtnGroup}>
+          <div className="hero-btn-group" style={styles.heroBtnGroup}>
             <button 
               onClick={() => setActiveTab('games')} 
               className="btn-primary"
@@ -73,8 +73,8 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                 <div style={styles.featureItem}>
                   <Sparkles size={20} color="var(--color-primary)" />
                   <div>
-                    <h4 style={styles.featureTitle}>고유한 판타지 세계관</h4>
-                    <p style={styles.featureDesc}>The Evil Ent 로고의 분위기가 느껴지는 어둡고 미스터리한 분위기 설계.</p>
+                    <h4 style={styles.featureTitle}>직관적인 마법 조합</h4>
+                    <p style={styles.featureDesc}>복잡한 조작 대신 카드를 결합하여 직관적이고 빠르게 마법을 시전하는 시스템.</p>
                   </div>
                 </div>
               </div>
@@ -396,7 +396,7 @@ if (typeof document !== 'undefined') {
   const eyeStyle = document.createElement('style');
   eyeStyle.innerHTML = `
     @media (min-width: 480px) {
-      div[style*="display: flex"][style*="flex-direction: column"][style*="gap: 1rem"] {
+      .hero-btn-group {
         flex-direction: row !important;
       }
     }

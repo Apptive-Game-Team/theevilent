@@ -48,8 +48,8 @@ export const Games: React.FC = () => {
       image: '/theevilent-logo.png',
     },
     {
-      title: '고딕풍 아레나 스테이지',
-      subtitle: 'The Evil Ent 특유의 기묘하고 신비로운 숲 테마 경기장에서 경쟁합니다.',
+      title: '실시간 마법 아레나',
+      subtitle: '박진감 넘치는 결투 경기장에서 최강의 마법사 마스터에 도전하세요.',
       image: '/theevilent-logo.png',
     }
   ];
@@ -73,7 +73,7 @@ export const Games: React.FC = () => {
               </p>
 
               {/* Direct Play Links Grid */}
-              <div style={styles.linkBanner}>
+              <div className="game-link-banner" style={styles.linkBanner}>
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.team6515.wordonline" 
                   target="_blank" 
@@ -578,9 +578,20 @@ const styles: Record<string, React.CSSProperties> = {
 if (typeof document !== 'undefined') {
   const gamesStyle = document.createElement('style');
   gamesStyle.innerHTML = `
-    @media (min-width: 480px) {
-      .Games_linkBanner {
+    .game-link-banner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+    @media (min-width: 576px) {
+      .game-link-banner {
         flex-direction: row !important;
+        align-items: center;
+      }
+      .game-link-banner a {
+        flex: 1;
+        text-align: center;
       }
     }
 

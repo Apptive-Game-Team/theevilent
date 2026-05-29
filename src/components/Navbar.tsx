@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div style={styles.desktopMenu}>
+        <div className="nav-desktop-menu">
           {navigationItems.map((item) => (
             <button
               key={item.id}
@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
         {/* Mobile Menu Button */}
         <button 
-          style={styles.mobileMenuButton} 
+          className="nav-mobile-menu-btn"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div style={styles.mobileDrawer}>
+        <div className="nav-mobile-drawer">
           {navigationItems.map((item) => (
             <button
               key={item.id}
@@ -137,12 +137,6 @@ const styles: Record<string, React.CSSProperties> = {
     color: 'var(--color-text-light)',
     transition: 'color 0.3s ease',
   },
-  desktopMenu: {
-    display: 'none',
-    alignItems: 'center',
-    gap: '2rem',
-    height: '100%',
-  },
   navLink: {
     background: 'none',
     border: 'none',
@@ -153,26 +147,6 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: 'pointer',
     padding: '1.6rem 0.2rem 1.4rem 0.2rem',
     transition: 'color 0.2s ease, border-bottom-color 0.2s ease',
-  },
-  mobileMenuButton: {
-    display: 'flex',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '0.5rem',
-  },
-  mobileDrawer: {
-    position: 'absolute',
-    top: '70px',
-    left: 0,
-    width: '100%',
-    backgroundColor: 'rgba(13, 11, 10, 0.95)',
-    backdropFilter: 'blur(20px)',
-    borderBottom: '1px solid #2d231e',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '1rem 0',
-    zIndex: 999,
   },
   mobileNavLink: {
     background: 'none',
@@ -188,15 +162,44 @@ const styles: Record<string, React.CSSProperties> = {
   },
 };
 
-// Add responsive desktop style injection via CSS media query
+// Add responsive desktop style injection via clean standard CSS classes
 if (typeof document !== 'undefined') {
   const styleElement = document.createElement('style');
   styleElement.innerHTML = `
+    .nav-desktop-menu {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      height: 100%;
+    }
+    .nav-mobile-menu-btn {
+      display: flex;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav-mobile-drawer {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      backgroundColor: rgba(13, 11, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #2d231e;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+      z-index: 999;
+    }
     @media (min-width: 768px) {
-      div[style*="display: none"][style*="alignItems: center"] {
+      .nav-desktop-menu {
         display: flex !important;
       }
-      button[style*="display: flex"][style*="background: none"] {
+      .nav-mobile-menu-btn {
+        display: none !important;
+      }
+      .nav-mobile-drawer {
         display: none !important;
       }
     }
