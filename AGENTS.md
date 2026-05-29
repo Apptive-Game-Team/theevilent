@@ -65,3 +65,20 @@ theevilent/
   - **Itch.io**: [https://theevilent.itch.io/arcane-casters](https://theevilent.itch.io/arcane-casters)
   - **Game-Ping**: [https://www.game-ping.kr/games/arcane-casters](https://www.game-ping.kr/games/arcane-casters)
   - **Google Play Store**: [https://play.google.com/store/apps/details?id=com.team6515.wordonline](https://play.google.com/store/apps/details?id=com.team6515.wordonline)
+
+---
+
+## 🔬 Visual Verification & Validation Skill
+
+We have created an automated visual verification skill script:
+- **Path**: `/Users/jeong-yunseong/.gemini/antigravity-cli/skills/verify_homepage.sh`
+
+This script automates the complete validation process:
+1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
+2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Games, and Team tabs.
+
+### Running the Skill:
+To execute this verification flow at any time:
+```bash
+/Users/jeong-yunseong/.gemini/antigravity-cli/skills/verify_homepage.sh
+```
