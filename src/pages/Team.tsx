@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Compass, Send, CheckCircle } from 'lucide-react';
+import { Mail, Compass, Send, CheckCircle, Sparkles } from 'lucide-react';
 
 export const Team: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -19,19 +19,19 @@ export const Team: React.FC = () => {
   const members = [
     {
       name: 'monolong',
-      role: 'Lead Engine Architect & Systems Coder',
-      bio: 'Translates dark visions and spell systems into performant logic. Specialized in game loops, engine architecture, and graphics performance. Ensures the root systems run smoothly without lag.',
+      role: 'Game Developer (Unity / Backend / Infra)',
+      bio: 'Unity 게임 클라이언트 구현부터 견고한 멀티플레이 백엔드 서버 구축 및 인프라 오케스트레이션까지 개발 전반을 담당합니다. 아케인 캐스터즈의 안정적이고 빠른 실시간 PvP 환경을 완성하고 있습니다.',
       accent: '#e61e2a', // Crimson
       avatarText: 'ML',
-      github: 'https://github.',
+      github: 'https://github.com/monolong', // placeholder for actual if not supplied
     },
     {
       name: 'yunseong',
-      role: 'Lead Game Designer & Creative Director',
-      bio: 'Shapes the gameplay mechanics, lore, and visual atmosphere of the Entwood. Curates user experiences, runic gestures, and environmental designs that immerse players in mysterious realms.',
+      role: 'Game Developer (Unity / Backend / Infra)',
+      bio: '게임 기획과 아레나 디자인을 바탕으로 Unity 클라이언트 기능 구현, 매치메이킹 백엔드 아키텍처 및 무중단 인프라 설계를 공유하여 진행합니다. 기획이 온전히 기술로 실현되도록 조율합니다.',
       accent: '#dfb73c', // Gold/Amber
       avatarText: 'YS',
-      github: 'https://github.',
+      github: 'https://github.com/dev-yunseong',
     }
   ];
 
@@ -42,7 +42,7 @@ export const Team: React.FC = () => {
         <div className="container" style={styles.introContainer}>
           <h1 style={styles.title} className="text-glow">THE SUMMONERS</h1>
           <p style={styles.subtitle}>
-            Meet the two developers behind the ancient branches of The Evil Ent studio. We write code, design runes, and weave atmospheres.
+            The Evil Ent는 2명의 개발자로 구성된 인디 게임 팀입니다. 클라이언트(Unity), 서버(Backend), 시스템 인프라(Infra)를 직접 설계하고 아우르며 완성도 높은 게임을 빌드하고 있습니다.
           </p>
         </div>
       </section>
@@ -127,25 +127,29 @@ export const Team: React.FC = () => {
             {/* Left: Philosophy */}
             <div style={styles.philosophyCol}>
               <h2 style={styles.sectionTitle}>
-                OUR <span className="accent-color">DEVELOPMENT</span> CODE
+                OUR <span className="accent-color">PHILOSOPHY</span>
               </h2>
               <ul style={styles.philoList}>
+                <li style={styles.philoItem}>
+                  <div style={styles.philoIconWrapper}>
+                    <Sparkles size={18} color="var(--color-primary)" />
+                  </div>
+                  <div>
+                    <strong style={styles.philoTitle}>재미있는 게임을 만들자</strong>
+                    <p style={styles.philoDesc}>
+                      장르적 클리셰에 얽매이지 않고, 플레이어에게 실질적인 흥미와 도전을 유발하는 가장 원초적인 즐거움을 연구합니다.
+                    </p>
+                  </div>
+                </li>
                 <li style={styles.philoItem}>
                   <div style={styles.philoIconWrapper}>
                     <Compass size={18} color="var(--color-primary)" />
                   </div>
                   <div>
-                    <strong style={styles.philoTitle}>Focus on Polish</strong>
-                    <p style={styles.philoDesc}>We believe in detail. Audio cues, tactile buttons, and atmospheric particle density matter just as much as main mechanics.</p>
-                  </div>
-                </li>
-                <li style={styles.philoItem}>
-                  <div style={styles.philoIconWrapper}>
-                    <Mail size={18} color="var(--color-primary)" />
-                  </div>
-                  <div>
-                    <strong style={styles.philoTitle}>Community Driven</strong>
-                    <p style={styles.philoDesc}>Player feedback from itch.io and game-ping drives our rapid update cycle. We build games together with our summoners.</p>
+                    <strong style={styles.philoTitle}>게임 같은 게임을 만들자</strong>
+                    <p style={styles.philoDesc}>
+                      조작과 선택의 결과가 직관적이며, 플레이어가 몰입하여 스스로 흐름을 장악해 나가는 진정한 의미의 놀이를 창조하고자 합니다.
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -154,14 +158,14 @@ export const Team: React.FC = () => {
             {/* Right: Contact Form */}
             <div style={styles.formCol}>
               <div className="gothic-card" style={styles.formCard}>
-                <h3 style={styles.formTitle}>SEND A MESSAGE</h3>
-                <p style={styles.formSubtitle}>Have a bug to report, feedback, or a business query? Let us know.</p>
+                <h3 style={styles.formTitle}>SEND A SUMMON</h3>
+                <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등 편하게 메시지를 전송해 주세요.</p>
 
                 {submitted ? (
                   <div style={styles.successBox}>
                     <CheckCircle size={32} color="#4cd137" style={{ marginBottom: '0.75rem' }} />
                     <h4 style={styles.successTitle}>SUMMON SENT SUCCESSFULLY</h4>
-                    <p style={styles.successDesc}>Your message has drifted through the branches. We will reach back soon.</p>
+                    <p style={styles.successDesc}>메시지가 어두운 가지 사이로 전송되었습니다. 검토 후 신속히 연락해 드리겠습니다.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} style={styles.form}>
@@ -173,7 +177,7 @@ export const Team: React.FC = () => {
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         style={styles.input}
-                        placeholder="Your summoner name"
+                        placeholder="이름 또는 닉네임"
                       />
                     </div>
                     <div style={styles.formGroup}>
@@ -184,7 +188,7 @@ export const Team: React.FC = () => {
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         style={styles.input}
-                        placeholder="yourname@domain.com"
+                        placeholder="이메일 주소"
                       />
                     </div>
                     <div style={styles.formGroup}>
@@ -195,12 +199,12 @@ export const Team: React.FC = () => {
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         style={styles.textarea}
-                        placeholder="Type your scroll message here..."
+                        placeholder="메시지 내용을 입력하세요..."
                       />
                     </div>
                     <button type="submit" className="btn-primary" style={styles.submitBtn}>
                       <Send size={16} />
-                      SEND SUMMON
+                      메시지 전송
                     </button>
                   </form>
                 )}

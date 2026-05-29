@@ -1,55 +1,55 @@
 import React, { useState } from 'react';
-import { Play, Download, Globe, Sparkles, Flame, Snowflake, Moon, Layers } from 'lucide-react';
+import { Play, Download, Globe, Sparkles, Flame, Snowflake, Shield, Layers } from 'lucide-react';
 
 export const Games: React.FC = () => {
-  const [selectedRune, setSelectedRune] = useState<string>('fire');
+  const [selectedCard, setSelectedCard] = useState<string>('fire');
 
-  const runes = [
+  const cards = [
     {
       id: 'fire',
-      name: 'IGNIS (FIRE RUNE)',
+      name: 'FIRE CARD (화염 카드)',
       color: '#ff4d4d',
       icon: <Flame size={20} color="#ff4d4d" />,
-      spell: 'Hellfire Cataclysm',
-      description: 'Summons raging volcanic meteors from the dark sky, dealing massive splash damage and igniting all wooden targets in the area.',
-      stats: { Power: '★★★★★', Range: '★★★☆☆', Complexity: '★☆☆☆☆' }
+      spell: 'Hellfire Blast (헬파이어 블래스트)',
+      description: '화염 카드들을 합쳐 더 거대하고 파괴적인 화염 구체를 conjuring합니다. 폭발 시 넓은 반경에 강력한 스플래시 피해를 줍니다.',
+      stats: { 위력: '★★★★★', 사거리: '★★★☆☆', 난이도: '★☆☆☆☆' }
     },
     {
       id: 'frost',
-      name: 'GLACIES (FROST RUNE)',
+      name: 'FROST CARD (빙결 카드)',
       color: '#33ccff',
       icon: <Snowflake size={20} color="#33ccff" />,
-      spell: 'Glacial Absolute Zero',
-      description: 'Instantly freezes water pathways and locks enemies in solid ice blocks. Highly effective for tactical positioning and control.',
-      stats: { Power: '★★★☆☆', Range: '★★★★☆', Complexity: '★★★☆☆' }
+      spell: 'Blizzard Field (블리자드 필드)',
+      description: '빙결 카드를 병합하여 지면에 혹독한 눈보라 지대를 생성합니다. 범위 내 적들의 이동 속도를 대폭 둔화시켜 전장을 장악합니다.',
+      stats: { 위력: '★★★☆☆', 사거리: '★★★★☆', 난이도: '★★★☆☆' }
     },
     {
-      id: 'shadow',
-      name: 'TENEBRIS (SHADOW RUNE)',
-      color: '#b366ff',
-      icon: <Moon size={20} color="#b366ff" />,
-      spell: 'Void Soul Devourer',
-      description: 'Channels dark energy threads that drain the essence of organic targets, converting their vitality into magical mana shielding.',
-      stats: { Power: '★★★★☆', Range: '★★★★★', Complexity: '★★★★★' }
+      id: 'shield',
+      name: 'SHIELD CARD (보호막 카드)',
+      color: '#4cd137',
+      icon: <Shield size={20} color="#4cd137" />,
+      spell: 'Runic Aegis (루닉 이지스)',
+      description: '보호막 카드를 조합하여 일정 시간 동안 적의 모든 마법 공격 피해를 무력화하는 고대 마법의 방벽을 소환합니다.',
+      stats: { 위력: '☆☆☆☆☆', 사거리: '★☆☆☆☆', 난이도: '★★☆☆☆' }
     }
   ];
 
-  const activeRune = runes.find((r) => r.id === selectedRune) || runes[0];
+  const activeCard = cards.find((c) => c.id === selectedCard) || cards[0];
 
   const galleryItems = [
     {
-      title: 'Spooky Grove Rituals',
-      subtitle: 'Gather mana beneath the ancient Entwood branch structures.',
-      image: '/theevilent-logo.png', // Fallback to logo or styled overlay
-    },
-    {
-      title: 'Runic Gateways',
-      subtitle: 'Unlock magical gates by aligning complex elemental glyphs.',
+      title: '실시간 전장 대결',
+      subtitle: '상대의 움직임에 대응하여 빠르게 카드를 드래그하고 머지합니다.',
       image: '/theevilent-logo.png',
     },
     {
-      title: 'Monsters of the Dark Wood',
-      subtitle: 'Fight corrupted timber goliaths and dark druids.',
+      title: '전략적인 카드 구성',
+      subtitle: '전투 돌입 전, 자신만의 플레이 스타일에 맞게 마법 덱을 조합하세요.',
+      image: '/theevilent-logo.png',
+    },
+    {
+      title: '고딕풍 아레나 스테이지',
+      subtitle: 'The Evil Ent 특유의 기묘하고 신비로운 숲 테마 경기장에서 경쟁합니다.',
       image: '/theevilent-logo.png',
     }
   ];
@@ -63,13 +63,13 @@ export const Games: React.FC = () => {
             <div style={styles.headerContent}>
               <div style={styles.tagline}>
                 <Sparkles size={16} color="var(--color-primary)" />
-                <span>Indie Dark Fantasy Masterpiece</span>
+                <span>Real-Time Card Merging Strategy Game</span>
               </div>
               <h1 style={styles.gameTitle} className="text-glow">
                 ARCANE CASTERS
               </h1>
               <p style={styles.gamePitch}>
-                A spellbinding, fast-paced action strategy game where rune combinations shape the forces of nature. Cast magic, survive corrupt woods, and outsmart ancient beasts.
+                아케인 캐스터즈는 실시간으로 마법 카드를 병합(Merge)하여 더 강력한 상위 주문을 완성하고 상대방과 겨루는 하이템포 실시간 전략 대전 게임입니다. 순발력과 덱 빌딩 전략의 극한을 시험해 보세요.
               </p>
 
               {/* Direct Play Links Grid */}
@@ -82,7 +82,7 @@ export const Games: React.FC = () => {
                   className="store-btn-google"
                 >
                   <Play size={18} />
-                  <span>Google Play</span>
+                  <span>Google Play (Android)</span>
                 </a>
                 <a 
                   href="https://theevilent.itch.io/arcane-casters" 
@@ -92,7 +92,7 @@ export const Games: React.FC = () => {
                   className="store-btn-itch"
                 >
                   <Download size={18} />
-                  <span>Download itch.io</span>
+                  <span>itch.io 다운로드</span>
                 </a>
                 <a 
                   href="https://www.game-ping.kr/games/arcane-casters" 
@@ -102,7 +102,7 @@ export const Games: React.FC = () => {
                   className="store-btn-ping"
                 >
                   <Globe size={18} />
-                  <span>game-ping</span>
+                  <span>game-ping (웹 플레이)</span>
                 </a>
               </div>
             </div>
@@ -126,34 +126,34 @@ export const Games: React.FC = () => {
       <section style={styles.sectionDark}>
         <div className="container">
           <h2 style={styles.sectionTitleCentered}>
-            RUNE <span className="accent-color">SPELLCASTING</span> CHAMBER
+            CARD <span className="accent-color">MERGING</span> SYSTEM
           </h2>
           <p style={styles.sectionSubtitle}>
-            Select a rune element to test casting combos and preview its devastating in-game spell effects.
+            카드를 선택하여 마법이 결합되었을 때 소환되는 상위 주문과 메커니즘을 미리 살펴보세요.
           </p>
 
           <div style={styles.workshopBox} className="gothic-card">
             <div style={styles.workshopGrid}>
               {/* Left Column: Element Selectors */}
               <div style={styles.runeSelectorCol}>
-                <h4 style={styles.workshopLabel}>SELECT AN ELEMENT</h4>
+                <h4 style={styles.workshopLabel}>보유 카드 선택</h4>
                 <div style={styles.runeBtnGroup}>
-                  {runes.map((rune) => (
+                  {cards.map((card) => (
                     <button
-                      key={rune.id}
-                      onClick={() => setSelectedRune(rune.id)}
+                      key={card.id}
+                      onClick={() => setSelectedCard(card.id)}
                       style={{
                         ...styles.runeBtn,
-                        borderColor: selectedRune === rune.id ? rune.color : '#2d231e',
-                        backgroundColor: selectedRune === rune.id ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
+                        borderColor: selectedCard === card.id ? card.color : '#2d231e',
+                        backgroundColor: selectedCard === card.id ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
                       }}
                     >
-                      {rune.icon}
+                      {card.icon}
                       <span style={{ 
                         ...styles.runeBtnText,
-                        color: selectedRune === rune.id ? rune.color : 'var(--color-text-muted)',
+                        color: selectedCard === card.id ? card.color : 'var(--color-text-muted)',
                       }}>
-                        {rune.name}
+                        {card.name}
                       </span>
                     </button>
                   ))}
@@ -165,28 +165,28 @@ export const Games: React.FC = () => {
                 <div 
                   style={{
                     ...styles.spellPreviewGlow,
-                    boxShadow: `0 0 40px ${activeRune.color}22`,
-                    borderColor: `${activeRune.color}44`,
+                    boxShadow: `0 0 40px ${activeCard.color}22`,
+                    borderColor: `${activeCard.color}44`,
                   }}
                 >
                   <div style={styles.spellMeta}>
-                    <Layers size={18} style={{ color: activeRune.color }} />
-                    <span style={{ ...styles.spellRuneType, color: activeRune.color }}>
-                      CONJURED SPELL
+                    <Layers size={18} style={{ color: activeCard.color }} />
+                    <span style={{ ...styles.spellRuneType, color: activeCard.color }}>
+                      MERGED MAGIC SPELL
                     </span>
                   </div>
-                  <h3 style={{ ...styles.spellName, textShadow: `0 0 10px ${activeRune.color}aa` }}>
-                    {activeRune.spell}
+                  <h3 style={{ ...styles.spellName, textShadow: `0 0 10px ${activeCard.color}aa` }}>
+                    {activeCard.spell}
                   </h3>
-                  <p style={styles.spellDesc}>{activeRune.description}</p>
+                  <p style={styles.spellDesc}>{activeCard.description}</p>
                   
                   <div style={styles.divider} />
                   
                   <div style={styles.statsContainer}>
-                    {Object.entries(activeRune.stats).map(([label, val]) => (
+                    {Object.entries(activeCard.stats).map(([label, val]) => (
                       <div key={label} style={styles.statRow}>
                         <span style={styles.statLabel}>{label}:</span>
-                        <span style={{ ...styles.statVal, color: activeRune.color }}>{val}</span>
+                        <span style={{ ...styles.statVal, color: activeCard.color }}>{val}</span>
                       </div>
                     ))}
                   </div>
@@ -201,7 +201,7 @@ export const Games: React.FC = () => {
       <section style={styles.sectionGallery}>
         <div className="container">
           <h2 style={styles.sectionTitle}>
-            VISUALS & <span className="accent-color">DEVELOPMENT SHOTS</span>
+            SCENE & <span className="accent-color">DEVELOPMENT</span>
           </h2>
           <div className="grid-3" style={styles.galleryGrid}>
             {galleryItems.map((item, index) => (
@@ -222,51 +222,51 @@ export const Games: React.FC = () => {
       <section style={styles.sectionSpecs}>
         <div className="container">
           <h2 style={styles.sectionTitleCentered}>
-            SYSTEM <span className="accent-color">REQUIREMENTS</span>
+            SYSTEM <span className="accent-color">SPECIFICATIONS</span>
           </h2>
           <div className="grid-2" style={styles.specsGrid}>
-            {/* Mobile Specs */}
+            {/* Web Platform Specs */}
             <div className="gothic-card">
-              <h3 style={styles.specsHeader}>MOBILE (ANDROID)</h3>
+              <h3 style={styles.specsHeader}>WEB BROWSER (MAIN ENVIRONMENT)</h3>
               <div style={styles.specList}>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>OS</span>
-                  <span style={styles.specValue}>Android 8.0 Oreo or higher</span>
+                  <span style={styles.specLabel}>지원 플랫폼</span>
+                  <span style={styles.specValue}>Windows 10/11, macOS, Linux, ChromeOS</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Processor</span>
-                  <span style={styles.specValue}>Qualcomm Snapdragon 660 / Exynos 9611</span>
+                  <span style={styles.specLabel}>권장 브라우저</span>
+                  <span style={styles.specValue}>Google Chrome, Safari, Firefox, Edge (최신버전 권장)</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Memory</span>
-                  <span style={styles.specValue}>3 GB RAM</span>
+                  <span style={styles.specLabel}>그래픽 엔진</span>
+                  <span style={styles.specValue}>WebGL 2.0 규격 지원 기기 필수</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Storage</span>
-                  <span style={styles.specValue}>300 MB available space</span>
+                  <span style={styles.specLabel}>권장 메모리</span>
+                  <span style={styles.specValue}>4 GB RAM 이상</span>
                 </div>
               </div>
             </div>
 
-            {/* PC Specs */}
+            {/* Mobile Specs */}
             <div className="gothic-card">
-              <h3 style={styles.specsHeader}>PC (ITCH.IO / WEB)</h3>
+              <h3 style={styles.specsHeader}>MOBILE (APP & WEB)</h3>
               <div style={styles.specList}>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>OS</span>
-                  <span style={styles.specValue}>Windows 10 64-bit / macOS 11+</span>
+                  <span style={styles.specLabel}>OS 버전</span>
+                  <span style={styles.specValue}>Android 8.0 (Oreo) 이상 / iOS 14 이상</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Processor</span>
-                  <span style={styles.specValue}>Intel Core i3 / AMD Ryzen 3</span>
+                  <span style={styles.specLabel}>실행 방식</span>
+                  <span style={styles.specValue}>구글 플레이 전용 앱 다운로드 또는 모바일 브라우저를 통한 접속</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Memory</span>
-                  <span style={styles.specValue}>4 GB RAM</span>
+                  <span style={styles.specLabel}>네트워크</span>
+                  <span style={styles.specValue}>실시간 동기화 PvP를 위한 안정적인 Wi-Fi 또는 LTE/5G망 필요</span>
                 </div>
                 <div style={styles.specRow}>
-                  <span style={styles.specLabel}>Storage</span>
-                  <span style={styles.specValue}>500 MB available space</span>
+                  <span style={styles.specLabel}>여유 용량</span>
+                  <span style={styles.specValue}>앱 설치 및 캐시 파일 포함 300 MB 이상 권장</span>
                 </div>
               </div>
             </div>

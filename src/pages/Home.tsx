@@ -1,32 +1,11 @@
 import React from 'react';
-import { Shield, Sparkles, Sword, Terminal, Calendar, ArrowRight } from 'lucide-react';
+import { Shield, Sparkles, Sword, Terminal, ExternalLink, Calendar } from 'lucide-react';
 
 interface HomeProps {
   setActiveTab: (tab: string) => void;
 }
 
 export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
-  const newsItems = [
-    {
-      date: 'MAY 28, 2026',
-      title: 'Arcane Casters: Alpha Version 1.2 Released!',
-      summary: 'Added new magical elements, refined the casting mechanics, and updated spell feedback. Download now on itch.io!',
-      category: 'UPDATE',
-    },
-    {
-      date: 'MAY 15, 2026',
-      title: 'Unveiling the Core Magic Spell System',
-      summary: 'Deep-dive into how players combine rune gestures to conjure ancient, powerful curses and protective glyphs.',
-      category: 'DEVLOG',
-    },
-    {
-      date: 'MAY 01, 2026',
-      title: 'The Evil Ent: Website Officially Launched',
-      summary: 'Our official headquarters is now live. Follow our devlogs, view game specifications, and connect with the community.',
-      category: 'ANNOUNCEMENT',
-    },
-  ];
-
   return (
     <div style={styles.page}>
       {/* Hero Banner */}
@@ -47,7 +26,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             THE EVIL ENT
           </h1>
           <p style={styles.heroSub}>
-            Indie Game Developers Summoning Dark Fantasy Realms
+            실시간 카드 조합 대전 전략 게임 '아케인 캐스터즈'를 개발하는 인디 게임 팀
           </p>
 
           <div style={styles.heroBtnGroup}>
@@ -56,14 +35,14 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
               className="btn-primary"
             >
               <Sword size={18} />
-              PLAY ARCANE CASTERS
+              아케인 캐스터즈 플레이
             </button>
             <button 
               onClick={() => setActiveTab('team')} 
               className="btn-secondary"
             >
               <Terminal size={18} />
-              MEET THE TEAM
+              팀 멤버 소개
             </button>
           </div>
         </div>
@@ -75,27 +54,27 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           <div style={styles.aboutGrid}>
             <div style={styles.aboutTextCol}>
               <h2 style={styles.sectionTitle}>
-                FROM THE <span className="accent-color">DARKNESS</span> WE RISE
+                ABOUT <span className="accent-color">THE EVIL ENT</span>
               </h2>
               <p style={styles.paragraph}>
-                We are <strong>The Evil Ent</strong>, a two-man indie studio creating immersive, moody, and mystical gaming experiences. Our designs draw inspiration from dark woods, ancient myths, and spellbinding rituals.
+                우리는 독창적인 시스템과 몰입감 넘치는 분위기를 가진 게임을 만드는 2인 개발 팀 <strong>The Evil Ent</strong>입니다. 어두운 숲속의 신비롭고 고딕한 아트를 기반으로 깊이 있는 대전 전략 경험을 설계하고 있습니다.
               </p>
               <p style={styles.paragraph}>
-                Instead of bright, cheerful paths, we wander into the shadowy groves of game development, crafting deep gameplay systems and rich, pixel-perfect atmospheres that stick with you.
+                겉모습만 화려한 게임을 넘어, 플레이어의 지략과 순발력이 발휘될 수 있는 정교한 게임플레이 메커니즘을 핵심 가치로 삼아 개발에 집중하고 있습니다.
               </p>
               <div style={styles.featureList}>
                 <div style={styles.featureItem}>
                   <Shield size={20} color="var(--color-primary)" />
                   <div>
-                    <h4 style={styles.featureTitle}>Deep Systems</h4>
-                    <p style={styles.featureDesc}>Focusing on rich spellcasting mechanics and strategic gameplay.</p>
+                    <h4 style={styles.featureTitle}>실시간 전략 대전</h4>
+                    <p style={styles.featureDesc}>빠른 템포의 전투 속에서 카드를 조합하여 최선의 마법을 도출해내는 두뇌 싸움.</p>
                   </div>
                 </div>
                 <div style={styles.featureItem}>
                   <Sparkles size={20} color="var(--color-primary)" />
                   <div>
-                    <h4 style={styles.featureTitle}>Atmospheric Visuals</h4>
-                    <p style={styles.featureDesc}>Dark fantasy artwork matching detailed, gothic environments.</p>
+                    <h4 style={styles.featureTitle}>고유한 판타지 세계관</h4>
+                    <p style={styles.featureDesc}>The Evil Ent 로고의 분위기가 느껴지는 어둡고 미스터리한 분위기 설계.</p>
                   </div>
                 </div>
               </div>
@@ -118,44 +97,51 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
       <section style={styles.sectionFeatured}>
         <div className="container">
           <div style={styles.featuredBox} className="gothic-card">
-            <span style={styles.featuredBadge}>FEATURED RELEASE</span>
+            <span style={styles.featuredBadge}>MAIN FLAGSHIP GAME</span>
             <h2 style={styles.featuredTitle} className="text-glow-subtle">ARCANE CASTERS</h2>
             <p style={styles.featuredDesc}>
-              Harness elemental elements and combine unique rune glyphs to conjure devastating magic spells. A dark, fast-paced action/strategy adventure that challenges your wits and speed.
+              카드를 합쳐 강력한 마법을 영창하고 실시간으로 상대방과 싸우는 전략 대전 게임입니다. 
+              다양한 카드를 획득하고 자신만의 덱을 구축하여 실시간 마법 결투에서 승리하세요.
             </p>
             <div style={styles.featuredBtnRow}>
               <button 
                 onClick={() => setActiveTab('games')} 
                 className="btn-primary"
               >
-                Learn More & Play
-                <ArrowRight size={16} />
+                자세히 알아보기
+                <Sword size={16} />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Latest Updates & Devlogs */}
+      {/* Latest Updates & Devlogs redirection */}
       <section style={styles.sectionUpdates}>
         <div className="container">
           <h2 style={styles.sectionTitleCentered}>
-            LATEST <span className="accent-color">ANNOUNCEMENTS</span>
+            DEVELOPMENT <span className="accent-color">DEVLOGS</span>
           </h2>
-          <div className="grid-3" style={styles.newsGrid}>
-            {newsItems.map((item, index) => (
-              <div key={index} className="gothic-card" style={styles.newsCard}>
-                <div style={styles.newsMeta}>
-                  <span style={styles.newsCategory}>{item.category}</span>
-                  <div style={styles.newsDate}>
-                    <Calendar size={12} style={{ marginRight: '4px' }} />
-                    {item.date}
-                  </div>
-                </div>
-                <h3 style={styles.newsCardTitle}>{item.title}</h3>
-                <p style={styles.newsCardSummary}>{item.summary}</p>
+          <div style={styles.devlogCtaContainer}>
+            <div className="gothic-card" style={styles.devlogCtaCard}>
+              <div style={styles.devlogIconWrapper}>
+                <Calendar size={32} color="var(--color-primary)" />
               </div>
-            ))}
+              <h3 style={styles.devlogCtaTitle}>itch.io에서 공식 개발 일지 읽기</h3>
+              <p style={styles.devlogCtaDesc}>
+                아케인 캐스터즈의 최신 업데이트, 밸런스 패치, 버그 수정 및 새로운 마법 카드 추가 소식은 itch.io 개발자 블로그에 실시간으로 기록되고 있습니다.
+              </p>
+              <a 
+                href="https://theevilent.itch.io/arcane-casters/devlog" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-primary"
+                style={{ marginTop: '1rem' }}
+              >
+                공식 데브로그 보러가기
+                <ExternalLink size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -369,41 +355,39 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '3rem',
     letterSpacing: '0.15em',
   },
-  newsGrid: {
-    marginTop: '2rem',
+  devlogCtaContainer: {
+    display: 'flex',
+    justifyContent: 'center',
   },
-  newsCard: {
+  devlogCtaCard: {
+    maxWidth: '650px',
+    textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    padding: '3rem 2rem',
     gap: '1rem',
-    height: '100%',
   },
-  newsMeta: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    fontSize: '0.8rem',
-  },
-  newsCategory: {
-    color: 'var(--color-primary)',
-    fontWeight: '700',
-    letterSpacing: '0.1em',
-  },
-  newsDate: {
-    color: 'var(--color-text-muted)',
+  devlogIconWrapper: {
+    width: '64px',
+    height: '64px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(230, 30, 42, 0.1)',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: '0.5rem',
+    border: '1.5px dashed var(--color-primary)',
   },
-  newsCardTitle: {
-    fontSize: '1.2rem',
-    lineHeight: '1.4',
-    letterSpacing: '0.02em',
+  devlogCtaTitle: {
+    fontSize: '1.4rem',
+    letterSpacing: '0.05em',
   },
-  newsCardSummary: {
-    color: 'var(--color-text-muted)',
+  devlogCtaDesc: {
     fontSize: '0.95rem',
-    lineHeight: '1.6',
-    flexGrow: 1,
+    color: 'var(--color-text-muted)',
+    lineHeight: '1.65',
+    marginBottom: '0.5rem',
   },
 };
 
