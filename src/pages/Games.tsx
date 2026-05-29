@@ -1,40 +1,7 @@
-import React, { useState } from 'react';
-import { Play, Download, Globe, Sparkles, Flame, Snowflake, Shield, Layers } from 'lucide-react';
+import React from 'react';
+import { Play, Download, Globe, Sparkles } from 'lucide-react';
 
 export const Games: React.FC = () => {
-  const [selectedCard, setSelectedCard] = useState<string>('fire');
-
-  const cards = [
-    {
-      id: 'fire',
-      name: 'FIRE CARD (화염 카드)',
-      color: '#ff4d4d',
-      icon: <Flame size={20} color="#ff4d4d" />,
-      spell: 'Hellfire Blast (헬파이어 블래스트)',
-      description: '화염 카드들을 합쳐 더 거대하고 파괴적인 화염 구체를 conjuring합니다. 폭발 시 넓은 반경에 강력한 스플래시 피해를 줍니다.',
-      stats: { 위력: '★★★★★', 사거리: '★★★☆☆', 난이도: '★☆☆☆☆' }
-    },
-    {
-      id: 'frost',
-      name: 'FROST CARD (빙결 카드)',
-      color: '#33ccff',
-      icon: <Snowflake size={20} color="#33ccff" />,
-      spell: 'Blizzard Field (블리자드 필드)',
-      description: '빙결 카드를 병합하여 지면에 혹독한 눈보라 지대를 생성합니다. 범위 내 적들의 이동 속도를 대폭 둔화시켜 전장을 장악합니다.',
-      stats: { 위력: '★★★☆☆', 사거리: '★★★★☆', 난이도: '★★★☆☆' }
-    },
-    {
-      id: 'shield',
-      name: 'SHIELD CARD (보호막 카드)',
-      color: '#4cd137',
-      icon: <Shield size={20} color="#4cd137" />,
-      spell: 'Runic Aegis (루닉 이지스)',
-      description: '보호막 카드를 조합하여 일정 시간 동안 적의 모든 마법 공격 피해를 무력화하는 고대 마법의 방벽을 소환합니다.',
-      stats: { 위력: '☆☆☆☆☆', 사거리: '★☆☆☆☆', 난이도: '★★☆☆☆' }
-    }
-  ];
-
-  const activeCard = cards.find((c) => c.id === selectedCard) || cards[0];
 
   const galleryItems = [
     {
@@ -122,80 +89,7 @@ export const Games: React.FC = () => {
         </div>
       </section>
 
-      {/* Interactive Spell Workshop */}
-      <section style={styles.sectionDark}>
-        <div className="container">
-          <h2 style={styles.sectionTitleCentered}>
-            CARD <span className="accent-color">MERGING</span> SYSTEM
-          </h2>
-          <p style={styles.sectionSubtitle}>
-            카드를 선택하여 마법이 결합되었을 때 소환되는 상위 주문과 메커니즘을 미리 살펴보세요.
-          </p>
 
-          <div style={styles.workshopBox} className="gothic-card">
-            <div style={styles.workshopGrid}>
-              {/* Left Column: Element Selectors */}
-              <div style={styles.runeSelectorCol}>
-                <h4 style={styles.workshopLabel}>보유 카드 선택</h4>
-                <div style={styles.runeBtnGroup}>
-                  {cards.map((card) => (
-                    <button
-                      key={card.id}
-                      onClick={() => setSelectedCard(card.id)}
-                      style={{
-                        ...styles.runeBtn,
-                        borderColor: selectedCard === card.id ? card.color : '#2d231e',
-                        backgroundColor: selectedCard === card.id ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
-                      }}
-                    >
-                      {card.icon}
-                      <span style={{ 
-                        ...styles.runeBtnText,
-                        color: selectedCard === card.id ? card.color : 'var(--color-text-muted)',
-                      }}>
-                        {card.name}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Column: Dynamic Spell Display */}
-              <div style={styles.spellDetailsCol}>
-                <div 
-                  style={{
-                    ...styles.spellPreviewGlow,
-                    boxShadow: `0 0 40px ${activeCard.color}22`,
-                    borderColor: `${activeCard.color}44`,
-                  }}
-                >
-                  <div style={styles.spellMeta}>
-                    <Layers size={18} style={{ color: activeCard.color }} />
-                    <span style={{ ...styles.spellRuneType, color: activeCard.color }}>
-                      MERGED MAGIC SPELL
-                    </span>
-                  </div>
-                  <h3 style={{ ...styles.spellName, textShadow: `0 0 10px ${activeCard.color}aa` }}>
-                    {activeCard.spell}
-                  </h3>
-                  <p style={styles.spellDesc}>{activeCard.description}</p>
-                  
-                  <div style={styles.divider} />
-                  
-                  <div style={styles.statsContainer}>
-                    {Object.entries(activeCard.stats).map(([label, val]) => (
-                      <div key={label} style={styles.statRow}>
-                        <span style={styles.statLabel}>{label}:</span>
-                        <span style={{ ...styles.statVal, color: activeCard.color }}>{val}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Visual Gallery Showcase */}
       <section style={styles.sectionGallery}>
