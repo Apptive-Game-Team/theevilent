@@ -71,7 +71,7 @@ theevilent/
 ## 🔬 Visual Verification & Validation Skill
 
 We have created an automated visual verification skill script:
-- **Path**: `.agents/verify_homepage.sh`
+- **Path**: `.agents/skills/verify-homepage/verify_homepage.sh`
 
 This script automates the complete validation process:
 1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
@@ -80,5 +80,5 @@ This script automates the complete validation process:
 ### Running the Skill:
 To execute this verification flow at any time:
 ```bash
-./.agents/verify_homepage.sh
+./.agents/skills/verify-homepage/verify_homepage.sh
 ```

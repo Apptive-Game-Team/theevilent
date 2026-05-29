@@ -15,7 +15,7 @@ Use this skill when you want to verify that the frontend codebase is compiling p
 To invoke this skill, run the visual verification shell script located inside the repository:
 
 ```bash
-./.agents/verify_homepage.sh
+./.agents/skills/verify-homepage/verify_homepage.sh
 ```
 
 ## Expected Output
