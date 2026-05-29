@@ -19,16 +19,16 @@ export const Team: React.FC = () => {
   const members = [
     {
       name: 'monolong',
-      role: 'Game Developer (Unity / Backend / Infra)',
-      bio: 'Unity 게임 클라이언트 구현부터 견고한 멀티플레이 백엔드 서버 구축 및 인프라 오케스트레이션까지 개발 전반을 담당합니다. 아케인 캐스터즈의 안정적이고 빠른 실시간 PvP 환경을 완성하고 있습니다.',
+      role: 'Game Developer (Unity / Backend)',
+      bio: '아케인 캐스터즈의 Unity 클라이언트 코어 콘텐츠 개발 및 실시간 매치 플레이를 위한 인게임 백엔드 시스템 구축을 전담하고 있습니다.',
       accent: '#e61e2a', // Crimson
       avatarText: 'ML',
       github: 'https://github.com/monolong', // placeholder for actual if not supplied
     },
     {
       name: 'yunseong',
-      role: 'Game Developer (Unity / Backend / Infra)',
-      bio: '게임 기획과 아레나 디자인을 바탕으로 Unity 클라이언트 기능 구현, 매치메이킹 백엔드 아키텍처 및 무중단 인프라 설계를 공유하여 진행합니다. 기획이 온전히 기술로 실현되도록 조율합니다.',
+      role: 'Server Developer (Backend / Unity / Infra)',
+      bio: '안정적이고 중단 없는 실시간 PvP 매치를 서비스하기 위한 백엔드 분산 서버 아키텍처 설계와 인프라 파이프라인 구축을 담당하며, 클라이언트 기능 개발을 공유합니다.',
       accent: '#dfb73c', // Gold/Amber
       avatarText: 'YS',
       github: 'https://github.com/dev-yunseong',
