@@ -24,6 +24,7 @@ export const Team: React.FC = () => {
       accent: '#e61e2a', // Crimson
       avatarText: 'ML',
       github: 'https://github.com/monolong', // placeholder for actual if not supplied
+      email: 'tjdvlf0201@gmail.com',
     },
     {
       name: 'yunseong',
@@ -32,6 +33,7 @@ export const Team: React.FC = () => {
       accent: '#dfb73c', // Gold/Amber
       avatarText: 'YS',
       github: 'https://github.com/dev-yunseong',
+      email: 'me@yunseong.dev',
     }
   ];
 
@@ -107,7 +109,7 @@ export const Team: React.FC = () => {
                     </svg>
                   </a>
                   <a 
-                    href="mailto:contact@theevilent.com" 
+                    href={`mailto:${member.email}`} 
                     style={styles.socialLink}
                     title="Send Email"
                   >
