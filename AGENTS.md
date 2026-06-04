@@ -68,6 +68,16 @@ theevilent/
 
 ---
 
+## 🔁 Development Workflow
+
+Follow the project workflow before opening implementation PRs:
+- **Workflow Doc**: [`.agents/docs/workflow.md`](.agents/docs/workflow.md)
+
+Key rule:
+- Branch names must use `<label>/<issue num>` such as `feature/3`, with no extra descriptive suffix.
+
+---
+
 ## 🔬 Visual Verification & Validation Skill
 
 We have created an automated visual verification skill script:
