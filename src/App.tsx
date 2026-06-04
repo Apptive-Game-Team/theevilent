@@ -2,15 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
 
+const validTabs: TabId[] = ['home', 'games', 'team'];
+
+const getTabFromHash = (): TabId => {
+  if (typeof window === 'undefined') {
+    return 'home';
+  }
+
+  const hashTab = window.location.hash.replace('#', '') as TabId;
+  return validTabs.includes(hashTab) ? hashTab : 'home';
+};
+
 function App() {
-  const [activeTab, setActiveTab] = useState<string>('home');
+  const [activeTab, setActiveTab] = useState<TabId>(getTabFromHash);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Custom mouse hover glow trail
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -22,22 +33,44 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveTab(getTabFromHash());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
+  const navigateToTab = (tabId: TabId) => {
+    setActiveTab(tabId);
+    const nextHash = tabId === 'home' ? '' : `#${tabId}`;
+
+    if (window.location.hash !== nextHash) {
+      window.history.pushState(null, '', `${window.location.pathname}${nextHash}`);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
-        return <Home setActiveTab={setActiveTab} />;
+        return <Home navigateToTab={navigateToTab} />;
       case 'games':
         return <Games />;
       case 'team':
         return <Team />;
       default:
-        return <Home setActiveTab={setActiveTab} />;
+        return <Home navigateToTab={navigateToTab} />;
     }
   };
 
   return (
     <div style={styles.appLayout}>
-      {/* Glow highlight following the cursor */}
       <div 
         className="custom-cursor-glow" 
         style={{
@@ -46,19 +79,18 @@ function App() {
         }}
       />
 
-      {/* Atmospheric Canvas Embers Background */}
       <ParticleBackground />
+      <a href="#main-content" className="skip-link">
+        Skip To Main Content
+      </a>
 
-      {/* Main Navigation */}
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Navbar activeTab={activeTab} navigateToTab={navigateToTab} />
 
-      {/* Pages Container with subtle entry transitions */}
-      <main style={styles.mainContent} className="page-fade-in">
+      <main id="main-content" style={styles.mainContent} className="page-fade-in">
         {renderContent()}
       </main>
 
-      {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer navigateToTab={navigateToTab} />
     </div>
   );
 }
@@ -76,26 +108,5 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
   },
 };
-
-// Global keyframe for page fade-in animation
-if (typeof document !== 'undefined') {
-  const appStyle = document.createElement('style');
-  appStyle.innerHTML = `
-    .page-fade-in {
-      animation: pageFadeInEffect 0.5s ease-out;
-    }
-    @keyframes pageFadeInEffect {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  `;
-  document.head.appendChild(appStyle);
-}
 
 export default App;

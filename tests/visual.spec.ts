@@ -16,8 +16,7 @@ test('capture screenshots of all pages', async ({ page }) => {
   console.log('Saved screenshot_home.png');
 
   // Navigate to Games page
-  const gamesBtn = page.locator('nav button:has-text("GAMES")');
-  await gamesBtn.click();
+  await page.locator('nav').getByRole('link', { name: 'GAMES', exact: true }).click();
   await page.waitForTimeout(1000);
   
   // Take screenshot of Games page
@@ -28,8 +27,7 @@ test('capture screenshots of all pages', async ({ page }) => {
   console.log('Saved screenshot_games.png');
 
   // Navigate to Team page
-  const teamBtn = page.locator('nav button:has-text("TEAM")');
-  await teamBtn.click();
+  await page.locator('nav').getByRole('link', { name: 'TEAM', exact: true }).click();
   await page.waitForTimeout(1000);
 
   // Take screenshot of Team page

@@ -13,6 +13,7 @@ export const ParticleBackground: React.FC = () => {
     let animationFrameId: number;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Particle representation
     interface Particle {
@@ -48,31 +49,40 @@ export const ParticleBackground: React.FC = () => {
       };
     };
 
-    // Initialize particles
-    for (let i = 0; i < maxParticles; i++) {
-      particles.push(createParticle(true));
-    }
-
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      drawBackdrop();
     };
 
     window.addEventListener('resize', handleResize);
 
-    const animate = () => {
+    const drawBackdrop = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw dark background gradient overlay to keep high contrast
       const gradient = ctx.createLinearGradient(0, 0, 0, height);
       gradient.addColorStop(0, 'rgba(5, 4, 4, 0.95)');
       gradient.addColorStop(0.5, 'rgba(13, 11, 10, 0.93)');
       gradient.addColorStop(1, 'rgba(5, 4, 4, 0.95)');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
+    };
 
-      // Draw particles
+    if (prefersReducedMotion) {
+      drawBackdrop();
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+
+    for (let i = 0; i < maxParticles; i++) {
+      particles.push(createParticle(true));
+    }
+
+    const animate = () => {
+      drawBackdrop();
+
       particles.forEach((p, index) => {
         p.y += p.speedY;
         p.wobble += p.wobbleSpeed;
@@ -98,7 +108,6 @@ export const ParticleBackground: React.FC = () => {
         ctx.fill();
       });
 
-      // Reset shadow blur for next frame/drawings
       ctx.shadowBlur = 0;
 
       animationFrameId = requestAnimationFrame(animate);
