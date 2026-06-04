@@ -1,22 +1,22 @@
 import React from 'react';
-import { Play, Download, ExternalLink, Globe } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { navigationItems, platformLinks, type TabId } from '../content/siteContent';
 
 interface FooterProps {
-  setActiveTab: (tab: string) => void;
+  navigateToTab: (tab: TabId) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
+export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
   const currentYear = new Date().getFullYear();
 
-  const handleNavClick = (tabId: string) => {
-    setActiveTab(tabId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavClick = (tabId: TabId) => {
+    navigateToTab(tabId);
   };
 
   return (
     <footer style={styles.footer}>
       <div style={styles.container}>
-        <div style={styles.grid}>
+        <div className="footer-grid" style={styles.grid}>
           {/* Brand Info */}
           <div style={styles.colBrand}>
             <div style={styles.brandTitle}>
@@ -24,6 +24,8 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
                 src="/theevilent-logo.png" 
                 alt="The Evil Ent Logo" 
                 style={styles.logo} 
+                width="32"
+                height="32"
               />
               <h3 style={styles.brandText}>THE EVIL ENT</h3>
             </div>
@@ -36,21 +38,17 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <div style={styles.colLinks}>
             <h4 style={styles.heading}>NAVIGATION</h4>
             <ul style={styles.list}>
-              <li>
-                <button onClick={() => handleNavClick('home')} style={styles.linkButton}>
-                  Home
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNavClick('games')} style={styles.linkButton}>
-                  Games
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNavClick('team')} style={styles.linkButton}>
-                  Team Members
-                </button>
-              </li>
+              {navigationItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.id === 'home' ? '#' : `#${item.id}`}
+                    onClick={() => handleNavClick(item.id)}
+                    style={styles.linkButton}
+                  >
+                    {item.footerLabel}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -58,56 +56,25 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <div style={styles.colPlatforms}>
             <h4 style={styles.heading}>PLAY ARCANE CASTERS</h4>
             <div style={styles.platformGrid}>
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.team6515.wordonline" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={styles.platformCard}
-                className="gothic-card-hover"
-              >
-                <div style={styles.platformIconWrapper}>
-                  <Play size={18} color="var(--color-primary)" />
-                </div>
-                <div style={styles.platformMeta}>
-                  <span style={styles.platformSubtitle}>GET IT ON</span>
-                  <span style={styles.platformTitle}>Google Play</span>
-                </div>
-                <ExternalLink size={14} style={styles.arrow} />
-              </a>
-
-              <a 
-                href="https://theevilent.itch.io/arcane-casters" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={styles.platformCard}
-                className="gothic-card-hover"
-              >
-                <div style={styles.platformIconWrapper}>
-                  <Download size={18} color="var(--color-primary)" />
-                </div>
-                <div style={styles.platformMeta}>
-                  <span style={styles.platformSubtitle}>DOWNLOAD ON</span>
-                  <span style={styles.platformTitle}>itch.io</span>
-                </div>
-                <ExternalLink size={14} style={styles.arrow} />
-              </a>
-
-              <a 
-                href="https://www.game-ping.kr/games/arcane-casters" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={styles.platformCard}
-                className="gothic-card-hover"
-              >
-                <div style={styles.platformIconWrapper}>
-                  <Globe size={18} color="var(--color-primary)" />
-                </div>
-                <div style={styles.platformMeta}>
-                  <span style={styles.platformSubtitle}>EXPLORE ON</span>
-                  <span style={styles.platformTitle}>game-ping</span>
-                </div>
-                <ExternalLink size={14} style={styles.arrow} />
-              </a>
+              {platformLinks.map(({ href, subtitle, title, Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.platformCard}
+                  className="gothic-card-hover"
+                >
+                  <div style={styles.platformIconWrapper}>
+                    <Icon size={18} color="var(--color-primary)" aria-hidden="true" />
+                  </div>
+                  <div style={styles.platformMeta}>
+                    <span style={styles.platformSubtitle}>{subtitle}</span>
+                    <span style={styles.platformTitle}>{title}</span>
+                  </div>
+                  <ExternalLink size={14} style={styles.arrow} aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -115,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
         <div style={styles.divider} />
 
         {/* Footer Bottom */}
-        <div style={styles.bottom}>
+        <div className="footer-bottom" style={styles.bottom}>
           <p style={styles.copyText}>
             © {currentYear} <strong>The Evil Ent</strong>. All rights reserved.
           </p>
@@ -153,6 +120,7 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     flexDirection: 'column',
     gap: '1rem',
+    minWidth: 0,
   },
   brandTitle: {
     display: 'flex',
@@ -195,14 +163,14 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '0.75rem',
   },
   linkButton: {
-    background: 'none',
-    border: 'none',
     color: 'var(--color-text-muted)',
     fontSize: '0.95rem',
     cursor: 'pointer',
     textAlign: 'left',
     transition: 'color 0.2s ease, transform 0.2s ease',
     fontFamily: 'var(--font-body)',
+    textDecoration: 'none',
+    display: 'inline-flex',
   },
   colPlatforms: {
     display: 'flex',
@@ -240,6 +208,7 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
+    minWidth: 0,
   },
   platformSubtitle: {
     fontSize: '0.65rem',
@@ -251,6 +220,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: '600',
     fontFamily: 'var(--font-display)',
     letterSpacing: '0.05em',
+    overflowWrap: 'anywhere',
   },
   arrow: {
     color: 'var(--color-text-muted)',
@@ -285,39 +255,5 @@ const styles: Record<string, React.CSSProperties> = {
     paddingBottom: '2px',
   },
 };
-
-// Insert media queries and styles for footer
-if (typeof document !== 'undefined') {
-  const footerStyle = document.createElement('style');
-  footerStyle.innerHTML = `
-    @media (min-width: 768px) {
-      footer div[style*="display: grid"][style*="gap: 3rem"] {
-        grid-template-columns: 2fr 1fr 2fr !important;
-      }
-      footer div[style*="display: flex"][style*="align-items: center"][style*="text-align: center"] {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        text-align: left !important;
-      }
-    }
-
-    .gothic-card-hover:hover {
-      transform: translateY(-2px);
-      border-color: var(--color-primary) !important;
-      box-shadow: 0 4px 12px var(--color-primary-glow);
-    }
-    
-    .gothic-card-hover:hover svg {
-      color: var(--color-text-light) !important;
-      transform: translateX(2px) translateY(-1px);
-    }
-    
-    footer button:hover {
-      color: var(--color-text-light) !important;
-      transform: translateX(4px);
-    }
-  `;
-  document.head.appendChild(footerStyle);
-}
 
 export default Footer;

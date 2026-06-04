@@ -1,11 +1,12 @@
 import React from 'react';
 import { Shield, Sparkles, Sword, Terminal, ExternalLink, Calendar } from 'lucide-react';
+import type { TabId } from '../content/siteContent';
 
 interface HomeProps {
-  setActiveTab: (tab: string) => void;
+  navigateToTab: (tab: TabId) => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
+export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
   return (
     <div style={styles.page}>
       {/* Hero Banner */}
@@ -16,10 +17,12 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
               src="/theevilent-logo.png" 
               alt="The Evil Ent logo with glowing red eyes" 
               style={styles.heroLogo} 
+              width="220"
+              height="220"
+              fetchPriority="high"
             />
-            {/* Absolute positioning overlays to simulate pulsing red eyes on the logo */}
-            <div style={styles.eyeLeft} className="eye-pulse" />
-            <div style={styles.eyeRight} className="eye-pulse" />
+            <div style={styles.eyeLeft} className="eye-pulse eye-pulse-left" aria-hidden="true" />
+            <div style={styles.eyeRight} className="eye-pulse eye-pulse-right" aria-hidden="true" />
           </div>
           
           <h1 style={styles.heroTitle} className="text-glow">
@@ -31,17 +34,19 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
 
           <div className="hero-btn-group" style={styles.heroBtnGroup}>
             <button 
-              onClick={() => setActiveTab('games')} 
+              type="button"
+              onClick={() => navigateToTab('games')} 
               className="btn-primary"
             >
-              <Sword size={18} />
+              <Sword size={18} aria-hidden="true" />
               아케인 캐스터즈 플레이
             </button>
             <button 
-              onClick={() => setActiveTab('team')} 
+              type="button"
+              onClick={() => navigateToTab('team')} 
               className="btn-secondary"
             >
-              <Terminal size={18} />
+              <Terminal size={18} aria-hidden="true" />
               팀 멤버 소개
             </button>
           </div>
@@ -51,7 +56,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
       {/* About The Studio */}
       <section style={styles.sectionDark}>
         <div className="container">
-          <div style={styles.aboutGrid}>
+          <div className="home-about-grid" style={styles.aboutGrid}>
             <div style={styles.aboutTextCol}>
               <h2 style={styles.sectionTitle}>
                 ABOUT <span className="accent-color">THE EVIL ENT</span>
@@ -64,14 +69,14 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
               </p>
               <div style={styles.featureList}>
                 <div style={styles.featureItem}>
-                  <Shield size={20} color="var(--color-primary)" />
+                  <Shield size={20} color="var(--color-primary)" aria-hidden="true" />
                   <div>
                     <h4 style={styles.featureTitle}>실시간 전략 대전</h4>
                     <p style={styles.featureDesc}>빠른 템포의 전투 속에서 카드를 조합하여 최선의 마법을 도출해내는 두뇌 싸움.</p>
                   </div>
                 </div>
                 <div style={styles.featureItem}>
-                  <Sparkles size={20} color="var(--color-primary)" />
+                  <Sparkles size={20} color="var(--color-primary)" aria-hidden="true" />
                   <div>
                     <h4 style={styles.featureTitle}>직관적인 마법 조합</h4>
                     <p style={styles.featureDesc}>복잡한 조작 대신 카드를 결합하여 직관적이고 빠르게 마법을 시전하는 시스템.</p>
@@ -85,6 +90,9 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                   src="/theevilent-logo.png" 
                   alt="Team Emblem" 
                   style={styles.showcaseImg} 
+                  width="320"
+                  height="320"
+                  loading="lazy"
                 />
                 <div style={styles.imageOverlay} />
               </div>
@@ -105,11 +113,12 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             </p>
             <div style={styles.featuredBtnRow}>
               <button 
-                onClick={() => setActiveTab('games')} 
+                type="button"
+                onClick={() => navigateToTab('games')} 
                 className="btn-primary"
               >
                 자세히 알아보기
-                <Sword size={16} />
+                <Sword size={16} aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -125,7 +134,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           <div style={styles.devlogCtaContainer}>
             <div className="gothic-card" style={styles.devlogCtaCard}>
               <div style={styles.devlogIconWrapper}>
-                <Calendar size={32} color="var(--color-primary)" />
+                <Calendar size={32} color="var(--color-primary)" aria-hidden="true" />
               </div>
               <h3 style={styles.devlogCtaTitle}>itch.io에서 공식 개발 일지 읽기</h3>
               <p style={styles.devlogCtaDesc}>
@@ -139,7 +148,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                 style={{ marginTop: '1rem' }}
               >
                 공식 데브로그 보러가기
-                <ExternalLink size={16} />
+                <ExternalLink size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -390,70 +399,5 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '0.5rem',
   },
 };
-
-// Add raw CSS injections for custom eye glowing pulsing animations
-if (typeof document !== 'undefined') {
-  const eyeStyle = document.createElement('style');
-  eyeStyle.innerHTML = `
-    @media (min-width: 480px) {
-      .hero-btn-group {
-        flex-direction: row !important;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      section div[style*="display: grid"][style*="gap: 4rem"] {
-        grid-template-columns: 3fr 2fr !important;
-      }
-    }
-
-    .eye-pulse {
-      animation: eyeGlowPulse 4s infinite ease-in-out;
-    }
-
-    .logo-pulse:hover .eye-pulse {
-      animation: eyeGlowIntense 0.4s forwards ease-out;
-      background-color: #ff333f !important;
-      filter: blur(5px) !important;
-      transform: scale(1.3) !important;
-    }
-
-    @keyframes eyeGlowPulse {
-      0%, 100% {
-        opacity: 0.4;
-        filter: blur(2px);
-        transform: scale(0.9);
-      }
-      50% {
-        opacity: 0.95;
-        filter: blur(3.5px);
-        transform: scale(1.1);
-      }
-    }
-
-    @keyframes eyeGlowIntense {
-      0% {
-        transform: scale(1);
-        filter: blur(3px);
-      }
-      100% {
-        transform: scale(1.35) translateY(-1px);
-        filter: blur(5px);
-        box-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a;
-      }
-    }
-
-    .logo-pulse {
-      transition: transform 0.4s ease-out, border-color 0.4s ease-out, box-shadow 0.4s ease-out;
-    }
-
-    .logo-pulse:hover {
-      transform: scale(1.03) translateY(-4px);
-      border-color: #7a1f1f !important;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(230, 30, 42, 0.45) !important;
-    }
-  `;
-  document.head.appendChild(eyeStyle);
-}
 
 export default Home;

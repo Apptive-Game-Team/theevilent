@@ -1,41 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Compass, Send, CheckCircle, Sparkles } from 'lucide-react';
+import { teamMembers } from '../content/siteContent';
 
 export const Team: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const resetTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current) {
+        window.clearTimeout(resetTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formState.name && formState.email && formState.message) {
       setSubmitted(true);
-      setTimeout(() => {
+      resetTimeoutRef.current = window.setTimeout(() => {
         setSubmitted(false);
         setFormState({ name: '', email: '', message: '' });
       }, 3000);
     }
   };
-
-  const members = [
-    {
-      name: 'monolong',
-      role: 'Game Developer (Unity / Backend)',
-      bio: '아케인 캐스터즈의 Unity 클라이언트 코어 콘텐츠 개발 및 실시간 매치 플레이를 위한 인게임 백엔드 시스템 구축을 전담하고 있습니다.',
-      accent: '#e61e2a', // Crimson
-      avatarText: 'ML',
-      github: 'https://github.com/monolong', // placeholder for actual if not supplied
-      email: 'tjdvlf0201@gmail.com',
-    },
-    {
-      name: 'yunseong',
-      role: 'Server Developer (Backend / Unity / Infra)',
-      bio: '안정적이고 중단 없는 실시간 PvP 매치를 서비스하기 위한 백엔드 분산 서버 아키텍처 설계와 인프라 파이프라인 구축을 담당하며, 클라이언트 기능 개발을 공유합니다.',
-      accent: '#dfb73c', // Gold/Amber
-      avatarText: 'YS',
-      github: 'https://github.com/dev-yunseong',
-      email: 'me@yunseong.dev',
-    }
-  ];
 
   return (
     <div style={styles.page}>
@@ -53,7 +42,7 @@ export const Team: React.FC = () => {
       <section style={styles.teamSection}>
         <div className="container">
           <div className="grid-2" style={styles.teamGrid}>
-            {members.map((member) => (
+            {teamMembers.map((member) => (
               <div 
                 key={member.name} 
                 className="gothic-card" 
@@ -76,7 +65,7 @@ export const Team: React.FC = () => {
                     </span>
                   </div>
                   <div>
-                    <h2 style={styles.memberName}>{member.name}</h2>
+                    <h2 style={styles.memberName} translate="no">{member.name}</h2>
                     <h4 style={{ ...styles.memberRole, color: member.accent }}>
                       {member.role}
                     </h4>
@@ -92,7 +81,9 @@ export const Team: React.FC = () => {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     style={styles.socialLink}
+                    className="Team_socialLink"
                     title="GitHub Profile"
+                    aria-label={`${member.name} GitHub Profile`}
                   >
                     <svg
                       width="20"
@@ -103,6 +94,7 @@ export const Team: React.FC = () => {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      aria-hidden="true"
                     >
                       <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                       <path d="M9 18c-4.51 2-5-2-7-2" />
@@ -111,9 +103,11 @@ export const Team: React.FC = () => {
                   <a 
                     href={`mailto:${member.email}`} 
                     style={styles.socialLink}
+                    className="Team_socialLink"
                     title="Send Email"
+                    aria-label={`Send Email To ${member.name}`}
                   >
-                    <Mail size={20} />
+                    <Mail size={20} aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -125,7 +119,7 @@ export const Team: React.FC = () => {
       {/* Studio Philosophy / Contact Section */}
       <section style={styles.sectionDark}>
         <div className="container">
-          <div style={styles.contactGrid}>
+          <div className="Team_contactGrid" style={styles.contactGrid}>
             {/* Left: Philosophy */}
             <div style={styles.philosophyCol}>
               <h2 style={styles.sectionTitle}>
@@ -134,7 +128,7 @@ export const Team: React.FC = () => {
               <ul style={styles.philoList}>
                 <li style={styles.philoItem}>
                   <div style={styles.philoIconWrapper}>
-                    <Sparkles size={18} color="var(--color-primary)" />
+                    <Sparkles size={18} color="var(--color-primary)" aria-hidden="true" />
                   </div>
                   <div>
                     <strong style={styles.philoTitle}>재미있는 게임을 만들자</strong>
@@ -145,7 +139,7 @@ export const Team: React.FC = () => {
                 </li>
                 <li style={styles.philoItem}>
                   <div style={styles.philoIconWrapper}>
-                    <Compass size={18} color="var(--color-primary)" />
+                    <Compass size={18} color="var(--color-primary)" aria-hidden="true" />
                   </div>
                   <div>
                     <strong style={styles.philoTitle}>게임 같은 게임을 만들자</strong>
@@ -164,48 +158,61 @@ export const Team: React.FC = () => {
                 <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등 편하게 메시지를 전송해 주세요.</p>
 
                 {submitted ? (
-                  <div style={styles.successBox}>
-                    <CheckCircle size={32} color="#4cd137" style={{ marginBottom: '0.75rem' }} />
+                  <div style={styles.successBox} aria-live="polite" role="status">
+                    <CheckCircle size={32} color="#4cd137" style={{ marginBottom: '0.75rem' }} aria-hidden="true" />
                     <h4 style={styles.successTitle}>SUMMON SENT SUCCESSFULLY</h4>
                     <p style={styles.successDesc}>메시지가 어두운 가지 사이로 전송되었습니다. 검토 후 신속히 연락해 드리겠습니다.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} style={styles.form}>
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>Name</label>
+                      <label htmlFor="contact-name" style={styles.label}>Name</label>
                       <input 
+                        id="contact-name"
+                        name="name"
                         type="text" 
+                        autoComplete="name"
                         required 
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         style={styles.input}
-                        placeholder="이름 또는 닉네임"
+                        className="Team_input"
+                        placeholder="이름 또는 닉네임…"
                       />
                     </div>
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>Email Address</label>
+                      <label htmlFor="contact-email" style={styles.label}>Email Address</label>
                       <input 
+                        id="contact-email"
+                        name="email"
                         type="email" 
+                        autoComplete="email"
                         required 
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         style={styles.input}
-                        placeholder="이메일 주소"
+                        className="Team_input"
+                        placeholder="player@example.com…"
+                        spellCheck={false}
                       />
                     </div>
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>Message</label>
+                      <label htmlFor="contact-message" style={styles.label}>Message</label>
                       <textarea 
+                        id="contact-message"
+                        name="message"
                         rows={4} 
                         required 
+                        autoComplete="off"
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         style={styles.textarea}
-                        placeholder="메시지 내용을 입력하세요..."
+                        className="Team_textarea"
+                        placeholder="메시지 내용을 입력하세요…"
                       />
                     </div>
                     <button type="submit" className="btn-primary" style={styles.submitBtn}>
-                      <Send size={16} />
+                      <Send size={16} aria-hidden="true" />
                       메시지 전송
                     </button>
                   </form>
@@ -253,11 +260,13 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     gap: '1.5rem',
     padding: '2.5rem',
+    minWidth: 0,
   },
   avatarRow: {
     display: 'flex',
     alignItems: 'center',
     gap: '1.25rem',
+    minWidth: 0,
   },
   avatar: {
     width: '64px',
@@ -279,18 +288,21 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '1.6rem',
     fontWeight: '700',
     letterSpacing: '0.05em',
+    overflowWrap: 'anywhere',
   },
   memberRole: {
     fontSize: '0.9rem',
     fontWeight: '600',
     letterSpacing: '0.05em',
     marginTop: '0.2rem',
+    overflowWrap: 'anywhere',
   },
   memberBio: {
     color: 'var(--color-text-muted)',
     fontSize: '1rem',
     lineHeight: '1.7',
     flexGrow: 1,
+    overflowWrap: 'anywhere',
   },
   socialRow: {
     display: 'flex',
@@ -301,6 +313,8 @@ const styles: Record<string, React.CSSProperties> = {
     color: 'var(--color-text-muted)',
     transition: 'color 0.2s ease, transform 0.2s ease',
     display: 'inline-flex',
+    padding: '0.25rem',
+    borderRadius: '4px',
   },
   sectionDark: {
     padding: '6rem 0 8rem 0',
@@ -403,7 +417,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.95rem',
     fontFamily: 'var(--font-body)',
     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-    outline: 'none',
   },
   textarea: {
     backgroundColor: '#0a0908',
@@ -414,7 +427,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.95rem',
     fontFamily: 'var(--font-body)',
     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-    outline: 'none',
     resize: 'none',
   },
   submitBtn: {
@@ -441,28 +453,5 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: '1.6',
   },
 };
-
-// Inject custom form focusing styles and social media hover states
-if (typeof document !== 'undefined') {
-  const teamStyle = document.createElement('style');
-  teamStyle.innerHTML = `
-    @media (min-width: 1024px) {
-      .Team_contactGrid {
-        grid-template-columns: 1.1fr 1fr !important;
-      }
-    }
-
-    .Team_input:focus, .Team_textarea:focus {
-      border-color: var(--color-primary) !important;
-      box-shadow: 0 0 8px var(--color-primary-glow) !important;
-    }
-
-    .Team_socialLink:hover {
-      color: var(--color-text-light) !important;
-      transform: translateY(-2px);
-    }
-  `;
-  document.head.appendChild(teamStyle);
-}
 
 export default Team;

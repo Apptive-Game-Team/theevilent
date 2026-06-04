@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { navigationItems, type TabId } from '../content/siteContent';
 
 interface NavbarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
+  activeTab: TabId;
+  navigateToTab: (tab: TabId) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navigationItems = [
-    { id: 'home', label: 'HOME' },
-    { id: 'games', label: 'GAMES' },
-    { id: 'team', label: 'TEAM' },
-  ];
-
-  const handleNavClick = (tabId: string) => {
-    setActiveTab(tabId);
+  const handleNavClick = (tabId: TabId) => {
+    navigateToTab(tabId);
     setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <nav style={styles.nav}>
       <div style={styles.navContainer}>
-        {/* Logo Brand */}
-        <div style={styles.brand} onClick={() => handleNavClick('home')}>
+        <button
+          type="button"
+          style={styles.brand}
+          onClick={() => handleNavClick('home')}
+          aria-label="Go To Home"
+        >
           <div style={styles.logoWrapper}>
             <img 
               src="/theevilent-logo.png" 
               alt="The Evil Ent Logo" 
               style={styles.logo} 
+              width="40"
+              height="40"
+              fetchPriority="high"
             />
           </div>
           <span style={styles.brandName} className="text-glow-subtle">
             THE EVIL ENT
           </span>
-        </div>
+        </button>
 
-        {/* Desktop Menu */}
         <div className="nav-desktop-menu">
           {navigationItems.map((item) => (
-            <button
+            <a
               key={item.id}
+              href={item.id === 'home' ? '#' : `#${item.id}`}
               onClick={() => handleNavClick(item.id)}
               style={{
                 ...styles.navLink,
@@ -50,37 +51,45 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                 borderBottom: activeTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
               }}
               className={activeTab === item.id ? 'text-glow-subtle' : ''}
+              aria-current={activeTab === item.id ? 'page' : undefined}
             >
               {item.label}
-            </button>
+            </a>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
         <button 
+          type="button"
           className="nav-mobile-menu-btn"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
-          {isOpen ? <X size={24} color="#f5f3f0" /> : <Menu size={24} color="#f5f3f0" />}
+          {isOpen ? (
+            <X size={24} color="#f5f3f0" aria-hidden="true" />
+          ) : (
+            <Menu size={24} color="#f5f3f0" aria-hidden="true" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {isOpen && (
-        <div className="nav-mobile-drawer">
+        <div id="mobile-navigation" className="nav-mobile-drawer">
           {navigationItems.map((item) => (
-            <button
+            <a
               key={item.id}
+              href={item.id === 'home' ? '#' : `#${item.id}`}
               onClick={() => handleNavClick(item.id)}
               style={{
                 ...styles.mobileNavLink,
                 color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
                 backgroundColor: activeTab === item.id ? 'rgba(230, 30, 42, 0.05)' : 'transparent',
               }}
+              aria-current={activeTab === item.id ? 'page' : undefined}
             >
               {item.label}
-            </button>
+            </a>
           ))}
         </div>
       )}
@@ -112,6 +121,9 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     gap: '0.75rem',
     cursor: 'pointer',
+    background: 'none',
+    border: 'none',
+    padding: 0,
   },
   logoWrapper: {
     width: '40px',
@@ -138,8 +150,6 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'color 0.3s ease',
   },
   navLink: {
-    background: 'none',
-    border: 'none',
     fontFamily: 'var(--font-display)',
     fontWeight: '600',
     fontSize: '0.95rem',
@@ -147,10 +157,9 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: 'pointer',
     padding: '1.6rem 0.2rem 1.4rem 0.2rem',
     transition: 'color 0.2s ease, border-bottom-color 0.2s ease',
+    textDecoration: 'none',
   },
   mobileNavLink: {
-    background: 'none',
-    border: 'none',
     fontFamily: 'var(--font-display)',
     fontWeight: '600',
     fontSize: '1.1rem',
@@ -159,52 +168,8 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '1rem 2rem',
     textAlign: 'left',
     transition: 'color 0.2s ease, background-color 0.2s ease',
+    textDecoration: 'none',
   },
 };
-
-// Add responsive desktop style injection via clean standard CSS classes
-if (typeof document !== 'undefined') {
-  const styleElement = document.createElement('style');
-  styleElement.innerHTML = `
-    .nav-desktop-menu {
-      display: none;
-      align-items: center;
-      gap: 2rem;
-      height: 100%;
-    }
-    .nav-mobile-menu-btn {
-      display: flex;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    .nav-mobile-drawer {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      backgroundColor: rgba(13, 11, 10, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid #2d231e;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem 0;
-      z-index: 999;
-    }
-    @media (min-width: 768px) {
-      .nav-desktop-menu {
-        display: flex !important;
-      }
-      .nav-mobile-menu-btn {
-        display: none !important;
-      }
-      .nav-mobile-drawer {
-        display: none !important;
-      }
-    }
-  `;
-  document.head.appendChild(styleElement);
-}
 
 export default Navbar;
