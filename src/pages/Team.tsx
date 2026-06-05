@@ -1,28 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Mail, Compass, Send, CheckCircle, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Compass, Send, Sparkles } from 'lucide-react';
 import { teamMembers } from '../content/siteContent';
+
+const summonRecipients = teamMembers.map((member) => member.email).join(',');
 
 export const Team: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const resetTimeoutRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (resetTimeoutRef.current) {
-        window.clearTimeout(resetTimeoutRef.current);
-      }
-    };
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formState.name && formState.email && formState.message) {
-      setSubmitted(true);
-      resetTimeoutRef.current = window.setTimeout(() => {
-        setSubmitted(false);
-        setFormState({ name: '', email: '', message: '' });
-      }, 3000);
+      const subject = encodeURIComponent(`[The Evil Ent] Summon from ${formState.name}`);
+      const body = encodeURIComponent(
+        [
+          formState.message,
+          '',
+          '---',
+          `Name: ${formState.name}`,
+          `Reply-To: ${formState.email}`,
+        ].join('\n'),
+      );
+
+      window.location.href = `mailto:${summonRecipients}?subject=${subject}&body=${body}`;
     }
   };
 
@@ -155,68 +154,60 @@ export const Team: React.FC = () => {
             <div style={styles.formCol}>
               <div className="gothic-card" style={styles.formCard}>
                 <h3 style={styles.formTitle}>SEND A SUMMON</h3>
-                <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등 편하게 메시지를 전송해 주세요.</p>
+                <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등을 작성하면 이메일 앱에서 최종 전송할 수 있습니다.</p>
 
-                {submitted ? (
-                  <div style={styles.successBox} aria-live="polite" role="status">
-                    <CheckCircle size={32} color="#4cd137" style={{ marginBottom: '0.75rem' }} aria-hidden="true" />
-                    <h4 style={styles.successTitle}>SUMMON SENT SUCCESSFULLY</h4>
-                    <p style={styles.successDesc}>메시지가 어두운 가지 사이로 전송되었습니다. 검토 후 신속히 연락해 드리겠습니다.</p>
+                <form onSubmit={handleSubmit} style={styles.form}>
+                  <div style={styles.formGroup}>
+                    <label htmlFor="contact-name" style={styles.label}>Name</label>
+                    <input 
+                      id="contact-name"
+                      name="name"
+                      type="text" 
+                      autoComplete="name"
+                      required 
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      style={styles.input}
+                      className="Team_input"
+                      placeholder="이름 또는 닉네임…"
+                    />
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} style={styles.form}>
-                    <div style={styles.formGroup}>
-                      <label htmlFor="contact-name" style={styles.label}>Name</label>
-                      <input 
-                        id="contact-name"
-                        name="name"
-                        type="text" 
-                        autoComplete="name"
-                        required 
-                        value={formState.name}
-                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        style={styles.input}
-                        className="Team_input"
-                        placeholder="이름 또는 닉네임…"
-                      />
-                    </div>
-                    <div style={styles.formGroup}>
-                      <label htmlFor="contact-email" style={styles.label}>Email Address</label>
-                      <input 
-                        id="contact-email"
-                        name="email"
-                        type="email" 
-                        autoComplete="email"
-                        required 
-                        value={formState.email}
-                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        style={styles.input}
-                        className="Team_input"
-                        placeholder="player@example.com…"
-                        spellCheck={false}
-                      />
-                    </div>
-                    <div style={styles.formGroup}>
-                      <label htmlFor="contact-message" style={styles.label}>Message</label>
-                      <textarea 
-                        id="contact-message"
-                        name="message"
-                        rows={4} 
-                        required 
-                        autoComplete="off"
-                        value={formState.message}
-                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        style={styles.textarea}
-                        className="Team_textarea"
-                        placeholder="메시지 내용을 입력하세요…"
-                      />
-                    </div>
-                    <button type="submit" className="btn-primary" style={styles.submitBtn}>
-                      <Send size={16} aria-hidden="true" />
-                      메시지 전송
-                    </button>
-                  </form>
-                )}
+                  <div style={styles.formGroup}>
+                    <label htmlFor="contact-email" style={styles.label}>Email Address</label>
+                    <input 
+                      id="contact-email"
+                      name="email"
+                      type="email" 
+                      autoComplete="email"
+                      required 
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      style={styles.input}
+                      className="Team_input"
+                      placeholder="player@example.com…"
+                      spellCheck={false}
+                    />
+                  </div>
+                  <div style={styles.formGroup}>
+                    <label htmlFor="contact-message" style={styles.label}>Message</label>
+                    <textarea 
+                      id="contact-message"
+                      name="message"
+                      rows={4} 
+                      required 
+                      autoComplete="off"
+                      value={formState.message}
+                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      style={styles.textarea}
+                      className="Team_textarea"
+                      placeholder="메시지 내용을 입력하세요…"
+                    />
+                  </div>
+                  <button type="submit" className="btn-primary" style={styles.submitBtn}>
+                    <Send size={16} aria-hidden="true" />
+                    이메일 앱 열기
+                  </button>
+                </form>
               </div>
             </div>
           </div>
