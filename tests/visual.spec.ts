@@ -46,6 +46,10 @@ test('capture screenshots of all pages', async ({ page }) => {
     fullPage: true,
   });
 
+  await page.goto('/#magic/fire_spirit');
+  await expect(page.getByRole('heading', { name: '지옥불 하급 악마' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /생체 분사구/ })).toBeVisible();
+
   // Navigate to Team page
   await page.goto('/#team');
   await page.waitForTimeout(1000);
