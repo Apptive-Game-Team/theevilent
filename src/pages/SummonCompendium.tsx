@@ -27,8 +27,20 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
             src={summon.artwork.src}
             width={summon.artwork.width}
           />
-          <figcaption>{summon.role} · {summon.mobility}</figcaption>
+          <figcaption>{summon.artwork.caption ?? `${summon.role} · ${summon.mobility}`}</figcaption>
         </figure>
+        {summon.alternateArtwork && (
+          <figure className="magic-game-asset">
+            <img
+              alt={summon.alternateArtwork.alt}
+              decoding="async"
+              height={summon.alternateArtwork.height}
+              src={summon.alternateArtwork.src}
+              width={summon.alternateArtwork.width}
+            />
+            <figcaption>{summon.alternateArtwork.caption}</figcaption>
+          </figure>
+        )}
       </section>
 
       <section className="magic-lore-panel">

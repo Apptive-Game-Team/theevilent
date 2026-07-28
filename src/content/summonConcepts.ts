@@ -17,10 +17,44 @@ export interface SummonConcept {
     alt: string;
     width: number;
     height: number;
+    caption?: string;
+  };
+  alternateArtwork?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption: string;
   };
 }
 
 export const summonConcepts: SummonConcept[] = [
+  {
+    slug: 'aqua_archer',
+    name: '물결 궁수',
+    internalName: 'AquaArcher',
+    faction: '물 슬라임',
+    role: '지상 원거리 공격',
+    mobility: '지상 이동',
+    targeting: '지상·공중',
+    lifecycle: 'HP 소진 시 파괴',
+    description: '활을 다루는 물 슬라임 전투원이다. 평상시 시위를 당긴 채 대기하고, 공격 순간 시위를 놓은 프레임으로 0.08초 교체해 화살 발사를 읽히게 한다.',
+    sourceMagic: { slug: 'aqua_archer', name: '물결 궁수' },
+    artwork: {
+      src: '/concept-art/aqua-archer-drawn.webp',
+      alt: '활시위를 당긴 채 오른쪽을 겨누는 물결 궁수',
+      width: 856,
+      height: 866,
+      caption: '기본 자세 · 활시위를 당긴 대기 프레임',
+    },
+    alternateArtwork: {
+      src: '/concept-art/aqua-archer-release.webp',
+      alt: '화살을 발사해 활시위를 놓은 물결 궁수',
+      width: 804,
+      height: 866,
+      caption: '공격 자세 · 활시위를 놓은 0.08초 프레임',
+    },
+  },
   {
     slug: 'fire_child_spirit',
     name: '화염탄 비행 악마',
