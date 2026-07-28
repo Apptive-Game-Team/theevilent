@@ -9,6 +9,7 @@ The project includes a deterministic Vercel build configuration in
 - Install: `npm ci`
 - Build: `npm run build`
 - Output: `dist`
+- Routing: all application paths fall back to `index.html`
 
 Connect `Apptive-Game-Team/theevilent` in Vercel and use the repository root as
 the project root. Pull requests create Preview deployments and updates to
