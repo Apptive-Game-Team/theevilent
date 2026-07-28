@@ -40,6 +40,7 @@ test('capture screenshots of all pages', async ({ page }) => {
   await page.goto('/#magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
   await expect(page.getByText('공중 부유형', { exact: true })).toBeVisible();
+  await expect(page.getByRole('img', { name: /지옥불 차원의 하늘/ })).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshot_magic-detail.png',
     fullPage: true,

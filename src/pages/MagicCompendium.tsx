@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Compass, Crosshair, Feather, Shield, Sparkles } from 'lucide-react';
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
+import { magicArtwork } from '../content/magicArtwork';
 
 interface MagicCompendiumProps {
   slug?: string;
@@ -53,8 +54,11 @@ const FilterRow: React.FC<{
   </div>
 );
 
-const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
-  <article className="magic-detail-page">
+const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
+  const artwork = magicArtwork[magic.bean];
+
+  return (
+    <article className="magic-detail-page">
     <div className="container">
       <a className="magic-back-link" href="#magic">
         <ArrowLeft size={17} aria-hidden="true" />
@@ -69,6 +73,20 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
           {magic.concept_name !== magic.korean && <p className="magic-legacy-name">기존 이름 · {magic.korean}</p>}
         </div>
       </header>
+
+      {artwork && (
+        <figure className="magic-concept-art">
+          <img
+            alt={artwork.alt}
+            decoding="async"
+            fetchPriority="high"
+            height="1024"
+            src={artwork.src}
+            width="1536"
+          />
+          <figcaption>{artwork.caption}</figcaption>
+        </figure>
+      )}
 
       <section className="magic-lore-panel">
         <p className="magic-section-label">ARCANE RECORD</p>
@@ -119,7 +137,8 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
       <p className="magic-key" translate="no">ARCANE KEY · {magic.bean}</p>
     </div>
   </article>
-);
+  );
+};
 
 const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
   if (slug) {
