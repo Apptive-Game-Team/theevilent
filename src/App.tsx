@@ -6,20 +6,27 @@ import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
+import MagicCompendium from './pages/MagicCompendium';
 
-const validTabs: TabId[] = ['home', 'games', 'team'];
+const validTabs: TabId[] = ['home', 'games', 'magic', 'team'];
 
-const getTabFromHash = (): TabId => {
+interface AppRoute {
+  tab: TabId;
+  slug?: string;
+}
+
+const getRouteFromHash = (): AppRoute => {
   if (typeof window === 'undefined') {
-    return 'home';
+    return { tab: 'home' };
   }
 
-  const hashTab = window.location.hash.replace('#', '') as TabId;
-  return validTabs.includes(hashTab) ? hashTab : 'home';
+  const route = window.location.hash.replace('#', '').split('?')[0];
+  const [hashTab, slug] = route.split('/') as [TabId, string | undefined];
+  return validTabs.includes(hashTab) ? { tab: hashTab, slug } : { tab: 'home' };
 };
 
 function App() {
-  const [activeTab, setActiveTab] = useState<TabId>(getTabFromHash);
+  const [route, setRoute] = useState<AppRoute>(getRouteFromHash);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -35,7 +42,7 @@ function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setActiveTab(getTabFromHash());
+      setRoute(getRouteFromHash());
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -46,7 +53,7 @@ function App() {
   }, []);
 
   const navigateToTab = (tabId: TabId) => {
-    setActiveTab(tabId);
+    setRoute({ tab: tabId });
     const nextHash = tabId === 'home' ? '' : `#${tabId}`;
 
     if (window.location.hash !== nextHash) {
@@ -57,11 +64,13 @@ function App() {
   };
 
   const renderContent = () => {
-    switch (activeTab) {
+    switch (route.tab) {
       case 'home':
         return <Home navigateToTab={navigateToTab} />;
       case 'games':
         return <Games />;
+      case 'magic':
+        return <MagicCompendium slug={route.slug} />;
       case 'team':
         return <Team />;
       default:
@@ -84,7 +93,7 @@ function App() {
         Skip To Main Content
       </a>
 
-      <Navbar activeTab={activeTab} navigateToTab={navigateToTab} />
+      <Navbar activeTab={route.tab} navigateToTab={navigateToTab} />
 
       <main id="main-content" style={styles.mainContent} className="page-fade-in">
         {renderContent()}

@@ -26,8 +26,27 @@ test('capture screenshots of all pages', async ({ page }) => {
   });
   console.log('Saved screenshot_games.png');
 
+  // Navigate to Magic compendium
+  await page.locator('nav').getByRole('link', { name: 'MAGIC', exact: true }).click();
+  await expect(page.getByRole('heading', { name: '마법 컨셉 도감' })).toBeVisible();
+  await expect(page.locator('.magic-concept-card')).toHaveCount(24);
+
+  // Filter state stays in URL
+  await page.getByRole('link', { name: '공중 부유형', exact: true }).click();
+  await expect(page).toHaveURL(/#magic\?mobility=/);
+  await expect(page.getByText('6개 기록')).toBeVisible();
+
+  // Direct detail route
+  await page.goto('/#magic/fire_lord_spirit');
+  await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
+  await expect(page.getByText('공중 부유형', { exact: true })).toBeVisible();
+  await page.screenshot({
+    path: 'test-results/screenshot_magic-detail.png',
+    fullPage: true,
+  });
+
   // Navigate to Team page
-  await page.locator('nav').getByRole('link', { name: 'TEAM', exact: true }).click();
+  await page.goto('/#team');
   await page.waitForTimeout(1000);
 
   // Take screenshot of Team page
@@ -36,4 +55,19 @@ test('capture screenshots of all pages', async ({ page }) => {
     fullPage: true 
   });
   console.log('Saved screenshot_team.png');
+});
+
+test('magic compendium remains usable on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#magic');
+
+  await expect(page.getByRole('heading', { name: '마법 컨셉 도감' })).toBeVisible();
+  await expect(page.locator('.magic-concept-card')).toHaveCount(24);
+
+  await page.goto('/#magic/fire_lord_spirit');
+  await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
+  await page.screenshot({
+    path: 'test-results/screenshot_magic-mobile.png',
+    fullPage: true,
+  });
 });
