@@ -1,6 +1,25 @@
 import React from 'react';
-import { ArrowLeft, ChevronLeft, ChevronRight, Compass, Crosshair, Feather, Shield, Sparkles } from 'lucide-react';
+import {
+  ArrowLeft,
+  Castle,
+  ChevronLeft,
+  ChevronRight,
+  Compass,
+  Crosshair,
+  Droplets,
+  Feather,
+  Flame,
+  Leaf,
+  Mountain,
+  Orbit,
+  Shield,
+  Sparkles,
+  Wind,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react';
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
+import { magicArtwork } from '../content/magicArtwork';
 
 interface MagicCompendiumProps {
   slug?: string;
@@ -20,15 +39,15 @@ const makeListHref = (changes: Record<string, string | null>) => {
   return `#magic${suffix ? `?${suffix}` : ''}`;
 };
 
-const factionGlyph = (faction: string) => {
-  if (faction.includes('지옥불')) return '焰';
-  if (faction.includes('물')) return '水';
-  if (faction.includes('돌')) return '石';
-  if (faction.includes('전기')) return '雷';
-  if (faction.includes('풀')) return '葉';
-  if (faction.includes('바람')) return '風';
-  if (faction.includes('인간')) return '塔';
-  return '界';
+const factionIcon = (faction: string): LucideIcon => {
+  if (faction.includes('지옥불')) return Flame;
+  if (faction.includes('물')) return Droplets;
+  if (faction.includes('돌')) return Mountain;
+  if (faction.includes('전기')) return Zap;
+  if (faction.includes('풀')) return Leaf;
+  if (faction.includes('바람')) return Wind;
+  if (faction.includes('인간')) return Castle;
+  return Orbit;
 };
 
 const FilterRow: React.FC<{
@@ -53,8 +72,11 @@ const FilterRow: React.FC<{
   </div>
 );
 
-const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
-  <article className="magic-detail-page">
+const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
+  const artwork = magicArtwork[magic.bean];
+
+  return (
+    <article className="magic-detail-page">
     <div className="container">
       <a className="magic-back-link" href="#magic">
         <ArrowLeft size={17} aria-hidden="true" />
@@ -62,13 +84,42 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
       </a>
 
       <header className="magic-detail-hero">
-        <div className="magic-rune" aria-hidden="true">{factionGlyph(magic.faction)}</div>
+        <div className="magic-faction-emblem" aria-hidden="true">
+          {React.createElement(factionIcon(magic.faction))}
+        </div>
         <div>
           <p className="magic-kicker">{magicFamilyLabels[magic.family]} · {magic.faction}</p>
           <h1>{magic.concept_name}</h1>
           {magic.concept_name !== magic.korean && <p className="magic-legacy-name">기존 이름 · {magic.korean}</p>}
         </div>
       </header>
+
+      {artwork && (
+        <section className="magic-artwork-gallery" aria-label="컨셉 및 인게임 아트">
+          <figure className="magic-concept-art">
+            <img
+              alt={artwork.concept.alt}
+              decoding="async"
+              fetchPriority="high"
+              height="1024"
+              src={artwork.concept.src}
+              width="1536"
+            />
+            <figcaption>{artwork.concept.caption}</figcaption>
+          </figure>
+          <figure className="magic-game-asset">
+            <img
+              alt={artwork.gameAsset.alt}
+              decoding="async"
+              height={artwork.gameAsset.height}
+              loading="lazy"
+              src={artwork.gameAsset.src}
+              width={artwork.gameAsset.width}
+            />
+            <figcaption>{artwork.gameAsset.caption}</figcaption>
+          </figure>
+        </section>
+      )}
 
       <section className="magic-lore-panel">
         <p className="magic-section-label">ARCANE RECORD</p>
@@ -119,7 +170,8 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => (
       <p className="magic-key" translate="no">ARCANE KEY · {magic.bean}</p>
     </div>
   </article>
-);
+  );
+};
 
 const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
   if (slug) {
@@ -176,9 +228,13 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
         </div>
 
         <section className="magic-card-grid" aria-label="마법 목록">
-          {pageItems.map((magic) => (
-            <a className="magic-concept-card" href={`#magic/${magic.bean}`} key={magic.bean}>
-              <div className="magic-card-rune" aria-hidden="true">{factionGlyph(magic.faction)}</div>
+          {pageItems.map((magic) => {
+            return (
+              <a className="magic-concept-card" href={`#magic/${magic.bean}`} key={magic.bean}>
+              {React.createElement(factionIcon(magic.faction), {
+                'aria-hidden': true,
+                className: 'magic-card-emblem',
+              })}
               <div className="magic-card-tags">
                 <span>{magicFamilyLabels[magic.family]}</span>
                 <span>{magic.mobility}</span>
@@ -187,8 +243,9 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
               {magic.concept_name !== magic.korean && <p className="magic-card-legacy">{magic.korean}</p>}
               <p>{magic.concept_description}</p>
               <strong>{magic.combat_role} · {magic.attack_shape}</strong>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </section>
 
         {pageCount > 1 && (

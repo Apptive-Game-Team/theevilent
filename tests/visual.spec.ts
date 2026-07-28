@@ -40,10 +40,22 @@ test('capture screenshots of all pages', async ({ page }) => {
   await page.goto('/#magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
   await expect(page.getByText('공중 부유형', { exact: true })).toBeVisible();
+  await expect(page.getByRole('img', { name: /지옥불 차원의 하늘/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /지옥불 군단장 인게임 에셋/ })).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshot_magic-detail.png',
     fullPage: true,
   });
+
+  await page.goto('/#magic/fire_spirit');
+  await expect(page.getByRole('heading', { name: '지옥불 하급 악마' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /생체 분사구/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /하급 악마 인게임 에셋/ })).toBeVisible();
+
+  await page.goto('/#magic/chicken_commando');
+  await expect(page.getByRole('heading', { name: '비전 강하대' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /인간 비전 강하대/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /공중 프레임과 낙하산 없는 지상 프레임/ })).toBeVisible();
 
   // Navigate to Team page
   await page.goto('/#team');
