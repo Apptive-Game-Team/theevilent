@@ -14,6 +14,20 @@ export interface MagicArtwork {
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
+  chicken_commando: {
+    concept: {
+      src: '/concept-art/chicken-commando.webp',
+      alt: '낙하산 전개 상태와 지상 전투 상태로 나뉜 인간 깃털 특공대 컨셉 아트',
+      caption: '인간 마법 문명의 공수 전투원 · 2상태 컨셉 아트',
+    },
+    gameAsset: {
+      src: '/game-assets/chicken-commando.webp',
+      alt: '낙하산을 펼친 공중 프레임과 낙하산 없는 지상 프레임 인게임 에셋',
+      caption: '공중 낙하산 프레임 · 지상 전투 프레임',
+      width: 900,
+      height: 520,
+    },
+  },
   fire_spirit: {
     concept: {
       src: '/concept-art/fire-spirit.webp',
