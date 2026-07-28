@@ -17,7 +17,7 @@ export const magicArtwork: Record<string, MagicArtwork> = {
   chicken_commando: {
     concept: {
       src: '/concept-art/chicken-commando.webp',
-      alt: '낙하산 전개 상태와 지상 전투 상태로 나뉜 인간 깃털 특공대 컨셉 아트',
+      alt: '낙하산 전개 상태와 지상 전투 상태로 나뉜 인간 비전 강하대 컨셉 아트',
       caption: '인간 마법 문명의 공수 전투원 · 2상태 컨셉 아트',
     },
     gameAsset: {

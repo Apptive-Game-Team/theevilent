@@ -53,8 +53,8 @@ test('capture screenshots of all pages', async ({ page }) => {
   await expect(page.getByRole('img', { name: /하급 악마 인게임 에셋/ })).toBeVisible();
 
   await page.goto('/#magic/chicken_commando');
-  await expect(page.getByRole('heading', { name: '깃털 특공대' })).toBeVisible();
-  await expect(page.getByRole('img', { name: /인간 깃털 특공대/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '비전 강하대' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /인간 비전 강하대/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /공중 프레임과 낙하산 없는 지상 프레임/ })).toBeVisible();
 
   // Navigate to Team page
