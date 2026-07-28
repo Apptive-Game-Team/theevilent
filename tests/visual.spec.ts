@@ -45,6 +45,11 @@ test('capture screenshots of all pages', async ({ page }) => {
   await expect(page.getByRole('heading', { name: '소환 개체 · 화염탄 비행 악마' })).toBeVisible();
   await expect(page.getByRole('img', { name: /FireChildSpirit 컨셉 아트/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /FireChildSpirit 인게임 에셋/ })).toBeVisible();
+
+  await page.goto('/#magic/ember_spirit_swarm');
+  await expect(page.getByRole('heading', { name: '잿불 악마 무리' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /잿불 척후악마 컨셉 아트/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /잿불 척후악마 인게임 에셋/ })).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshot_magic-detail.png',
     fullPage: true,

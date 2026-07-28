@@ -25,6 +25,20 @@ export interface MagicArtwork {
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
+  ember_spirit_swarm: {
+    concept: {
+      src: '/concept-art/ember-spirit-swarm.webp',
+      alt: '지면을 낮게 달리며 불길을 남기는 잿불 척후악마 컨셉 아트',
+      caption: '지옥불 군단의 소형 지상 근접 무리 개체 · 컨셉 아트',
+    },
+    gameAsset: {
+      src: '/game-assets/ember-spirit-swarm.webp',
+      alt: '오른쪽을 향한 45도 시점의 잿불 척후악마 인게임 에셋',
+      caption: '우측 방향 · 지상 근접 공격 · 이동 경로 불 장판',
+      width: 128,
+      height: 78,
+    },
+  },
   chicken_commando: {
     concept: {
       src: '/concept-art/chicken-commando.webp',
