@@ -19,6 +19,18 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
       </header>
 
       <section className="magic-artwork-gallery" aria-label={`${summon.name} 컨셉 아트`}>
+        {summon.spawnArtwork && (
+          <figure className="magic-game-asset">
+            <img
+              alt={summon.spawnArtwork.alt}
+              decoding="async"
+              height={summon.spawnArtwork.height}
+              src={summon.spawnArtwork.src}
+              width={summon.spawnArtwork.width}
+            />
+            <figcaption>{summon.spawnArtwork.caption}</figcaption>
+          </figure>
+        )}
         <figure className="magic-concept-art">
           <img
             alt={summon.artwork.alt}

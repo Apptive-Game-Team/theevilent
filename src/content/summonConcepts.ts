@@ -26,6 +26,13 @@ export interface SummonConcept {
     height: number;
     caption: string;
   };
+  spawnArtwork?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption: string;
+  };
 }
 
 export const summonConcepts: SummonConcept[] = [
@@ -38,21 +45,28 @@ export const summonConcepts: SummonConcept[] = [
     mobility: '지상 이동',
     targeting: '지상',
     lifecycle: 'HP 소진 시 파괴',
-    description: '불·바위 속성을 함께 지닌 중형 악마다. 지상 표적 위치에 용암 주먹을 생성해 즉시 범위 피해와 화상을 주고, 본체 주변에도 1초 간격 화상 영역을 유지한다.',
+    description: '불·바위 속성을 함께 지닌 중형 악마다. 소환될 때 지면을 찢고 올라온 뒤 선 자세로 대기한다. 공격 순간 한 팔을 지면으로 내려쳐 표적 위치에 용암 주먹을 생성하며, 본체 주변에도 1초 간격 화상 영역을 유지한다.',
     sourceMagic: { slug: 'magma_spirit', name: '용암 갑각 악마' },
     artwork: {
       src: '/concept-art/magma-spirit-idle.webp',
       alt: '양팔로 지면을 짚고 오른쪽을 노려보는 용암 갑각 악마',
-      width: 1203,
-      height: 743,
-      caption: '기본 자세 · 네발 지지형 용암 갑각 악마',
+      width: 789,
+      height: 788,
+      caption: '기본 자세 · 양팔을 내리고 선 대기 프레임',
     },
     alternateArtwork: {
       src: '/concept-art/magma-spirit-attack.webp',
       alt: '오른쪽 주먹으로 지면을 내려찍는 용암 갑각 악마',
-      width: 1206,
+      width: 672,
       height: 680,
-      caption: '공격 자세 · 표적 위치에 용암 주먹을 생성하는 내려찍기',
+      caption: '공격 자세 · 한 팔을 지면으로 내리치는 프레임',
+    },
+    spawnArtwork: {
+      src: '/concept-art/magma-spirit-spawn.webp',
+      alt: '바닥을 찢고 상반신부터 올라오는 용암 갑각 악마',
+      width: 820,
+      height: 650,
+      caption: '소환 자세 · 지면 돌파 후 0.28초 표시',
     },
   },
   {
