@@ -710,6 +710,16 @@ textarea:focus-visible {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
 
+.summon-relation-link {
+  color: var(--magic-accent-pale);
+  text-decoration-color: color-mix(in srgb, var(--magic-accent) 65%, transparent);
+  text-underline-offset: 0.25em;
+}
+
+.summon-relation-link:hover {
+  color: #fff;
+}
+
 .magic-concept-art,
 .magic-game-asset {
   background: #0b0908;

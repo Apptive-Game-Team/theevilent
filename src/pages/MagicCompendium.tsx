@@ -19,7 +19,8 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
-import { magicArtwork } from '../content/magicArtwork';
+import { magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
+import { summonConcepts } from '../content/summonConcepts';
 
 interface MagicCompendiumProps {
   slug?: string;
@@ -74,6 +75,8 @@ const FilterRow: React.FC<{
 
 const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
   const artwork = magicArtwork[magic.bean];
+  const relatedArtwork = magicRelatedArtwork[magic.bean] ?? [];
+  const linkedSummons = summonConcepts.filter((summon) => summon.sourceMagic.slug === magic.bean);
 
   return (
     <article className="magic-detail-page">
@@ -120,9 +123,9 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
             <figcaption>{artwork.gameAsset.caption}</figcaption>
           </figure>}
         </section>
-        {artwork.related?.map((related) => (
+        {relatedArtwork.map((related) => (
           <section className="magic-related-artwork" key={related.heading}>
-            <h2>{related.heading}</h2>
+            <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
             <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 및 인게임 아트`}>
               <figure className="magic-concept-art">
                 <img
@@ -150,6 +153,41 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
           </section>
         ))}
         </>
+      )}
+
+      {!artwork && relatedArtwork.map((related) => (
+        <section className="magic-related-artwork" key={related.heading}>
+          <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
+          <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 아트`}>
+            <figure className="magic-concept-art">
+              <img
+                alt={related.concept.alt}
+                decoding="async"
+                height="481"
+                loading="lazy"
+                src={related.concept.src}
+                width="1024"
+              />
+              <figcaption>{related.concept.caption}</figcaption>
+            </figure>
+          </div>
+        </section>
+      ))}
+
+      {linkedSummons.length > 0 && (
+        <section className="magic-lore-panel">
+          <p className="magic-section-label">SUMMONED CREATURES</p>
+          <h2>연관 소환수</h2>
+          <ul>
+            {linkedSummons.map((summon) => (
+              <li key={summon.slug}>
+                <a className="summon-relation-link" href={`#summons/${summon.slug}`}>
+                  {summon.name} · {summon.role}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       <section className="magic-lore-panel">

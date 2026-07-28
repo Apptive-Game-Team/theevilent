@@ -12,7 +12,8 @@ interface GameAssetArtwork {
   height: number;
 }
 
-interface RelatedArtwork {
+export interface RelatedArtwork {
+  slug: string;
   heading: string;
   concept: ConceptArtwork;
   gameAsset?: GameAssetArtwork;
@@ -21,7 +22,6 @@ interface RelatedArtwork {
 export interface MagicArtwork {
   concept: ConceptArtwork;
   gameAsset?: GameAssetArtwork;
-  related?: RelatedArtwork[];
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
@@ -59,15 +59,39 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       alt: '지옥불 차원의 하늘을 부유하며 하위 악마를 소환하는 거대한 생체 모함 컨셉 아트',
       caption: '지옥불 군단의 공중 소환 모체 · 컨셉 아트',
     },
-    related: [
-      {
-        heading: '소환 개체 · 화염탄 비행 악마',
-        concept: {
-          src: '/concept-art/fire-child-spirit.webp',
-          alt: '지옥불 군단장이 방출하는 소형 비행 악마 FireChildSpirit 컨셉 아트',
-          caption: '군단장의 하위 개체 · 공중 원거리 공격 악마',
-        },
-      },
-    ],
   },
+};
+
+export const magicRelatedArtwork: Record<string, RelatedArtwork[]> = {
+  dimension_toad: [
+    {
+      slug: 'fire_tadpole',
+      heading: '소환 개체 · 잿불 올챙이',
+      concept: {
+        src: '/concept-art/fire-tadpole.webp',
+        alt: '균열두꺼비가 낳은 불 마력 적응형 잿불 올챙이 컨셉 아트',
+        caption: '차원 유랑종 · 지상 근접 공격 · 시간제한 개체',
+      },
+    },
+    {
+      slug: 'lightning_tadpole',
+      heading: '소환 개체 · 뇌광 올챙이',
+      concept: {
+        src: '/concept-art/lightning-tadpole.webp',
+        alt: '균열두꺼비가 낳은 전기 마력 적응형 뇌광 올챙이 컨셉 아트',
+        caption: '동일 종 실루엣 · 전기 흡수층 변형 · 시간제한 개체',
+      },
+    },
+  ],
+  fire_lord_spirit: [
+    {
+      slug: 'fire_child_spirit',
+      heading: '소환 개체 · 화염탄 비행 악마',
+      concept: {
+        src: '/concept-art/fire-child-spirit.webp',
+        alt: '지옥불 군단장이 방출하는 소형 비행 악마 FireChildSpirit 컨셉 아트',
+        caption: '군단장의 하위 개체 · 공중 원거리 공격 악마',
+      },
+    },
+  ],
 };

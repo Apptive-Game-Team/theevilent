@@ -47,6 +47,18 @@ test('capture screenshots of all pages', async ({ page }) => {
   await page.goto('/#magic/ember_spirit_swarm');
   await expect(page.getByRole('heading', { name: '잿불 악마 무리' })).toBeVisible();
   await expect(page.getByRole('img', { name: /잿불 척후악마 컨셉 아트/ })).toBeVisible();
+
+  await page.goto('/#magic/dimension_toad');
+  await expect(page.getByRole('heading', { name: '균열두꺼비' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /잿불 올챙이 컨셉 아트/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /뇌광 올챙이 컨셉 아트/ })).toBeVisible();
+  await page.getByRole('link', { name: '소환 개체 · 잿불 올챙이' }).click();
+  await expect(page.getByRole('heading', { name: '잿불 올챙이' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '균열두꺼비 상세 보기' })).toBeVisible();
+
+  await page.goto('/#summons');
+  await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshot_magic-detail.png',
     fullPage: true,
