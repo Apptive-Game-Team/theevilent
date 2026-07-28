@@ -1,5 +1,19 @@
 # React + TypeScript + Vite
 
+## Vercel
+
+The project includes a deterministic Vercel build configuration in
+`vercel.json`.
+
+- Framework: Vite
+- Install: `npm ci`
+- Build: `npm run build`
+- Output: `dist`
+
+Connect `Apptive-Game-Team/theevilent` in Vercel and use the repository root as
+the project root. Pull requests create Preview deployments and updates to
+`main` create Production deployments through Vercel Git integration.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
