@@ -1,16 +1,27 @@
+interface ConceptArtwork {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface GameAssetArtwork {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+
+interface RelatedArtwork {
+  heading: string;
+  concept: ConceptArtwork;
+  gameAsset: GameAssetArtwork;
+}
+
 export interface MagicArtwork {
-  concept: {
-    src: string;
-    alt: string;
-    caption: string;
-  };
-  gameAsset: {
-    src: string;
-    alt: string;
-    caption: string;
-    width: number;
-    height: number;
-  };
+  concept: ConceptArtwork;
+  gameAsset: GameAssetArtwork;
+  related?: RelatedArtwork[];
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
@@ -55,5 +66,22 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       width: 768,
       height: 512,
     },
+    related: [
+      {
+        heading: '소환 개체 · 화염탄 비행 악마',
+        concept: {
+          src: '/concept-art/fire-child-spirit.webp',
+          alt: '지옥불 군단장이 방출하는 소형 비행 악마 FireChildSpirit 컨셉 아트',
+          caption: '군단장의 하위 개체 · 공중 원거리 공격 악마',
+        },
+        gameAsset: {
+          src: '/game-assets/fire-child-spirit.webp',
+          alt: '오른쪽을 향한 45도 시점의 FireChildSpirit 인게임 에셋',
+          caption: '화염탄 공격 · 지상 및 공중 표적 · 소형 128px',
+          width: 114,
+          height: 128,
+        },
+      },
+    ],
   },
 };

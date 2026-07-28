@@ -95,6 +95,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
       </header>
 
       {artwork && (
+        <>
         <section className="magic-artwork-gallery" aria-label="컨셉 및 인게임 아트">
           <figure className="magic-concept-art">
             <img
@@ -119,6 +120,36 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
             <figcaption>{artwork.gameAsset.caption}</figcaption>
           </figure>
         </section>
+        {artwork.related?.map((related) => (
+          <section className="magic-related-artwork" key={related.heading}>
+            <h2>{related.heading}</h2>
+            <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 및 인게임 아트`}>
+              <figure className="magic-concept-art">
+                <img
+                  alt={related.concept.alt}
+                  decoding="async"
+                  height="912"
+                  loading="lazy"
+                  src={related.concept.src}
+                  width="810"
+                />
+                <figcaption>{related.concept.caption}</figcaption>
+              </figure>
+              <figure className="magic-game-asset">
+                <img
+                  alt={related.gameAsset.alt}
+                  decoding="async"
+                  height={related.gameAsset.height}
+                  loading="lazy"
+                  src={related.gameAsset.src}
+                  width={related.gameAsset.width}
+                />
+                <figcaption>{related.gameAsset.caption}</figcaption>
+              </figure>
+            </div>
+          </section>
+        ))}
+        </>
       )}
 
       <section className="magic-lore-panel">

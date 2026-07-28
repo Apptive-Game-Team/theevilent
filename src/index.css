@@ -700,6 +700,16 @@ textarea:focus-visible {
   margin-top: 1.5rem;
 }
 
+.magic-related-artwork {
+  margin-top: 1.5rem;
+}
+
+.magic-related-artwork > h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
 .magic-concept-art,
 .magic-game-asset {
   background: #0b0908;
