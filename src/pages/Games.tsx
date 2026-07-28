@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { BookOpen, Sparkles } from 'lucide-react';
 import { platformLinks } from '../content/siteContent';
 
 export const Games: React.FC = () => {
@@ -62,6 +62,10 @@ export const Games: React.FC = () => {
                   ))}
                 </div>
               </div>
+              <a href="#magic" className="games-compendium-link">
+                <BookOpen size={18} aria-hidden="true" />
+                마법 컨셉 도감 열기
+              </a>
             </div>
 
             <div style={styles.headerImageWrapper}>
