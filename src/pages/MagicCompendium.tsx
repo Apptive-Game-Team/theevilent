@@ -19,7 +19,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
-import { magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
+import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
 
 interface MagicCompendiumProps {
@@ -75,6 +75,7 @@ const FilterRow: React.FC<{
 
 const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
   const artwork = magicArtwork[magic.bean];
+  const accessoryArtwork = magicAccessoryArtwork[magic.bean] ?? [];
   const relatedArtwork = magicRelatedArtwork[magic.bean] ?? [];
   const linkedSummons = summonConcepts.filter((summon) => summon.sourceMagic.slug === magic.bean);
 
@@ -169,6 +170,25 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
                 width="1024"
               />
               <figcaption>{related.concept.caption}</figcaption>
+            </figure>
+          </div>
+        </section>
+      ))}
+
+      {accessoryArtwork.map((accessory) => (
+        <section className="magic-related-artwork" key={accessory.heading}>
+          <h2>{accessory.heading}</h2>
+          <div className="magic-artwork-gallery" aria-label={accessory.heading}>
+            <figure className="magic-game-asset">
+              <img
+                alt={accessory.alt}
+                decoding="async"
+                height={accessory.height}
+                loading="lazy"
+                src={accessory.src}
+                width={accessory.width}
+              />
+              <figcaption>{accessory.caption}</figcaption>
             </figure>
           </div>
         </section>

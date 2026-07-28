@@ -12,6 +12,10 @@ interface GameAssetArtwork {
   height: number;
 }
 
+export interface AccessoryArtwork extends GameAssetArtwork {
+  heading: string;
+}
+
 export interface RelatedArtwork {
   slug: string;
   heading: string;
@@ -60,6 +64,29 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       caption: '지옥불 군단의 공중 소환 모체 · 컨셉 아트',
     },
   },
+};
+
+export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
+  cloud_dragon: [
+    {
+      heading: '부속 에셋 · 구형 물 아우라',
+      src: '/game-assets/cloud-dragon-water-aura.webp',
+      alt: '운룡의 몸 전체를 감싸는 구형 물 아우라',
+      caption: '운룡 전용 물 아우라 · 중앙 저밀도 · 본체와 별도 렌더링',
+      width: 510,
+      height: 512,
+    },
+  ],
+  fire_spirit: [
+    {
+      heading: '부속 에셋 · 지옥불 오라',
+      src: '/game-assets/fire-aura.webp',
+      alt: '지옥불 악마 주변을 회전하는 타원형 불 아우라',
+      caption: '지옥불 공용 오라 · 대기 맥동과 공격 파동에 사용',
+      width: 512,
+      height: 295,
+    },
+  ],
 };
 
 export const magicRelatedArtwork: Record<string, RelatedArtwork[]> = {
