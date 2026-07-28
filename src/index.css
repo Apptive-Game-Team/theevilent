@@ -688,10 +688,16 @@ textarea:focus-visible {
   margin-top: 0.85rem;
 }
 
-.magic-concept-art {
+.magic-artwork-gallery {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.magic-concept-art,
+.magic-game-asset {
   background: #0b0908;
   border: 1px solid #3b2924;
-  margin-top: 1.5rem;
   overflow: hidden;
   position: relative;
 }
@@ -714,7 +720,28 @@ textarea:focus-visible {
   width: 100%;
 }
 
-.magic-concept-art figcaption {
+.magic-game-asset {
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.025) 75%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 25%, #0e0c0b 25% 75%, rgba(255, 255, 255, 0.025) 75%);
+  background-position: 0 0, 14px 14px;
+  background-size: 28px 28px;
+  display: grid;
+  min-height: 280px;
+  place-items: center;
+}
+
+.magic-game-asset img {
+  display: block;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  width: 100%;
+}
+
+.magic-concept-art figcaption,
+.magic-game-asset figcaption {
   bottom: 1rem;
   color: #d4b0a5;
   font-family: var(--font-display);
@@ -723,6 +750,11 @@ textarea:focus-visible {
   letter-spacing: 0.12em;
   position: absolute;
   z-index: 1;
+}
+
+.magic-game-asset figcaption {
+  background: rgba(5, 4, 4, 0.72);
+  padding: 0.45rem 0.55rem;
 }
 
 .magic-lore-panel {
@@ -944,6 +976,10 @@ footer a:hover {
 
   .magic-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .magic-artwork-gallery {
+    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
   }
 }
 

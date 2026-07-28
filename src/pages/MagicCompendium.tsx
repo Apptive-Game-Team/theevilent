@@ -75,17 +75,30 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
       </header>
 
       {artwork && (
-        <figure className="magic-concept-art">
-          <img
-            alt={artwork.alt}
-            decoding="async"
-            fetchPriority="high"
-            height="1024"
-            src={artwork.src}
-            width="1536"
-          />
-          <figcaption>{artwork.caption}</figcaption>
-        </figure>
+        <section className="magic-artwork-gallery" aria-label="컨셉 및 인게임 아트">
+          <figure className="magic-concept-art">
+            <img
+              alt={artwork.concept.alt}
+              decoding="async"
+              fetchPriority="high"
+              height="1024"
+              src={artwork.concept.src}
+              width="1536"
+            />
+            <figcaption>{artwork.concept.caption}</figcaption>
+          </figure>
+          <figure className="magic-game-asset">
+            <img
+              alt={artwork.gameAsset.alt}
+              decoding="async"
+              height={artwork.gameAsset.height}
+              loading="lazy"
+              src={artwork.gameAsset.src}
+              width={artwork.gameAsset.width}
+            />
+            <figcaption>{artwork.gameAsset.caption}</figcaption>
+          </figure>
+        </section>
       )}
 
       <section className="magic-lore-panel">
