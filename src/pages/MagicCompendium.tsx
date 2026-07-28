@@ -28,6 +28,16 @@ interface MagicCompendiumProps {
 
 const PAGE_SIZE = 24;
 
+const getCardArtwork = (bean: string) => {
+  const directArtwork = magicArtwork[bean]?.concept;
+  if (directArtwork) return directArtwork;
+
+  const summonArtwork = summonConcepts.find((summon) => summon.sourceMagic.slug === bean)?.artwork;
+  if (summonArtwork) return summonArtwork;
+
+  return magicRelatedArtwork[bean]?.[0]?.concept;
+};
+
 const getQuery = () => new URLSearchParams(window.location.hash.split('?')[1] ?? '');
 
 const makeListHref = (changes: Record<string, string | null>) => {
@@ -318,8 +328,23 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
 
         <section className="magic-card-grid" aria-label="마법 목록">
           {pageItems.map((magic) => {
+            const cardArtwork = getCardArtwork(magic.bean);
             return (
-              <a className="magic-concept-card" href={`#magic/${magic.bean}`} key={magic.bean}>
+              <a
+                className={`magic-concept-card${cardArtwork ? ' has-thumbnail' : ''}`}
+                href={`#magic/${magic.bean}`}
+                key={magic.bean}
+              >
+              {cardArtwork && (
+                <div className="magic-card-thumbnail">
+                  <img
+                    alt={cardArtwork.alt}
+                    decoding="async"
+                    loading="lazy"
+                    src={cardArtwork.src}
+                  />
+                </div>
+              )}
               {React.createElement(factionIcon(magic.faction), {
                 'aria-hidden': true,
                 className: 'magic-card-emblem',
