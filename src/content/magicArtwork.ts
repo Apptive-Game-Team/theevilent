@@ -15,12 +15,12 @@ interface GameAssetArtwork {
 interface RelatedArtwork {
   heading: string;
   concept: ConceptArtwork;
-  gameAsset: GameAssetArtwork;
+  gameAsset?: GameAssetArtwork;
 }
 
 export interface MagicArtwork {
   concept: ConceptArtwork;
-  gameAsset: GameAssetArtwork;
+  gameAsset?: GameAssetArtwork;
   related?: RelatedArtwork[];
 }
 
@@ -30,13 +30,6 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       src: '/concept-art/ember-spirit-swarm.webp',
       alt: '지면을 낮게 달리며 불길을 남기는 잿불 척후악마 컨셉 아트',
       caption: '지옥불 군단의 소형 지상 근접 무리 개체 · 컨셉 아트',
-    },
-    gameAsset: {
-      src: '/game-assets/ember-spirit-swarm.webp',
-      alt: '오른쪽을 향한 45도 시점의 잿불 척후악마 인게임 에셋',
-      caption: '우측 방향 · 지상 근접 공격 · 이동 경로 불 장판',
-      width: 128,
-      height: 78,
     },
   },
   chicken_commando: {
@@ -59,26 +52,12 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       alt: '오른쪽을 향해 생체 분사구로 잿불을 내뿜는 지옥불 하급 악마 컨셉 아트',
       caption: '지옥불 군단의 지상 범위 공격수 · 컨셉 아트',
     },
-    gameAsset: {
-      src: '/game-assets/fire-spirit.webp',
-      alt: '오른쪽을 향한 45도 시점의 지옥불 하급 악마 인게임 에셋',
-      caption: '오른쪽 방향 · 지면 기준 45° · 투명 인게임 에셋',
-      width: 768,
-      height: 546,
-    },
   },
   fire_lord_spirit: {
     concept: {
       src: '/concept-art/fire-lord-spirit.webp',
       alt: '지옥불 차원의 하늘을 부유하며 하위 악마를 소환하는 거대한 생체 모함 컨셉 아트',
       caption: '지옥불 군단의 공중 소환 모체 · 컨셉 아트',
-    },
-    gameAsset: {
-      src: '/game-assets/fire-lord-spirit.webp',
-      alt: '오른쪽을 향한 45도 시점의 지옥불 군단장 인게임 에셋',
-      caption: '오른쪽 방향 · 지면 기준 45° · 투명 인게임 에셋',
-      width: 768,
-      height: 512,
     },
     related: [
       {
@@ -87,13 +66,6 @@ export const magicArtwork: Record<string, MagicArtwork> = {
           src: '/concept-art/fire-child-spirit.webp',
           alt: '지옥불 군단장이 방출하는 소형 비행 악마 FireChildSpirit 컨셉 아트',
           caption: '군단장의 하위 개체 · 공중 원거리 공격 악마',
-        },
-        gameAsset: {
-          src: '/game-assets/fire-child-spirit.webp',
-          alt: '오른쪽을 향한 45도 시점의 FireChildSpirit 인게임 에셋',
-          caption: '화염탄 공격 · 지상 및 공중 표적 · 소형 128px',
-          width: 114,
-          height: 128,
         },
       },
     ],

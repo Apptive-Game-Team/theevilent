@@ -108,7 +108,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
             />
             <figcaption>{artwork.concept.caption}</figcaption>
           </figure>
-          <figure className="magic-game-asset">
+          {artwork.gameAsset && <figure className="magic-game-asset">
             <img
               alt={artwork.gameAsset.alt}
               decoding="async"
@@ -118,7 +118,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
               width={artwork.gameAsset.width}
             />
             <figcaption>{artwork.gameAsset.caption}</figcaption>
-          </figure>
+          </figure>}
         </section>
         {artwork.related?.map((related) => (
           <section className="magic-related-artwork" key={related.heading}>
@@ -135,7 +135,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
                 />
                 <figcaption>{related.concept.caption}</figcaption>
               </figure>
-              <figure className="magic-game-asset">
+              {related.gameAsset && <figure className="magic-game-asset">
                 <img
                   alt={related.gameAsset.alt}
                   decoding="async"
@@ -145,7 +145,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
                   width={related.gameAsset.width}
                 />
                 <figcaption>{related.gameAsset.caption}</figcaption>
-              </figure>
+              </figure>}
             </div>
           </section>
         ))}
