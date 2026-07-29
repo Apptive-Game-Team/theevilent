@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
@@ -15,23 +15,35 @@ interface AppRoute {
   slug?: string;
 }
 
-const getRouteFromHash = (): AppRoute => {
+// Returns null when the hash is a non-empty fragment that is not a tab route
+// (e.g. the "#main-content" skip link), so callers can leave the route alone.
+const getRouteFromHash = (): AppRoute | null => {
   if (typeof window === 'undefined') {
     return { tab: 'home' };
   }
 
   const route = window.location.hash.replace('#', '').split('?')[0];
+  if (!route) {
+    return { tab: 'home' };
+  }
+
   const [hashTab, slug] = route.split('/') as [TabId, string | undefined];
-  return validTabs.includes(hashTab) ? { tab: hashTab, slug } : { tab: 'home' };
+  return validTabs.includes(hashTab) ? { tab: hashTab, slug } : null;
 };
 
-function App() {
-  const [route, setRoute] = useState<AppRoute>(getRouteFromHash);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+function CursorGlow() {
+  const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      const glow = glowRef.current;
+      if (!glow) return;
+      glow.style.left = `${e.clientX}px`;
+      glow.style.top = `${e.clientY}px`;
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -40,9 +52,18 @@ function App() {
     };
   }, []);
 
+  return <div ref={glowRef} className="custom-cursor-glow" style={{ left: 0, top: 0 }} />;
+}
+
+function App() {
+  const [route, setRoute] = useState<AppRoute>(() => getRouteFromHash() ?? { tab: 'home' });
+
   useEffect(() => {
     const handleHashChange = () => {
-      setRoute(getRouteFromHash());
+      const nextRoute = getRouteFromHash();
+      if (!nextRoute) return;
+
+      setRoute(nextRoute);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -80,13 +101,7 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      <div 
-        className="custom-cursor-glow" 
-        style={{
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-        }}
-      />
+      <CursorGlow />
 
       <ParticleBackground />
       <a href="#main-content" className="skip-link">
