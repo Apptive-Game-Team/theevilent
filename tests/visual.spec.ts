@@ -69,6 +69,13 @@ test('capture screenshots of all pages', async ({ page }) => {
   console.log('Saved screenshot_team.png');
 });
 
+test('body background stays transparent so the particle canvas shows', async ({ page }) => {
+  await page.goto('/');
+
+  // An opaque body background paints over the z-index:-1 canvas.
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+});
+
 test('magic compendium remains usable on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#magic');
