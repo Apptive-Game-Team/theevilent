@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { Globe, Play } from 'lucide-react';
 
-export type TabId = 'home' | 'games' | 'magic' | 'team';
+export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team';
 
 export interface NavigationItem {
   id: TabId;
@@ -32,6 +32,7 @@ export const navigationItems: NavigationItem[] = [
   { id: 'home', label: 'HOME', footerLabel: 'Home' },
   { id: 'games', label: 'GAMES', footerLabel: 'Games' },
   { id: 'magic', label: 'MAGIC', footerLabel: 'Magic Compendium' },
+  { id: 'summons', label: 'SUMMONS', footerLabel: 'Summon Compendium' },
   { id: 'team', label: 'TEAM', footerLabel: 'Team Members' },
 ];
 

@@ -19,13 +19,24 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
-import { magicArtwork } from '../content/magicArtwork';
+import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
+import { summonConcepts } from '../content/summonConcepts';
 
 interface MagicCompendiumProps {
   slug?: string;
 }
 
 const PAGE_SIZE = 24;
+
+const getCardArtwork = (bean: string) => {
+  const directArtwork = magicArtwork[bean]?.concept;
+  if (directArtwork) return directArtwork;
+
+  const summonArtwork = summonConcepts.find((summon) => summon.sourceMagic.slug === bean)?.artwork;
+  if (summonArtwork) return summonArtwork;
+
+  return magicRelatedArtwork[bean]?.[0]?.concept;
+};
 
 const getQuery = () => new URLSearchParams(window.location.hash.split('?')[1] ?? '');
 
@@ -74,6 +85,9 @@ const FilterRow: React.FC<{
 
 const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
   const artwork = magicArtwork[magic.bean];
+  const accessoryArtwork = magicAccessoryArtwork[magic.bean] ?? [];
+  const relatedArtwork = magicRelatedArtwork[magic.bean] ?? [];
+  const linkedSummons = summonConcepts.filter((summon) => summon.sourceMagic.slug === magic.bean);
 
   return (
     <article className="magic-detail-page">
@@ -95,6 +109,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
       </header>
 
       {artwork && (
+        <>
         <section className="magic-artwork-gallery" aria-label="컨셉 및 인게임 아트">
           <figure className="magic-concept-art">
             <img
@@ -107,7 +122,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
             />
             <figcaption>{artwork.concept.caption}</figcaption>
           </figure>
-          <figure className="magic-game-asset">
+          {artwork.gameAsset && <figure className="magic-game-asset">
             <img
               alt={artwork.gameAsset.alt}
               decoding="async"
@@ -117,7 +132,91 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
               width={artwork.gameAsset.width}
             />
             <figcaption>{artwork.gameAsset.caption}</figcaption>
-          </figure>
+          </figure>}
+        </section>
+        {relatedArtwork.map((related) => (
+          <section className="magic-related-artwork" key={related.heading}>
+            <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
+            <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 및 인게임 아트`}>
+              <figure className="magic-concept-art">
+                <img
+                  alt={related.concept.alt}
+                  decoding="async"
+                  height="912"
+                  loading="lazy"
+                  src={related.concept.src}
+                  width="810"
+                />
+                <figcaption>{related.concept.caption}</figcaption>
+              </figure>
+              {related.gameAsset && <figure className="magic-game-asset">
+                <img
+                  alt={related.gameAsset.alt}
+                  decoding="async"
+                  height={related.gameAsset.height}
+                  loading="lazy"
+                  src={related.gameAsset.src}
+                  width={related.gameAsset.width}
+                />
+                <figcaption>{related.gameAsset.caption}</figcaption>
+              </figure>}
+            </div>
+          </section>
+        ))}
+        </>
+      )}
+
+      {!artwork && relatedArtwork.map((related) => (
+        <section className="magic-related-artwork" key={related.heading}>
+          <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
+          <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 아트`}>
+            <figure className="magic-concept-art">
+              <img
+                alt={related.concept.alt}
+                decoding="async"
+                height="481"
+                loading="lazy"
+                src={related.concept.src}
+                width="1024"
+              />
+              <figcaption>{related.concept.caption}</figcaption>
+            </figure>
+          </div>
+        </section>
+      ))}
+
+      {accessoryArtwork.map((accessory) => (
+        <section className="magic-related-artwork" key={accessory.heading}>
+          <h2>{accessory.heading}</h2>
+          <div className="magic-artwork-gallery" aria-label={accessory.heading}>
+            <figure className="magic-game-asset">
+              <img
+                alt={accessory.alt}
+                decoding="async"
+                height={accessory.height}
+                loading="lazy"
+                src={accessory.src}
+                width={accessory.width}
+              />
+              <figcaption>{accessory.caption}</figcaption>
+            </figure>
+          </div>
+        </section>
+      ))}
+
+      {linkedSummons.length > 0 && (
+        <section className="magic-lore-panel">
+          <p className="magic-section-label">SUMMONED CREATURES</p>
+          <h2>연관 소환수</h2>
+          <ul>
+            {linkedSummons.map((summon) => (
+              <li key={summon.slug}>
+                <a className="summon-relation-link" href={`#summons/${summon.slug}`}>
+                  {summon.name} · {summon.role}
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 
@@ -229,8 +328,23 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
 
         <section className="magic-card-grid" aria-label="마법 목록">
           {pageItems.map((magic) => {
+            const cardArtwork = getCardArtwork(magic.bean);
             return (
-              <a className="magic-concept-card" href={`#magic/${magic.bean}`} key={magic.bean}>
+              <a
+                className={`magic-concept-card${cardArtwork ? ' has-thumbnail' : ''}`}
+                href={`#magic/${magic.bean}`}
+                key={magic.bean}
+              >
+              {cardArtwork && (
+                <div className="magic-card-thumbnail">
+                  <img
+                    alt={cardArtwork.alt}
+                    decoding="async"
+                    loading="lazy"
+                    src={cardArtwork.src}
+                  />
+                </div>
+              )}
               {React.createElement(factionIcon(magic.faction), {
                 'aria-hidden': true,
                 className: 'magic-card-emblem',

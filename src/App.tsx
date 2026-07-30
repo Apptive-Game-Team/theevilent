@@ -7,8 +7,9 @@ import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
+import SummonCompendium from './pages/SummonCompendium';
 
-const validTabs: TabId[] = ['home', 'games', 'magic', 'team'];
+const validTabs: TabId[] = ['home', 'games', 'magic', 'summons', 'team'];
 
 interface AppRoute {
   tab: TabId;
@@ -71,6 +72,8 @@ function App() {
         return <Games />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
+      case 'summons':
+        return <SummonCompendium slug={route.slug} />;
       case 'team':
         return <Team />;
       default:
