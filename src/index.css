@@ -39,7 +39,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg-darkest);
+  /* No background-color: html already paints the canvas, and an opaque body
+     background would paint over the z-index:-1 ParticleBackground canvas. */
   color: var(--color-text-light);
   overflow-x: hidden;
   line-height: 1.6;
