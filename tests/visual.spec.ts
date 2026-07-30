@@ -106,3 +106,13 @@ test('magic compendium remains usable on mobile', async ({ page }) => {
     fullPage: true,
   });
 });
+
+test('skip link keeps the active tab instead of resetting to home', async ({ page }) => {
+  await page.goto('/#team');
+  await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
+
+  await page.getByRole('link', { name: 'Skip To Main Content' }).click();
+
+  await expect(page).toHaveURL(/#main-content$/);
+  await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
+});
