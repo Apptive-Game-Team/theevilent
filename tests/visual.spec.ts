@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('capture screenshots of all pages', async ({ page }) => {
+test('capture screenshots of all pages', async ({ page }, testInfo) => {
   // Go to homepage
   await page.goto('/');
   await expect(page).toHaveTitle('The Evil Ent');
@@ -10,7 +10,7 @@ test('capture screenshots of all pages', async ({ page }) => {
 
   // Take screenshot of Home page
   await page.screenshot({ 
-    path: '/Users/jeong-yunseong/.gemini/antigravity-cli/brain/f4bb0e0e-a623-4946-ab10-f7803ca450b8/screenshot_home.png',
+    path: testInfo.outputPath('screenshot_home.png'),
     fullPage: true 
   });
   console.log('Saved screenshot_home.png');
@@ -21,7 +21,7 @@ test('capture screenshots of all pages', async ({ page }) => {
   
   // Take screenshot of Games page
   await page.screenshot({ 
-    path: '/Users/jeong-yunseong/.gemini/antigravity-cli/brain/f4bb0e0e-a623-4946-ab10-f7803ca450b8/screenshot_games.png',
+    path: testInfo.outputPath('screenshot_games.png'),
     fullPage: true 
   });
   console.log('Saved screenshot_games.png');
@@ -43,7 +43,7 @@ test('capture screenshots of all pages', async ({ page }) => {
   await expect(page.getByRole('img', { name: /지옥불 차원의 하늘/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /지옥불 군단장 인게임 에셋/ })).toBeVisible();
   await page.screenshot({
-    path: 'test-results/screenshot_magic-detail.png',
+    path: testInfo.outputPath('screenshot_magic-detail.png'),
     fullPage: true,
   });
 
@@ -63,13 +63,13 @@ test('capture screenshots of all pages', async ({ page }) => {
 
   // Take screenshot of Team page
   await page.screenshot({ 
-    path: '/Users/jeong-yunseong/.gemini/antigravity-cli/brain/f4bb0e0e-a623-4946-ab10-f7803ca450b8/screenshot_team.png',
+    path: testInfo.outputPath('screenshot_team.png'),
     fullPage: true 
   });
   console.log('Saved screenshot_team.png');
 });
 
-test('magic compendium remains usable on mobile', async ({ page }) => {
+test('magic compendium remains usable on mobile', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#magic');
 
@@ -79,7 +79,7 @@ test('magic compendium remains usable on mobile', async ({ page }) => {
   await page.goto('/#magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
   await page.screenshot({
-    path: 'test-results/screenshot_magic-mobile.png',
+    path: testInfo.outputPath('screenshot_magic-mobile.png'),
     fullPage: true,
   });
 });
