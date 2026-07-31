@@ -49,16 +49,16 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('img', { name: /잿불 척후악마 컨셉 아트/ })).toBeVisible();
 
   await page.goto('/#magic/dimension_toad');
-  await expect(page.getByRole('heading', { name: '균열두꺼비' })).toBeVisible();
-  await expect(page.getByRole('img', { name: /잿불 올챙이 컨셉 아트/ })).toBeVisible();
-  await expect(page.getByRole('img', { name: /뇌광 올챙이 컨셉 아트/ })).toBeVisible();
-  await page.getByRole('link', { name: '소환 개체 · 잿불 올챙이' }).click();
-  await expect(page.getByRole('heading', { name: '잿불 올챙이' })).toBeVisible();
-  await expect(page.getByRole('link', { name: '균열두꺼비 상세 보기' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '경계 운반자' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /화산편 컨셉 아트/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /폭풍편 컨셉 아트/ })).toBeVisible();
+  await page.getByRole('link', { name: '소환 개체 · 화산편' }).click();
+  await expect(page.getByRole('heading', { name: '화산편' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '경계 운반자 상세 보기' })).toBeVisible();
 
   await page.goto('/#summons');
   await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(9);
+  await expect(page.locator('.magic-concept-card')).toHaveCount(10);
   await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
@@ -89,6 +89,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 test('new summon records expose their approved artwork and source magic', async ({ page }) => {
   for (const [slug, name] of [
     ['fire_lord_spirit', '지옥불 군단장'],
+    ['dimension_toad', '경계 운반자'],
     ['rock_golem', '이끼바위 골렘'],
     ['water_slime', '물방울 생존자'],
   ]) {
