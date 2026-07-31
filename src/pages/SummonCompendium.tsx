@@ -53,6 +53,18 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
             <figcaption>{summon.alternateArtwork.caption}</figcaption>
           </figure>
         )}
+        {summon.supplementaryArtwork?.map((artwork) => (
+          <figure className="magic-game-asset" key={artwork.src}>
+            <img
+              alt={artwork.alt}
+              decoding="async"
+              height={artwork.height}
+              src={artwork.src}
+              width={artwork.width}
+            />
+            <figcaption>{artwork.caption}</figcaption>
+          </figure>
+        ))}
       </section>
 
       <section className="magic-lore-panel">
