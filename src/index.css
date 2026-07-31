@@ -39,7 +39,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg-darkest);
+  /* No background-color: html already paints the canvas, and an opaque body
+     background would paint over the z-index:-1 ParticleBackground canvas. */
   color: var(--color-text-light);
   overflow-x: hidden;
   line-height: 1.6;
@@ -566,6 +567,36 @@ textarea:focus-visible {
   transform: translateY(-4px);
 }
 
+.magic-concept-card.has-thumbnail {
+  min-height: 470px;
+}
+
+.magic-card-thumbnail {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(196, 74, 50, 0.14), transparent 65%),
+    #0d0b0a;
+  border-bottom: 1px solid #302721;
+  display: flex;
+  height: 170px;
+  justify-content: center;
+  margin: -1.5rem -1.5rem 1.3rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.magic-card-thumbnail img {
+  height: 100%;
+  object-fit: contain;
+  padding: 0.8rem;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.magic-concept-card:hover .magic-card-thumbnail img {
+  transform: scale(1.04);
+}
+
 .magic-card-emblem {
   color: rgba(196, 74, 50, 0.1);
   height: 7rem;
@@ -698,6 +729,26 @@ textarea:focus-visible {
   display: grid;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+.magic-related-artwork {
+  margin-top: 1.5rem;
+}
+
+.magic-related-artwork > h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.summon-relation-link {
+  color: var(--magic-accent-pale);
+  text-decoration-color: color-mix(in srgb, var(--magic-accent) 65%, transparent);
+  text-underline-offset: 0.25em;
+}
+
+.summon-relation-link:hover {
+  color: #fff;
 }
 
 .magic-concept-art,
