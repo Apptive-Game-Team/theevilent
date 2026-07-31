@@ -58,6 +58,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 
   await page.goto('/#summons');
   await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
+  await expect(page.locator('.magic-concept-card')).toHaveCount(9);
   await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
@@ -83,6 +84,19 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
     fullPage: true 
   });
   console.log('Saved screenshot_team.png');
+});
+
+test('new summon records expose their approved artwork and source magic', async ({ page }) => {
+  for (const [slug, name] of [
+    ['fire_lord_spirit', '지옥불 군단장'],
+    ['rock_golem', '이끼바위 골렘'],
+    ['water_slime', '물방울 생존자'],
+  ]) {
+    await page.goto(`/#summons/${slug}`);
+    await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
+    await expect(page.locator('.magic-artwork-gallery img').first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /상세 보기/ })).toBeVisible();
+  }
 });
 
 test('body background stays transparent so the particle canvas shows', async ({ page }) => {

@@ -33,6 +33,13 @@ export interface SummonConcept {
     height: number;
     caption: string;
   };
+  supplementaryArtwork?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption: string;
+  }[];
 }
 
 export const summonConcepts: SummonConcept[] = [
@@ -114,6 +121,24 @@ export const summonConcepts: SummonConcept[] = [
     },
   },
   {
+    slug: 'fire_lord_spirit',
+    name: '지옥불 군단장',
+    internalName: 'FireLordSpirit',
+    faction: '지옥불 군단',
+    role: '공중 하위 악마 소환',
+    mobility: '공중 부유',
+    targeting: '소환 지점',
+    lifecycle: 'HP 소진 시 파괴',
+    description: '전장 상공에서 안전거리를 유지하는 거대 악마 생체 모함이다. 직접 공격하지 않고 5초마다 하위 비행 악마를 1기씩, 최대 5기 방출한다.',
+    sourceMagic: { slug: 'fire_lord_spirit', name: '지옥불 군단장' },
+    artwork: {
+      src: '/concept-art/fire-lord-spirit.webp',
+      alt: '하위 비행 악마를 방출하는 거대한 지옥불 생체 모함 컨셉 아트',
+      width: 1536,
+      height: 1024,
+    },
+  },
+  {
     slug: 'ember_spirit',
     name: '잿불 척후악마',
     internalName: 'EmberSpirit',
@@ -165,6 +190,67 @@ export const summonConcepts: SummonConcept[] = [
       alt: '전기 마력 적응형 뇌광 올챙이 컨셉 아트',
       width: 1024,
       height: 481,
+    },
+  },
+  {
+    slug: 'rock_golem',
+    name: '이끼바위 골렘',
+    internalName: 'RockGolem',
+    faction: '돌 골렘 부족',
+    role: '지상 근접 공격',
+    mobility: '지상 이동',
+    targeting: '지상',
+    lifecycle: '사망 시 20초간 바위 잔해 유지',
+    description: '따뜻한 바위와 이끼로 이루어진 독립 부족의 근접 전사다. 사망하면 움직임과 공격 능력이 없는 바위 잔해를 남겨 20초간 지상 이동을 막는다.',
+    sourceMagic: { slug: 'rock_golem', name: '이끼바위 골렘' },
+    artwork: {
+      src: '/concept-art/rock-golem.webp',
+      alt: '따뜻한 탄색 석재와 이끼로 이루어진 이끼바위 골렘 컨셉 아트',
+      width: 1254,
+      height: 1254,
+      caption: '기본 자세 · 따뜻한 석재와 이끼 재질',
+    },
+    alternateArtwork: {
+      src: '/game-assets/rock-golem-attack.webp',
+      alt: '팔을 휘두르는 이끼바위 골렘 공격 인게임 스프라이트',
+      width: 768,
+      height: 732,
+      caption: '공격 자세 · 인게임 스프라이트',
+    },
+    supplementaryArtwork: [
+      {
+        src: '/game-assets/rock-remnant.webp',
+        alt: '이끼바위 골렘 사망 후 남는 바위 잔해 인게임 스프라이트',
+        width: 384,
+        height: 267,
+        caption: '사망 잔해 · 20초간 지상 이동 방해 · 별도 생물 아님',
+      },
+    ],
+  },
+  {
+    slug: 'water_slime',
+    name: '물방울 생존자',
+    internalName: 'WaterSlime',
+    faction: '물 슬라임',
+    role: '지상 원거리 무리 공격',
+    mobility: '지상 이동',
+    targeting: '지상',
+    lifecycle: 'HP 소진 시 파괴',
+    description: '멸망에서 살아남은 온건한 물 슬라임 무리다. 이동 경로에 물 지대를 남기고 지상 적에게 물을 뱉어 원거리 공격한다. 물 지대는 독립 소환수가 아니다.',
+    sourceMagic: { slug: 'water_slime_swarm', name: '물방울 생존자 무리' },
+    artwork: {
+      src: '/concept-art/water-slime.webp',
+      alt: '반투명 물질 종이층과 둥근 몸체를 지닌 물방울 생존자 컨셉 아트',
+      width: 1254,
+      height: 1254,
+      caption: '기본 자세 · 반투명 물질 종이층',
+    },
+    alternateArtwork: {
+      src: '/game-assets/water-slime-attack.webp',
+      alt: '물을 뱉어 공격하는 물방울 생존자 인게임 스프라이트',
+      width: 549,
+      height: 318,
+      caption: '원거리 공격 자세 · 물 뱉기 인게임 스프라이트',
     },
   },
 ];
