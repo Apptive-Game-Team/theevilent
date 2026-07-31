@@ -15,6 +15,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
     setIsOpen(false);
   };
 
+  // Let modifier clicks fall through to the browser (open in new tab/window),
+  // otherwise cancel the default fragment navigation so only SPA routing runs.
+  const handleNavLinkClick = (event: React.MouseEvent, tabId: TabId) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    handleNavClick(tabId);
+  };
+
   return (
     <nav style={styles.nav}>
       <div style={styles.navContainer}>
@@ -44,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
             <a
               key={item.id}
               href={item.id === 'home' ? '#' : `#${item.id}`}
-              onClick={() => handleNavClick(item.id)}
+              onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.navLink,
                 color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
@@ -80,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
             <a
               key={item.id}
               href={item.id === 'home' ? '#' : `#${item.id}`}
-              onClick={() => handleNavClick(item.id)}
+              onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.mobileNavLink,
                 color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',

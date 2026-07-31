@@ -9,7 +9,11 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
   const currentYear = new Date().getFullYear();
 
-  const handleNavClick = (tabId: TabId) => {
+  // Let modifier clicks fall through to the browser (open in new tab/window),
+  // otherwise cancel the default fragment navigation so only SPA routing runs.
+  const handleNavClick = (event: React.MouseEvent, tabId: TabId) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
     navigateToTab(tabId);
   };
 
@@ -42,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                 <li key={item.id}>
                   <a
                     href={item.id === 'home' ? '#' : `#${item.id}`}
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={(event) => handleNavClick(event, item.id)}
                     style={styles.linkButton}
                   >
                     {item.footerLabel}
