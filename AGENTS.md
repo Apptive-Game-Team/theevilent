@@ -76,6 +76,25 @@ Follow the project workflow before opening implementation PRs:
 Key rule:
 - Branch names must use `<label>/<issue num>` such as `feature/3`, with no extra descriptive suffix.
 
+Every issue and pull request must set an assignee and a label. Do not leave either blank.
+
+- Assignee: `--assignee @me`.
+- Label: use the same value as the branch prefix. Check available labels with `gh label list`; do not invent a new label when none fit.
+- Do not attach a project.
+- When GitHub CLI authentication appears invalid inside a sandbox but the user says their session is valid, request escalated execution and retry `gh` with the user's session credentials before asking them to re-authenticate.
+
+```bash
+gh issue create --title "..." --body "..." --assignee @me --label documentation
+gh pr create --base <base> --title "..." --body "..." --assignee @me --label documentation
+```
+
+Confirm the metadata after creation:
+
+```bash
+gh issue view <issue-number> --json assignees,labels
+gh pr view <pr-number> --json assignees,labels
+```
+
 ---
 
 ## 🔬 Visual Verification & Validation Skill
