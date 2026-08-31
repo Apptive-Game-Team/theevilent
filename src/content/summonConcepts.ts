@@ -44,6 +44,32 @@ export interface SummonConcept {
 
 export const summonConcepts: SummonConcept[] = [
   {
+    slug: 'evil_ent',
+    name: '사악한 나무 골렘',
+    internalName: 'EvilEnt',
+    faction: '타락한 정령',
+    role: '지상 원거리 공격·끌어당김 연계',
+    mobility: '지상 이동',
+    targeting: '지상',
+    lifecycle: 'HP 소진 시 파괴',
+    description: '지옥불 차원의 영향을 오래 받아 수분이 마르고 숯빛으로 타락한 세계수 정령이다. 사거리 안의 적에게 나무 팔을 뻗고, 주기적으로 가벼운 적을 끌어당겨 불타는 주먹으로 마무리한다.',
+    sourceMagic: { slug: 'evil_ent', name: '사악한 나무 골렘' },
+    artwork: {
+      src: '/game-assets/evil-ent-idle.webp',
+      alt: '오른쪽을 향해 마른 나무 팔을 뻗을 준비를 하는 사악한 나무 골렘',
+      width: 224,
+      height: 256,
+      caption: '기본 자세 · 마른 숯빛 목질과 내부 지옥불 균열',
+    },
+    alternateArtwork: {
+      src: '/game-assets/evil-ent-attack.webp',
+      alt: '오른쪽으로 긴 나무 팔을 뻗어 공격하는 사악한 나무 골렘',
+      width: 224,
+      height: 256,
+      caption: '공격 자세 · 팔을 뻗은 0.1초 프레임',
+    },
+  },
+  {
     slug: 'magma_spirit',
     name: '용암 갑각 악마',
     internalName: 'MagmaSpirit',

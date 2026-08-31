@@ -26,6 +26,7 @@ export interface RelatedArtwork {
 export interface MagicArtwork {
   concept: ConceptArtwork;
   gameAsset?: GameAssetArtwork;
+  sequenceArtwork?: GameAssetArtwork[];
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
@@ -77,6 +78,56 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       alt: '지옥불 차원의 하늘을 부유하며 하위 악마를 소환하는 거대한 생체 모함 컨셉 아트',
       caption: '지옥불 군단의 공중 소환 모체 · 컨셉 아트',
     },
+  },
+  evil_ent: {
+    concept: {
+      src: '/game-assets/evil-ent-idle.webp',
+      alt: '오른쪽을 향해 마른 나무 팔을 뻗을 준비를 하는 사악한 나무 골렘',
+      caption: '사악한 나무 골렘 · 기본 자세 · 인게임 스프라이트',
+    },
+    gameAsset: {
+      src: '/game-assets/evil-ent-attack.webp',
+      alt: '오른쪽으로 긴 나무 팔을 뻗어 공격하는 사악한 나무 골렘',
+      caption: '사악한 나무 골렘 · 팔을 뻗은 공격 자세',
+      width: 224,
+      height: 256,
+    },
+  },
+  chain_lightning: {
+    concept: {
+      src: '/game-assets/chain-lightning.webp',
+      alt: '왼쪽에서 오른쪽으로 굵은 전격 마디가 이어지는 연쇄 번개',
+      caption: '연쇄 번개 · 64px 실루엣 검수를 마친 인게임 스프라이트',
+    },
+  },
+  lightning_drop: {
+    concept: {
+      src: '/concept-art/lightning-cloud-strike-sequence.webp',
+      alt: '번개 구름 아래에서 낙뢰가 지면까지 자라는 여섯 단계 연출 시트',
+      caption: '번개 투하 · 번개 구름 대기 및 6단계 강타 시퀀스',
+    },
+    gameAsset: {
+      src: '/game-assets/lightning-drop.webp',
+      alt: '번개 투하 인게임 스프라이트',
+      caption: '번개 투하 · 인게임 스프라이트',
+      width: 320,
+      height: 640,
+    },
+    sequenceArtwork: [
+      ['lightning-cloud-idle.webp', '번개 구름 · 대기'],
+      ['lightning-cloud-strike-0.webp', '강타 1 · 구름 밑에 번개가 돋음'],
+      ['lightning-cloud-strike-1.webp', '강타 2 · 번개 줄기가 절반까지 성장'],
+      ['lightning-cloud-strike-2.webp', '강타 3 · 번개 줄기가 지면 직전까지 성장'],
+      ['lightning-cloud-strike-3.webp', '강타 4 · 지면 도달과 최대 밝기'],
+      ['lightning-cloud-strike-4.webp', '강타 5 · 잔광'],
+      ['lightning-cloud-strike-5.webp', '강타 6 · 소멸 직전'],
+    ].map(([file, caption]) => ({
+      src: `/game-assets/${file}`,
+      alt: caption,
+      caption,
+      width: 320,
+      height: 640,
+    })),
   },
 };
 

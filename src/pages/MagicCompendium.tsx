@@ -134,6 +134,26 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
             <figcaption>{artwork.gameAsset.caption}</figcaption>
           </figure>}
         </section>
+        {artwork.sequenceArtwork && (
+          <section className="magic-related-artwork">
+            <h2>번개 구름 · 대기 및 강타 프레임</h2>
+            <div className="magic-artwork-gallery" aria-label="번개 구름 대기 및 강타 프레임">
+              {artwork.sequenceArtwork.map((frame) => (
+                <figure className="magic-game-asset" key={frame.src}>
+                  <img
+                    alt={frame.alt}
+                    decoding="async"
+                    height={frame.height}
+                    loading="lazy"
+                    src={frame.src}
+                    width={frame.width}
+                  />
+                  <figcaption>{frame.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
         {relatedArtwork.map((related) => (
           <section className="magic-related-artwork" key={related.heading}>
             <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
@@ -281,19 +301,16 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
   const query = getQuery();
   const family = query.get('family') ?? '';
   const faction = query.get('faction') ?? '';
-  const mobility = query.get('mobility') ?? '';
   const requestedPage = Number.parseInt(query.get('page') ?? '1', 10);
 
   const filtered = magicConcepts.filter((magic) =>
     (!family || magic.family === family) &&
-    (!faction || magic.faction === faction) &&
-    (!mobility || magic.mobility === mobility)
+    (!faction || magic.faction === faction)
   );
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const page = Number.isFinite(requestedPage) ? Math.min(Math.max(requestedPage, 1), pageCount) : 1;
   const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const factions = [...new Set(magicConcepts.map((magic) => magic.faction))].sort();
-  const mobilities = [...new Set(magicConcepts.map((magic) => magic.mobility))].sort();
 
   return (
     <div className="magic-compendium-page">
@@ -304,9 +321,9 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
             <h1>마법<br /><span>컨셉 도감</span></h1>
           </div>
           <div className="magic-compendium-intro">
-            <p>워드가 남긴 카드의 흔적과 전장 기록을 엮은 67개 마법 아카이브.</p>
+            <p>워드가 남긴 카드의 흔적과 전장 기록을 엮은 {magicConcepts.length}개 마법 아카이브.</p>
             <dl>
-              <div><dt>기록</dt><dd>67</dd></div>
+              <div><dt>기록</dt><dd>{magicConcepts.length}</dd></div>
               <div><dt>진영</dt><dd>{factions.length}</dd></div>
               <div><dt>시전 방식</dt><dd>5</dd></div>
             </dl>
@@ -318,7 +335,6 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
         <section className="magic-filter-panel" aria-label="마법 필터">
           <FilterRow label="시전 방식" param="family" active={family} values={Object.keys(magicFamilyLabels)} labels={magicFamilyLabels} />
           <FilterRow label="진영" param="faction" active={faction} values={factions} />
-          <FilterRow label="기동" param="mobility" active={mobility} values={mobilities} />
         </section>
 
         <div className="magic-result-meta" aria-live="polite">
