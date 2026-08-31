@@ -21,6 +21,7 @@ import {
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
 import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
+import { getTabPath } from '../routing';
 
 interface MagicCompendiumProps {
   slug?: string;
@@ -38,7 +39,7 @@ const getCardArtwork = (bean: string) => {
   return magicRelatedArtwork[bean]?.[0]?.concept;
 };
 
-const getQuery = () => new URLSearchParams(window.location.hash.split('?')[1] ?? '');
+const getQuery = () => new URLSearchParams(window.location.search);
 
 const makeListHref = (changes: Record<string, string | null>) => {
   const query = getQuery();
@@ -47,7 +48,7 @@ const makeListHref = (changes: Record<string, string | null>) => {
     else query.delete(key);
   });
   const suffix = query.toString();
-  return `#magic${suffix ? `?${suffix}` : ''}`;
+  return `${getTabPath('magic')}${suffix ? `?${suffix}` : ''}`;
 };
 
 const factionIcon = (faction: string): LucideIcon => {
@@ -92,7 +93,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
   return (
     <article className="magic-detail-page">
     <div className="container">
-      <a className="magic-back-link" href="#magic">
+      <a className="magic-back-link" href={getTabPath('magic')}>
         <ArrowLeft size={17} aria-hidden="true" />
         마법 도감으로
       </a>
@@ -156,7 +157,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
         )}
         {relatedArtwork.map((related) => (
           <section className="magic-related-artwork" key={related.heading}>
-            <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
+            <h2><a className="summon-relation-link" href={getTabPath('summons', related.slug)}>{related.heading}</a></h2>
             <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 및 인게임 아트`}>
               <figure className="magic-concept-art">
                 <img
@@ -188,7 +189,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
 
       {!artwork && relatedArtwork.map((related) => (
         <section className="magic-related-artwork" key={related.heading}>
-          <h2><a className="summon-relation-link" href={`#summons/${related.slug}`}>{related.heading}</a></h2>
+          <h2><a className="summon-relation-link" href={getTabPath('summons', related.slug)}>{related.heading}</a></h2>
           <div className="magic-artwork-gallery" aria-label={`${related.heading} 컨셉 아트`}>
             <figure className="magic-concept-art">
               <img
@@ -231,7 +232,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
           <ul>
             {linkedSummons.map((summon) => (
               <li key={summon.slug}>
-                <a className="summon-relation-link" href={`#summons/${summon.slug}`}>
+                <a className="summon-relation-link" href={getTabPath('summons', summon.slug)}>
                   {summon.name} · {summon.role}
                 </a>
               </li>
@@ -348,7 +349,7 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
             return (
               <a
                 className={`magic-concept-card${cardArtwork ? ' has-thumbnail' : ''}`}
-                href={`#magic/${magic.bean}`}
+                href={getTabPath('magic', magic.bean)}
                 key={magic.bean}
               >
               {cardArtwork && (
