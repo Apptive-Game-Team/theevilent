@@ -8,29 +8,7 @@ import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import SummonCompendium from './pages/SummonCompendium';
-
-const validTabs: TabId[] = ['home', 'games', 'magic', 'summons', 'team'];
-
-interface AppRoute {
-  tab: TabId;
-  slug?: string;
-}
-
-// Returns null when the hash is a non-empty fragment that is not a tab route
-// (e.g. the "#main-content" skip link), so callers can leave the route alone.
-const getRouteFromHash = (): AppRoute | null => {
-  if (typeof window === 'undefined') {
-    return { tab: 'home' };
-  }
-
-  const route = window.location.hash.replace('#', '').split('?')[0];
-  if (!route) {
-    return { tab: 'home' };
-  }
-
-  const [hashTab, slug] = route.split('/') as [TabId, string | undefined];
-  return validTabs.includes(hashTab) ? { tab: hashTab, slug } : null;
-};
+import { getLegacyPathFromHash, getRouteFromPathname, getTabPath } from './routing';
 
 function CursorGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -57,29 +35,30 @@ function CursorGlow() {
 }
 
 function App() {
-  const [route, setRoute] = useState<AppRoute>(() => getRouteFromHash() ?? { tab: 'home' });
+  const [route, setRoute] = useState(() => {
+    const legacyPath = getLegacyPathFromHash(window.location.hash);
+    if (legacyPath) window.history.replaceState(null, '', legacyPath);
+    return getRouteFromPathname(window.location.pathname);
+  });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const nextRoute = getRouteFromHash();
-      if (!nextRoute) return;
-
-      setRoute(nextRoute);
+    const handlePopState = () => {
+      setRoute(getRouteFromPathname(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handlePopState);
     };
   }, []);
 
   const navigateToTab = (tabId: TabId) => {
     setRoute({ tab: tabId });
-    const nextHash = tabId === 'home' ? '' : `#${tabId}`;
+    const nextPath = getTabPath(tabId);
 
-    if (window.location.hash !== nextHash) {
-      window.history.pushState(null, '', `${window.location.pathname}${nextHash}`);
+    if (`${window.location.pathname}${window.location.search}` !== nextPath) {
+      window.history.pushState(null, '', nextPath);
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });

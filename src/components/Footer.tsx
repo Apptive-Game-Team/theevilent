@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { navigationItems, platformLinks, type TabId } from '../content/siteContent';
+import { getTabPath } from '../routing';
 
 interface FooterProps {
   navigateToTab: (tab: TabId) => void;
@@ -45,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
               {navigationItems.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={item.id === 'home' ? '#' : `#${item.id}`}
+                    href={getTabPath(item.id)}
                     onClick={(event) => handleNavClick(event, item.id)}
                     style={styles.linkButton}
                   >
