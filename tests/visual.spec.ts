@@ -31,10 +31,8 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('heading', { name: '마법 컨셉 도감' })).toBeVisible();
   await expect(page.locator('.magic-concept-card')).toHaveCount(24);
 
-  // Filter state stays in URL
-  await page.getByRole('link', { name: '공중 부유형', exact: true }).click();
-  await expect(page).toHaveURL(/#magic\?mobility=/);
-  await expect(page.getByText('6개 기록')).toBeVisible();
+  // Mobility remains profile information, not a list filter.
+  await expect(page.locator('.magic-filter-panel').getByText('기동', { exact: true })).toHaveCount(0);
 
   // Direct detail route
   await page.goto('/#magic/fire_lord_spirit');
@@ -48,6 +46,15 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('heading', { name: '잿불 악마 무리' })).toBeVisible();
   await expect(page.getByRole('img', { name: /잿불 척후악마 컨셉 아트/ })).toBeVisible();
 
+  await page.goto('/#magic/chain_lightning');
+  await expect(page.getByRole('heading', { name: '연쇄 번개' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /굵은 전격 마디/ })).toBeVisible();
+
+  await page.goto('/#magic/lightning_drop');
+  await expect(page.getByRole('heading', { name: '번개 투하' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '번개 구름 · 대기 및 강타 프레임' })).toBeVisible();
+  await expect(page.locator('.magic-related-artwork .magic-game-asset')).toHaveCount(7);
+
   await page.goto('/#magic/dimension_toad');
   await expect(page.getByRole('heading', { name: '경계 운반자' })).toBeVisible();
   await expect(page.getByRole('img', { name: /화산편 컨셉 아트/ })).toBeVisible();
@@ -58,7 +65,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 
   await page.goto('/#summons');
   await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(10);
+  await expect(page.locator('.magic-concept-card')).toHaveCount(11);
   await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
@@ -92,6 +99,7 @@ test('new summon records expose their approved artwork and source magic', async 
     ['dimension_toad', '경계 운반자'],
     ['rock_golem', '이끼바위 골렘'],
     ['water_slime', '물방울 생존자'],
+    ['evil_ent', '사악한 나무 골렘'],
   ]) {
     await page.goto(`/#summons/${slug}`);
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
@@ -126,7 +134,8 @@ test('skip link keeps the active tab instead of resetting to home', async ({ pag
   await page.goto('/#team');
   await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
 
-  await page.getByRole('link', { name: 'Skip To Main Content' }).click();
+  await page.getByRole('link', { name: 'Skip To Main Content' }).focus();
+  await page.keyboard.press('Enter');
 
   await expect(page).toHaveURL(/#main-content$/);
   await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();

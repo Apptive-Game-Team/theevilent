@@ -106,6 +106,19 @@ This script automates the complete validation process:
 1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
 2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Games, and Team tabs.
 
+## Arcane Casters Content Sources
+
+- Treat `WordOnlineClient/Assets/Localization` as the source of truth for Korean
+  magic and summon names. Resolve the key in `Magic Shared Data.asset`, then use
+  the row with the same `m_Id` in `Magic_ko-KR.asset`.
+- Do not replace a localized Korean name with a newly invented concept name. A
+  concept subtitle may be added separately when needed.
+- If the client has no Korean display-name row, record the gap explicitly. Use
+  wording already present in the client's Korean description or art catalog only
+  as a temporary exception; do not silently establish a new canonical name.
+- Runtime artwork comes from `WordOnlineClient/Assets/Resources/Game/sprites/`.
+  Website WebP files are display copies, not the production source.
+
 ### Running the Skill:
 To execute this verification flow at any time:
 ```bash
