@@ -29,6 +29,20 @@ export interface MagicArtwork {
 }
 
 export const magicArtwork: Record<string, MagicArtwork> = {
+  dimension_toad: {
+    concept: {
+      src: '/concept-art/dimension-toad.webp',
+      alt: '여섯 다리로 차원 풍경을 운반하는 경계 운반자 컨셉 아트',
+      caption: '차원 유랑종의 이동하는 세계 조각 · 컨셉 아트',
+    },
+    gameAsset: {
+      src: '/game-assets/dimension-toad.webp',
+      alt: '경계 운반자 인게임 스프라이트',
+      caption: '경계 운반자 · 인게임 스프라이트',
+      width: 768,
+      height: 456,
+    },
+  },
   ember_spirit_swarm: {
     concept: {
       src: '/concept-art/ember-spirit-swarm.webp',
@@ -93,20 +107,34 @@ export const magicRelatedArtwork: Record<string, RelatedArtwork[]> = {
   dimension_toad: [
     {
       slug: 'fire_tadpole',
-      heading: '소환 개체 · 잿불 올챙이',
+      heading: '소환 개체 · 화산편',
       concept: {
         src: '/concept-art/fire-tadpole.webp',
-        alt: '균열두꺼비가 낳은 불 마력 적응형 잿불 올챙이 컨셉 아트',
-        caption: '차원 유랑종 · 지상 근접 공격 · 시간제한 개체',
+        alt: '내부에 화산 풍경을 품은 소형 차원 파편 화산편 컨셉 아트',
+        caption: '차원 유랑종 · 빠른 지상 화염 근접 개체',
+      },
+      gameAsset: {
+        src: '/game-assets/fire-tadpole.webp',
+        alt: '화산편 인게임 스프라이트',
+        caption: '화산편 · 인게임 스프라이트',
+        width: 512,
+        height: 240,
       },
     },
     {
       slug: 'lightning_tadpole',
-      heading: '소환 개체 · 뇌광 올챙이',
+      heading: '소환 개체 · 폭풍편',
       concept: {
         src: '/concept-art/lightning-tadpole.webp',
-        alt: '균열두꺼비가 낳은 전기 마력 적응형 뇌광 올챙이 컨셉 아트',
-        caption: '동일 종 실루엣 · 전기 흡수층 변형 · 시간제한 개체',
+        alt: '내부에 번개 폭풍을 품은 소형 차원 파편 폭풍편 컨셉 아트',
+        caption: '차원 유랑종 · 빠른 지상 번개 근접 개체',
+      },
+      gameAsset: {
+        src: '/game-assets/lightning-tadpole.webp',
+        alt: '폭풍편 인게임 스프라이트',
+        caption: '폭풍편 · 인게임 스프라이트',
+        width: 356,
+        height: 512,
       },
     },
   ],
