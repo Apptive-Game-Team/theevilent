@@ -1,11 +1,12 @@
 import React from 'react';
 import { ArrowLeft, Compass, Footprints, Hourglass, Shield } from 'lucide-react';
 import { summonConcepts, type SummonConcept } from '../content/summonConcepts';
+import { getTabPath } from '../routing';
 
 const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
   <article className="magic-detail-page">
     <div className="container">
-      <a className="magic-back-link" href="#summons">
+      <a className="magic-back-link" href={getTabPath('summons')}>
         <ArrowLeft size={17} aria-hidden="true" />
         소환수 도감으로
       </a>
@@ -94,7 +95,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
       <section className="magic-lore-panel">
         <p className="magic-section-label">SOURCE MAGIC</p>
         <h2>연관 마법</h2>
-        <a className="summon-relation-link" href={`#magic/${summon.sourceMagic.slug}`}>
+        <a className="summon-relation-link" href={getTabPath('magic', summon.sourceMagic.slug)}>
           {summon.sourceMagic.name} 상세 보기
         </a>
       </section>
@@ -131,7 +132,7 @@ const SummonCompendium: React.FC<{ slug?: string }> = ({ slug }) => {
       <main className="container magic-compendium-content">
         <section className="magic-card-grid" aria-label="소환수 목록">
           {summonConcepts.map((summon) => (
-            <a className="magic-concept-card" href={`#summons/${summon.slug}`} key={summon.slug}>
+            <a className="magic-concept-card" href={getTabPath('summons', summon.slug)} key={summon.slug}>
               <div className="magic-card-tags">
                 <span>{summon.faction}</span>
                 <span>{summon.mobility}</span>

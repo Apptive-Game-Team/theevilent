@@ -118,6 +118,10 @@ This script automates the complete validation process:
   as a temporary exception; do not silently establish a new canonical name.
 - Runtime artwork comes from `WordOnlineClient/Assets/Resources/Game/sprites/`.
   Website WebP files are display copies, not the production source.
+- Keep Arcane Casters content under the `/arcane-casters` URL hierarchy:
+  `/arcane-casters/magic[/<slug>]` and
+  `/arcane-casters/summons[/<slug>]`. Do not add new `#magic` or `#summons`
+  routes; those hashes exist only as legacy redirects.
 
 ### Running the Skill:
 To execute this verification flow at any time:

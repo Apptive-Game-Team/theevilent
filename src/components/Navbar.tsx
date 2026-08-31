@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navigationItems, type TabId } from '../content/siteContent';
+import { getTabPath } from '../routing';
 
 interface NavbarProps {
   activeTab: TabId;
@@ -51,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
           {navigationItems.map((item) => (
             <a
               key={item.id}
-              href={item.id === 'home' ? '#' : `#${item.id}`}
+              href={getTabPath(item.id)}
               onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.navLink,
@@ -87,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
           {navigationItems.map((item) => (
             <a
               key={item.id}
-              href={item.id === 'home' ? '#' : `#${item.id}`}
+              href={getTabPath(item.id)}
               onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.mobileNavLink,
