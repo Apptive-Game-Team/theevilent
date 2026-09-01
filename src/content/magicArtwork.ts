@@ -135,6 +135,20 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       height: 88,
     },
   },
+  crater: {
+    concept: {
+      src: '/game-assets/crater.webp',
+      alt: '검붉은 현무암 갑각과 내부 용암 코어로 만든 지옥불 분화구',
+      caption: '분화구 · 지옥불 갑각 인게임 스프라이트',
+    },
+    gameAsset: {
+      src: '/game-assets/crater.webp',
+      alt: '검은 현무암 갑각이 둘러싼 내부 용암 분화구',
+      caption: '분화구 · 인게임 스프라이트',
+      width: 256,
+      height: 169,
+    },
+  },
   lightning_drop: {
     concept: {
       src: '/concept-art/lightning-cloud-strike-sequence.webp',
