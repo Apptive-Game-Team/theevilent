@@ -100,6 +100,41 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       caption: '연쇄 번개 · 64px 실루엣 검수를 마친 인게임 스프라이트',
     },
   },
+  magma_explosion: {
+    concept: {
+      src: '/game-assets/magma-explosion.webp',
+      alt: '검붉은 갑각이 갈라지며 내부 용암광이 솟는 마그마 폭발',
+      caption: '마그마 폭발 · 2.5D cut-paper 인게임 스프라이트',
+    },
+    gameAsset: {
+      src: '/game-assets/magma-explosion.webp',
+      alt: '마그마 폭발 초기 갑각 프레임',
+      caption: '마그마 폭발 · 초기 갑각 프레임',
+      width: 217,
+      height: 256,
+    },
+    sequenceArtwork: [1, 2, 3, 4].map((index) => ({
+      src: `/game-assets/magma-explosion-strike-${index}.webp`,
+      alt: `마그마 폭발 ${index}단계 프레임`,
+      caption: `마그마 폭발 · ${index}단계`,
+      width: 217,
+      height: 256,
+    })),
+  },
+  fire_shot: {
+    concept: {
+      src: '/game-assets/fire-shot.webp',
+      alt: '검붉은 갑각과 중앙 용암 코어로 만든 우측 비행 화염탄',
+      caption: '화염탄 · 지옥불 갑각 용암 투사체',
+    },
+    gameAsset: {
+      src: '/game-assets/fire-shot.webp',
+      alt: '우측으로 날아가는 갑각 용암 화염탄',
+      caption: '화염탄 · 인게임 투사체',
+      width: 256,
+      height: 88,
+    },
+  },
   lightning_drop: {
     concept: {
       src: '/concept-art/lightning-cloud-strike-sequence.webp',
