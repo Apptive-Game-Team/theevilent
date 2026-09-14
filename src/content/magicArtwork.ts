@@ -178,6 +178,48 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       height: 640,
     })),
   },
+  shock_trap: {
+    concept: {
+      src: '/game-assets/shock-trap.webp',
+      alt: '나뭇가지 둥지 안에 노란 전격 결정이 세워진 감전 덫',
+      caption: '세계수 전기 정령의 설치 마법 · 감전 덫',
+    },
+  },
+  repair_totem: {
+    concept: {
+      src: '/game-assets/repair-totem.webp',
+      alt: '덩굴로 감긴 나무 기둥 위에 녹색 결정이 자란 정비 토템',
+      caption: '귀속 미정의 설치 마법 · 정비 토템',
+    },
+  },
+  grass_generator: {
+    concept: {
+      src: '/game-assets/grass-generator.webp',
+      alt: '녹색 잎 더미 중앙에 연두색 결정이 박힌 풀 배양기',
+      caption: '귀속 미정의 설치 마법 · 풀 배양기',
+    },
+  },
+  dragon_tower: {
+    concept: {
+      src: '/game-assets/dragon-tower.webp',
+      alt: '갈라진 용암 결이 흐르는 인간 마법 문명의 화룡 포탑',
+      caption: '인간 마법 문명의 설치 마법 · 화룡 포탑',
+    },
+  },
+  firework_tower: {
+    concept: {
+      src: '/game-assets/firework-tower.webp',
+      alt: '검붉은 종이 갑각 안에서 용암광이 새어 나오는 폭죽 포탑',
+      caption: '지옥불 군단의 설치 마법 · 폭죽 포탑',
+    },
+  },
+  frenzy_totem: {
+    concept: {
+      src: '/game-assets/frenzy-totem.webp',
+      alt: '뿔 달린 붉은 악마 가면 모양의 군단 광란토템',
+      caption: '지옥불 군단의 투하 마법 · 군단 광란토템',
+    },
+  },
 };
 
 export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
