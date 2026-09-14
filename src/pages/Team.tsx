@@ -47,7 +47,7 @@ export const Team: React.FC = () => {
                 className="gothic-card" 
                 style={{
                   ...styles.memberCard,
-                  borderColor: `rgba(45, 35, 30, 0.6)`,
+                  borderColor: 'rgba(var(--color-border-rgb), 0.6)',
                 }}
               >
                 {/* Avatar Icon */}
@@ -262,12 +262,12 @@ const styles: Record<string, React.CSSProperties> = {
   avatar: {
     width: '64px',
     height: '64px',
-    borderRadius: '8px',
+    borderRadius: 'var(--radius-card)',
     border: '2px solid',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0a0908',
+    backgroundColor: 'var(--color-bg-sunken)',
   },
   avatarText: {
     fontFamily: 'var(--font-display)',
@@ -305,12 +305,12 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'color 0.2s ease, transform 0.2s ease',
     display: 'inline-flex',
     padding: '0.25rem',
-    borderRadius: '4px',
+    borderRadius: 'var(--radius-control)',
   },
   sectionDark: {
     padding: '6rem 0 8rem 0',
-    backgroundColor: 'rgba(9, 8, 7, 0.4)',
-    borderTop: '1px solid #1a1512',
+    backgroundColor: 'var(--color-surface-veil)',
+    borderTop: '1px solid var(--color-border-rule)',
   },
   sectionTitle: {
     fontSize: '2rem',
@@ -341,15 +341,15 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'flex-start',
   },
   philoIconWrapper: {
-    backgroundColor: 'rgba(230, 30, 42, 0.1)',
+    backgroundColor: 'var(--color-primary-tint)',
     width: '40px',
     height: '40px',
-    borderRadius: '6px',
+    borderRadius: 'var(--radius-control-lg)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
-    border: '1px solid #3d2222',
+    border: '1px solid var(--color-border-accent-soft)',
   },
   philoTitle: {
     display: 'block',
@@ -400,21 +400,21 @@ const styles: Record<string, React.CSSProperties> = {
     textTransform: 'uppercase',
   },
   input: {
-    backgroundColor: '#0a0908',
-    border: '1px solid #322822',
+    backgroundColor: 'var(--color-bg-sunken)',
+    border: '1px solid var(--color-border-muted)',
     color: 'var(--color-text-light)',
     padding: '0.8rem 1rem',
-    borderRadius: '4px',
+    borderRadius: 'var(--radius-control)',
     fontSize: '0.95rem',
     fontFamily: 'var(--font-body)',
     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
   },
   textarea: {
-    backgroundColor: '#0a0908',
-    border: '1px solid #322822',
+    backgroundColor: 'var(--color-bg-sunken)',
+    border: '1px solid var(--color-border-muted)',
     color: 'var(--color-text-light)',
     padding: '0.8rem 1rem',
-    borderRadius: '4px',
+    borderRadius: 'var(--radius-control)',
     fontSize: '0.95rem',
     fontFamily: 'var(--font-body)',
     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
@@ -435,7 +435,7 @@ const styles: Record<string, React.CSSProperties> = {
   successTitle: {
     fontSize: '1.1rem',
     letterSpacing: '0.08em',
-    color: '#4cd137',
+    color: 'var(--color-status-success)',
     marginBottom: '0.5rem',
   },
   successDesc: {

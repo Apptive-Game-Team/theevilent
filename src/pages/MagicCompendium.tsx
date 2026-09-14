@@ -22,6 +22,7 @@ import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/
 import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
 import { getTabPath } from '../routing';
+import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 interface MagicCompendiumProps {
   slug?: string;
@@ -294,6 +295,8 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
 };
 
 const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
+  useDocumentTheme(ARCANE_CASTERS_THEME);
+
   if (slug) {
     const magic = magicConcepts.find((item) => item.bean === slug);
     if (magic) return <MagicDetail magic={magic} />;

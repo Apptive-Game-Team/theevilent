@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, Compass, Footprints, Hourglass, Shield } from 'lucide-react';
 import { summonConcepts, type SummonConcept } from '../content/summonConcepts';
 import { getTabPath } from '../routing';
+import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
   <article className="magic-detail-page">
@@ -106,6 +107,8 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
 );
 
 const SummonCompendium: React.FC<{ slug?: string }> = ({ slug }) => {
+  useDocumentTheme(ARCANE_CASTERS_THEME);
+
   if (slug) {
     const summon = summonConcepts.find((item) => item.slug === slug);
     if (summon) return <SummonDetail summon={summon} />;
