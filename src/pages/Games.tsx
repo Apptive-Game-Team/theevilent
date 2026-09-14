@@ -2,8 +2,11 @@ import React from 'react';
 import { getTabPath } from '../routing';
 import { BookOpen, Sparkles } from 'lucide-react';
 import { platformLinks } from '../content/siteContent';
+import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 export const Games: React.FC = () => {
+  useDocumentTheme(ARCANE_CASTERS_THEME);
+
   const [primaryPlatform, ...webPlayPlatforms] = platformLinks;
 
   return (
@@ -120,9 +123,9 @@ const styles: Record<string, React.CSSProperties> = {
     width: '86px',
     height: '86px',
     flexShrink: 0,
-    borderRadius: '18px',
-    border: '1px solid rgba(163, 199, 85, 0.45)',
-    boxShadow: '0 16px 40px rgba(94, 139, 44, 0.18), 0 0 0 6px rgba(163, 199, 85, 0.06)',
+    borderRadius: 'var(--radius-icon)',
+    border: '1px solid rgba(var(--color-field-rgb), 0.45)',
+    boxShadow: '0 16px 40px rgba(var(--color-field-shade-rgb), 0.18), 0 0 0 6px rgba(var(--color-field-rgb), 0.06)',
     objectFit: 'cover',
   },
   identityText: {
@@ -171,11 +174,11 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: '600',
     fontSize: '0.95rem',
     letterSpacing: '0.05em',
-    color: '#eae7e4',
+    color: 'var(--color-text-light)',
     padding: '0.85rem 1.5rem',
-    borderRadius: '6px',
-    border: '1px solid #322822',
-    backgroundColor: '#151210',
+    borderRadius: 'var(--radius-control-lg)',
+    border: '1px solid var(--color-border-muted)',
+    backgroundColor: 'var(--color-bg-card)',
     textDecoration: 'none',
     cursor: 'pointer',
     transition: 'transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
@@ -183,9 +186,9 @@ const styles: Record<string, React.CSSProperties> = {
   },
   primaryStoreBtn: {
     justifyContent: 'flex-start',
-    borderColor: 'rgba(230, 30, 42, 0.45)',
-    background: 'linear-gradient(135deg, rgba(163, 20, 28, 0.95) 0%, rgba(230, 30, 42, 0.88) 100%)',
-    boxShadow: '0 12px 30px rgba(230, 30, 42, 0.18)',
+    borderColor: 'var(--color-primary-edge)',
+    background: 'linear-gradient(135deg, rgba(var(--color-primary-deep-rgb), 0.95) 0%, rgba(var(--color-primary-rgb), 0.88) 100%)',
+    boxShadow: '0 12px 30px rgba(var(--color-primary-rgb), 0.18)',
   },
   headerImageWrapper: {
     display: 'flex',
@@ -197,11 +200,11 @@ const styles: Record<string, React.CSSProperties> = {
     position: 'relative',
     width: 'min(100%, 680px)',
     aspectRatio: '16 / 9',
-    borderRadius: '8px',
-    border: '2px solid #2d231e',
+    borderRadius: 'var(--radius-card)',
+    border: '2px solid var(--color-border)',
     overflow: 'hidden',
-    backgroundColor: '#11150c',
-    boxShadow: '0 24px 55px rgba(0,0,0,0.72), 0 0 0 1px rgba(163, 199, 85, 0.12)',
+    backgroundColor: 'var(--color-bg-keyart-plate)',
+    boxShadow: '0 24px 55px rgba(var(--color-shadow-rgb), 0.72), 0 0 0 1px rgba(var(--color-field-rgb), 0.12)',
   },
   gameHeroImg: {
     width: '100%',
@@ -223,8 +226,8 @@ const styles: Record<string, React.CSSProperties> = {
     width: '6px',
     height: '6px',
     borderRadius: '50%',
-    backgroundColor: '#a3c755',
-    boxShadow: '0 0 10px rgba(163, 199, 85, 0.7)',
+    backgroundColor: 'var(--color-field)',
+    boxShadow: '0 0 10px rgba(var(--color-field-rgb), 0.7)',
   },
 };
 
