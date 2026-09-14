@@ -29,6 +29,19 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
   return { tab: 'games' };
 };
 
+// The magic and summon compendiums live under the Arcane Casters section, so
+// the top-level navigation must keep highlighting GAMES while either of them
+// is the active route.
+const primaryNavTabOverrides: Partial<Record<TabId, TabId>> = {
+  magic: 'games',
+  summons: 'games',
+};
+
+export const getPrimaryNavTab = (tab: TabId): TabId => primaryNavTabOverrides[tab] ?? tab;
+
+export const isArcaneCastersTab = (tab: TabId): boolean =>
+  tab === 'games' || tab === 'magic' || tab === 'summons';
+
 export const getLegacyPathFromHash = (hash: string): string | null => {
   const legacy = hash.replace(/^#/, '');
   if (!legacy || legacy === 'main-content') return null;

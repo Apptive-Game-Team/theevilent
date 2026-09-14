@@ -9,6 +9,11 @@ export interface NavigationItem {
   footerLabel: string;
 }
 
+export interface SectionNavigationItem {
+  id: TabId;
+  label: string;
+}
+
 export interface PlatformLink {
   href: string;
   label: string;
@@ -31,9 +36,24 @@ export interface TeamMember {
 export const navigationItems: NavigationItem[] = [
   { id: 'home', label: 'HOME', footerLabel: 'Home' },
   { id: 'games', label: 'GAMES', footerLabel: 'Games' },
+  { id: 'team', label: 'TEAM', footerLabel: 'Team Members' },
+];
+
+// Section-level sub navigation shown only inside the Arcane Casters section
+// (the games/magic/summons routes under /arcane-casters). Keeps the magic and
+// summon compendiums out of the top-level navigationItems above.
+export const arcaneCastersSectionNav: SectionNavigationItem[] = [
+  { id: 'games', label: 'OVERVIEW' },
+  { id: 'magic', label: 'MAGIC' },
+  { id: 'summons', label: 'SUMMONS' },
+];
+
+// The footer still needs a site-wide link to each compendium even though the
+// top-level navigationItems above no longer carries them. Footer.tsx renders
+// these indented beneath the Games entry.
+export const arcaneCastersFooterLinks: NavigationItem[] = [
   { id: 'magic', label: 'MAGIC', footerLabel: 'Magic Compendium' },
   { id: 'summons', label: 'SUMMONS', footerLabel: 'Summon Compendium' },
-  { id: 'team', label: 'TEAM', footerLabel: 'Team Members' },
 ];
 
 export const platformLinks: PlatformLink[] = [
