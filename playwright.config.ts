@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// A second checkout running the suite at the same time needs its own port,
+// so this reads it from the environment instead of hardcoding 4174.
+const PORT = Number(process.env.PLAYWRIGHT_PORT) || 4174;
+
 export default defineConfig({
   testDir: './tests',
   timeout: 60_000,
@@ -9,7 +13,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: 'http://127.0.0.1:4174',
+    baseURL: `http://127.0.0.1:${PORT}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -19,8 +23,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 4174',
-    url: 'http://127.0.0.1:4174',
+    command: `npm run dev -- --host 127.0.0.1 --port ${PORT}`,
+    url: `http://127.0.0.1:${PORT}`,
     reuseExistingServer: false,
     timeout: 10000,
   },

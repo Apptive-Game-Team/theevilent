@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navigationItems, type TabId } from '../content/siteContent';
-import { getTabPath } from '../routing';
+import { getPrimaryNavTab, getTabPath } from '../routing';
 
 interface NavbarProps {
   activeTab: TabId;
@@ -10,6 +10,9 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // Magic and summons are routes inside the Arcane Casters section, so GAMES
+  // stays the highlighted top-level item while browsing either compendium.
+  const primaryTab = getPrimaryNavTab(activeTab);
 
   const handleNavClick = (tabId: TabId) => {
     navigateToTab(tabId);
@@ -25,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   };
 
   return (
-    <nav style={styles.nav}>
+    <nav style={styles.nav} aria-label="Primary">
       <div style={styles.navContainer}>
         <button
           type="button"
@@ -56,11 +59,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
               onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.navLink,
-                color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                borderBottom: activeTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
+                color: primaryTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
+                borderBottom: primaryTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
               }}
-              className={activeTab === item.id ? 'text-glow-subtle' : ''}
-              aria-current={activeTab === item.id ? 'page' : undefined}
+              className={primaryTab === item.id ? 'text-glow-subtle' : ''}
+              aria-current={primaryTab === item.id ? 'page' : undefined}
             >
               {item.label}
             </a>
@@ -92,10 +95,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
               onClick={(event) => handleNavLinkClick(event, item.id)}
               style={{
                 ...styles.mobileNavLink,
-                color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                backgroundColor: activeTab === item.id ? 'rgba(230, 30, 42, 0.05)' : 'transparent',
+                color: primaryTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
+                backgroundColor: primaryTab === item.id ? 'rgba(230, 30, 42, 0.05)' : 'transparent',
               }}
-              aria-current={activeTab === item.id ? 'page' : undefined}
+              aria-current={primaryTab === item.id ? 'page' : undefined}
             >
               {item.label}
             </a>

@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import ArcaneCastersSubNav from './components/ArcaneCastersSubNav';
 import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import SummonCompendium from './pages/SummonCompendium';
-import { getLegacyPathFromHash, getRouteFromPathname, getTabPath } from './routing';
+import { getLegacyPathFromHash, getRouteFromPathname, getTabPath, isArcaneCastersTab } from './routing';
 
 function CursorGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -91,6 +92,10 @@ function App() {
       </a>
 
       <Navbar activeTab={route.tab} navigateToTab={navigateToTab} />
+
+      {isArcaneCastersTab(route.tab) && (
+        <ArcaneCastersSubNav activeTab={route.tab} navigateToTab={navigateToTab} />
+      )}
 
       <main id="main-content" style={styles.mainContent} className="page-fade-in">
         {renderContent()}

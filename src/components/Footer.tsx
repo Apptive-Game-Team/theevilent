@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
-import { navigationItems, platformLinks, type TabId } from '../content/siteContent';
+import { arcaneCastersFooterLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
 
 interface FooterProps {
@@ -52,6 +52,24 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                   >
                     {item.footerLabel}
                   </a>
+                  {/* The magic and summon compendiums moved out of the top-level
+                      nav into the Arcane Casters section sub navigation, so list
+                      them here, indented beneath Games, to keep a site-wide link. */}
+                  {item.id === 'games' && (
+                    <ul style={styles.subList}>
+                      {arcaneCastersFooterLinks.map((subItem) => (
+                        <li key={subItem.id}>
+                          <a
+                            href={getTabPath(subItem.id)}
+                            onClick={(event) => handleNavClick(event, subItem.id)}
+                            style={styles.subLinkButton}
+                          >
+                            {subItem.footerLabel}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -170,6 +188,25 @@ const styles: Record<string, React.CSSProperties> = {
   linkButton: {
     color: 'var(--color-text-muted)',
     fontSize: '0.95rem',
+    cursor: 'pointer',
+    textAlign: 'left',
+    transition: 'color 0.2s ease, transform 0.2s ease',
+    fontFamily: 'var(--font-body)',
+    textDecoration: 'none',
+    display: 'inline-flex',
+  },
+  subList: {
+    listStyle: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.6rem',
+    marginTop: '0.6rem',
+    paddingLeft: '1rem',
+    borderLeft: '1px solid #2d231e',
+  },
+  subLinkButton: {
+    color: 'var(--color-text-muted)',
+    fontSize: '0.85rem',
     cursor: 'pointer',
     textAlign: 'left',
     transition: 'color 0.2s ease, transform 0.2s ease',
