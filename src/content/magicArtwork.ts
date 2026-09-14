@@ -220,6 +220,34 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       caption: '지옥불 군단의 투하 마법 · 군단 광란토템',
     },
   },
+  boulder_strike: {
+    concept: {
+      src: '/game-assets/boulder-strike.webp',
+      alt: '초승달 모양 바람 자국을 뒤따르며 밀려 나가는 이끼 낀 바위',
+      caption: '귀속 미정의 투사체 마법 · 질풍 낙석탄',
+    },
+  },
+  spirit_bomb: {
+    concept: {
+      src: '/game-assets/spirit-bomb.webp',
+      alt: '금색 코어에서 풀색 결정 날개가 뻗어 나가는 정령력 집속포',
+      caption: '귀속 미정의 투사체 마법 · 정령력 집속포',
+    },
+  },
+  titan_remnant: {
+    concept: {
+      src: '/game-assets/titan-remnant.webp',
+      alt: '이끼 낀 거대한 석재 잔해가 쌓여 형태를 이룬 거신의 잔해',
+      caption: '귀속 미정의 설치 마법 · 거신의 잔해',
+    },
+  },
+  tidal_warhead: {
+    concept: {
+      src: '/game-assets/tidal-warhead.webp',
+      alt: '어두운 눈을 가진 청록색 상어 모양의 공중 표적용 해일 탄두',
+      caption: '귀속 미정의 투사체 마법 · 해일 탄두 · 공중 표적',
+    },
+  },
 };
 
 export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
@@ -241,6 +269,44 @@ export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
       caption: '지옥불 공용 오라 · 대기 맥동과 공격 파동에 사용',
       width: 512,
       height: 295,
+    },
+  ],
+  titan_remnant: [
+    {
+      heading: '부속 에셋 · 솟구치는 돌주먹',
+      src: '/game-assets/titan-fist.webp',
+      alt: '적 위치에서 아래에서 위로 솟구치는 거대한 돌주먹',
+      caption: '거신의 잔해 · 적 위치에 별도 생성되는 돌주먹 공격 · 본체와 별도 개체',
+      width: 180,
+      height: 247,
+    },
+  ],
+  tidal_warhead: [
+    {
+      heading: '부속 에셋 · 지상 표적 변형',
+      src: '/game-assets/ground-tidal-warhead.webp',
+      alt: '밝은 눈을 가진 지상 표적용 해일 탄두, 몸통 실루엣은 공중형과 동일',
+      caption: '해일 탄두 · 지상 표적 · 밝은 눈 · 본체와 동일 실루엣',
+      width: 256,
+      height: 256,
+    },
+  ],
+  firework_tower: [
+    {
+      heading: '부속 에셋 · 발사 포탄',
+      src: '/game-assets/firework-shell.webp',
+      alt: '검붉은 갑각에 감싸인 작은 폭죽 포탄',
+      caption: '폭죽 타워 · 발사되는 포탄',
+      width: 128,
+      height: 109,
+    },
+    {
+      heading: '부속 에셋 · 폭발',
+      src: '/game-assets/firework-explosion.webp',
+      alt: '검붉은 갑각 파편이 사방으로 터지며 용암광이 번지는 폭발',
+      caption: '폭죽 타워 · 착탄 시 폭발',
+      width: 254,
+      height: 238,
     },
   ],
 };

@@ -65,7 +65,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 
   await page.goto('/arcane-casters/summons');
   await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(17);
+  await expect(page.locator('.magic-concept-card')).toHaveCount(18);
   await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
