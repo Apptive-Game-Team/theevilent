@@ -432,4 +432,32 @@ export const summonConcepts: SummonConcept[] = [
       caption: '기본 자세 · 각진 전격 파편 날개',
     },
   },
+  {
+    slug: 'bomb_sprite',
+    name: '공습 폭탄요정',
+    internalName: 'BombSprite',
+    faction: '귀속 미정',
+    role: '전투 개체',
+    mobility: '공중 부유형',
+    targeting: '대상 제한을 이 파일에서 직접 확인하지 못함',
+    lifecycle: '소스에서 시간 제한을 직접 확인하지 못함',
+    description: '공습 폭탄요정은 귀속 미정의 소환 마법이다. `ZPhysics(gameObject, hoverY)`로 고도를 유지한다. 전투에서는 전투 개체 역할을 맡으며, 대상 제한을 이 파일에서 직접 확인하지 못함 대상을 직접 공격 없음 또는 별도 효과 방식으로 다룬다. 추가 특수 이동은 없다. 시각적으로는 기존 세계관만으로 귀속을 확정할 수 없다. 시각 제작 전 설정 결정이 필요하다.',
+    sourceMagic: { slug: 'bomb_sprite', name: '공습 폭탄요정' },
+    artwork: {
+      src: '/game-assets/bomb-sprite.webp',
+      alt: '한 손에 검은 폭탄을 안은 옅은 청록색 정령 공습 폭탄요정',
+      width: 222,
+      height: 256,
+      caption: '기본 자세 · 폭탄을 안고 고도를 유지하는 정령',
+    },
+    supplementaryArtwork: [
+      {
+        src: '/game-assets/bomb-sprite-bomb.webp',
+        alt: '금색 도화선 불꽃이 타오르는 검은 폭탄',
+        width: 231,
+        height: 256,
+        caption: '투척 폭탄 · 공습 폭탄요정이 던지는 폭발물 · 별도 생물 아님',
+      },
+    ],
+  },
 ];
