@@ -97,6 +97,16 @@ gh pr view <pr-number> --json assignees,labels
 
 ---
 
+## Project Skills
+
+This repository keeps its own skills under `.agents/skills/`. Read the one that covers the task before starting. An agent that only auto-loads skills from its own home directory does not see these, so open the file by path.
+
+- `.agents/skills/frontend-design/SKILL.md` — builds distinctive, production-grade frontend web components, pages, and applications with high design quality, avoiding generic AI aesthetics.
+- `.agents/skills/verify-homepage/SKILL.md` — compiles the Vite React project and runs Playwright tests to visually verify the Home, Games, and Team pages of the Evil Ent homepage.
+- `.agents/skills/web-interface-guidelines/SKILL.md` — reviews UI code for compliance with the Vercel Web Interface Guidelines.
+
+---
+
 ## 🔬 Visual Verification & Validation Skill
 
 We have created an automated visual verification skill script:
