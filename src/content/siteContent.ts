@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { Globe, Play } from 'lucide-react';
 
-export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team';
+export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team' | 'privacy';
 
 export interface NavigationItem {
   id: TabId;
@@ -54,6 +54,12 @@ export const arcaneCastersSectionNav: SectionNavigationItem[] = [
 export const arcaneCastersFooterLinks: NavigationItem[] = [
   { id: 'magic', label: 'MAGIC', footerLabel: 'Magic Compendium' },
   { id: 'summons', label: 'SUMMONS', footerLabel: 'Summon Compendium' },
+];
+
+// Legal notices are not navigation, so they stay out of navigationItems and
+// out of the Navbar. Footer.tsx renders them in the bottom row instead.
+export const legalLinks: NavigationItem[] = [
+  { id: 'privacy', label: 'PRIVACY', footerLabel: 'Privacy Policy' },
 ];
 
 export const platformLinks: PlatformLink[] = [
