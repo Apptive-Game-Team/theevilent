@@ -10,6 +10,7 @@ import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import SummonCompendium from './pages/SummonCompendium';
 import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 import { getLegacyPathFromHash, getRouteFromPathname, getTabPath, isArcaneCastersTab } from './routing';
 
 function CursorGlow() {
@@ -80,6 +81,8 @@ function App() {
         return <Team />;
       case 'privacy':
         return <Privacy />;
+      case 'terms':
+        return <Terms />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }

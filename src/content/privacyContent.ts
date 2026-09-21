@@ -9,39 +9,13 @@
 //     UnityConnectSettings.asset is disabled
 // Change this file when those change, not the other way round.
 
-export type PrivacyLanguage = 'ko' | 'en';
+import {
+  legalContact,
+  type LegalDocumentContent,
+  type LegalLanguage,
+} from './legalDocument';
 
-export interface PrivacyTable {
-  head: string[];
-  rows: string[][];
-}
-
-export interface PrivacySection {
-  heading: string;
-  paragraphs?: string[];
-  bullets?: string[];
-  table?: PrivacyTable;
-  // Trailing prose, rendered after the bullets and the table. A legal basis or
-  // a caveat belongs under the list it qualifies, not above it.
-  notes?: string[];
-}
-
-export interface PrivacyDocument {
-  title: string;
-  effectiveLabel: string;
-  effectiveDate: string;
-  intro: string[];
-  sections: PrivacySection[];
-}
-
-export const privacyContact = 'me@yunseong.dev';
-
-export const privacyLanguageLabels: Record<PrivacyLanguage, string> = {
-  ko: '한국어',
-  en: 'English',
-};
-
-const korean: PrivacyDocument = {
+const korean: LegalDocumentContent = {
   title: '개인정보처리방침',
   effectiveLabel: '시행일',
   effectiveDate: '2026년 9월 21일',
@@ -140,7 +114,7 @@ const korean: PrivacyDocument = {
     {
       heading: '10. 문의처',
       paragraphs: [
-        `개인정보 보호 책임자: yunseong (${privacyContact})`,
+        `개인정보 보호 책임자: yunseong (${legalContact})`,
         '개인정보 처리에 관한 질문, 열람이나 삭제 요청, 침해 신고를 이 주소로 보내 주세요.',
       ],
     },
@@ -153,7 +127,7 @@ const korean: PrivacyDocument = {
   ],
 };
 
-const english: PrivacyDocument = {
+const english: LegalDocumentContent = {
   title: 'Privacy Policy',
   effectiveLabel: 'Effective',
   effectiveDate: '21 September 2026',
@@ -252,7 +226,7 @@ const english: PrivacyDocument = {
     {
       heading: '10. Contact',
       paragraphs: [
-        `Privacy contact: yunseong (${privacyContact})`,
+        `Privacy contact: yunseong (${legalContact})`,
         'Send questions about how we handle data, access or deletion requests, and reports of misuse to this address.',
       ],
     },
@@ -265,7 +239,7 @@ const english: PrivacyDocument = {
   ],
 };
 
-export const privacyDocuments: Record<PrivacyLanguage, PrivacyDocument> = {
+export const privacyDocuments: Record<LegalLanguage, LegalDocumentContent> = {
   ko: korean,
   en: english,
 };
