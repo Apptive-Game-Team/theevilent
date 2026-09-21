@@ -11,6 +11,7 @@ const tabPaths: Record<TabId, string> = {
   magic: '/arcane-casters/magic',
   summons: '/arcane-casters/summons',
   team: '/team',
+  privacy: '/privacy',
 };
 
 export const getTabPath = (tab: TabId, slug?: string) =>
@@ -22,6 +23,7 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
 
   if (segments.length === 0) return { tab: 'home' };
   if (segments[0] === 'team' && segments.length === 1) return { tab: 'team' };
+  if (segments[0] === 'privacy' && segments.length === 1) return { tab: 'privacy' };
   if (segments[0] !== 'arcane-casters') return { tab: 'home' };
   if (segments.length === 1) return { tab: 'games' };
   if (segments[1] === 'magic') return { tab: 'magic', slug: segments[2] };

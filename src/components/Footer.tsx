@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
-import { arcaneCastersFooterLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
+import { arcaneCastersFooterLinks, legalLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
 
 interface FooterProps {
@@ -106,6 +106,19 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
 
         {/* Footer Bottom */}
         <div className="footer-bottom" style={styles.bottom}>
+          <nav style={styles.legalRow} aria-label="Legal">
+            {legalLinks.map((item) => (
+              <a
+                key={item.id}
+                href={getTabPath(item.id)}
+                onClick={(event) => handleNavClick(event, item.id)}
+                style={styles.legalLink}
+              >
+                {item.footerLabel}
+              </a>
+            ))}
+          </nav>
+
           <p style={styles.copyText}>
             © {currentYear} <strong>The Evil Ent</strong>. All rights reserved.
           </p>
@@ -279,6 +292,20 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '1rem',
     alignItems: 'center',
     textAlign: 'center',
+  },
+  legalRow: {
+    display: 'flex',
+    gap: '1.25rem',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  legalLink: {
+    color: 'var(--color-text-muted)',
+    fontSize: '0.85rem',
+    textDecoration: 'none',
+    letterSpacing: '0.03em',
+    borderBottom: '1px solid transparent',
+    transition: 'color 0.2s ease, border-color 0.2s ease',
   },
   copyText: {
     fontSize: '0.9rem',
