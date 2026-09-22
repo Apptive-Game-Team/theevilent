@@ -1,4 +1,37 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+/**
+ * A full-page screenshot captures past the viewport, so an image still waiting
+ * on `loading="lazy"` is photographed as an empty box even though the page is
+ * fine in a real browser. Scrolling the page through once triggers every lazy
+ * load, and waiting on `complete` lets them finish before the shutter.
+ */
+const settlePage = async (page: Page) => {
+  // Walk the page down, then stay at the bottom. Returning to the top straight
+  // away cancels the lazy loads the walk has only just triggered, and those
+  // images then never report complete.
+  await page.evaluate(async () => {
+    const step = Math.round(window.innerHeight * 0.8);
+    for (let y = 0; y < document.body.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((resolve) => setTimeout(resolve, 80));
+    }
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+
+  // Bounded: a single image that will never resolve should not spend the whole
+  // test budget, because the screenshot is still worth taking without it.
+  await page
+    .waitForFunction(
+      () => [...document.querySelectorAll('img')].every((img) => img.complete),
+      undefined,
+      { timeout: 15_000 },
+    )
+    .catch(() => undefined);
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(300);
+};
 
 test('capture screenshots of all pages', async ({ page }, testInfo) => {
   // Go to homepage
@@ -9,9 +42,10 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await page.waitForTimeout(1000);
 
   // Take screenshot of Home page
-  await page.screenshot({ 
+  await settlePage(page);
+  await page.screenshot({
     path: testInfo.outputPath('screenshot_home.png'),
-    fullPage: true 
+    fullPage: true,
   });
   console.log('Saved screenshot_home.png');
 
@@ -20,9 +54,10 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await page.waitForTimeout(1000);
   
   // Take screenshot of Games page
-  await page.screenshot({ 
+  await settlePage(page);
+  await page.screenshot({
     path: testInfo.outputPath('screenshot_games.png'),
-    fullPage: true 
+    fullPage: true,
   });
   console.log('Saved screenshot_games.png');
 
@@ -67,6 +102,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
   await expect(page.locator('.magic-concept-card')).toHaveCount(18);
   await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
+  await settlePage(page);
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
     fullPage: true,
@@ -86,9 +122,10 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await page.waitForTimeout(1000);
 
   // Take screenshot of Team page
-  await page.screenshot({ 
+  await settlePage(page);
+  await page.screenshot({
     path: testInfo.outputPath('screenshot_team.png'),
-    fullPage: true 
+    fullPage: true,
   });
   console.log('Saved screenshot_team.png');
 });
@@ -124,6 +161,7 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
 
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
+  await settlePage(page);
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-mobile.png'),
     fullPage: true,
@@ -139,4 +177,66 @@ test('skip link keeps the active tab instead of resetting to home', async ({ pag
 
   await expect(page).toHaveURL(/\/team#main-content$/);
   await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
+});
+
+// The redesign runs art to the edge of the viewport, which is exactly the shape
+// that leaks a horizontal scrollbar on a phone. Every route is measured, and
+// the three that carry the most art are also captured so the screens can be
+// looked at rather than only asserted on.
+test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  const routes: Array<[string, string]> = [
+    ['/', 'home'],
+    ['/arcane-casters', 'games'],
+    ['/arcane-casters/magic', 'magic'],
+    ['/arcane-casters/summons', 'summons'],
+    ['/team', 'team'],
+    ['/privacy', 'privacy'],
+    ['/terms', 'terms'],
+  ];
+
+  for (const [path, name] of routes) {
+    await page.goto(path);
+    await page.waitForTimeout(400);
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `${path} overflows by ${overflow}px`).toBeLessThanOrEqual(0);
+
+    if (['home', 'games', 'team'].includes(name)) {
+      await settlePage(page);
+      await page.screenshot({
+        path: testInfo.outputPath(`screenshot_mobile-${name}.png`),
+        fullPage: true,
+      });
+    }
+  }
+});
+
+// Nothing outside a CSS variable declaration may carry a literal colour, and
+// the light ground makes a missed one obvious. This checks the rendered result
+// instead of the source: the navbar, the footer and the page body must all
+// resolve to a colour the token layer actually defines.
+test('every route paints from the token layer', async ({ page }) => {
+  for (const path of ['/', '/arcane-casters', '/arcane-casters/magic', '/privacy']) {
+    await page.goto(path);
+    const ground = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue('--color-ground').trim(),
+    );
+    expect(ground, `${path} lost the token layer`).toBe('#f4f7ea');
+  }
+
+  // The Team page is the one route that opts into the studio's own ground.
+  await page.goto('/team');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'the-evil-ent');
+  const teamGround = await page.evaluate(() =>
+    getComputedStyle(document.documentElement).getPropertyValue('--color-ground').trim(),
+  );
+  expect(teamGround).toBe('#0d0b0a');
+
+  // Leaving the studio's section gives the ground back to the game.
+  await page.goto('/');
+  await expect(page.locator('html')).not.toHaveAttribute('data-theme', 'the-evil-ent');
 });
