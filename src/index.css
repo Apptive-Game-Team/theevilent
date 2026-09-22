@@ -498,58 +498,49 @@ textarea:focus-visible {
   width: 100%;
 }
 
-.eye-pulse {
-  animation: eyeGlowPulse 4s infinite ease-in-out;
+/* Home hero: the Arcane Casters art cluster (concept-art webp trio) drifts
+   gently in place. prefers-reduced-motion is handled globally above, which
+   zeroes out animation-duration for every element including these. */
+.home-hero-art-glow {
+  filter: blur(6px);
 }
 
-.eye-pulse-left {
-  --eye-rotate: -10deg;
+.home-hero-float {
+  animation: homeHeroFloat 6s ease-in-out infinite;
 }
 
-.eye-pulse-right {
-  --eye-rotate: 10deg;
-}
-
-.logo-pulse {
-  transition: transform 0.4s ease-out, border-color 0.4s ease-out, box-shadow 0.4s ease-out;
-}
-
-.logo-pulse:hover {
-  transform: scale(1.03) translateY(-4px);
-  border-color: var(--color-border-accent-strong) !important;
-  box-shadow: 0 20px 50px rgba(var(--color-shadow-rgb), 0.9), 0 0 25px var(--color-primary-edge) !important;
-}
-
-.logo-pulse:hover .eye-pulse {
-  animation: eyeGlowIntense 0.4s forwards ease-out;
-  background-color: var(--color-primary-hover) !important;
-  filter: blur(5px) !important;
-}
-
-@keyframes eyeGlowPulse {
+@keyframes homeHeroFloat {
   0%, 100% {
-    opacity: 0.4;
-    filter: blur(2px);
-    transform: rotate(var(--eye-rotate)) scale(0.9);
+    transform: translateY(0);
   }
 
   50% {
-    opacity: 0.95;
-    filter: blur(3.5px);
-    transform: rotate(var(--eye-rotate)) scale(1.1);
+    transform: translateY(-10px);
   }
 }
 
-@keyframes eyeGlowIntense {
-  0% {
-    transform: rotate(var(--eye-rotate)) scale(1);
-    filter: blur(3px);
+.home-compendium-card:hover .home-compendium-cta {
+  color: var(--color-primary);
+}
+
+.home-compendium-cta {
+  transition: color var(--transition-fast);
+}
+
+@media (min-width: 640px) {
+  .home-compendium-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .home-hero-grid {
+    grid-template-columns: 1.05fr 1fr !important;
   }
 
-  100% {
-    transform: rotate(var(--eye-rotate)) scale(1.35) translateY(-1px);
-    filter: blur(5px);
-    box-shadow: 0 0 10px var(--color-primary-flare), 0 0 20px var(--color-primary-flare);
+  .home-hero-content {
+    align-items: flex-start !important;
+    text-align: left !important;
   }
 }
 

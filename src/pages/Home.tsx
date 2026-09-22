@@ -1,125 +1,204 @@
 import React from 'react';
-import { Shield, Sparkles, Sword, Terminal, ExternalLink, Calendar } from 'lucide-react';
-import type { TabId } from '../content/siteContent';
+import { ArrowRight, Calendar, ExternalLink, PawPrint, Terminal, Wand2, Sparkles } from 'lucide-react';
+import { platformLinks, type TabId } from '../content/siteContent';
+import { getTabPath } from '../routing';
+import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 interface HomeProps {
   navigateToTab: (tab: TabId) => void;
 }
 
 export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
+  // Home is the front door for Google Play and YouTube visitors, so it wears
+  // the game's own accent instead of The Evil Ent's crimson. Games.tsx already
+  // opts in the same way; Team stays on the team's crimson identity.
+  useDocumentTheme(ARCANE_CASTERS_THEME);
+
+  const [primaryPlatform] = platformLinks;
+
+  // Let modifier clicks fall through to the browser (open in new tab/window),
+  // otherwise cancel the default navigation so only SPA routing runs. Mirrors
+  // Footer.tsx and ArcaneCastersSubNav.tsx.
+  const handleNavClick = (event: React.MouseEvent, tabId: TabId) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    navigateToTab(tabId);
+  };
+
   return (
     <div style={styles.page}>
-      {/* Hero Banner */}
+      {/* Hero: Arcane Casters, not the team */}
       <section style={styles.hero}>
-        <div style={styles.heroContent}>
-          <div style={styles.logoContainer} className="logo-pulse">
-            <img 
-              src="/theevilent-logo.png" 
-              alt="The Evil Ent logo with glowing red eyes" 
-              style={styles.heroLogo} 
-              width="220"
-              height="220"
+        <div className="container home-hero-grid" style={styles.heroGrid}>
+          <div className="home-hero-content" style={styles.heroContent}>
+            <div style={styles.tagline}>
+              <Sparkles size={16} color="var(--color-primary)" aria-hidden="true" />
+              <span>Real-Time Card Merging Strategy Game</span>
+            </div>
+
+            <h1 style={styles.heroTitle} className="text-glow">
+              ARCANE CASTERS
+            </h1>
+
+            <p style={styles.heroSub}>
+              카드를 합쳐 강력한 마법을 완성하고, 실시간으로 상대와 겨루는 전략 대전 게임입니다.
+            </p>
+
+            <div className="hero-btn-group" style={styles.heroBtnGroup}>
+              <a
+                href={primaryPlatform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                <primaryPlatform.Icon size={18} aria-hidden="true" />
+                {primaryPlatform.title}에서 플레이
+              </a>
+              <a
+                href={getTabPath('games')}
+                onClick={(event) => handleNavClick(event, 'games')}
+                className="btn-secondary"
+              >
+                게임 더 알아보기
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          <div className="home-hero-art" style={styles.heroArt} aria-hidden="true">
+            <div className="home-hero-art-glow" style={styles.heroArtGlow} />
+            <img
+              src="/concept-art/magma-spirit-idle.webp"
+              alt=""
+              width="789"
+              height="788"
+              style={styles.heroArtSecondary}
+              className="home-hero-float"
+              loading="eager"
+            />
+            <img
+              src="/concept-art/aqua-archer-release.webp"
+              alt=""
+              width="804"
+              height="866"
+              style={{ ...styles.heroArtTertiary, animationDelay: '1.4s' }}
+              className="home-hero-float"
+              loading="eager"
+            />
+            <img
+              src="/concept-art/rock-golem.webp"
+              alt=""
+              width="1254"
+              height="1254"
+              style={{ ...styles.heroArtPrimary, animationDelay: '0.7s' }}
+              className="home-hero-float"
               fetchPriority="high"
             />
-            <div style={styles.eyeLeft} className="eye-pulse eye-pulse-left" aria-hidden="true" />
-            <div style={styles.eyeRight} className="eye-pulse eye-pulse-right" aria-hidden="true" />
-          </div>
-          
-          <h1 style={styles.heroTitle} className="text-glow">
-            THE EVIL ENT
-          </h1>
-          <p style={styles.heroSub}>
-            실시간 카드 조합 대전 전략 게임 '아케인 캐스터즈'를 개발하는 인디 게임 팀
-          </p>
-
-          <div className="hero-btn-group" style={styles.heroBtnGroup}>
-            <button 
-              type="button"
-              onClick={() => navigateToTab('games')} 
-              className="btn-primary"
-            >
-              <Sword size={18} aria-hidden="true" />
-              아케인 캐스터즈 플레이
-            </button>
-            <button 
-              type="button"
-              onClick={() => navigateToTab('team')} 
-              className="btn-secondary"
-            >
-              <Terminal size={18} aria-hidden="true" />
-              팀 멤버 소개
-            </button>
           </div>
         </div>
       </section>
 
-      {/* About The Studio */}
+      {/* Magic and summon compendiums: what the game is actually made of */}
+      <section style={styles.sectionCompendium}>
+        <div className="container">
+          <h2 style={styles.sectionTitleCentered}>
+            EXPLORE <span className="accent-color">ARCANE CASTERS</span>
+          </h2>
+          <p style={styles.sectionLead}>
+            마법과 소환수를 조합해 나만의 덱을 완성하세요.
+          </p>
+
+          <div className="home-compendium-grid" style={styles.compendiumGrid}>
+            <a
+              href={getTabPath('magic')}
+              onClick={(event) => handleNavClick(event, 'magic')}
+              className="gothic-card home-compendium-card"
+              style={styles.compendiumCard}
+            >
+              <img
+                src="/game-assets/firework-explosion.webp"
+                alt=""
+                width="254"
+                height="238"
+                loading="lazy"
+                style={styles.compendiumThumb}
+              />
+              <div style={styles.compendiumIconRow}>
+                <Wand2 size={20} color="var(--color-primary)" aria-hidden="true" />
+                <h3 style={styles.compendiumTitle}>마법 도감</h3>
+              </div>
+              <p style={styles.compendiumDesc}>
+                카드를 합쳐 완성되는 마법들의 위력과 효과를 한눈에 확인하세요.
+              </p>
+              <span className="home-compendium-cta" style={styles.compendiumCta}>
+                마법 도감 보기
+                <ArrowRight size={14} aria-hidden="true" />
+              </span>
+            </a>
+
+            <a
+              href={getTabPath('summons')}
+              onClick={(event) => handleNavClick(event, 'summons')}
+              className="gothic-card home-compendium-card"
+              style={styles.compendiumCard}
+            >
+              <img
+                src="/game-assets/cloud-dragon.webp"
+                alt=""
+                width="256"
+                height="182"
+                loading="lazy"
+                style={styles.compendiumThumb}
+              />
+              <div style={styles.compendiumIconRow}>
+                <PawPrint size={20} color="var(--color-primary)" aria-hidden="true" />
+                <h3 style={styles.compendiumTitle}>소환수 도감</h3>
+              </div>
+              <p style={styles.compendiumDesc}>
+                전장을 채우는 다양한 소환수들의 특징과 역할을 살펴보세요.
+              </p>
+              <span className="home-compendium-cta" style={styles.compendiumCta}>
+                소환수 도감 보기
+                <ArrowRight size={14} aria-hidden="true" />
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About the team: short, with a path to the full Team page */}
       <section style={styles.sectionDark}>
         <div className="container">
-          <div className="home-about-grid" style={styles.aboutGrid}>
-            <div style={styles.aboutTextCol}>
+          <div className="home-about-grid" style={styles.teamGrid}>
+            <div style={styles.teamTextCol}>
               <h2 style={styles.sectionTitle}>
                 ABOUT <span className="accent-color">THE EVIL ENT</span>
               </h2>
               <p style={styles.paragraph}>
-                우리는 독창적인 시스템과 몰입감 넘치는 분위기를 가진 게임을 만드는 2인 개발 팀 <strong>The Evil Ent</strong>입니다. 어두운 숲속의 신비롭고 고딕한 아트를 기반으로 깊이 있는 대전 전략 경험을 설계하고 있습니다.
+                아케인 캐스터즈를 만드는 2인 개발 팀, The Evil Ent입니다. 독창적인 마법 조합
+                시스템과 몰입감 있는 실시간 전투를 목표로 개발하고 있습니다.
               </p>
-              <p style={styles.paragraph}>
-                겉모습만 화려한 게임을 넘어, 플레이어의 지략과 순발력이 발휘될 수 있는 정교한 게임플레이 메커니즘을 핵심 가치로 삼아 개발에 집중하고 있습니다.
-              </p>
-              <div style={styles.featureList}>
-                <div style={styles.featureItem}>
-                  <Shield size={20} color="var(--color-primary)" aria-hidden="true" />
-                  <div>
-                    <h4 style={styles.featureTitle}>실시간 전략 대전</h4>
-                    <p style={styles.featureDesc}>빠른 템포의 전투 속에서 카드를 조합하여 최선의 마법을 도출해내는 두뇌 싸움.</p>
-                  </div>
-                </div>
-                <div style={styles.featureItem}>
-                  <Sparkles size={20} color="var(--color-primary)" aria-hidden="true" />
-                  <div>
-                    <h4 style={styles.featureTitle}>직관적인 마법 조합</h4>
-                    <p style={styles.featureDesc}>복잡한 조작 대신 카드를 결합하여 직관적이고 빠르게 마법을 시전하는 시스템.</p>
-                  </div>
-                </div>
-              </div>
+              <a
+                href={getTabPath('team')}
+                onClick={(event) => handleNavClick(event, 'team')}
+                className="btn-secondary"
+                style={styles.teamCta}
+              >
+                <Terminal size={16} aria-hidden="true" />
+                팀 멤버 소개 보기
+              </a>
             </div>
-            <div style={styles.aboutImageCol}>
-              <div style={styles.imageCard}>
-                <img 
-                  src="/theevilent-logo.png" 
-                  alt="Team Emblem" 
-                  style={styles.showcaseImg} 
-                  width="320"
-                  height="320"
+            <div style={styles.teamImageCol}>
+              <div style={styles.teamImageCard}>
+                <img
+                  src="/theevilent-logo.png"
+                  alt="The Evil Ent 팀 로고"
+                  style={styles.teamImg}
+                  width="220"
+                  height="220"
                   loading="lazy"
                 />
-                <div style={styles.imageOverlay} />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Game Callout */}
-      <section style={styles.sectionFeatured}>
-        <div className="container">
-          <div style={styles.featuredBox} className="gothic-card">
-            <span style={styles.featuredBadge}>MAIN FLAGSHIP GAME</span>
-            <h2 style={styles.featuredTitle} className="text-glow-subtle">ARCANE CASTERS</h2>
-            <p style={styles.featuredDesc}>
-              카드를 합쳐 강력한 마법을 영창하고 실시간으로 상대방과 싸우는 전략 대전 게임입니다. 
-              다양한 카드를 획득하고 자신만의 덱을 구축하여 실시간 마법 결투에서 승리하세요.
-            </p>
-            <div style={styles.featuredBtnRow}>
-              <button 
-                type="button"
-                onClick={() => navigateToTab('games')} 
-                className="btn-primary"
-              >
-                자세히 알아보기
-                <Sword size={16} aria-hidden="true" />
-              </button>
             </div>
           </div>
         </div>
@@ -140,10 +219,10 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
               <p style={styles.devlogCtaDesc}>
                 아케인 캐스터즈의 최신 업데이트, 밸런스 패치, 버그 수정 및 새로운 마법 카드 추가 소식은 itch.io 개발자 블로그에 실시간으로 기록되고 있습니다.
               </p>
-              <a 
-                href="https://theevilent.itch.io/arcane-casters/devlog" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://theevilent.itch.io/arcane-casters/devlog"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary"
                 style={{ marginTop: '1rem' }}
               >
@@ -164,67 +243,36 @@ const styles: Record<string, React.CSSProperties> = {
   },
   hero: {
     position: 'relative',
-    minHeight: '85vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    padding: '4rem 1.5rem',
+    padding: '7rem 1.5rem 5rem',
     overflow: 'hidden',
   },
+  heroGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: '3rem',
+    alignItems: 'center',
+  },
   heroContent: {
-    maxWidth: '800px',
-    zIndex: 5,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    textAlign: 'center',
   },
-  logoContainer: {
-    position: 'relative',
-    width: '220px',
-    height: '220px',
-    marginBottom: '2rem',
-    borderRadius: 'var(--radius-card)',
-    overflow: 'hidden',
-    boxShadow: '0 15px 45px rgba(var(--color-shadow-rgb), 0.8), 0 0 15px rgba(var(--color-shadow-rgb), 0.5)',
-    border: '1.5px solid var(--color-border)',
-    backgroundColor: 'var(--color-bg-void)',
-  },
-  heroLogo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  /* Eye placements matched exactly with logo coordinates for glowing overlay */
-  eyeLeft: {
-    position: 'absolute',
-    left: '42.3%',
-    top: '43.2%',
-    width: '28px',
-    height: '12px',
-    backgroundColor: 'var(--color-primary-flare)',
-    borderRadius: '50%',
-    filter: 'blur(3.5px)',
-    transform: 'rotate(-10deg)',
-    mixBlendMode: 'screen',
-  },
-  eyeRight: {
-    position: 'absolute',
-    left: '54.5%',
-    top: '43.2%',
-    width: '28px',
-    height: '12px',
-    backgroundColor: 'var(--color-primary-flare)',
-    borderRadius: '50%',
-    filter: 'blur(3.5px)',
-    transform: 'rotate(10deg)',
-    mixBlendMode: 'screen',
+  tagline: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    fontSize: '0.85rem',
+    fontWeight: '700',
+    color: 'var(--color-primary)',
+    letterSpacing: '0.15em',
+    marginBottom: '1rem',
   },
   heroTitle: {
     fontFamily: 'var(--font-display)',
     fontSize: '3.2rem',
     fontWeight: '900',
-    letterSpacing: '0.2em',
+    letterSpacing: '0.1em',
     marginBottom: '1rem',
     lineHeight: '1.1',
   },
@@ -233,9 +281,9 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '1.15rem',
     color: 'var(--color-text-muted)',
     marginBottom: '2.5rem',
-    letterSpacing: '0.05em',
+    letterSpacing: '0.02em',
     fontWeight: '300',
-    maxWidth: '600px',
+    maxWidth: '520px',
   },
   heroBtnGroup: {
     display: 'flex',
@@ -244,125 +292,160 @@ const styles: Record<string, React.CSSProperties> = {
     width: '100%',
     justifyContent: 'center',
   },
+  heroArt: {
+    position: 'relative',
+    width: '100%',
+    maxWidth: '460px',
+    margin: '0 auto',
+    aspectRatio: '1 / 1',
+  },
+  heroArtGlow: {
+    position: 'absolute',
+    top: '-10%',
+    left: '-10%',
+    right: '-10%',
+    bottom: '-10%',
+    background:
+      'radial-gradient(circle at 62% 38%, var(--color-primary-glow), transparent 60%), radial-gradient(circle at 28% 78%, rgba(var(--color-secondary-rgb), 0.35), transparent 55%)',
+    zIndex: 0,
+  },
+  heroArtPrimary: {
+    position: 'absolute',
+    bottom: '0',
+    right: '2%',
+    width: '68%',
+    height: 'auto',
+    zIndex: 3,
+    filter: 'drop-shadow(0 25px 35px rgba(var(--color-shadow-rgb), 0.6))',
+  },
+  heroArtSecondary: {
+    position: 'absolute',
+    top: '2%',
+    left: '4%',
+    width: '44%',
+    height: 'auto',
+    zIndex: 1,
+    filter: 'drop-shadow(0 15px 20px rgba(var(--color-shadow-rgb), 0.5))',
+  },
+  heroArtTertiary: {
+    position: 'absolute',
+    bottom: '4%',
+    left: '0',
+    width: '32%',
+    height: 'auto',
+    zIndex: 2,
+    filter: 'drop-shadow(0 15px 20px rgba(var(--color-shadow-rgb), 0.5))',
+  },
+  sectionCompendium: {
+    padding: '5rem 0',
+  },
+  sectionTitleCentered: {
+    fontSize: '2rem',
+    textAlign: 'center',
+    marginBottom: '0.75rem',
+    letterSpacing: '0.15em',
+  },
+  sectionLead: {
+    textAlign: 'center',
+    color: 'var(--color-text-muted)',
+    fontSize: '1.05rem',
+    marginBottom: '3rem',
+  },
+  compendiumGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: '2rem',
+  },
+  compendiumCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.75rem',
+    textDecoration: 'none',
+    color: 'var(--color-text-light)',
+  },
+  compendiumThumb: {
+    width: '100%',
+    maxWidth: '180px',
+    height: 'auto',
+    margin: '0 auto 0.5rem',
+    objectFit: 'contain',
+  },
+  compendiumIconRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.6rem',
+  },
+  compendiumTitle: {
+    fontSize: '1.3rem',
+    letterSpacing: '0.05em',
+  },
+  compendiumDesc: {
+    fontSize: '0.95rem',
+    color: 'var(--color-text-muted)',
+    lineHeight: '1.65',
+  },
+  compendiumCta: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.4rem',
+    color: 'var(--color-text-muted)',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    marginTop: 'auto',
+  },
   sectionDark: {
-    padding: '6rem 0',
+    padding: '5rem 0',
     position: 'relative',
     backgroundColor: 'var(--color-surface-veil)',
     borderTop: '1px solid var(--color-border-rule)',
     borderBottom: '1px solid var(--color-border-rule)',
   },
   sectionTitle: {
-    fontSize: '2rem',
-    marginBottom: '2rem',
+    fontSize: '1.75rem',
+    marginBottom: '1.25rem',
     letterSpacing: '0.1em',
     borderLeft: '4px solid var(--color-primary)',
     paddingLeft: '1rem',
   },
   paragraph: {
-    fontSize: '1.05rem',
+    fontSize: '1rem',
     color: 'var(--color-text-muted)',
     lineHeight: '1.75',
     marginBottom: '1.5rem',
   },
-  aboutGrid: {
+  teamGrid: {
     display: 'grid',
     gridTemplateColumns: '1fr',
-    gap: '4rem',
+    gap: '3rem',
     alignItems: 'center',
   },
-  aboutTextCol: {
+  teamTextCol: {
     display: 'flex',
     flexDirection: 'column',
   },
-  featureList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.5rem',
-    marginTop: '1.5rem',
+  teamCta: {
+    alignSelf: 'flex-start',
   },
-  featureItem: {
-    display: 'flex',
-    gap: '1rem',
-    alignItems: 'flex-start',
-  },
-  featureTitle: {
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    marginBottom: '0.25rem',
-  },
-  featureDesc: {
-    fontSize: '0.95rem',
-    color: 'var(--color-text-muted)',
-  },
-  aboutImageCol: {
+  teamImageCol: {
     display: 'flex',
     justifyContent: 'center',
   },
-  imageCard: {
+  teamImageCard: {
     position: 'relative',
-    width: '320px',
-    height: '320px',
+    width: '220px',
+    height: '220px',
     borderRadius: 'var(--radius-media)',
     overflow: 'hidden',
-    boxShadow: '0 20px 40px rgba(var(--color-shadow-rgb), 0.6)',
+    boxShadow: '0 15px 30px rgba(var(--color-shadow-rgb), 0.5)',
     border: '2px solid var(--color-border)',
   },
-  showcaseImg: {
+  teamImg: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
   },
-  imageOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to bottom, transparent, rgba(var(--color-bg-dark-rgb), 0.4))',
-  },
-  sectionFeatured: {
-    padding: '4rem 0',
-  },
-  featuredBox: {
-    padding: '3rem',
-    textAlign: 'center',
-    background: 'linear-gradient(135deg, var(--color-bg-bark) 0%, var(--color-bg-dark) 100%)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  featuredBadge: {
-    fontSize: '0.75rem',
-    letterSpacing: '0.2em',
-    color: 'var(--color-primary)',
-    fontWeight: '700',
-    marginBottom: '1rem',
-    display: 'inline-block',
-  },
-  featuredTitle: {
-    fontSize: '2.2rem',
-    marginBottom: '1rem',
-    letterSpacing: '0.15em',
-  },
-  featuredDesc: {
-    fontSize: '1.1rem',
-    color: 'var(--color-text-muted)',
-    maxWidth: '750px',
-    lineHeight: '1.7',
-    marginBottom: '2rem',
-  },
-  featuredBtnRow: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
   sectionUpdates: {
-    padding: '6rem 0 8rem 0',
-  },
-  sectionTitleCentered: {
-    fontSize: '2rem',
-    textAlign: 'center',
-    marginBottom: '3rem',
-    letterSpacing: '0.15em',
+    padding: '5rem 0 7rem 0',
   },
   devlogCtaContainer: {
     display: 'flex',
