@@ -1,6 +1,7 @@
 import React from 'react';
 import { arcaneCastersSectionNav, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
+import { NAVBAR_HEIGHT } from './Navbar';
 
 interface ArcaneCastersSubNavProps {
   activeTab: TabId;
@@ -22,22 +23,24 @@ export const ArcaneCastersSubNav: React.FC<ArcaneCastersSubNavProps> = ({ active
   return (
     <nav style={styles.nav} aria-label="Arcane Casters section">
       <div className="container" style={styles.container}>
-        {arcaneCastersSectionNav.map((item) => (
-          <a
-            key={item.id}
-            href={getTabPath(item.id)}
-            onClick={(event) => handleLinkClick(event, item.id)}
-            style={{
-              ...styles.link,
-              color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-              borderBottom: activeTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
-            }}
-            className={activeTab === item.id ? 'text-glow-subtle' : ''}
-            aria-current={activeTab === item.id ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
+        {arcaneCastersSectionNav.map((item) => {
+          const isActive = activeTab === item.id;
+          return (
+            <a
+              key={item.id}
+              href={getTabPath(item.id)}
+              onClick={(event) => handleLinkClick(event, item.id)}
+              style={{
+                ...styles.link,
+                backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
+                color: isActive ? 'var(--color-ink-inverse)' : 'var(--color-ink-soft)',
+              }}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </div>
     </nav>
   );
@@ -45,35 +48,32 @@ export const ArcaneCastersSubNav: React.FC<ArcaneCastersSubNavProps> = ({ active
 
 const styles: Record<string, React.CSSProperties> = {
   nav: {
-    // top: '70px' assumes the Navbar's fixed 70px height (see Navbar.tsx
-    // styles.navContainer) — index.css already makes the same assumption for
-    // .nav-mobile-drawer, and that height does not change at mobile widths.
+    // top is the Navbar's own height, imported as NAVBAR_HEIGHT from
+    // Navbar.tsx (see that file's export) so the two heights cannot drift
+    // apart without both files being touched.
     position: 'sticky',
-    top: '70px',
+    top: `${NAVBAR_HEIGHT}px`,
     zIndex: 900,
-    // rgba(13, 11, 10, 0.92) and rgba(45, 35, 30, 0.5) are copied from
-    // Navbar.tsx's nav colors. feature/37 is moving colors like these into
-    // tokens; leaving these as literals here rather than inventing a token
-    // name that branch may not end up using.
-    backgroundColor: 'rgba(13, 11, 10, 0.92)',
-    backdropFilter: 'blur(10px)',
-    borderBottom: '1px solid rgba(45, 35, 30, 0.5)',
+    // A pale, sunken ground rather than the navbar's white surface, so this
+    // row reads as a layer below it rather than a continuation of it.
+    backgroundColor: 'var(--color-ground-sunken)',
+    boxShadow: 'var(--shadow-bar)',
   },
   container: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.75rem',
+    gap: '0.5rem',
     height: '52px',
     overflowX: 'auto',
   },
   link: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '600',
-    fontSize: '0.85rem',
-    letterSpacing: '0.1em',
+    fontFamily: 'var(--font-body)',
+    fontWeight: 700,
+    fontSize: '0.875rem',
     cursor: 'pointer',
-    padding: '1rem 0.1rem 0.85rem 0.1rem',
-    transition: 'color 0.2s ease, border-bottom-color 0.2s ease',
+    padding: '0.5rem 1rem',
+    borderRadius: 'var(--radius-pill)',
+    transition: 'color var(--transition-fast), background-color var(--transition-fast)',
     textDecoration: 'none',
     whiteSpace: 'nowrap',
   },

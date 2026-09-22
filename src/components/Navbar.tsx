@@ -8,6 +8,11 @@ interface NavbarProps {
   navigateToTab: (tab: TabId) => void;
 }
 
+// The navbar's fixed height in pixels. ArcaneCastersSubNav.tsx imports this
+// constant for its own sticky `top` offset instead of repeating the number,
+// so the two files can only drift out of sync if this value itself moves.
+export const NAVBAR_HEIGHT = 72;
+
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const [isOpen, setIsOpen] = useState(false);
   // Magic and summons are routes inside the Arcane Casters section, so GAMES
@@ -28,49 +33,50 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   };
 
   return (
+    // position: sticky already makes this <nav> a positioned element, which
+    // is what .nav-mobile-drawer's `position: absolute; top: 100%` (set in
+    // index.css) needs to anchor to — no separate `position: relative` rule
+    // is needed on top of `sticky`.
     <nav style={styles.nav} aria-label="Primary">
-      <div style={styles.navContainer}>
+      <div className="container" style={styles.navContainer}>
         <button
           type="button"
           style={styles.brand}
           onClick={() => handleNavClick('home')}
           aria-label="Go To Home"
         >
-          <div style={styles.logoWrapper}>
-            <img 
-              src="/theevilent-logo.png" 
-              alt="The Evil Ent Logo" 
-              style={styles.logo} 
-              width="40"
-              height="40"
-              fetchPriority="high"
-            />
-          </div>
-          <span style={styles.brandName} className="text-glow-subtle">
-            THE EVIL ENT
-          </span>
+          <img
+            src="/arcane-casters-wordmark.png"
+            alt="Arcane Casters"
+            style={styles.wordmark}
+            width={150}
+            height={30}
+            fetchPriority="high"
+          />
         </button>
 
         <div className="nav-desktop-menu">
-          {navigationItems.map((item) => (
-            <a
-              key={item.id}
-              href={getTabPath(item.id)}
-              onClick={(event) => handleNavLinkClick(event, item.id)}
-              style={{
-                ...styles.navLink,
-                color: primaryTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                borderBottom: primaryTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
-              }}
-              className={primaryTab === item.id ? 'text-glow-subtle' : ''}
-              aria-current={primaryTab === item.id ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navigationItems.map((item) => {
+            const isActive = primaryTab === item.id;
+            return (
+              <a
+                key={item.id}
+                href={getTabPath(item.id)}
+                onClick={(event) => handleNavLinkClick(event, item.id)}
+                style={{
+                  ...styles.navLink,
+                  backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
+                  color: isActive ? 'var(--color-ink-inverse)' : 'var(--color-ink-soft)',
+                }}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
 
-        <button 
+        <button
           type="button"
           className="nav-mobile-menu-btn"
           onClick={() => setIsOpen(!isOpen)}
@@ -79,30 +85,35 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
           aria-controls="mobile-navigation"
         >
           {isOpen ? (
-            <X size={24} color="#f5f3f0" aria-hidden="true" />
+            <X size={24} color="currentColor" aria-hidden="true" />
           ) : (
-            <Menu size={24} color="#f5f3f0" aria-hidden="true" />
+            <Menu size={24} color="currentColor" aria-hidden="true" />
           )}
         </button>
       </div>
 
       {isOpen && (
+        // .nav-mobile-drawer (index.css) puts this on --color-wood, so link
+        // text below uses the wood-tuned ink tokens, not the generic ones.
         <div id="mobile-navigation" className="nav-mobile-drawer">
-          {navigationItems.map((item) => (
-            <a
-              key={item.id}
-              href={getTabPath(item.id)}
-              onClick={(event) => handleNavLinkClick(event, item.id)}
-              style={{
-                ...styles.mobileNavLink,
-                color: primaryTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                backgroundColor: primaryTab === item.id ? 'rgba(230, 30, 42, 0.05)' : 'transparent',
-              }}
-              aria-current={primaryTab === item.id ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navigationItems.map((item) => {
+            const isActive = primaryTab === item.id;
+            return (
+              <a
+                key={item.id}
+                href={getTabPath(item.id)}
+                onClick={(event) => handleNavLinkClick(event, item.id)}
+                style={{
+                  ...styles.mobileNavLink,
+                  backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
+                  color: isActive ? 'var(--color-ink-inverse)' : 'var(--color-ink-wood-soft)',
+                }}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
       )}
     </nav>
@@ -114,16 +125,11 @@ const styles: Record<string, React.CSSProperties> = {
     position: 'sticky',
     top: 0,
     zIndex: 1000,
-    backgroundColor: 'rgba(13, 11, 10, 0.85)',
-    backdropFilter: 'blur(12px)',
-    borderBottom: '1px solid rgba(45, 35, 30, 0.5)',
-    transition: 'background-color 0.3s ease',
+    backgroundColor: 'var(--color-surface)',
+    boxShadow: 'var(--shadow-bar)',
   },
   navContainer: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 1.5rem',
-    height: '70px',
+    height: `${NAVBAR_HEIGHT}px`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -131,55 +137,38 @@ const styles: Record<string, React.CSSProperties> = {
   brand: {
     display: 'flex',
     alignItems: 'center',
-    gap: '0.75rem',
     cursor: 'pointer',
     background: 'none',
     border: 'none',
     padding: 0,
   },
-  logoWrapper: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '4px',
-    overflow: 'hidden',
-    border: '1px solid #3d332d',
-    backgroundColor: '#000000',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  brandName: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '900',
-    fontSize: '1.2rem',
-    letterSpacing: '0.15em',
-    color: 'var(--color-text-light)',
-    transition: 'color 0.3s ease',
+  wordmark: {
+    display: 'block',
+    height: '30px',
+    width: '150px',
+    objectFit: 'contain',
   },
   navLink: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '600',
+    fontFamily: 'var(--font-body)',
+    fontWeight: 700,
     fontSize: '0.95rem',
-    letterSpacing: '0.1em',
     cursor: 'pointer',
-    padding: '1.6rem 0.2rem 1.4rem 0.2rem',
-    transition: 'color 0.2s ease, border-bottom-color 0.2s ease',
+    padding: '0.55rem 1.1rem',
+    borderRadius: 'var(--radius-pill)',
+    transition: 'color var(--transition-fast), background-color var(--transition-fast)',
     textDecoration: 'none',
   },
   mobileNavLink: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '600',
-    fontSize: '1.1rem',
-    letterSpacing: '0.1em',
+    fontFamily: 'var(--font-body)',
+    fontWeight: 700,
+    fontSize: '1.05rem',
     cursor: 'pointer',
-    padding: '1rem 2rem',
+    padding: '0.85rem 1.25rem',
+    margin: '0 0.75rem',
+    borderRadius: 'var(--radius-control)',
     textAlign: 'left',
-    transition: 'color 0.2s ease, background-color 0.2s ease',
+    display: 'block',
+    transition: 'color var(--transition-fast), background-color var(--transition-fast)',
     textDecoration: 'none',
   },
 };
