@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Globe, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team' | 'privacy' | 'terms';
 
@@ -19,7 +19,7 @@ export interface PlatformLink {
   label: string;
   subtitle: string;
   title: string;
-  variant: 'google' | 'itch' | 'ping';
+  variant: 'google' | 'itch';
   Icon: LucideIcon;
 }
 
@@ -80,15 +80,16 @@ export const platformLinks: PlatformLink[] = [
     variant: 'itch',
     Icon: Play,
   },
-  {
-    href: 'https://www.game-ping.kr/games/arcane-casters',
-    label: 'game-ping',
-    subtitle: 'EXPLORE ON',
-    title: 'game-ping',
-    variant: 'ping',
-    Icon: Globe,
-  },
 ];
+
+// AI 기본법 제31조 1항 고지. 고지는 읽는 사람이 알아볼 수 있어야 뜻이 있어서
+// 문구를 두 벌 둔다. footer 는 전체가 영어라 영어를 쓰고, 마법·소환수 도감은
+// 본문이 한국어라 한국어를 쓴다.
+export const aiArtworkNoticeEn =
+  'Some artwork on this site was created with generative AI.';
+
+export const aiArtworkNoticeKo =
+  '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.';
 
 export const teamMembers: TeamMember[] = [
   {
