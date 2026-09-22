@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
@@ -12,30 +12,6 @@ import SummonCompendium from './pages/SummonCompendium';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import { getLegacyPathFromHash, getRouteFromPathname, getTabPath, isArcaneCastersTab } from './routing';
-
-function CursorGlow() {
-  const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const glow = glowRef.current;
-      if (!glow) return;
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return <div ref={glowRef} className="custom-cursor-glow" style={{ left: 0, top: 0 }} />;
-}
 
 function App() {
   const [route, setRoute] = useState(() => {
@@ -90,8 +66,6 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      <CursorGlow />
-
       <ParticleBackground />
       <a href="#main-content" className="skip-link">
         Skip To Main Content
