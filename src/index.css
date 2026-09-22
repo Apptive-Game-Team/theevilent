@@ -107,6 +107,8 @@
   --color-brand-google-rgb: 52, 168, 83;
   --color-brand-itch: #fa5c5c;
   --color-brand-itch-rgb: 250, 92, 92;
+  --color-brand-youtube: #ff0000;
+  --color-brand-youtube-rgb: 255, 0, 0;
   --color-status-success: #4cd137;
 
   /* Shadow */
@@ -1085,6 +1087,12 @@ textarea:focus-visible {
 .store-btn-itch:hover {
   border-color: var(--color-brand-itch) !important;
   box-shadow: 0 0 12px rgba(var(--color-brand-itch-rgb), 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.store-btn-youtube:hover {
+  border-color: var(--color-brand-youtube) !important;
+  box-shadow: 0 0 12px rgba(var(--color-brand-youtube-rgb), 0.4) !important;
   transform: translateY(-2px);
 }
 

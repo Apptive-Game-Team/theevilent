@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Play } from 'lucide-react';
+import { Play, SquarePlay } from 'lucide-react';
 
 export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team' | 'privacy' | 'terms';
 
@@ -19,7 +19,7 @@ export interface PlatformLink {
   label: string;
   subtitle: string;
   title: string;
-  variant: 'google' | 'itch';
+  variant: 'google' | 'itch' | 'youtube';
   Icon: LucideIcon;
 }
 
@@ -79,6 +79,14 @@ export const platformLinks: PlatformLink[] = [
     title: 'itch.io',
     variant: 'itch',
     Icon: Play,
+  },
+  {
+    href: 'https://www.youtube.com/@ArcaneCastersOfficial',
+    label: 'YouTube',
+    subtitle: 'WATCH ON',
+    title: 'YouTube',
+    variant: 'youtube',
+    Icon: SquarePlay,
   },
 ];
 
