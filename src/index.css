@@ -271,6 +271,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: var(--color-primary-tint-strong);
   touch-action: manipulation;
+  /* Korean wraps between words, not inside them. Without keep-all the browser
+     breaks a Korean word at any syllable, so `손패` lands as `손` / `패` across
+     two lines. break-word still rescues a long unbroken latin token or URL. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 img,
@@ -370,6 +375,21 @@ textarea {
   min-width: 0;
 }
 
+/* A form control's intrinsic width comes from its `size` or `cols` and does
+   not shrink with its container, so one unconstrained control is enough to
+   push a phone-width page sideways. */
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+/* Grid items take their content's min-content width as their automatic
+   minimum, which a phone-width track cannot honour. */
+.Team_contactGrid > * {
+  min-width: 0;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -442,8 +462,12 @@ textarea:focus-visible,
   padding-block: var(--space-band-lg);
 }
 
+/* The default ground. It paints nothing: html already carries --color-ground,
+   and leaving this transparent is what lets the leaf canvas at z-index -1 show
+   through the page. Any band that needs to hide the leaves picks one of the
+   opaque modifiers below instead. */
 .band-ground {
-  background: var(--color-ground);
+  background: transparent;
 }
 
 .band-sunken {
@@ -471,6 +495,25 @@ textarea:focus-visible,
 .band-field h3,
 .band-field p {
   color: var(--color-ink);
+}
+
+/* The grove: the clearing's actual treetops, cropped straight out of the match
+   screen (public/gameplay/match.png, the canopy above the arena floor) and
+   stood along the top of the band the same way the game stands them over the
+   arena. The strip's own bottom edge fades to transparent, so it melts into
+   the grass gradient rather than ending on a cut. The band needs enough top
+   padding to clear the art: at 100% width the strip is 219/1600 of the
+   viewport, and 15vw stays above that at every width. */
+.band-grove {
+  background:
+    url('/hero-canopy.webp') top center / 100% auto no-repeat,
+    linear-gradient(
+      180deg,
+      var(--color-field-shade) 0%,
+      var(--color-field) 32%,
+      var(--color-ground) 100%
+    );
+  padding-top: clamp(5rem, 15vw, 12rem);
 }
 
 /* The canopy: sunlit leaves fading down into the clearing. */
@@ -936,8 +979,9 @@ a.sprite-cell:focus-visible {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   color: var(--color-ink);
-  content-visibility: auto;
-  contain-intrinsic-size: auto 320px;
+  /* No content-visibility here. A page holds 24 records, well under the count
+     that earns skipping render work, and skipping it leaves every off-screen
+     card blank in a full-page screenshot or a print. */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1410,6 +1454,11 @@ a.sprite-cell:focus-visible {
 
   .games-header-grid {
     grid-template-columns: 1fr 1.08fr !important;
+  }
+
+  /* The match screen carries hud text small enough to need the bigger half. */
+  .games-play-grid {
+    grid-template-columns: 1.4fr 1fr !important;
   }
 
   .games-web-play-row {
