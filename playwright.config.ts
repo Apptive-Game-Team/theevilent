@@ -23,9 +23,14 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npm run dev -- --host 127.0.0.1 --port ${PORT}`,
+    // Vite's dev server compiles a route the first time it is requested. These
+    // tests enter routes directly and run in parallel, so those first requests
+    // outran the 60s test timeout and a different test failed on every run —
+    // including on an untouched dev branch. Serving a built bundle removes the
+    // on-demand compile, and the longer timeout covers the build itself.
+    command: `npm run build && npm run preview -- --host 127.0.0.1 --port ${PORT} --strictPort`,
     url: `http://127.0.0.1:${PORT}`,
     reuseExistingServer: false,
-    timeout: 10000,
+    timeout: 120_000,
   },
 });
