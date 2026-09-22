@@ -90,10 +90,14 @@ export const platformLinks: PlatformLink[] = [
   },
 ];
 
-// AI 기본법 제31조 1항 고지. Footer.tsx, MagicCompendium.tsx, SummonCompendium.tsx
-// 세 곳에서 동일한 문구를 써야 하므로 여기 한 곳에 둔다.
-export const aiArtworkNotice =
+// AI 기본법 제31조 1항 고지. 고지는 읽는 사람이 알아볼 수 있어야 뜻이 있어서
+// 문구를 두 벌 둔다. footer 는 전체가 영어라 영어를 쓰고, 마법·소환수 도감은
+// 본문이 한국어라 한국어를 쓴다.
+export const aiArtworkNoticeEn =
   'Some artwork on this site was created with generative AI.';
+
+export const aiArtworkNoticeKo =
+  '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.';
 
 export const teamMembers: TeamMember[] = [
   {

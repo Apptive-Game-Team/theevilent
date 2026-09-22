@@ -21,7 +21,7 @@ import {
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
 import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
-import { aiArtworkNotice } from '../content/siteContent';
+import { aiArtworkNoticeKo } from '../content/siteContent';
 import { getTabPath } from '../routing';
 import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
@@ -113,6 +113,7 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
 
       {artwork && (
         <>
+        <p className="magic-ai-notice">{aiArtworkNoticeKo}</p>
         <section className="magic-artwork-gallery" aria-label="컨셉 및 인게임 아트">
           <figure className="magic-concept-art">
             <img
@@ -347,7 +348,7 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
           <span>{page} / {pageCount} 페이지</span>
         </div>
 
-        <p className="magic-ai-notice">{aiArtworkNotice}</p>
+        <p className="magic-ai-notice">{aiArtworkNoticeKo}</p>
 
         <section className="magic-card-grid" aria-label="마법 목록">
           {pageItems.map((magic) => {

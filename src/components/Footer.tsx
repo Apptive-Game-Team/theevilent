@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
-import { aiArtworkNotice, arcaneCastersFooterLinks, legalLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
+import { aiArtworkNoticeEn, arcaneCastersFooterLinks, legalLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
 
 interface FooterProps {
@@ -125,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
           <p style={styles.devs}>
             Summoned by <span style={styles.devTag}>monolong</span> & <span style={styles.devTag}>yunseong</span>
           </p>
-          <p style={styles.aiNotice}>{aiArtworkNotice}</p>
+          <p style={styles.aiNotice}>{aiArtworkNoticeEn}</p>
         </div>
       </div>
     </footer>
