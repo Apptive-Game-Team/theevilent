@@ -21,6 +21,7 @@ import {
 import { magicConcepts, magicFamilyLabels, type MagicConcept } from '../content/magicConcepts';
 import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
+import { aiArtworkNotice } from '../content/siteContent';
 import { getTabPath } from '../routing';
 import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
@@ -345,6 +346,8 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
           <span>{filtered.length}개 기록</span>
           <span>{page} / {pageCount} 페이지</span>
         </div>
+
+        <p className="magic-ai-notice">{aiArtworkNotice}</p>
 
         <section className="magic-card-grid" aria-label="마법 목록">
           {pageItems.map((magic) => {

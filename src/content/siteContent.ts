@@ -90,6 +90,11 @@ export const platformLinks: PlatformLink[] = [
   },
 ];
 
+// AI 기본법 제31조 1항 고지. Footer.tsx, MagicCompendium.tsx, SummonCompendium.tsx
+// 세 곳에서 동일한 문구를 써야 하므로 여기 한 곳에 둔다.
+export const aiArtworkNotice =
+  'Some artwork on this site was created with generative AI.';
+
 export const teamMembers: TeamMember[] = [
   {
     name: 'monolong',
