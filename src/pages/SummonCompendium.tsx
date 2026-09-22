@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Compass, Footprints, Hourglass, Shield } from 'lucide-react';
 import { summonConcepts, type SummonConcept } from '../content/summonConcepts';
+import { aiArtworkNoticeKo } from '../content/siteContent';
 import { getTabPath } from '../routing';
 import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
@@ -20,6 +21,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
         </div>
       </header>
 
+      <p className="magic-ai-notice">{aiArtworkNoticeKo}</p>
       <section className="magic-artwork-gallery" aria-label={`${summon.name} 컨셉 아트`}>
         {summon.spawnArtwork && (
           <figure className="magic-game-asset">
@@ -133,6 +135,8 @@ const SummonCompendium: React.FC<{ slug?: string }> = ({ slug }) => {
       </header>
 
       <main className="container magic-compendium-content">
+        <p className="magic-ai-notice">{aiArtworkNoticeKo}</p>
+
         <section className="magic-card-grid" aria-label="소환수 목록">
           {summonConcepts.map((summon) => (
             <a className="magic-concept-card" href={getTabPath('summons', summon.slug)} key={summon.slug}>
