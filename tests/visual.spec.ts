@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('capture screenshots of all pages', async ({ page }, testInfo) => {
   // Go to homepage
   await page.goto('/');
-  await expect(page).toHaveTitle('The Evil Ent');
+  await expect(page).toHaveTitle('Arcane Casters — The Evil Ent');
 
   // Allow animations to initialize
   await page.waitForTimeout(1000);
