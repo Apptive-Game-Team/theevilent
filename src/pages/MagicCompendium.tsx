@@ -23,13 +23,53 @@ import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../con
 import { summonConcepts } from '../content/summonConcepts';
 import { aiArtworkNoticeKo } from '../content/siteContent';
 import { getTabPath } from '../routing';
-import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 interface MagicCompendiumProps {
   slug?: string;
 }
 
 const PAGE_SIZE = 24;
+
+/**
+ * `ConceptArtwork` (the `concept` field on magicArtwork and magicRelatedArtwork
+ * entries) carries no width/height — only gameAsset-shaped fields do. These are
+ * the real pixel sizes of every file in public/concept-art, read once with
+ * Pillow, so every <img> can still report an intrinsic size and reserve its
+ * box before the file loads. The fallback matches the 3:2 box the CSS already
+ * gives .magic-concept-art img via aspect-ratio.
+ */
+const CONCEPT_ART_SIZES: Record<string, { width: number; height: number }> = {
+  'aqua-archer-drawn.webp': { width: 856, height: 866 },
+  'aqua-archer-release.webp': { width: 804, height: 866 },
+  'chicken-commando.webp': { width: 1774, height: 887 },
+  'dimension-toad.webp': { width: 1774, height: 887 },
+  'ember-spirit-swarm.webp': { width: 770, height: 472 },
+  'fire-child-spirit.webp': { width: 810, height: 912 },
+  'fire-lord-spirit.webp': { width: 1536, height: 1024 },
+  'fire-spirit.webp': { width: 1536, height: 1024 },
+  'fire-tadpole.webp': { width: 1774, height: 887 },
+  'lightning-cloud-strike-sequence.webp': { width: 2336, height: 664 },
+  'lightning-tadpole.webp': { width: 1774, height: 887 },
+  'magma-spirit-attack.webp': { width: 672, height: 680 },
+  'magma-spirit-idle.webp': { width: 789, height: 788 },
+  'magma-spirit-spawn.webp': { width: 820, height: 650 },
+  'rock-golem.webp': { width: 1254, height: 1254 },
+  'water-slime.webp': { width: 1254, height: 1254 },
+};
+
+const getConceptArtSize = (src: string) =>
+  CONCEPT_ART_SIZES[src.split('/').pop() ?? ''] ?? { width: 1200, height: 800 };
+
+/**
+ * getCardArtwork can return a sprite that already carries real width/height
+ * (the summon-fallback branch) or a bare ConceptArtwork that does not. Use the
+ * real size when it is already there; only fall back to the concept-art table
+ * for the branches that lack one.
+ */
+const getCardArtworkSize = (art: { src: string; width?: number; height?: number }) =>
+  typeof art.width === 'number' && typeof art.height === 'number'
+    ? { width: art.width, height: art.height }
+    : getConceptArtSize(art.src);
 
 const getCardArtwork = (bean: string) => {
   const directArtwork = magicArtwork[bean]?.concept;
@@ -120,9 +160,9 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
               alt={artwork.concept.alt}
               decoding="async"
               fetchPriority="high"
-              height="1024"
+              height={getConceptArtSize(artwork.concept.src).height}
               src={artwork.concept.src}
-              width="1536"
+              width={getConceptArtSize(artwork.concept.src).width}
             />
             <figcaption>{artwork.concept.caption}</figcaption>
           </figure>
@@ -166,10 +206,10 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
                 <img
                   alt={related.concept.alt}
                   decoding="async"
-                  height="912"
+                  height={getConceptArtSize(related.concept.src).height}
                   loading="lazy"
                   src={related.concept.src}
-                  width="810"
+                  width={getConceptArtSize(related.concept.src).width}
                 />
                 <figcaption>{related.concept.caption}</figcaption>
               </figure>
@@ -198,10 +238,10 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
               <img
                 alt={related.concept.alt}
                 decoding="async"
-                height="481"
+                height={getConceptArtSize(related.concept.src).height}
                 loading="lazy"
                 src={related.concept.src}
-                width="1024"
+                width={getConceptArtSize(related.concept.src).width}
               />
               <figcaption>{related.concept.caption}</figcaption>
             </figure>
@@ -297,8 +337,6 @@ const MagicDetail: React.FC<{ magic: MagicConcept }> = ({ magic }) => {
 };
 
 const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
-  useDocumentTheme(ARCANE_CASTERS_THEME);
-
   if (slug) {
     const magic = magicConcepts.find((item) => item.bean === slug);
     if (magic) return <MagicDetail magic={magic} />;
@@ -364,15 +402,13 @@ const MagicCompendium: React.FC<MagicCompendiumProps> = ({ slug }) => {
                   <img
                     alt={cardArtwork.alt}
                     decoding="async"
+                    height={getCardArtworkSize(cardArtwork).height}
                     loading="lazy"
                     src={cardArtwork.src}
+                    width={getCardArtworkSize(cardArtwork).width}
                   />
                 </div>
               )}
-              {React.createElement(factionIcon(magic.faction), {
-                'aria-hidden': true,
-                className: 'magic-card-emblem',
-              })}
               <div className="magic-card-tags">
                 <span>{magicFamilyLabels[magic.family]}</span>
                 <span>{magic.mobility}</span>

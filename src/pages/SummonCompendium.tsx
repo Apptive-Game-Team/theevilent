@@ -3,7 +3,6 @@ import { ArrowLeft, Compass, Footprints, Hourglass, Shield } from 'lucide-react'
 import { summonConcepts, type SummonConcept } from '../content/summonConcepts';
 import { aiArtworkNoticeKo } from '../content/siteContent';
 import { getTabPath } from '../routing';
-import { ARCANE_CASTERS_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
   <article className="magic-detail-page">
@@ -28,6 +27,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
             <img
               alt={summon.spawnArtwork.alt}
               decoding="async"
+              fetchPriority="high"
               height={summon.spawnArtwork.height}
               src={summon.spawnArtwork.src}
               width={summon.spawnArtwork.width}
@@ -39,6 +39,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
           <img
             alt={summon.artwork.alt}
             decoding="async"
+            {...(summon.spawnArtwork ? { loading: 'lazy' as const } : { fetchPriority: 'high' as const })}
             height={summon.artwork.height}
             src={summon.artwork.src}
             width={summon.artwork.width}
@@ -51,6 +52,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
               alt={summon.alternateArtwork.alt}
               decoding="async"
               height={summon.alternateArtwork.height}
+              loading="lazy"
               src={summon.alternateArtwork.src}
               width={summon.alternateArtwork.width}
             />
@@ -63,6 +65,7 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
               alt={artwork.alt}
               decoding="async"
               height={artwork.height}
+              loading="lazy"
               src={artwork.src}
               width={artwork.width}
             />
@@ -109,8 +112,6 @@ const SummonDetail: React.FC<{ summon: SummonConcept }> = ({ summon }) => (
 );
 
 const SummonCompendium: React.FC<{ slug?: string }> = ({ slug }) => {
-  useDocumentTheme(ARCANE_CASTERS_THEME);
-
   if (slug) {
     const summon = summonConcepts.find((item) => item.slug === slug);
     if (summon) return <SummonDetail summon={summon} />;
@@ -139,7 +140,17 @@ const SummonCompendium: React.FC<{ slug?: string }> = ({ slug }) => {
 
         <section className="magic-card-grid" aria-label="소환수 목록">
           {summonConcepts.map((summon) => (
-            <a className="magic-concept-card" href={getTabPath('summons', summon.slug)} key={summon.slug}>
+            <a className="magic-concept-card has-thumbnail" href={getTabPath('summons', summon.slug)} key={summon.slug}>
+              <div className="magic-card-thumbnail">
+                <img
+                  alt={summon.artwork.alt}
+                  decoding="async"
+                  height={summon.artwork.height}
+                  loading="lazy"
+                  src={summon.artwork.src}
+                  width={summon.artwork.width}
+                />
+              </div>
               <div className="magic-card-tags">
                 <span>{summon.faction}</span>
                 <span>{summon.mobility}</span>
