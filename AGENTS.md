@@ -41,7 +41,7 @@ theevilent/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.tsx           # Translucent glassmorphic header
-│   │   ├── Footer.tsx           # Link aggregator (itch.io, game-ping, Play Store)
+│   │   ├── Footer.tsx           # Link aggregator (itch.io, Play Store)
 │   │   └── ParticleBackground.tsx # HTML5 Canvas animated ember/ash drift
 │   ├── pages/
 │   │   ├── Home.tsx             # Interactive Hero & team pitch
@@ -63,7 +63,6 @@ theevilent/
 - **Developers**: `monolong`, `yunseong`
 - **Flagship Game**: **Arcane Casters**
   - **Itch.io**: [https://theevilent.itch.io/arcane-casters](https://theevilent.itch.io/arcane-casters)
-  - **Game-Ping**: [https://www.game-ping.kr/games/arcane-casters](https://www.game-ping.kr/games/arcane-casters)
   - **Google Play Store**: [https://play.google.com/store/apps/details?id=com.team6515.wordonline](https://play.google.com/store/apps/details?id=com.team6515.wordonline)
 
 ---

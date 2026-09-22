@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Globe, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team' | 'privacy' | 'terms';
 
@@ -19,7 +19,7 @@ export interface PlatformLink {
   label: string;
   subtitle: string;
   title: string;
-  variant: 'google' | 'itch' | 'ping';
+  variant: 'google' | 'itch';
   Icon: LucideIcon;
 }
 
@@ -79,14 +79,6 @@ export const platformLinks: PlatformLink[] = [
     title: 'itch.io',
     variant: 'itch',
     Icon: Play,
-  },
-  {
-    href: 'https://www.game-ping.kr/games/arcane-casters',
-    label: 'game-ping',
-    subtitle: 'EXPLORE ON',
-    title: 'game-ping',
-    variant: 'ping',
-    Icon: Globe,
   },
 ];
 
