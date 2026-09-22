@@ -54,7 +54,7 @@ function App() {
       case 'summons':
         return <SummonCompendium slug={route.slug} />;
       case 'team':
-        return <Team />;
+        return <Team navigateToTab={navigateToTab} />;
       case 'privacy':
         return <Privacy />;
       case 'terms':

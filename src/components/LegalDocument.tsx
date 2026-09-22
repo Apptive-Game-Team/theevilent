@@ -72,18 +72,18 @@ const SectionBody: React.FC<{ section: LegalSection }> = ({ section }) => (
   </>
 );
 
+// Privacy and Terms stay on Arcane Casters' own ground (:root) — a legal
+// notice is not the studio's identity, so neither page calls useDocumentTheme.
 export const LegalDocument: React.FC<LegalDocumentProps> = ({ documents, Icon }) => {
   const [language, setLanguage] = useState<LegalLanguage>(getInitialLanguage);
   const content = documents[language];
 
   return (
     <div style={styles.page}>
-      <section style={styles.introSection}>
-        <div className="container" style={styles.introContainer}>
+      <section className="band band-sm" style={styles.introSection}>
+        <div className="container-narrow" style={styles.introContainer}>
           <Icon size={32} color="var(--color-primary)" aria-hidden="true" />
-          <h1 style={styles.title} className="text-glow">
-            {content.title}
-          </h1>
+          <h1>{content.title}</h1>
           <p style={styles.effective}>
             {content.effectiveLabel} · {content.effectiveDate}
           </p>
@@ -97,8 +97,8 @@ export const LegalDocument: React.FC<LegalDocumentProps> = ({ documents, Icon })
                 aria-pressed={language === code}
                 style={{
                   ...styles.languageButton,
-                  color: language === code ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                  borderColor: language === code ? 'var(--color-primary)' : 'var(--color-border)',
+                  background: language === code ? 'var(--color-primary)' : 'var(--color-ground-sunken)',
+                  color: language === code ? 'var(--color-ink-inverse)' : 'var(--color-ink-muted)',
                 }}
               >
                 {legalLanguageLabels[code]}
@@ -108,20 +108,22 @@ export const LegalDocument: React.FC<LegalDocumentProps> = ({ documents, Icon })
         </div>
       </section>
 
-      <section style={styles.bodySection}>
-        <div className="container" style={styles.bodyContainer}>
-          {content.intro.map((text) => (
-            <p key={text} style={styles.intro}>
-              {text}
-            </p>
-          ))}
+      <section className="band band-lg" style={styles.bodySection}>
+        <div className="container-narrow">
+          <div className="panel" style={styles.documentPanel}>
+            {content.intro.map((text) => (
+              <p key={text} style={styles.intro}>
+                {text}
+              </p>
+            ))}
 
-          {content.sections.map((section) => (
-            <article key={section.heading} style={styles.section}>
-              <h2 style={styles.heading}>{section.heading}</h2>
-              <SectionBody section={section} />
-            </article>
-          ))}
+            {content.sections.map((section) => (
+              <article key={section.heading} style={styles.section}>
+                <h2 style={styles.heading}>{section.heading}</h2>
+                <SectionBody section={section} />
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -136,24 +138,17 @@ const styles: Record<string, React.CSSProperties> = {
     wordBreak: 'keep-all',
   },
   introSection: {
-    padding: '6.5rem 0 2rem 0',
     textAlign: 'center',
   },
   introContainer: {
-    maxWidth: '750px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     gap: '0.75rem',
   },
-  title: {
-    fontSize: '2.8rem',
-    letterSpacing: '0.15em',
-  },
   effective: {
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-muted)',
     fontSize: '0.9rem',
-    letterSpacing: '0.05em',
   },
   languageRow: {
     display: 'flex',
@@ -161,24 +156,23 @@ const styles: Record<string, React.CSSProperties> = {
     marginTop: '0.5rem',
   },
   languageButton: {
-    background: 'transparent',
-    border: '1px solid var(--color-border)',
-    borderRadius: '4px',
-    padding: '0.4rem 1rem',
+    border: 'none',
+    borderRadius: 'var(--radius-pill)',
+    padding: '0.4rem 1.1rem',
     fontFamily: 'var(--font-body)',
     fontSize: '0.85rem',
-    letterSpacing: '0.05em',
+    fontWeight: 600,
     cursor: 'pointer',
-    transition: 'color 0.2s ease, border-color 0.2s ease',
+    transition: 'background-color var(--transition-fast), color var(--transition-fast)',
   },
   bodySection: {
-    padding: '1rem 0 6rem 0',
+    paddingTop: 0,
   },
-  bodyContainer: {
-    maxWidth: '820px',
+  documentPanel: {
+    padding: 'clamp(1.5rem, 5vw, 3.5rem)',
   },
   intro: {
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-soft)',
     lineHeight: 1.9,
     marginBottom: '1rem',
   },
@@ -186,29 +180,24 @@ const styles: Record<string, React.CSSProperties> = {
     marginTop: '2.75rem',
   },
   heading: {
-    fontSize: '1.2rem',
-    letterSpacing: '0.1em',
-    borderLeft: '2px solid var(--color-primary)',
-    paddingLeft: '0.75rem',
+    fontSize: 'var(--text-h3)',
     marginBottom: '1rem',
   },
   paragraph: {
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink)',
     lineHeight: 1.9,
     marginBottom: '0.9rem',
   },
   bulletList: {
-    listStyle: 'none',
     display: 'flex',
     flexDirection: 'column',
     gap: '0.6rem',
     marginBottom: '0.9rem',
+    paddingLeft: '1.25rem',
   },
   bullet: {
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink)',
     lineHeight: 1.8,
-    paddingLeft: '1rem',
-    borderLeft: '1px solid var(--color-border)',
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -223,16 +212,16 @@ const styles: Record<string, React.CSSProperties> = {
   th: {
     textAlign: 'left',
     padding: '0.6rem 0.75rem',
-    borderBottom: '1px solid var(--color-border)',
-    color: 'var(--color-text-light)',
+    borderBottom: '1px solid var(--color-rule-strong)',
+    color: 'var(--color-ink)',
     fontFamily: 'var(--font-display)',
-    letterSpacing: '0.05em',
+    fontWeight: 700,
     whiteSpace: 'nowrap',
   },
   td: {
     padding: '0.6rem 0.75rem',
-    borderBottom: '1px solid var(--color-border-rule)',
-    color: 'var(--color-text-muted)',
+    borderBottom: '1px solid var(--color-rule)',
+    color: 'var(--color-ink-soft)',
     lineHeight: 1.7,
     verticalAlign: 'top',
   },
