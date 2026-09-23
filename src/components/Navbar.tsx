@@ -49,8 +49,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
             src="/arcane-casters-wordmark.png"
             alt="Arcane Casters"
             style={styles.wordmark}
-            width={600}
-            height={130}
+            width={966}
+            height={205}
             fetchPriority="high"
           />
         </button>

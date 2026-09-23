@@ -82,12 +82,12 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
           <h1 style={styles.heroHeading}>
             <img
               src="/arcane-casters-logo.png"
-              srcSet="/arcane-casters-logo-800.png 800w, /arcane-casters-logo.png 1600w"
+              srcSet="/arcane-casters-logo-800.png 800w, /arcane-casters-logo.png 1010w"
               sizes="(min-width: 768px) 560px, 86vw"
               alt="Arcane Casters"
               style={styles.heroLogo}
-              width="1600"
-              height="1000"
+              width="1010"
+              height="508"
               fetchPriority="high"
             />
           </h1>
