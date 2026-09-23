@@ -49,8 +49,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
             src="/arcane-casters-wordmark.png"
             alt="Arcane Casters"
             style={styles.wordmark}
-            width={150}
-            height={30}
+            width={600}
+            height={130}
             fetchPriority="high"
           />
         </button>
@@ -145,8 +145,7 @@ const styles: Record<string, React.CSSProperties> = {
   wordmark: {
     display: 'block',
     height: '30px',
-    width: '150px',
-    objectFit: 'contain',
+    width: 'auto',
   },
   navLink: {
     fontFamily: 'var(--font-body)',

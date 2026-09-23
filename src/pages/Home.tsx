@@ -88,7 +88,7 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
               alt="Arcane Casters"
               style={styles.heroLogo}
               width="1600"
-              height="906"
+              height="1000"
               fetchPriority="high"
             />
           </h1>

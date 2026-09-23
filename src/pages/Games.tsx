@@ -113,7 +113,7 @@ export const Games: React.FC = () => {
                 alt="Arcane Casters"
                 style={styles.titleLogo}
                 width="1600"
-                height="906"
+                height="1000"
                 fetchPriority="high"
               />
             </h1>
