@@ -8,20 +8,22 @@ import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
-import SummonCompendium from './pages/SummonCompendium';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
-import { getLegacyPathFromHash, getRouteFromPathname, getTabPath, isArcaneCastersTab } from './routing';
+import { getLegacyPathFromHash, getRouteFromPathname, getSummonRedirectPath, getTabPath, isArcaneCastersTab } from './routing';
 
 function App() {
   const [route, setRoute] = useState(() => {
-    const legacyPath = getLegacyPathFromHash(window.location.hash);
+    const legacyPath = getLegacyPathFromHash(window.location.hash)
+      ?? getSummonRedirectPath(window.location.pathname);
     if (legacyPath) window.history.replaceState(null, '', legacyPath);
     return getRouteFromPathname(window.location.pathname);
   });
 
   useEffect(() => {
     const handlePopState = () => {
+      const summonRedirect = getSummonRedirectPath(window.location.pathname);
+      if (summonRedirect) window.history.replaceState(null, '', summonRedirect);
       setRoute(getRouteFromPathname(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -51,10 +53,8 @@ function App() {
         return <Games />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
-      case 'summons':
-        return <SummonCompendium slug={route.slug} />;
       case 'team':
-        return <Team navigateToTab={navigateToTab} />;
+        return <Team />;
       case 'privacy':
         return <Privacy />;
       case 'terms':

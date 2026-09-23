@@ -15,7 +15,7 @@ export const NAVBAR_HEIGHT = 72;
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // Magic and summons are routes inside the Arcane Casters section, so GAMES
+  // The magic compendium is a route inside the Arcane Casters section, so GAMES
   // stays the highlighted top-level item while browsing either compendium.
   const primaryTab = getPrimaryNavTab(activeTab);
 

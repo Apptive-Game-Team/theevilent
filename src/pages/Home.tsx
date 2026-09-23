@@ -1,7 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { magicConcepts } from '../content/magicConcepts';
-import { summonConcepts } from '../content/summonConcepts';
 import { platformLinks } from '../content/siteContent';
 import type { TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
@@ -60,7 +59,7 @@ const spriteWall: SpriteEntry[] = [
   { bean: 'healing_totem', width: 188, height: 256 },
 ];
 
-const magicNameByBean = new Map(magicConcepts.map((magic) => [magic.bean, magic.concept_name]));
+const magicNameByBean = new Map(magicConcepts.map((magic) => [magic.bean, magic.name]));
 
 const spriteSource = (bean: string) => `/game-assets/${bean.replace(/_/g, '-')}.webp`;
 
@@ -94,7 +93,7 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
           </h1>
 
           <p className="lede" style={styles.heroLede}>
-            카드를 합쳐 마법을 만들고, 햇빛 드는 초원에서 실시간으로 맞붙는다.
+            마법 카드로 겨루는 실시간 대전 게임
           </p>
 
           <div className="hero-btn-group" style={styles.heroButtons}>
@@ -130,12 +129,7 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
       </section>
 
       {/* One match screen, big enough to read the hand of cards. */}
-      <section className="band band-md band-ground">
-        <div className="container-wide" style={styles.matchIntro}>
-          <h2>실제 경기 화면</h2>
-          <p className="lede" style={styles.sectionLede}>초원 양 끝에 캐스터가 서고, 아래 나무 판자에 손패 여섯 장이 깔린다.</p>
-        </div>
-
+      <section className="band band-md band-ground" aria-label="경기 화면">
         <div className="container-wide" style={styles.matchShotWrap}>
           <img
             src="/gameplay/match.png"
@@ -149,32 +143,13 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
         </div>
 
         <div className="container" style={styles.matchFacts}>
-          <div className="grid-3">
-            <article className="panel" style={styles.factPanel}>
-              <h3>손패 여섯 장</h3>
-              <p style={styles.factText}>지금 낼 수 있는 마법은 판자 위 여섯 장이 전부다.</p>
-            </article>
-            <article className="panel" style={styles.factPanel}>
-              <h3>마나 배지</h3>
-              <p style={styles.factText}>카드마다 마나값이 붙어 있다.</p>
-              <p style={styles.chipRow}>
-                <span className="chip chip-mana">20</span>
-                <span className="chip chip-mana">25</span>
-              </p>
-            </article>
-            <article className="panel" style={styles.factPanel}>
-              <h3>실시간</h3>
-              <p style={styles.factText}>턴을 기다리지 않는다. 마나가 차는 대로 바로 시전한다.</p>
-            </article>
-          </div>
-
           <a
             href={getTabPath('games')}
             onClick={openTab('games')}
             className="btn-primary"
             style={styles.inlineCta}
           >
-            아케인 캐스터즈 자세히 보기
+            게임 자세히 보기
           </a>
         </div>
       </section>
@@ -182,10 +157,7 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
       {/* The hud plank, carrying the runtime sprites the way it carries cards. */}
       <section className="band band-lg band-wood">
         <div className="container" style={styles.spriteIntro}>
-          <h2>마법 {magicConcepts.length}가지와 소환수 {summonConcepts.length}종</h2>
-          <p className="lede" style={styles.woodLede}>
-            격자에 깔린 그림은 전부 경기에 그대로 나오는 스프라이트다. 하나를 고르면 그 기록으로 간다.
-          </p>
+          <h2>마법 도감</h2>
         </div>
 
         <div className="container" style={styles.spriteWallWrap}>
@@ -204,14 +176,9 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
             ))}
           </div>
 
-          <div className="game-link-banner" style={styles.compendiumBanner}>
-            <a className="panel panel-link" href={getTabPath('magic')}>
-              <h3>마법 도감</h3>
-              <p style={styles.factText}>{magicConcepts.length}개 마법의 시전 방식과 진영.</p>
-            </a>
-            <a className="panel panel-link" href={getTabPath('summons')}>
-              <h3>소환수 도감</h3>
-              <p style={styles.factText}>{summonConcepts.length}종 소환 개체의 역할과 이동.</p>
+          <div style={styles.compendiumBanner}>
+            <a className="btn-primary" href={getTabPath('magic')}>
+              마법 도감 보기
             </a>
           </div>
         </div>
@@ -231,7 +198,6 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
           />
           <div style={styles.studioText}>
             <h2 style={styles.studioName}>THE EVIL ENT</h2>
-            <p style={styles.factText}>아케인 캐스터즈를 만드는 2인 게임 팀.</p>
           </div>
           <a
             href={getTabPath('team')}
@@ -239,7 +205,7 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
             className="btn-secondary"
             style={styles.studioCta}
           >
-            팀 소개 보기
+            팀 보기
           </a>
         </div>
       </section>
@@ -248,14 +214,13 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
       <section className="band band-md band-surface">
         <div className="container-narrow" style={styles.devlog}>
           <h2>개발 일지</h2>
-          <p className="lede" style={styles.sectionLede}>업데이트와 밸런스 패치 기록은 itch.io devlog 에 쌓인다.</p>
           <a
             href="https://theevilent.itch.io/arcane-casters/devlog"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            devlog 읽기
+            itch.io 에서 읽기
             <ExternalLink size={18} aria-hidden="true" />
           </a>
         </div>
@@ -296,15 +261,6 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     marginTop: '0.5rem',
   },
-  sectionLede: {
-    wordBreak: 'keep-all',
-  },
-  matchIntro: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.75rem',
-    marginBottom: '2rem',
-  },
   matchShotWrap: {
     marginBottom: '2.5rem',
   },
@@ -312,23 +268,6 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     flexDirection: 'column',
     gap: '2rem',
-  },
-  factPanel: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem',
-  },
-  factText: {
-    wordBreak: 'keep-all',
-    color: 'var(--color-ink-soft)',
-    fontSize: 'var(--text-body)',
-    lineHeight: 1.6,
-    margin: 0,
-  },
-  chipRow: {
-    display: 'flex',
-    gap: '0.4rem',
-    margin: 0,
   },
   inlineCta: {
     alignSelf: 'flex-start',
@@ -338,11 +277,6 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     gap: '0.75rem',
     marginBottom: '2rem',
-  },
-  woodLede: {
-    wordBreak: 'keep-all',
-    color: 'var(--color-ink-wood)',
-    maxWidth: '52ch',
   },
   spriteWallWrap: {
     display: 'flex',

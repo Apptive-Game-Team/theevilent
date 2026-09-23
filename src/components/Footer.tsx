@@ -67,9 +67,9 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                   >
                     {item.footerLabel}
                   </a>
-                  {/* The magic and summon compendiums moved out of the top-level
+                  {/* The magic compendium moved out of the top-level
                       nav into the Arcane Casters section sub navigation, so list
-                      them here, indented beneath Games, to keep a site-wide link. */}
+                      it here, indented beneath Games, to keep a site-wide link. */}
                   {item.id === 'games' && (
                     <ul style={styles.subList}>
                       {arcaneCastersFooterLinks.map((subItem) => (

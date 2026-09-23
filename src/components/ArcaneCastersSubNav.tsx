@@ -8,8 +8,8 @@ interface ArcaneCastersSubNavProps {
   navigateToTab: (tab: TabId) => void;
 }
 
-// Section-level sub navigation for the Arcane Casters pages (overview, magic
-// compendium, summon compendium). Keeps those routes out of the top-level
+// Section-level sub navigation for the Arcane Casters pages (overview and the
+// magic compendium). Keeps those routes out of the top-level
 // Navbar while still giving them their own quick-switch row.
 export const ArcaneCastersSubNav: React.FC<ArcaneCastersSubNavProps> = ({ activeTab, navigateToTab }) => {
   // Let modifier clicks fall through to the browser (open in new tab/window),

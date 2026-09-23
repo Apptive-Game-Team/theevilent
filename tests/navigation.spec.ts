@@ -39,8 +39,9 @@ test('legacy hash routes without a slug redirect to their section root', async (
   await page.goto('/#magic');
   await expect(page).toHaveURL(/\/arcane-casters\/magic$/);
 
+  // The summon compendium was folded into the magic compendium.
   await page.goto('/#summons');
-  await expect(page).toHaveURL(/\/arcane-casters\/summons$/);
+  await expect(page).toHaveURL(/\/arcane-casters\/magic$/);
 });
 
 test('direct entry to a deep Arcane Casters path renders its content', async ({ page }) => {
@@ -54,7 +55,7 @@ test('direct entry to a deep Arcane Casters path renders its content', async ({ 
   await expect(sectionNav(page).locator('a[aria-current="page"]')).toHaveText('MAGIC');
 });
 
-test('section sub navigation switches tabs with one history entry each, and GAMES stays active in the main nav', async ({ page }) => {
+test('section sub navigation switches tabs with one history entry, and GAMES stays active in the main nav', async ({ page }) => {
   await page.goto('/arcane-casters');
   await expect(sectionNav(page).locator('a[aria-current="page"]')).toHaveText('OVERVIEW');
 
@@ -63,14 +64,9 @@ test('section sub navigation switches tabs with one history entry each, and GAME
   await expect(sectionNav(page).locator('a[aria-current="page"]')).toHaveText('MAGIC');
   await expect(primaryNav(page).locator('a[aria-current="page"]')).toHaveText('GAMES');
 
-  await sectionNav(page).getByRole('link', { name: 'SUMMONS', exact: true }).click();
-  await expect(page).toHaveURL(/\/arcane-casters\/summons$/);
-  await expect(sectionNav(page).locator('a[aria-current="page"]')).toHaveText('SUMMONS');
-  await expect(primaryNav(page).locator('a[aria-current="page"]')).toHaveText('GAMES');
+  await expect(sectionNav(page).getByRole('link', { name: 'SUMMONS', exact: true })).toHaveCount(0);
 
-  // Two pushState navigations, so two back steps retrace them one at a time.
-  await page.goBack();
-  await expect(page).toHaveURL(/\/arcane-casters\/magic$/);
+  // One pushState navigation, so one back step retraces it.
   await page.goBack();
   await expect(page).toHaveURL(/\/arcane-casters$/);
 });

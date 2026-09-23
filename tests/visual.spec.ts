@@ -63,22 +63,26 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 
   // Navigate to Magic compendium
   await page.locator('nav').getByRole('link', { name: 'MAGIC', exact: true }).click();
-  await expect(page.getByRole('heading', { name: '마법 컨셉 도감' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '마법 도감' })).toBeVisible();
   await expect(page.locator('.magic-concept-card')).toHaveCount(24);
 
-  // Mobility remains profile information, not a list filter.
+  // The list filters by type and faction only, and the three World Tree
+  // factions are one.
   await expect(page.locator('.magic-filter-panel').getByText('기동', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.magic-filter-panel').getByRole('link', { name: '세계수 정령', exact: true })).toBeVisible();
+  await expect(page.locator('.magic-filter-panel').getByText('세계수 바람 정령')).toHaveCount(0);
 
   // Direct detail route
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
-  await expect(page.getByText('공중 부유형', { exact: true })).toBeVisible();
+  // The description is the in-game magic book's own sentence.
+  await expect(page.getByText('지옥불 군단장을 불러 적을 공격하는 하급 악마를 계속 내보냅니다.')).toBeVisible();
   await expect(page.getByRole('img', { name: /지옥불 차원의 하늘/ })).toBeVisible();
-  await expect(page.getByRole('heading', { name: '소환 개체 · 화염탄 비행 악마' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '화염탄 비행 악마' })).toBeVisible();
   await expect(page.getByRole('img', { name: /FireChildSpirit 컨셉 아트/ })).toBeVisible();
 
   await page.goto('/arcane-casters/magic/ember_spirit_swarm');
-  await expect(page.getByRole('heading', { name: '잿불 악마 무리' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '불씨 정령 무리' })).toBeVisible();
   await expect(page.getByRole('img', { name: /잿불 척후악마 컨셉 아트/ })).toBeVisible();
 
   await page.goto('/arcane-casters/magic/chain_lightning');
@@ -87,21 +91,22 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
 
   await page.goto('/arcane-casters/magic/lightning_drop');
   await expect(page.getByRole('heading', { name: '번개 투하' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: '번개 구름 · 대기 및 강타 프레임' })).toBeVisible();
-  await expect(page.locator('.magic-related-artwork .magic-game-asset')).toHaveCount(7);
+  await expect(page.getByRole('heading', { name: '단계별 모습' })).toBeVisible();
+  await expect(
+    page.locator('.magic-related-artwork', { has: page.getByRole('heading', { name: '단계별 모습' }) }).locator('figure'),
+  ).toHaveCount(7);
+
+  // A frame sequence is titled for any magic, not only the lightning cloud.
+  await page.goto('/arcane-casters/magic/magma_explosion');
+  await expect(page.getByRole('heading', { name: '단계별 모습' })).toBeVisible();
+  await expect(page.getByText('번개 구름')).toHaveCount(0);
 
   await page.goto('/arcane-casters/magic/dimension_toad');
   await expect(page.getByRole('heading', { name: '경계 운반자' })).toBeVisible();
   await expect(page.getByRole('img', { name: /화산편 컨셉 아트/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /폭풍편 컨셉 아트/ })).toBeVisible();
-  await page.getByRole('link', { name: '소환 개체 · 화산편' }).click();
   await expect(page.getByRole('heading', { name: '화산편' })).toBeVisible();
-  await expect(page.getByRole('link', { name: '경계 운반자 상세 보기' })).toBeVisible();
-
-  await page.goto('/arcane-casters/summons');
-  await expect(page.getByRole('heading', { name: /소환수/ })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(18);
-  await expect(page.getByRole('link', { name: /화염탄 비행 악마/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '폭풍편' })).toBeVisible();
   await settlePage(page);
   await page.screenshot({
     path: testInfo.outputPath('screenshot_magic-detail.png'),
@@ -109,7 +114,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   });
 
   await page.goto('/arcane-casters/magic/fire_spirit');
-  await expect(page.getByRole('heading', { name: '지옥불 하급 악마' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '불의 정령' })).toBeVisible();
   await expect(page.getByRole('img', { name: /생체 분사구/ })).toBeVisible();
 
   await page.goto('/arcane-casters/magic/chicken_commando');
@@ -130,19 +135,30 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   console.log('Saved screenshot_team.png');
 });
 
-test('new summon records expose their approved artwork and source magic', async ({ page }) => {
-  for (const [slug, name] of [
-    ['fire_lord_spirit', '지옥불 군단장'],
-    ['dimension_toad', '경계 운반자'],
-    ['rock_golem', '이끼바위 골렘'],
-    ['water_slime', '물방울 생존자'],
-    ['evil_ent', '사악한 나무 골렘'],
+test('old summon addresses land on the magic that summons them', async ({ page }) => {
+  for (const [summon, magic, name] of [
+    ['fire_lord_spirit', 'fire_lord_spirit', '지옥불 군단장'],
+    ['fire_tadpole', 'dimension_toad', '경계 운반자'],
+    ['rock_golem', 'rock_golem', '이끼바위 골렘'],
+    ['water_slime', 'water_slime_swarm', '물 슬라임 무리'],
+    ['evil_ent', 'evil_ent', '사악한 나무 골렘'],
   ]) {
-    await page.goto(`/arcane-casters/summons/${slug}`);
-    await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
-    await expect(page.locator('.magic-artwork-gallery img').first()).toBeVisible();
-    await expect(page.getByRole('link', { name: /상세 보기/ })).toBeVisible();
+    await page.goto(`/arcane-casters/summons/${summon}`);
+    await expect(page).toHaveURL(new RegExp(`/arcane-casters/magic/${magic}$`));
+    await expect(page.getByRole('heading', { name, exact: true, level: 1 })).toBeVisible();
   }
+
+  await page.goto('/arcane-casters/summons');
+  await expect(page).toHaveURL(/\/arcane-casters\/magic$/);
+  await expect(page.getByRole('heading', { name: '마법 도감' })).toBeVisible();
+});
+
+test('art that only a summon record carried moved onto its magic', async ({ page }) => {
+  await page.goto('/arcane-casters/magic/rock_golem');
+  await expect(page.getByRole('img', { name: /사망 후 남는 바위 잔해/ })).toBeVisible();
+
+  await page.goto('/arcane-casters/magic/water_slime_swarm');
+  await expect(page.getByRole('img', { name: /물을 뱉어 공격하는 물방울 생존자/ })).toBeVisible();
 });
 
 test('body background stays transparent so the particle canvas shows', async ({ page }) => {
@@ -156,7 +172,7 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/arcane-casters/magic');
 
-  await expect(page.getByRole('heading', { name: '마법 컨셉 도감' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '마법 도감' })).toBeVisible();
   await expect(page.locator('.magic-concept-card')).toHaveCount(24);
 
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
@@ -170,13 +186,13 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
 
 test('skip link keeps the active tab instead of resetting to home', async ({ page }) => {
   await page.goto('/team');
-  await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'THE EVIL ENT', level: 1 })).toBeVisible();
 
   await page.getByRole('link', { name: 'Skip To Main Content' }).focus();
   await page.keyboard.press('Enter');
 
   await expect(page).toHaveURL(/\/team#main-content$/);
-  await expect(page.getByRole('heading', { name: 'THE SUMMONERS' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'THE EVIL ENT', level: 1 })).toBeVisible();
 });
 
 // The redesign runs art to the edge of the viewport, which is exactly the shape
@@ -190,7 +206,6 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
     ['/', 'home'],
     ['/arcane-casters', 'games'],
     ['/arcane-casters/magic', 'magic'],
-    ['/arcane-casters/summons', 'summons'],
     ['/team', 'team'],
     ['/privacy', 'privacy'],
     ['/terms', 'terms'],

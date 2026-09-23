@@ -1,34 +1,21 @@
 import React, { useState } from 'react';
-import { Mail, Compass, Send, Sparkles } from 'lucide-react';
-import { teamMembers, type TabId } from '../content/siteContent';
-import { getTabPath } from '../routing';
+import { Mail, Send } from 'lucide-react';
+import { teamMembers } from '../content/siteContent';
 import { THE_EVIL_ENT_THEME, useDocumentTheme } from '../hooks/useDocumentTheme';
 
 const summonRecipients = teamMembers.map((member) => member.email).join(',');
 
-interface TeamProps {
-  navigateToTab: (tab: TabId) => void;
-}
-
-export const Team: React.FC<TeamProps> = ({ navigateToTab }) => {
+export const Team: React.FC = () => {
   // The studio's own page: abyss black and crimson for as long as this stays
   // mounted. Leaving Team hands the ground straight back to Arcane Casters.
   useDocumentTheme(THE_EVIL_ENT_THEME);
-
-  // The link back stays a real link so it can be opened in a new tab, but a
-  // plain click is handed to the router instead of reloading the document.
-  const openTab = (tab: TabId) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    navigateToTab(tab);
-  };
 
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formState.name && formState.email && formState.message) {
-      const subject = encodeURIComponent(`[The Evil Ent] Summon from ${formState.name}`);
+      const subject = encodeURIComponent(`[The Evil Ent] ${formState.name} 님의 문의`);
       const body = encodeURIComponent(
         [
           formState.message,
@@ -45,32 +32,17 @@ export const Team: React.FC<TeamProps> = ({ navigateToTab }) => {
 
   return (
     <div style={styles.page}>
-      {/* Introduction Header */}
       <section className="band band-sm" style={styles.introSection}>
-        <div className="container-narrow" style={styles.introContainer}>
-          <h1>THE SUMMONERS</h1>
-          <p className="lede" style={styles.subtitle}>
-            The Evil Ent는 2명의 개발자로 구성된 인디 게임 팀입니다. 클라이언트(Unity), 서버(Backend), 시스템 인프라(Infra)를 직접 설계하고 아우르며 완성도 높은 게임을 빌드하고 있습니다.
-          </p>
-          <a
-            href={getTabPath('home')}
-            onClick={openTab('home')}
-            className="btn-secondary"
-            style={styles.backLink}
-          >
-            <Sparkles size={16} aria-hidden="true" />
-            Arcane Casters로 돌아가기
-          </a>
+        <div className="container-narrow">
+          <h1>THE EVIL ENT</h1>
         </div>
       </section>
 
-      {/* Member Cards Grid */}
       <section className="band band-md" style={styles.teamSection}>
         <div className="container">
           <div className="grid-2" style={styles.teamGrid}>
             {teamMembers.map((member) => (
               <div key={member.name} className="panel" style={styles.memberCard}>
-                {/* Avatar Icon */}
                 <div style={styles.avatarRow}>
                   <div
                     style={{
@@ -91,9 +63,6 @@ export const Team: React.FC<TeamProps> = ({ navigateToTab }) => {
                   </div>
                 </div>
 
-                <p style={styles.memberBio}>{member.bio}</p>
-
-                {/* Member links */}
                 <div style={styles.socialRow}>
                   <a
                     href={member.github}
@@ -135,100 +104,64 @@ export const Team: React.FC<TeamProps> = ({ navigateToTab }) => {
         </div>
       </section>
 
-      {/* Studio Philosophy / Contact Section */}
-      <section className="band band-lg band-sunken" style={styles.contactSection}>
-        <div className="container">
-          <div className="Team_contactGrid" style={styles.contactGrid}>
-            {/* Left: Philosophy */}
-            <div style={styles.philosophyCol}>
-              <h2>OUR PHILOSOPHY</h2>
-              <ul style={styles.philoList}>
-                <li style={styles.philoItem}>
-                  <div style={styles.philoIconWrapper}>
-                    <Sparkles size={18} color="var(--color-primary)" aria-hidden="true" />
-                  </div>
-                  <div style={styles.philoText}>
-                    <strong style={styles.philoTitle}>재미있는 게임을 만들자</strong>
-                    <p style={styles.philoDesc}>
-                      장르적 클리셰에 얽매이지 않고, 플레이어에게 실질적인 흥미와 도전을 유발하는 가장 원초적인 즐거움을 연구합니다.
-                    </p>
-                  </div>
-                </li>
-                <li style={styles.philoItem}>
-                  <div style={styles.philoIconWrapper}>
-                    <Compass size={18} color="var(--color-primary)" aria-hidden="true" />
-                  </div>
-                  <div style={styles.philoText}>
-                    <strong style={styles.philoTitle}>게임 같은 게임을 만들자</strong>
-                    <p style={styles.philoDesc}>
-                      조작과 선택의 결과가 직관적이며, 플레이어가 몰입하여 스스로 흐름을 장악해 나가는 진정한 의미의 놀이를 창조하고자 합니다.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+      <section className="band band-lg band-sunken">
+        <div className="container" style={styles.formCol}>
+          <div className="panel" style={styles.formCard}>
+            <h2 style={styles.formTitle}>문의</h2>
 
-            {/* Right: Contact Form */}
-            <div style={styles.formCol}>
-              <div className="panel" style={styles.formCard}>
-                <h3 style={styles.formTitle}>SEND A SUMMON</h3>
-                <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등을 작성하면 이메일 앱에서 최종 전송할 수 있습니다.</p>
-
-                <form onSubmit={handleSubmit} style={styles.form}>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-name" className="label">Name</label>
-                    <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      required
-                      spellCheck={false}
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      style={styles.input}
-                      className="Team_input"
-                      placeholder="이름 또는 닉네임…"
-                    />
-                  </div>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-email" className="label">Email Address</label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      spellCheck={false}
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      style={styles.input}
-                      className="Team_input"
-                      placeholder="player@example.com…"
-                    />
-                  </div>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-message" className="label">Message</label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      rows={4}
-                      required
-                      autoComplete="off"
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      style={styles.textarea}
-                      className="Team_textarea"
-                      placeholder="메시지 내용을 입력하세요…"
-                    />
-                  </div>
-                  <button type="submit" className="btn-primary" style={styles.submitBtn}>
-                    <Send size={16} aria-hidden="true" />
-                    이메일 앱 열기
-                  </button>
-                </form>
+            <form onSubmit={handleSubmit} style={styles.form}>
+              <div style={styles.formGroup}>
+                <label htmlFor="contact-name" className="label">이름</label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  spellCheck={false}
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  style={styles.input}
+                  className="Team_input"
+                  placeholder="닉네임…"
+                />
               </div>
-            </div>
+              <div style={styles.formGroup}>
+                <label htmlFor="contact-email" className="label">이메일</label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  spellCheck={false}
+                  value={formState.email}
+                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  style={styles.input}
+                  className="Team_input"
+                  placeholder="player@example.com…"
+                />
+              </div>
+              <div style={styles.formGroup}>
+                <label htmlFor="contact-message" className="label">내용</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows={4}
+                  required
+                  autoComplete="off"
+                  value={formState.message}
+                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  style={styles.textarea}
+                  className="Team_textarea"
+                  placeholder="버그, 건의, 협업 제안…"
+                />
+              </div>
+              <button type="submit" className="btn-primary" style={styles.submitBtn}>
+                <Send size={16} aria-hidden="true" />
+                이메일 앱에서 보내기
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -242,18 +175,6 @@ const styles: Record<string, React.CSSProperties> = {
   },
   introSection: {
     textAlign: 'center',
-  },
-  introContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '1.25rem',
-  },
-  subtitle: {
-    margin: '0 auto',
-  },
-  backLink: {
-    marginTop: '0.25rem',
   },
   teamSection: {},
   teamGrid: {
@@ -301,75 +222,15 @@ const styles: Record<string, React.CSSProperties> = {
     marginTop: '0.2rem',
     overflowWrap: 'anywhere',
   },
-  memberBio: {
-    color: 'var(--color-ink-soft)',
-    lineHeight: 1.7,
-    flexGrow: 1,
-    overflowWrap: 'anywhere',
-  },
   socialRow: {
     display: 'flex',
     gap: '1rem',
-    marginTop: '0.5rem',
   },
   socialLink: {
     color: 'var(--color-ink-muted)',
     display: 'inline-flex',
     padding: '0.25rem',
     borderRadius: 'var(--radius-control)',
-  },
-  contactSection: {},
-  contactGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: '3rem',
-    alignItems: 'start',
-  },
-  philosophyCol: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.5rem',
-    // A grid item's default min-width is its min-content width, which the
-    // unbreakable Korean of the philosophy copy pushes past the track. Without
-    // this the column runs 1px wider than the page at 390px.
-    minWidth: 0,
-  },
-  philoList: {
-    listStyle: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '2rem',
-  },
-  philoItem: {
-    display: 'flex',
-    gap: '1.25rem',
-    alignItems: 'flex-start',
-    minWidth: 0,
-  },
-  philoText: {
-    minWidth: 0,
-  },
-  philoIconWrapper: {
-    backgroundColor: 'var(--color-primary-tint)',
-    width: '40px',
-    height: '40px',
-    borderRadius: 'var(--radius-control-lg)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-  },
-  philoTitle: {
-    display: 'block',
-    fontSize: '1.1rem',
-    fontWeight: 700,
-    color: 'var(--color-ink)',
-    marginBottom: '0.35rem',
-  },
-  philoDesc: {
-    fontSize: '0.95rem',
-    color: 'var(--color-ink-soft)',
-    lineHeight: 1.65,
   },
   formCol: {
     display: 'flex',
@@ -378,14 +239,12 @@ const styles: Record<string, React.CSSProperties> = {
   formCard: {
     width: '100%',
     maxWidth: '480px',
+    // A flex item's default min-width is its min-content width; a textarea's
+    // `cols` would otherwise push this card past a phone-width viewport.
+    minWidth: 0,
   },
   formTitle: {
-    marginBottom: '0.5rem',
-  },
-  formSubtitle: {
-    color: 'var(--color-ink-muted)',
-    fontSize: '0.9rem',
-    marginBottom: '1.75rem',
+    marginBottom: '1.5rem',
   },
   form: {
     display: 'flex',
