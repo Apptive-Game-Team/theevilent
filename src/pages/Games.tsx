@@ -100,12 +100,12 @@ export const Games: React.FC = () => {
             <h1 style={styles.titleHeading}>
               <img
                 src="/arcane-casters-logo.png"
-                srcSet="/arcane-casters-logo-800.png 800w, /arcane-casters-logo.png 1600w"
+                srcSet="/arcane-casters-logo-800.png 800w, /arcane-casters-logo.png 1010w"
                 sizes="(min-width: 768px) 440px, 78vw"
                 alt="Arcane Casters"
                 style={styles.titleLogo}
-                width="1600"
-                height="1000"
+                width="1010"
+                height="508"
                 fetchPriority="high"
               />
             </h1>
