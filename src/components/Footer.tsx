@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { aiArtworkNoticeEn, arcaneCastersFooterLinks, legalLinks, navigationItems, platformLinks, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
@@ -9,6 +9,10 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
   const currentYear = new Date().getFullYear();
+  // index.css dropped the global `footer a:hover { transform: translateX(4px) }`
+  // rule, so this component gives its own links a hover response, keyed by a
+  // string per link since each needs its own transform/shadow.
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
 
   // Let modifier clicks fall through to the browser (open in new tab/window),
   // otherwise cancel the default fragment navigation so only SPA routing runs.
@@ -19,24 +23,29 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
   };
 
   return (
-    <footer style={styles.footer}>
-      <div style={styles.container}>
+    // .band-wood (index.css) paints the wood plank, its top lip in
+    // --color-wood-edge, and sets text to --color-ink-wood — the same hud
+    // plank the match screen lays its cards on.
+    <footer className="band band-wood" style={styles.footer}>
+      <div className="container">
         <div className="footer-grid" style={styles.grid}>
-          {/* Brand Info */}
+          {/* Brand */}
           <div style={styles.colBrand}>
             <div style={styles.brandTitle}>
-              <img 
-                src="/theevilent-logo.png" 
-                alt="The Evil Ent Logo" 
-                style={styles.logo} 
-                width="32"
-                height="32"
-              />
+              <div style={styles.logoChip}>
+                <img
+                  src="/theevilent-logo.png"
+                  alt="The Evil Ent Logo"
+                  style={styles.logo}
+                  width={32}
+                  height={32}
+                />
+              </div>
+              {/* The studio wordmark keeps its own fixed face even though the
+                  rest of the site's headings ride --font-display, which
+                  follows the active theme. */}
               <h3 style={styles.brandText}>THE EVIL ENT</h3>
             </div>
-            <p style={styles.description}>
-              Crafting mysterious, atmospheric dark-fantasy games that crawl from the deep shadows of the ancient forest.
-            </p>
           </div>
 
           {/* Quick Navigation */}
@@ -48,13 +57,19 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                   <a
                     href={getTabPath(item.id)}
                     onClick={(event) => handleNavClick(event, item.id)}
-                    style={styles.linkButton}
+                    onMouseEnter={() => setHoveredKey(`nav-${item.id}`)}
+                    onMouseLeave={() => setHoveredKey(null)}
+                    style={{
+                      ...styles.linkButton,
+                      color: hoveredKey === `nav-${item.id}` ? 'var(--color-ink-wood)' : 'var(--color-ink-wood-soft)',
+                      transform: hoveredKey === `nav-${item.id}` ? 'translateX(4px)' : 'none',
+                    }}
                   >
                     {item.footerLabel}
                   </a>
-                  {/* The magic and summon compendiums moved out of the top-level
+                  {/* The magic compendium moved out of the top-level
                       nav into the Arcane Casters section sub navigation, so list
-                      them here, indented beneath Games, to keep a site-wide link. */}
+                      it here, indented beneath Games, to keep a site-wide link. */}
                   {item.id === 'games' && (
                     <ul style={styles.subList}>
                       {arcaneCastersFooterLinks.map((subItem) => (
@@ -62,7 +77,13 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                           <a
                             href={getTabPath(subItem.id)}
                             onClick={(event) => handleNavClick(event, subItem.id)}
-                            style={styles.subLinkButton}
+                            onMouseEnter={() => setHoveredKey(`sub-${subItem.id}`)}
+                            onMouseLeave={() => setHoveredKey(null)}
+                            style={{
+                              ...styles.subLinkButton,
+                              color: hoveredKey === `sub-${subItem.id}` ? 'var(--color-ink-wood)' : 'var(--color-ink-wood-soft)',
+                              transform: hoveredKey === `sub-${subItem.id}` ? 'translateX(4px)' : 'none',
+                            }}
                           >
                             {subItem.footerLabel}
                           </a>
@@ -85,8 +106,13 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={styles.platformCard}
-                  className="gothic-card-hover"
+                  onMouseEnter={() => setHoveredKey(`platform-${href}`)}
+                  onMouseLeave={() => setHoveredKey(null)}
+                  style={{
+                    ...styles.platformCard,
+                    transform: hoveredKey === `platform-${href}` ? 'translateY(-3px)' : 'none',
+                    boxShadow: hoveredKey === `platform-${href}` ? 'var(--shadow-card-raised)' : 'var(--shadow-card)',
+                  }}
                 >
                   <div style={styles.platformIconWrapper}>
                     <Icon size={18} color="var(--color-primary)" aria-hidden="true" />
@@ -112,7 +138,13 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
                 key={item.id}
                 href={getTabPath(item.id)}
                 onClick={(event) => handleNavClick(event, item.id)}
-                style={styles.legalLink}
+                onMouseEnter={() => setHoveredKey(`legal-${item.id}`)}
+                onMouseLeave={() => setHoveredKey(null)}
+                style={{
+                  ...styles.legalLink,
+                  color: hoveredKey === `legal-${item.id}` ? 'var(--color-ink-wood)' : 'var(--color-ink-wood-soft)',
+                  textDecoration: hoveredKey === `legal-${item.id}` ? 'underline' : 'none',
+                }}
               >
                 {item.footerLabel}
               </a>
@@ -134,18 +166,9 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
 
 const styles: Record<string, React.CSSProperties> = {
   footer: {
-    backgroundColor: '#070605',
-    borderTop: '1px solid #1c1512',
-    padding: '4rem 0 2rem 0',
+    padding: 'var(--space-band-md) 0 var(--space-band-sm) 0',
     marginTop: 'auto',
-    width: '100%',
     zIndex: 10,
-    position: 'relative',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 1.5rem',
   },
   grid: {
     display: 'grid',
@@ -164,22 +187,30 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     gap: '0.75rem',
   },
+  // A small white card, floated the way every other card on the site is —
+  // shadow, no border — rather than the old dark chip with a hairline edge.
+  logoChip: {
+    width: '40px',
+    height: '40px',
+    borderRadius: 'var(--radius-control)',
+    overflow: 'hidden',
+    backgroundColor: 'var(--color-surface)',
+    boxShadow: 'var(--shadow-card)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
   logo: {
-    width: '32px',
-    height: '32px',
+    width: '100%',
+    height: '100%',
     objectFit: 'cover',
-    borderRadius: '4px',
-    border: '1px solid #322822',
   },
   brandText: {
+    fontFamily: 'var(--font-wordmark)',
     fontSize: '1.25rem',
-    letterSpacing: '0.1em',
-    fontWeight: '700',
-  },
-  description: {
-    color: 'var(--color-text-muted)',
-    fontSize: '0.95rem',
-    maxWidth: '350px',
+    fontWeight: 800,
+    color: 'var(--color-ink-wood)',
   },
   colLinks: {
     display: 'flex',
@@ -187,11 +218,9 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '1.25rem',
   },
   heading: {
-    fontSize: '1rem',
-    letterSpacing: '0.15em',
-    color: 'var(--color-text-light)',
-    borderLeft: '2px solid var(--color-primary)',
-    paddingLeft: '0.75rem',
+    fontSize: 'var(--text-label)',
+    fontWeight: 700,
+    color: 'var(--color-ink-wood)',
   },
   list: {
     listStyle: 'none',
@@ -200,11 +229,10 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '0.75rem',
   },
   linkButton: {
-    color: 'var(--color-text-muted)',
     fontSize: '0.95rem',
     cursor: 'pointer',
     textAlign: 'left',
-    transition: 'color 0.2s ease, transform 0.2s ease',
+    transition: 'color var(--transition-fast), transform var(--transition-fast)',
     fontFamily: 'var(--font-body)',
     textDecoration: 'none',
     display: 'inline-flex',
@@ -216,14 +244,13 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '0.6rem',
     marginTop: '0.6rem',
     paddingLeft: '1rem',
-    borderLeft: '1px solid #2d231e',
+    borderLeft: '1px solid var(--color-rule-wood)',
   },
   subLinkButton: {
-    color: 'var(--color-text-muted)',
     fontSize: '0.85rem',
     cursor: 'pointer',
     textAlign: 'left',
-    transition: 'color 0.2s ease, transform 0.2s ease',
+    transition: 'color var(--transition-fast), transform var(--transition-fast)',
     fontFamily: 'var(--font-body)',
     textDecoration: 'none',
     display: 'inline-flex',
@@ -239,26 +266,28 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '0.75rem',
     maxWidth: '320px',
   },
+  // A white card lifted on a shadow, the same panel language every other
+  // card on the site uses, rather than a bordered dark box.
   platformCard: {
     display: 'flex',
     alignItems: 'center',
     gap: '1rem',
-    backgroundColor: '#120f0d',
-    border: '1px solid #2d231e',
+    backgroundColor: 'var(--color-surface)',
     padding: '0.6rem 1rem',
-    borderRadius: '6px',
+    borderRadius: 'var(--radius-control-lg)',
     textDecoration: 'none',
-    color: 'var(--color-text-light)',
-    transition: 'transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
+    color: 'var(--color-ink)',
+    transition: 'transform var(--transition-fast), box-shadow var(--transition-fast)',
   },
   platformIconWrapper: {
-    backgroundColor: 'rgba(230, 30, 42, 0.1)',
+    backgroundColor: 'var(--color-primary-tint)',
     width: '36px',
     height: '36px',
-    borderRadius: '50%',
+    borderRadius: 'var(--radius-pill)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flexShrink: 0,
   },
   platformMeta: {
     display: 'flex',
@@ -268,23 +297,20 @@ const styles: Record<string, React.CSSProperties> = {
   },
   platformSubtitle: {
     fontSize: '0.65rem',
-    letterSpacing: '0.05em',
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-muted)',
   },
   platformTitle: {
     fontSize: '0.95rem',
-    fontWeight: '600',
-    fontFamily: 'var(--font-display)',
-    letterSpacing: '0.05em',
+    fontWeight: 700,
+    fontFamily: 'var(--font-body)',
     overflowWrap: 'anywhere',
   },
   arrow: {
-    color: 'var(--color-text-muted)',
-    transition: 'transform 0.2s ease, color 0.2s ease',
+    color: 'var(--color-ink-muted)',
   },
   divider: {
     height: '1px',
-    backgroundColor: '#1c1512',
+    backgroundColor: 'var(--color-rule-wood)',
     margin: '2rem 0',
   },
   bottom: {
@@ -301,32 +327,28 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
   },
   legalLink: {
-    color: 'var(--color-text-muted)',
     fontSize: '0.85rem',
-    textDecoration: 'none',
-    letterSpacing: '0.03em',
-    borderBottom: '1px solid transparent',
-    transition: 'color 0.2s ease, border-color 0.2s ease',
+    fontFamily: 'var(--font-body)',
+    transition: 'color var(--transition-fast)',
   },
   copyText: {
     fontSize: '0.9rem',
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-wood-soft)',
   },
   devs: {
     fontSize: '0.85rem',
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-wood-soft)',
   },
   devTag: {
-    color: 'var(--color-text-light)',
-    fontFamily: 'var(--font-display)',
-    letterSpacing: '0.05em',
-    fontWeight: '600',
-    borderBottom: '1px solid #e61e2a',
+    color: 'var(--color-ink-wood)',
+    fontFamily: 'var(--font-wordmark)',
+    fontWeight: 700,
+    borderBottom: '1px solid var(--color-ent-crimson)',
     paddingBottom: '2px',
   },
   aiNotice: {
     fontSize: '0.8rem',
-    color: 'var(--color-text-muted)',
+    color: 'var(--color-ink-wood-soft)',
   },
 };
 

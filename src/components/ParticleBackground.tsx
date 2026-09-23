@@ -3,27 +3,15 @@ import React, { useEffect, useRef } from 'react';
 type Channels = [number, number, number];
 
 interface Palette {
-  ember: Channels;
-  ash: Channels;
-  glow: string;
-  backdropEdge: string;
-  backdropCenter: string;
+  leaf: Channels;
+  leafAlt: Channels;
+  opacity: number;
 }
 
-/**
- * How far each ember strays from the theme's ember colour, per channel. These
- * are the spreads the canvas has always drawn around The Evil Ent's crimson;
- * any other theme gets the same scatter around its own ember colour.
- */
-const EMBER_SCATTER: Channels = [27, 20, 10];
-const NO_SCATTER: Channels = [0, 0, 0];
-
 const FALLBACK: Palette = {
-  ember: [227, 30, 25],
-  ash: [90, 70, 60],
-  glow: 'rgba(230, 30, 42, 0.6)',
-  backdropEdge: 'rgba(5, 4, 4, 0.95)',
-  backdropCenter: 'rgba(13, 11, 10, 0.93)',
+  leaf: [174, 211, 71],
+  leafAlt: [145, 190, 90],
+  opacity: 0.3,
 };
 
 const readChannels = (styles: CSSStyleDeclaration, name: string, fallback: Channels): Channels => {
@@ -33,23 +21,44 @@ const readChannels = (styles: CSSStyleDeclaration, name: string, fallback: Chann
     : fallback;
 };
 
-const readColor = (styles: CSSStyleDeclaration, name: string, fallback: string) =>
-  styles.getPropertyValue(name).trim() || fallback;
-
-/** The particle colours of whichever theme is on the document right now. */
+/** The leaf colours of whichever theme is on the document right now. */
 const readPalette = (): Palette => {
   const styles = getComputedStyle(document.documentElement);
+  const opacity = Number.parseFloat(styles.getPropertyValue('--color-leaf-opacity'));
   return {
-    ember: readChannels(styles, '--color-ember-rgb', FALLBACK.ember),
-    ash: readChannels(styles, '--color-ember-ash-rgb', FALLBACK.ash),
-    glow: readColor(styles, '--color-ember-glow', FALLBACK.glow),
-    backdropEdge: readColor(styles, '--color-backdrop-edge', FALLBACK.backdropEdge),
-    backdropCenter: readColor(styles, '--color-backdrop-center', FALLBACK.backdropCenter),
+    leaf: readChannels(styles, '--color-leaf-rgb', FALLBACK.leaf),
+    leafAlt: readChannels(styles, '--color-leaf-alt-rgb', FALLBACK.leafAlt),
+    opacity: Number.isFinite(opacity) ? opacity : FALLBACK.opacity,
   };
 };
 
-const channel = (value: number) => Math.min(255, Math.max(0, Math.round(value)));
+interface Leaf {
+  x: number;
+  y: number;
+  length: number;
+  fallSpeed: number;
+  driftSpeed: number;
+  drift: number;
+  spin: number;
+  spinSpeed: number;
+  alpha: number;
+  alt: boolean;
+}
 
+/** One leaf per this many square pixels, so a phone does not get a blizzard. */
+const AREA_PER_LEAF = 46_000;
+const MAX_LEAVES = 28;
+
+/**
+ * Leaves drifting down through the clearing.
+ *
+ * This canvas used to drift embers up a black page, which belonged to the dark
+ * fantasy template the site was built from and not to the game — Arcane
+ * Casters is played in daylight on a grass field under a canopy. The motion
+ * stayed because a still page under a sunlit hero looks flat; only what falls
+ * through it changed. The leaves are drawn at low alpha behind everything
+ * (z-index: -1) and hold still under prefers-reduced-motion.
+ */
 export const ParticleBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -60,135 +69,126 @@ export const ParticleBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let animationFrameId = 0;
+    let width = 0;
+    let height = 0;
+    let leaves: Leaf[] = [];
     let palette = readPalette();
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    // Particle representation
-    interface Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedY: number;
-      speedX: number;
-      opacity: number;
-      isAsh: boolean;
-      scatter: Channels;
-      wobble: number;
-      wobbleSpeed: number;
-    }
+    const makeLeaf = (startAtTop: boolean): Leaf => ({
+      x: Math.random() * width,
+      y: startAtTop ? -Math.random() * height * 0.5 : Math.random() * height,
+      length: 9 + Math.random() * 13,
+      fallSpeed: 0.18 + Math.random() * 0.34,
+      driftSpeed: 0.0035 + Math.random() * 0.006,
+      drift: Math.random() * Math.PI * 2,
+      spin: Math.random() * Math.PI * 2,
+      spinSpeed: (Math.random() - 0.5) * 0.012,
+      alpha: 0.45 + Math.random() * 0.55,
+      alt: Math.random() < 0.45,
+    });
 
-    const particles: Particle[] = [];
-    const maxParticles = 60; // Kept at reasonable count for performance
+    const resize = () => {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-    const createParticle = (isInitial = false): Particle => {
-      const size = Math.random() * 3 + 0.5;
-      const isAsh = Math.random() <= 0.15;
-      return {
-        x: Math.random() * width,
-        y: isInitial ? Math.random() * height : height + 10,
-        size,
-        speedY: -(Math.random() * 0.8 + 0.3),
-        speedX: Math.random() * 0.4 - 0.2,
-        opacity: Math.random() * 0.5 + 0.2,
-        isAsh,
-        // Fixed per particle so a theme change recolours it without resetting it.
-        scatter: isAsh
-          ? NO_SCATTER
-          : (EMBER_SCATTER.map((spread) => (Math.random() * 2 - 1) * spread) as Channels),
-        wobble: Math.random() * Math.PI * 2,
-        wobbleSpeed: Math.random() * 0.02 + 0.005,
-      };
+      const wanted = Math.min(MAX_LEAVES, Math.round((width * height) / AREA_PER_LEAF));
+      leaves = Array.from({ length: Math.max(6, wanted) }, () => makeLeaf(false));
     };
 
-    const particleColor = (p: Particle) => {
-      const base = p.isAsh ? palette.ash : palette.ember;
-      const [r, g, b] = base.map((value, index) => channel(value + p.scatter[index]));
-      return `rgba(${r}, ${g}, ${b}, ${p.opacity})`;
+    // A leaf: two arcs meeting at a point at each end, with a midrib.
+    const drawLeaf = (leaf: Leaf) => {
+      const [r, g, b] = leaf.alt ? palette.leafAlt : palette.leaf;
+      const half = leaf.length / 2;
+      const belly = leaf.length * 0.3;
+
+      ctx.save();
+      ctx.translate(leaf.x, leaf.y);
+      ctx.rotate(leaf.spin);
+      ctx.globalAlpha = palette.opacity * leaf.alpha;
+
+      ctx.beginPath();
+      ctx.moveTo(-half, 0);
+      ctx.quadraticCurveTo(0, -belly, half, 0);
+      ctx.quadraticCurveTo(0, belly, -half, 0);
+      ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(-half, 0);
+      ctx.lineTo(half, 0);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = `rgba(${Math.round(r * 0.72)}, ${Math.round(g * 0.72)}, ${Math.round(b * 0.72)}, 0.8)`;
+      ctx.stroke();
+
+      ctx.restore();
     };
 
-    const drawBackdrop = () => {
+    const render = () => {
       ctx.clearRect(0, 0, width, height);
+      leaves.forEach(drawLeaf);
+    };
 
-      const gradient = ctx.createLinearGradient(0, 0, 0, height);
-      gradient.addColorStop(0, palette.backdropEdge);
-      gradient.addColorStop(0.5, palette.backdropCenter);
-      gradient.addColorStop(1, palette.backdropEdge);
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
+    const step = () => {
+      leaves.forEach((leaf) => {
+        leaf.drift += leaf.driftSpeed;
+        leaf.spin += leaf.spinSpeed;
+        leaf.y += leaf.fallSpeed;
+        leaf.x += Math.sin(leaf.drift) * 0.5;
+
+        if (leaf.y - leaf.length > height) {
+          Object.assign(leaf, makeLeaf(true), { y: -leaf.length });
+        }
+        if (leaf.x < -leaf.length) leaf.x = width + leaf.length;
+        if (leaf.x > width + leaf.length) leaf.x = -leaf.length;
+      });
+
+      render();
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    const start = () => {
+      cancelAnimationFrame(animationFrameId);
+      if (motionQuery.matches) {
+        render();
+        return;
+      }
+      animationFrameId = requestAnimationFrame(step);
     };
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      drawBackdrop();
+      resize();
+      start();
     };
 
-    window.addEventListener('resize', handleResize);
+    const handleMotionChange = () => {
+      start();
+    };
 
-    // The canvas sits above the pages in the tree, so it watches the document
-    // element for the theme the mounted page puts there.
+    // A page can swap the theme while the canvas is running, so the leaves
+    // reread their colours whenever data-theme changes.
     const themeObserver = new MutationObserver(() => {
       palette = readPalette();
-      if (prefersReducedMotion) drawBackdrop();
+      if (motionQuery.matches) render();
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['data-theme'],
     });
 
-    if (prefersReducedMotion) {
-      drawBackdrop();
-      return () => {
-        window.removeEventListener('resize', handleResize);
-        themeObserver.disconnect();
-      };
-    }
-
-    for (let i = 0; i < maxParticles; i++) {
-      particles.push(createParticle(true));
-    }
-
-    const animate = () => {
-      drawBackdrop();
-
-      particles.forEach((p, index) => {
-        p.y += p.speedY;
-        p.wobble += p.wobbleSpeed;
-        p.x += p.speedX + Math.sin(p.wobble) * 0.2;
-
-        // Reset particle if it drifts off top or sides
-        if (p.y < -10 || p.x < -10 || p.x > width + 10) {
-          particles[index] = createParticle(false);
-        }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-        // Add subtle shadow glow to embers
-        if (p.isAsh) {
-          ctx.shadowBlur = 0;
-        } else {
-          ctx.shadowBlur = p.size * 3;
-          ctx.shadowColor = palette.glow;
-        }
-
-        ctx.fillStyle = particleColor(p);
-        ctx.fill();
-      });
-
-      ctx.shadowBlur = 0;
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animate();
+    resize();
+    start();
+    window.addEventListener('resize', handleResize);
+    motionQuery.addEventListener('change', handleMotionChange);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      motionQuery.removeEventListener('change', handleMotionChange);
       themeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
@@ -197,6 +197,7 @@ export const ParticleBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{
         position: 'fixed',
         top: 0,
@@ -209,4 +210,5 @@ export const ParticleBackground: React.FC = () => {
     />
   );
 };
+
 export default ParticleBackground;

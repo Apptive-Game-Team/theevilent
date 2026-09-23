@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
@@ -8,44 +8,22 @@ import Home from './pages/Home';
 import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
-import SummonCompendium from './pages/SummonCompendium';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
-import { getLegacyPathFromHash, getRouteFromPathname, getTabPath, isArcaneCastersTab } from './routing';
-
-function CursorGlow() {
-  const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const glow = glowRef.current;
-      if (!glow) return;
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return <div ref={glowRef} className="custom-cursor-glow" style={{ left: 0, top: 0 }} />;
-}
+import { getLegacyPathFromHash, getRouteFromPathname, getSummonRedirectPath, getTabPath, isArcaneCastersTab } from './routing';
 
 function App() {
   const [route, setRoute] = useState(() => {
-    const legacyPath = getLegacyPathFromHash(window.location.hash);
+    const legacyPath = getLegacyPathFromHash(window.location.hash)
+      ?? getSummonRedirectPath(window.location.pathname);
     if (legacyPath) window.history.replaceState(null, '', legacyPath);
     return getRouteFromPathname(window.location.pathname);
   });
 
   useEffect(() => {
     const handlePopState = () => {
+      const summonRedirect = getSummonRedirectPath(window.location.pathname);
+      if (summonRedirect) window.history.replaceState(null, '', summonRedirect);
       setRoute(getRouteFromPathname(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -75,8 +53,6 @@ function App() {
         return <Games />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
-      case 'summons':
-        return <SummonCompendium slug={route.slug} />;
       case 'team':
         return <Team />;
       case 'privacy':
@@ -90,8 +66,6 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      <CursorGlow />
-
       <ParticleBackground />
       <a href="#main-content" className="skip-link">
         Skip To Main Content

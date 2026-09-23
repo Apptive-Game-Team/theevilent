@@ -1,106 +1,95 @@
 /* ---------------------------------------------------------------------------
    Theme tokens.
 
-   :root carries The Evil Ent's identity: abyss black, crimson, Cinzel.
-   [data-theme="arcane-casters"] swaps the accent layer for Arcane Casters'
-   own colours. Pages opt in through useDocumentTheme().
+   :root carries Arcane Casters: the sunlit clearing the match is played on.
+   Every colour below was sampled out of public/gameplay/match.png and
+   public/gameplay/battle.png, the two Play Store match screens, so the site
+   and the game read as one product. The sampled hex is in the comment beside
+   each token.
+
+   [data-theme='the-evil-ent'] swaps the whole ground for the studio's own
+   identity — abyss black and crimson. Only the Team page opts in, through
+   useDocumentTheme(). Everything else keeps the tokens on :root.
 
    Values ending in -rgb hold bare channels so a one-off alpha can be written
    as rgba(var(--token-rgb), 0.18) and still follow the active theme.
    --------------------------------------------------------------------------- */
 :root {
-  /* Ground and opaque surfaces */
-  --color-bg-darkest: #050404;
-  --color-bg-darkest-rgb: 5, 4, 4;
-  --color-bg-dark: #0d0b0a;
-  --color-bg-dark-rgb: 13, 11, 10;
-  --color-bg-card: #151210;
-  --color-bg-card-rgb: 21, 18, 16;
-  --color-bg-card-hover: #1e1a17;
-  --color-bg-sunken: #0a0908;
-  --color-bg-sunken-rgb: 10, 9, 8;
-  --color-bg-raised: #12100e;
-  --color-bg-inset: #0b0908;
-  --color-bg-overlay: #120f0d;
-  --color-bg-bark: #1c1512;
-  --color-bg-void: #000;
-  --color-bg-panel-top: #17130f;
-  --color-bg-panel-bottom: #0c0a09;
-  --color-bg-checker: #0e0c0b;
-  --color-bg-keyart-plate: #11150c;
+  color-scheme: light;
 
-  /* Translucent surfaces */
-  --color-surface-veil: rgba(9, 8, 7, 0.4);
-  --color-surface-panel: rgba(var(--color-bg-dark-rgb), 0.92);
-  --color-surface-drawer: rgba(var(--color-bg-dark-rgb), 0.95);
-  --color-surface-stat: rgba(var(--color-bg-card-rgb), 0.88);
-  --color-surface-card-top: rgba(27, 24, 20, 0.98);
-  --color-surface-card-bottom: rgba(var(--color-bg-sunken-rgb), 0.98);
-  --color-scrim-heavy: rgba(var(--color-bg-darkest-rgb), 0.92);
-  --color-scrim: rgba(var(--color-bg-darkest-rgb), 0.88);
-  --color-scrim-soft: rgba(var(--color-bg-darkest-rgb), 0.72);
-  --color-scrim-faint: rgba(var(--color-bg-darkest-rgb), 0.42);
-  --color-checker-tile: rgba(255, 255, 255, 0.025);
+  /* Ground: the clearing, the grass washed out until text sits on it safely.
+     #98b852 is the arena grass; these are that hue carried up to near-white. */
+  --color-ground: #f4f7ea;
+  --color-ground-rgb: 244, 247, 234;
+  --color-ground-sunken: #e9f0d8;
+  --color-ground-edge: #dde7c4;
 
-  /* Borders */
-  --color-border-rule: #1a1512;
-  --color-border-faint: #251e1a;
-  --color-border: #2d231e;
-  --color-border-rgb: 45, 35, 30;
-  --color-border-muted: #322822;
-  --color-border-strong: #3d332d;
-  --color-border-light: rgba(255, 255, 255, 0.1);
-  --color-border-accent: #591b1b;
-  --color-border-accent-strong: #7a1f1f;
-  --color-border-accent-soft: #3d2222;
+  /* Surface: the white spell card on the hud plank, shadow and all. */
+  --color-surface: #ffffff;
+  --color-surface-rgb: 255, 255, 255;
+  --color-surface-soft: #fafcf2;
+  --color-surface-sunken: #f0f4e4;
 
-  /* Accent */
-  --color-primary: #e61e2a;
-  --color-primary-rgb: 230, 30, 42;
-  --color-primary-hover: #ff333f;
-  --color-primary-deep: #a3141c;
-  --color-primary-deep-rgb: 163, 20, 28;
-  --color-primary-bright: #ff424d;
-  --color-primary-flare: #ff1a1a;
-  --color-primary-glow: rgba(var(--color-primary-rgb), 0.4);
-  --color-primary-glow-heavy: rgba(var(--color-primary-rgb), 0.7);
-  --color-primary-tint-weak: rgba(var(--color-primary-rgb), 0.05);
+  /* Field: the arena the two casters fight across. */
+  --color-field: #98b852;          /* arena grass */
+  --color-field-rgb: 152, 184, 82;
+  --color-field-shade: #83ac51;    /* the shadow cast across the arena */
+  --color-field-shade-rgb: 131, 172, 81;
+  --color-field-deep: #5c942d;     /* the grass below the arena floor */
+  --color-field-deep-rgb: 92, 148, 45;
+
+  /* Canopy: the treetops along the top of the match screen. */
+  --color-canopy: #aed347;
+  --color-canopy-rgb: 174, 211, 71;
+  --color-canopy-bright: #d8f156;  /* sunlit leaves */
+  --color-canopy-bright-rgb: 216, 241, 86;
+
+  /* Wood: the hud plank the six cards are laid on. */
+  --color-wood: #d0a178;
+  --color-wood-rgb: 208, 161, 120;
+  --color-wood-edge: #c99b73;      /* the plank's top lip */
+  --color-wood-deep: #a2764c;      /* the step under a pressed wood control */
+
+  /* Mana: the green gauge and the badge on the corner of every card. */
+  --color-mana: #91be5a;
+  --color-mana-rgb: 145, 190, 90;
+
+  /* Accent: the mana green taken down until white text on it clears
+     WCAG AA (5.61:1). This is the fill of every primary button. */
+  --color-primary: #477320;
+  --color-primary-rgb: 71, 115, 32;
+  --color-primary-hover: #4e7d22;  /* white on it: 4.91:1 */
+  --color-primary-deep: #2f4c12;   /* the step under a pressed button */
   --color-primary-tint: rgba(var(--color-primary-rgb), 0.1);
-  --color-primary-tint-strong: rgba(var(--color-primary-rgb), 0.25);
-  --color-primary-edge: rgba(var(--color-primary-rgb), 0.45);
+  --color-primary-tint-strong: rgba(var(--color-primary-rgb), 0.2);
 
-  /* Secondary: the compendium's second voice */
-  --color-secondary: #c44a32;
-  --color-secondary-rgb: 196, 74, 50;
-  --color-secondary-bright: #e68a68;
-  --color-secondary-pale: #efb79e;
-  --color-secondary-soft: #dfaa95;
-  --color-secondary-dim: #9c5558;
-  --color-secondary-deep: #8f3027;
-  --color-secondary-edge: #8f4133;
-  --color-secondary-edge-soft: #64372e;
+  /* Battle bars: the health bars over every unit. */
+  --color-hp-enemy: #d04942;
+  --color-hp-enemy-rgb: 208, 73, 66;
+  --color-hp-enemy-deep: #b03a34;  /* the same red, AA as text on white */
+  --color-hp-ally: #5084e9;
+  --color-hp-ally-rgb: 80, 132, 233;
+  --color-hp-ally-deep: #2f62c9;   /* the same blue, AA as text on white */
 
-  /* Key art field green: Arcane Casters' own, the same under either theme */
-  --color-field: #a3c755;
-  --color-field-rgb: 163, 199, 85;
-  --color-field-shade-rgb: 94, 139, 44;
-  --color-border-field: #3e4325;
+  /* Ink. Every value is checked against the surface it is allowed on:
+     ink 13.9:1 on ground / 15.1:1 on surface / 6.7:1 on the field green,
+     soft 7.3 / 7.9, muted 5.3 / 5.8, faint 4.8 / 5.3. muted and faint are
+     not allowed on the saturated field green. */
+  --color-ink: #20291a;
+  --color-ink-rgb: 32, 41, 26;
+  --color-ink-soft: #4a5540;
+  --color-ink-muted: #5c6a52;
+  --color-ink-faint: #63705a;
+  --color-ink-inverse: #ffffff;
 
-  /* Drifting embers on the particle canvas */
-  --color-ember-rgb: 227, 30, 25;
-  --color-ember-ash-rgb: 90, 70, 60;
-  --color-ember-glow: rgba(var(--color-primary-rgb), 0.6);
-  --color-backdrop-edge: rgba(var(--color-bg-darkest-rgb), 0.95);
-  --color-backdrop-center: rgba(var(--color-bg-dark-rgb), 0.93);
+  /* Ink for the wood plank: 5.9:1 on --color-wood. White would be 2.3:1. */
+  --color-ink-wood: #3a2a18;
+  --color-ink-wood-soft: #4e3821;
 
-  /* Text */
-  --color-text-light: #f5f3f0;
-  --color-text-secondary: #d8cfc8;
-  --color-text-prose: #c6bcb4;
-  --color-text-muted: #a39992;
-  --color-text-faint: #736861;
-  --color-text-code: #5c524c;
-  --color-text-dark: #2d2621;
+  /* Hairlines. Used for rules and dividers, never to box a card in. */
+  --color-rule: rgba(var(--color-ink-rgb), 0.1);
+  --color-rule-strong: rgba(var(--color-ink-rgb), 0.18);
+  --color-rule-wood: rgba(58, 42, 24, 0.2);
 
   /* Store brands and status, outside the theme layer */
   --color-brand-google: #34a853;
@@ -109,112 +98,157 @@
   --color-brand-itch-rgb: 250, 92, 92;
   --color-brand-youtube: #ff0000;
   --color-brand-youtube-rgb: 255, 0, 0;
-  --color-status-success: #4cd137;
 
-  /* Shadow */
-  --color-shadow-rgb: 0, 0, 0;
+  /* The studio's crimson, kept on :root so a Team-page link can still use it
+     from a page that has not opted into the studio theme. */
+  --color-ent-crimson: #e61e2a;
+  --color-ent-crimson-rgb: 230, 30, 42;
+  --color-ent-crimson-deep: #c2141f; /* 5.7:1 on the ground */
 
-  /* Radii */
-  --radius-control: 4px;
-  --radius-control-lg: 6px;
-  --radius-card: 8px;
-  --radius-media: 12px;
-  --radius-icon: 18px;
+  /* Shadow. The game floats its cards on a shadow rather than a border, and
+     the shadow is warm because the light is warm. */
+  --color-shadow-rgb: 58, 42, 24;
+  --shadow-card: 0 2px 4px rgba(var(--color-shadow-rgb), 0.06),
+    0 10px 24px rgba(var(--color-shadow-rgb), 0.12);
+  --shadow-card-raised: 0 4px 8px rgba(var(--color-shadow-rgb), 0.08),
+    0 18px 40px rgba(var(--color-shadow-rgb), 0.18);
+  --shadow-bar: 0 4px 18px rgba(var(--color-shadow-rgb), 0.16);
+  --shadow-media: 0 10px 40px rgba(var(--color-shadow-rgb), 0.22);
 
-  /* Fonts */
-  --font-display: 'Cinzel', serif;
-  --font-body: 'Inter', sans-serif;
+  /* Radii. The game rounds everything generously. */
+  --radius-control: 14px;
+  --radius-control-lg: 18px;
+  --radius-card: 20px;
+  --radius-media: 24px;
+  --radius-icon: 16px;
+  --radius-pill: 999px;
+
+  /* Fonts. One family, Pretendard — the same face the Unity client sets its
+     Korean text in. Weight and size carry the hierarchy; there is no second
+     display family and no letter-spaced small caps. */
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-display: var(--font-body);
+
+  /* The studio wordmark's face. Fixed on :root on purpose: no theme block may
+     redefine it, so THE EVIL ENT is set the same way on every page. */
+  --font-wordmark: var(--font-body);
+
+  /* Type scale. The jump from body to a section title is deliberately large —
+     the old design set the hero at 3rem against 1.05rem body and the two read
+     as the same size. */
+  --text-body: 1.0625rem;
+  --text-lede: clamp(1.125rem, 1.6vw, 1.45rem);
+  --text-h3: clamp(1.25rem, 2.2vw, 1.75rem);
+  --text-h2: clamp(2rem, 5.2vw, 3.5rem);
+  --text-h1: clamp(2.5rem, 7vw, 4.75rem);
+  --text-label: 0.8125rem;
+
+  /* Section rhythm. Three sizes, so consecutive sections do not repeat the
+     same vertical gap. */
+  --space-band-sm: clamp(2.5rem, 5vw, 4rem);
+  --space-band-md: clamp(3.5rem, 7vw, 6rem);
+  --space-band-lg: clamp(5rem, 11vw, 9rem);
+
+  /* Leaves on the particle canvas: the canopy's own two greens. The old
+     canvas drifted embers up a black page; this one lets leaves fall through
+     a lit one. */
+  --color-leaf-rgb: 174, 211, 71;
+  --color-leaf-alt-rgb: 145, 190, 90;
+  --color-leaf-opacity: 0.3;
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------------------------------------------------------------------------
-   Arcane Casters.
+   The Evil Ent.
 
-   The accent moves from the Ent's crimson to the caster's cape blue, lifted
-   out of the art's #3060a0 until it clears WCAG AA on both the page ground
-   and the card surface. The warm secondary comes from the slime gold and the
-   lava glow in the concept art, and the embers carry it so the dark concept
-   art still sits in a warm haze. The ground stays dark and only shifts hue,
-   from the Ent's bark brown to a cooler slate.
+   The studio's own identity, from the logo: abyss black, bark brown, and the
+   crimson of the Ent's eyes. Only the Team page opts in. The token names are
+   the same as on :root, so a component written against the tokens follows the
+   ground it is placed on without knowing which one it is.
    --------------------------------------------------------------------------- */
-[data-theme='arcane-casters'] {
-  /* Ground and opaque surfaces: same darkness, cooler hue */
-  --color-bg-darkest: #050609;
-  --color-bg-darkest-rgb: 5, 6, 9;
-  --color-bg-dark: #0b0d11;
-  --color-bg-dark-rgb: 11, 13, 17;
-  --color-bg-card: #13161c;
-  --color-bg-card-rgb: 19, 22, 28;
-  --color-bg-card-hover: #1b1f26;
-  --color-bg-sunken: #090a0d;
-  --color-bg-sunken-rgb: 9, 10, 13;
-  --color-bg-raised: #101319;
-  --color-bg-inset: #090b0f;
-  --color-bg-overlay: #101318;
-  --color-bg-bark: #171c24;
-  --color-bg-panel-top: #141922;
-  --color-bg-panel-bottom: #0a0c10;
-  --color-bg-checker: #0c0e13;
+[data-theme='the-evil-ent'] {
+  color-scheme: dark;
 
-  /* Translucent surfaces */
-  --color-surface-veil: rgba(8, 9, 12, 0.4);
-  --color-surface-card-top: rgba(25, 29, 36, 0.98);
+  --color-ground: #0d0b0a;
+  --color-ground-rgb: 13, 11, 10;
+  --color-ground-sunken: #050404;
+  --color-ground-edge: #1c1512;
 
-  /* Borders */
-  --color-border-rule: #161a20;
-  --color-border-faint: #1f242c;
-  --color-border: #262c35;
-  --color-border-rgb: 38, 44, 53;
-  --color-border-muted: #2b323c;
-  --color-border-strong: #363e49;
-  --color-border-accent: #23477a;
-  --color-border-accent-strong: #2f5c99;
-  --color-border-accent-soft: #22344d;
+  --color-surface: #151210;
+  --color-surface-rgb: 21, 18, 16;
+  --color-surface-soft: #1b1714;
+  --color-surface-sunken: #0a0908;
 
-  /* Accent: the caster's cape, lifted off the art's #3060a0 */
-  --color-primary: #5b96d8;
-  --color-primary-rgb: 91, 150, 216;
-  --color-primary-hover: #79b3f0;
-  --color-primary-deep: #3060a0;
-  --color-primary-deep-rgb: 48, 96, 160;
-  --color-primary-bright: #8cc0f8;
-  --color-primary-flare: #a8d0ff;
+  /* The clearing greens are Arcane Casters', not the studio's. On the dark
+     ground they drop to a mossy glow so a link into the game section still
+     reads as that section without lighting up the page. */
+  --color-field: #6f8c3c;
+  --color-field-rgb: 111, 140, 60;
+  --color-field-shade: #55702c;
+  --color-field-shade-rgb: 85, 112, 44;
+  --color-field-deep: #3d5320;
+  --color-field-deep-rgb: 61, 83, 32;
 
-  /* Secondary: slime gold over the concept art's lava glow */
-  --color-secondary: #d89a3c;
-  --color-secondary-rgb: 216, 154, 60;
-  --color-secondary-bright: #f0b050;
-  --color-secondary-pale: #f5cf9b;
-  --color-secondary-soft: #e8b878;
-  --color-secondary-dim: #b08444;
-  --color-secondary-deep: #a86a24;
-  --color-secondary-edge: #8a6428;
-  --color-secondary-edge-soft: #5e451f;
+  --color-canopy: #8aa73c;
+  --color-canopy-rgb: 138, 167, 60;
+  --color-canopy-bright: #a8c74a;
+  --color-canopy-bright-rgb: 168, 199, 74;
 
-  /* Embers stay warm: they are the lava glow, not the accent */
-  --color-ember-rgb: 240, 144, 64;
-  --color-ember-ash-rgb: 74, 80, 92;
-  --color-ember-glow: rgba(var(--color-secondary-rgb), 0.6);
+  --color-wood: #2a201a;
+  --color-wood-rgb: 42, 32, 26;
+  --color-wood-edge: #1c1512;
+  --color-wood-deep: #120e0b;
 
-  /* Text: the same ramp, read off a cool ground */
-  --color-text-light: #f2f4f8;
-  --color-text-secondary: #cbd1da;
-  --color-text-prose: #b9bfc9;
-  --color-text-muted: #969ba5;
-  --color-text-faint: #7b828d;
-  --color-text-code: #5e6670;
+  --color-mana: #8fbd58;
+  --color-mana-rgb: 143, 189, 88;
 
-  /* Chamfered, faceted letterforms to match the low polygon art */
-  --font-display: 'Chakra Petch', 'Cinzel', serif;
+  /* Accent: the Ent's eyes, lifted until it clears AA on the black ground
+     (6.5:1) instead of the logo's #e61e2a, which only makes 4.3:1. */
+  --color-primary: #ff5a64;
+  --color-primary-rgb: 255, 90, 100;
+  --color-primary-hover: #ff8088;
+  --color-primary-deep: #a3141c;
+  --color-primary-tint: rgba(var(--color-primary-rgb), 0.12);
+  --color-primary-tint-strong: rgba(var(--color-primary-rgb), 0.22);
+
+  --color-ink: #f5f3f0;
+  --color-ink-rgb: 245, 243, 240;
+  --color-ink-soft: #d8cfc8;
+  --color-ink-muted: #b3a9a1;
+  --color-ink-faint: #9b918a;
+  --color-ink-inverse: #0d0b0a;
+
+  --color-ink-wood: #f5f3f0;
+  --color-ink-wood-soft: #d8cfc8;
+
+  --color-rule: rgba(var(--color-ink-rgb), 0.12);
+  --color-rule-strong: rgba(var(--color-ink-rgb), 0.22);
+  --color-rule-wood: rgba(245, 243, 240, 0.14);
+
+  --color-shadow-rgb: 0, 0, 0;
+  --shadow-card: 0 2px 4px rgba(var(--color-shadow-rgb), 0.4),
+    0 10px 24px rgba(var(--color-shadow-rgb), 0.55);
+  --shadow-card-raised: 0 4px 8px rgba(var(--color-shadow-rgb), 0.5),
+    0 18px 40px rgba(var(--color-shadow-rgb), 0.7);
+  --shadow-bar: 0 4px 18px rgba(var(--color-shadow-rgb), 0.6);
+  --shadow-media: 0 10px 40px rgba(var(--color-shadow-rgb), 0.75);
+
+  --color-leaf-rgb: 111, 140, 60;
+  --color-leaf-alt-rgb: 85, 112, 44;
+  --color-leaf-opacity: 0.22;
 }
 
-
-/* Reset & Base */
-*, *::before, *::after {
+/* ---------------------------------------------------------------------------
+   Reset & base
+   --------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -222,57 +256,115 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-bg-darkest);
-  color-scheme: dark;
+  background-color: var(--color-ground);
 }
 
 body {
   font-family: var(--font-body);
   /* No background-color: html already paints the canvas, and an opaque body
      background would paint over the z-index:-1 ParticleBackground canvas. */
-  color: var(--color-text-light);
+  color: var(--color-ink);
   overflow-x: hidden;
-  line-height: 1.6;
+  font-size: var(--text-body);
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: var(--color-primary-tint-strong);
   touch-action: manipulation;
+  /* Korean wraps between words, not inside them. Without keep-all the browser
+     breaks a Korean word at any syllable, so `손패` lands as `손` / `패` across
+     two lines. break-word still rescues a long unbroken latin token or URL. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
-/* Selection */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-text-light);
+  background: var(--color-mana);
+  color: var(--color-ink);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-darkest);
+  background: var(--color-ground-sunken);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-faint);
-  border-radius: var(--radius-control);
-  border: 1px solid var(--color-bg-dark);
+  background: var(--color-field-shade);
+  border: 2px solid var(--color-ground-sunken);
+  border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
-  box-shadow: 0 0 8px var(--color-primary);
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
+/* ---------------------------------------------------------------------------
+   Typography.
+
+   Weight and size carry the hierarchy. No letter-spaced upper-case labels, no
+   text shadow, no rule down the left of a heading, no accent colour on the
+   last word.
+   --------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--color-text-light);
-  scroll-margin-top: 90px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--color-ink);
+  scroll-margin-top: 96px;
   text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  letter-spacing: -0.01em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* A short line under a heading. Never a paragraph of prose. */
+.lede {
+  color: var(--color-ink-soft);
+  font-size: var(--text-lede);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+/* A quiet label above or beside a block. Sentence case, no tracking. */
+.label {
+  color: var(--color-ink-muted);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.accent-color {
+  color: var(--color-primary);
 }
 
 a,
@@ -282,13 +374,25 @@ textarea {
   min-width: 0;
 }
 
+/* A form control's intrinsic width comes from its `size` or `cols` and does
+   not shrink with its container, so one unconstrained control is enough to
+   push a phone-width page sideways. */
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+/* Grid items take their content's min-content width as their automatic
+   minimum, which a phone-width track cannot honour. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 4px;
-  box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.18);
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: var(--radius-control);
 }
 
 .skip-link {
@@ -296,12 +400,12 @@ textarea:focus-visible {
   top: calc(0.75rem + env(safe-area-inset-top));
   left: calc(0.75rem + env(safe-area-inset-left));
   z-index: 10000;
-  transform: translateY(-150%);
-  color: var(--color-text-light);
-  background: var(--color-bg-overlay);
-  border: 1px solid var(--color-primary);
+  transform: translateY(-200%);
+  color: var(--color-ink-inverse);
+  background: var(--color-primary);
   border-radius: var(--radius-control);
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.1rem;
+  font-weight: 700;
   text-decoration: none;
   transition: transform 0.2s ease;
 }
@@ -310,153 +414,319 @@ textarea:focus-visible {
   transform: translateY(0);
 }
 
-/* Custom cursor styling (optional enhancement) */
-.custom-cursor-glow {
-  pointer-events: none;
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.04) 0%, rgba(var(--color-shadow-rgb), 0) 70%);
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  mix-blend-mode: screen;
-}
-
-/* Typography & Glow helpers */
-.text-glow {
-  text-shadow: 0 0 10px var(--color-primary-glow-heavy);
-}
-
-.text-glow-subtle {
-  text-shadow: 0 0 5px var(--color-primary-glow);
-}
-
-.accent-color {
-  color: var(--color-primary);
-}
-
-/* Common Layout Elements */
+/* ---------------------------------------------------------------------------
+   Layout
+   --------------------------------------------------------------------------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
+  width: 100%;
 }
 
-/* Interactive Card Base */
-.gothic-card {
-  background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-dark) 100%);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  padding: 2rem;
-  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+.container-wide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+.container-narrow {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+/* A band runs the full width of the viewport. Art and colour reach the edge of
+   the screen; only the text inside is held to a container. */
+.band {
   position: relative;
+  width: 100%;
+}
+
+.band-sm {
+  padding-block: var(--space-band-sm);
+}
+
+.band-md {
+  padding-block: var(--space-band-md);
+}
+
+.band-lg {
+  padding-block: var(--space-band-lg);
+}
+
+/* The default ground. It paints nothing: html already carries --color-ground,
+   and leaving this transparent is what lets the leaf canvas at z-index -1 show
+   through the page. Any band that needs to hide the leaves picks one of the
+   opaque modifiers below instead. */
+.band-ground {
+  background: transparent;
+}
+
+.band-sunken {
+  background: var(--color-ground-sunken);
+}
+
+.band-surface {
+  background: var(--color-surface);
+}
+
+/* The arena floor: the grass gradient the match is played on, top shaded the
+   way the canopy shades it in the screenshot. */
+.band-field {
+  background: linear-gradient(
+    180deg,
+    var(--color-field-shade) 0%,
+    var(--color-field) 45%,
+    var(--color-field-deep) 100%
+  );
+  color: var(--color-ink);
+}
+
+.band-field h1,
+.band-field h2,
+.band-field h3,
+.band-field p {
+  color: var(--color-ink);
+}
+
+/* The grove: the clearing's actual treetops, cropped straight out of the match
+   screen (public/gameplay/match.png, the canopy above the arena floor) and
+   stood along the top of the band the same way the game stands them over the
+   arena. The strip's own bottom edge fades to transparent, so it melts into
+   the grass gradient rather than ending on a cut. The band needs enough top
+   padding to clear the art: at 100% width the strip is 219/1600 of the
+   viewport, and 15vw stays above that at every width. */
+.band-grove {
+  background:
+    url('/hero-canopy.webp') top center / 100% auto no-repeat,
+    linear-gradient(
+      180deg,
+      var(--color-field-shade) 0%,
+      var(--color-field) 32%,
+      var(--color-ground) 100%
+    );
+  padding-top: clamp(5rem, 15vw, 12rem);
+}
+
+/* The canopy: sunlit leaves fading down into the clearing. */
+.band-canopy {
+  background: linear-gradient(
+    180deg,
+    var(--color-canopy-bright) 0%,
+    var(--color-canopy) 38%,
+    var(--color-field) 78%,
+    var(--color-ground) 100%
+  );
+}
+
+/* The hud plank, with the lip along its top edge the game draws. */
+.band-wood {
+  background: var(--color-wood);
+  border-top: 6px solid var(--color-wood-edge);
+  color: var(--color-ink-wood);
+}
+
+.band-wood h1,
+.band-wood h2,
+.band-wood h3 {
+  color: var(--color-ink-wood);
+}
+
+/* ---------------------------------------------------------------------------
+   Panels.
+
+   The game's card: a white rounded rectangle lifted by a shadow. No border.
+   --------------------------------------------------------------------------- */
+.panel {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--color-ink);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+}
+
+.panel-flush {
+  padding: 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(var(--color-shadow-rgb), 0.5);
 }
 
-.gothic-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-  transform: scaleX(0);
-  transition: transform var(--transition-normal);
-  transform-origin: center;
-}
-
-.gothic-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-border-accent);
-  box-shadow: 0 15px 40px rgba(var(--color-primary-rgb), 0.15);
-}
-
-.gothic-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Buttons */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-text-light);
-  background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary) 100%);
-  border: 1px solid var(--color-border-light);
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--radius-control);
-  cursor: pointer;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
+/* A panel that is also a link. It lifts on hover the way a card lifts when it
+   is picked up. */
+.panel-link {
+  display: block;
   text-decoration: none;
-  letter-spacing: 0.1em;
-  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.panel-link:hover,
+.panel-link:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-raised);
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons.
+
+   Filled, generously rounded, with one darker step along the bottom so the
+   control looks pressable and moves down when it is pressed.
+   --------------------------------------------------------------------------- */
+.btn-primary,
+.btn-secondary {
+  align-items: center;
+  border: 0;
+  border-radius: var(--radius-control-lg);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  gap: 0.6rem;
+  justify-content: center;
+  line-height: 1.2;
+  padding: 0.95rem 1.75rem;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast),
+    transform var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-ink-inverse);
+  box-shadow: 0 5px 0 var(--color-primary-deep), var(--shadow-bar);
 }
 
 .btn-primary:hover {
+  background: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.5), 0 0 12px var(--color-primary);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+  box-shadow: 0 7px 0 var(--color-primary-deep), var(--shadow-card-raised);
+}
+
+.btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--color-primary-deep);
 }
 
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  background: transparent;
-  border: 1px solid var(--color-border-strong);
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--radius-control);
-  cursor: pointer;
-  transition: color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
-  text-decoration: none;
-  letter-spacing: 0.1em;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: 0 5px 0 var(--color-ground-edge), var(--shadow-bar);
 }
 
 .btn-secondary:hover {
-  color: var(--color-text-light);
-  border-color: var(--color-primary);
-  box-shadow: 0 0 8px var(--color-primary-glow);
-  background: var(--color-primary-tint-weak);
+  background: var(--color-surface-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--color-ground-edge), var(--shadow-card-raised);
 }
 
-/* Animations */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    box-shadow: 0 0 10px var(--color-primary-glow);
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 25px var(--color-primary-glow-heavy), 0 0 50px rgba(var(--color-primary-rgb), 0.3);
-  }
+.btn-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--color-ground-edge);
 }
 
-@keyframes branchDrift {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.02);
-  }
+.btn-lg {
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  padding: 1.1rem 2.25rem;
 }
 
+/* ---------------------------------------------------------------------------
+   Chips.
+
+   The mana badge on the corner of a card, reused as a tag.
+   --------------------------------------------------------------------------- */
+.chip {
+  align-items: center;
+  background: var(--color-ground-sunken);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-soft);
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  gap: 0.3rem;
+  line-height: 1.3;
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+}
+
+/* The mana badge itself: dark ink on the gauge green, 7.0:1. */
+.chip-mana {
+  background: var(--color-mana);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------------------
+   Media.
+
+   Art runs to the edge of its band. A screenshot is not put in a frame.
+   --------------------------------------------------------------------------- */
+.media-bleed {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+/* A match screen, floated on the same shadow the game's cards use. */
+.media-shot {
+  border-radius: var(--radius-media);
+  box-shadow: var(--shadow-media);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Sprite grid.
+
+   102 runtime sprites laid out tight. This is the one thing on the site that
+   exists nowhere else, so it is shown as a wall rather than as cards.
+   --------------------------------------------------------------------------- */
+.sprite-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+}
+
+.sprite-cell {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-icon);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.45rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sprite-cell img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+a.sprite-cell:hover,
+a.sprite-cell:focus-visible {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: var(--shadow-card-raised);
+}
+
+/* ---------------------------------------------------------------------------
+   Page transition
+   --------------------------------------------------------------------------- */
 .page-fade-in {
-  animation: pageFadeInEffect 0.5s ease-out;
+  animation: pageFadeInEffect 0.4s ease-out;
 }
 
 @keyframes pageFadeInEffect {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
 
   to {
@@ -465,39 +735,7 @@ textarea:focus-visible {
   }
 }
 
-.nav-desktop-menu {
-  display: none;
-  align-items: center;
-  gap: 2rem;
-  height: 100%;
-}
-
-.nav-mobile-menu-btn {
-  display: flex;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.nav-mobile-drawer {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  background-color: var(--color-surface-drawer);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
-  z-index: 999;
-}
-
-.hero-btn-group {
-  width: 100%;
-}
-
+/* The Ent's eyes on the Team page. Scoped to the studio's own section. */
 .eye-pulse {
   animation: eyeGlowPulse 4s infinite ease-in-out;
 }
@@ -510,24 +748,9 @@ textarea:focus-visible {
   --eye-rotate: 10deg;
 }
 
-.logo-pulse {
-  transition: transform 0.4s ease-out, border-color 0.4s ease-out, box-shadow 0.4s ease-out;
-}
-
-.logo-pulse:hover {
-  transform: scale(1.03) translateY(-4px);
-  border-color: var(--color-border-accent-strong) !important;
-  box-shadow: 0 20px 50px rgba(var(--color-shadow-rgb), 0.9), 0 0 25px var(--color-primary-edge) !important;
-}
-
-.logo-pulse:hover .eye-pulse {
-  animation: eyeGlowIntense 0.4s forwards ease-out;
-  background-color: var(--color-primary-hover) !important;
-  filter: blur(5px) !important;
-}
-
 @keyframes eyeGlowPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     filter: blur(2px);
     transform: rotate(var(--eye-rotate)) scale(0.9);
@@ -540,26 +763,63 @@ textarea:focus-visible {
   }
 }
 
-@keyframes eyeGlowIntense {
-  0% {
-    transform: rotate(var(--eye-rotate)) scale(1);
-    filter: blur(3px);
-  }
-
-  100% {
-    transform: rotate(var(--eye-rotate)) scale(1.35) translateY(-1px);
-    filter: blur(5px);
-    box-shadow: 0 0 10px var(--color-primary-flare), 0 0 20px var(--color-primary-flare);
-  }
+/* ---------------------------------------------------------------------------
+   Navigation
+   --------------------------------------------------------------------------- */
+.nav-desktop-menu {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+  height: 100%;
 }
 
-.game-link-banner {
+.nav-mobile-menu-btn {
+  align-items: center;
+  background: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-card);
+  color: var(--color-ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.nav-mobile-drawer {
+  background: var(--color-wood);
+  border-top: 1px solid var(--color-rule-wood);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  left: 0;
+  padding: 0.75rem 0 1rem;
+  position: absolute;
+  top: 100%;
   width: 100%;
+  z-index: 999;
 }
 
+/* ---------------------------------------------------------------------------
+   Store buttons. The brand colour stays the brand's.
+   --------------------------------------------------------------------------- */
+.store-btn-google:hover {
+  box-shadow: 0 7px 0 var(--color-brand-google), var(--shadow-card-raised);
+}
+
+.store-btn-itch:hover {
+  box-shadow: 0 7px 0 var(--color-brand-itch), var(--shadow-card-raised);
+}
+
+.store-btn-youtube:hover {
+  box-shadow: 0 7px 0 var(--color-brand-youtube), var(--shadow-card-raised);
+}
+
+/* ---------------------------------------------------------------------------
+   Compendium: magic and summons.
+
+   The compendium list and detail pages share this block. A record is a white card with a
+   sprite on a pale plate, the way a spell card is drawn in the match hud.
+   --------------------------------------------------------------------------- */
 .magic-compendium-page,
 .magic-detail-page {
   min-height: 70vh;
@@ -567,190 +827,132 @@ textarea:focus-visible {
 }
 
 .magic-compendium-hero {
-  background:
-    linear-gradient(90deg, var(--color-scrim-heavy), var(--color-scrim-faint)),
-    repeating-linear-gradient(115deg, transparent 0 38px, rgba(var(--color-field-rgb), 0.035) 39px 40px);
-  border-bottom: 1px solid var(--color-border);
-  padding: 5.5rem 0 4.5rem;
+  background: linear-gradient(
+    180deg,
+    var(--color-canopy) 0%,
+    var(--color-field) 55%,
+    var(--color-ground) 100%
+  );
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem);
   position: relative;
-}
-
-.magic-compendium-hero::after {
-  background: linear-gradient(90deg, var(--color-secondary-deep), var(--color-primary), transparent);
-  bottom: -1px;
-  content: '';
-  height: 2px;
-  left: 0;
-  position: absolute;
-  width: min(45vw, 680px);
-}
-
-.magic-compendium-hero-grid {
-  align-items: end;
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: 1fr;
 }
 
 .magic-kicker,
 .magic-section-label {
-  color: var(--color-secondary-bright);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.75rem;
+  color: var(--color-ink-soft);
+  font-size: var(--text-label);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .magic-compendium-hero h1 {
-  font-size: clamp(3.5rem, 10vw, 7.5rem);
-  letter-spacing: -0.025em;
-  line-height: 0.82;
-}
-
-.magic-compendium-hero h1 span {
-  color: var(--color-secondary-bright);
-  font-size: 0.55em;
-}
-
-.magic-compendium-intro > p {
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  max-width: 580px;
-  text-wrap: pretty;
-}
-
-.magic-compendium-intro dl {
-  display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 2rem;
-}
-
-.magic-compendium-intro dl div {
-  background: var(--color-surface-stat);
-  border-top: 1px solid var(--color-border-strong);
-  padding: 1rem;
-}
-
-.magic-compendium-intro dt {
-  color: var(--color-text-muted);
-  font-size: 0.7rem;
-}
-
-.magic-compendium-intro dd {
-  color: var(--color-text-light);
-  font-family: var(--font-display);
-  font-size: 1.65rem;
-  font-variant-numeric: tabular-nums;
+  font-size: var(--text-h1);
+  line-height: 1.02;
 }
 
 .magic-compendium-content {
-  padding-bottom: 6rem;
-  padding-top: 2rem;
+  padding-bottom: var(--space-band-md);
+  padding-top: 1.75rem;
 }
 
 .magic-filter-panel {
-  background: var(--color-surface-panel);
-  border: 1px solid var(--color-border);
-  padding: 1.25rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem 1.25rem;
 }
 
 .magic-filter-row {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .magic-filter-row + .magic-filter-row {
-  border-top: 1px solid var(--color-border-faint);
+  border-top: 1px solid var(--color-rule);
   margin-top: 0.85rem;
   padding-top: 0.85rem;
 }
 
 .magic-filter-row strong {
-  color: var(--color-text-secondary);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  color: var(--color-ink);
+  font-size: var(--text-label);
+  font-weight: 700;
   width: 72px;
 }
 
 .magic-filter-row a {
-  border: 1px solid var(--color-border-muted);
-  color: var(--color-text-muted);
-  font-size: 0.76rem;
-  padding: 0.42rem 0.62rem;
+  background: var(--color-ground-sunken);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-.magic-filter-row a:hover,
+.magic-filter-row a:hover {
+  background: var(--color-mana);
+  color: var(--color-ink);
+}
+
 .magic-filter-row a.is-active {
-  background: rgba(var(--color-secondary-rgb), 0.12);
-  border-color: var(--color-secondary-edge);
-  color: var(--color-secondary-pale);
-}
-
-.magic-result-meta {
-  color: var(--color-text-faint);
-  display: flex;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  font-variant-numeric: tabular-nums;
-  justify-content: space-between;
-  letter-spacing: 0.08em;
-  padding: 1.4rem 0 0.8rem;
+  background: var(--color-primary);
+  color: var(--color-ink-inverse);
 }
 
 .magic-ai-notice {
-  color: var(--color-text-muted);
-  font-size: 0.8rem;
-  padding: 0.5rem 0 1.4rem;
+  color: var(--color-ink-muted);
+  font-size: 0.8125rem;
+  padding: 0.25rem 0 1.25rem;
 }
 
 .magic-card-grid {
   display: grid;
-  gap: 0.9rem;
-  grid-template-columns: 1fr;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
 }
 
 .magic-concept-card {
-  background:
-    linear-gradient(145deg, var(--color-surface-card-top), var(--color-surface-card-bottom));
-  border: 1px solid var(--color-border);
-  color: var(--color-text-light);
-  content-visibility: auto;
-  min-height: 310px;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--color-ink);
+  /* No content-visibility here. A page holds 24 records, well under the count
+     that earns skipping render work, and skipping it leaves every off-screen
+     card blank in a full-page screenshot or a print. */
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 1.15rem;
   position: relative;
   text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.magic-concept-card:hover {
-  border-color: var(--color-secondary-edge);
-  box-shadow: 0 18px 45px rgba(var(--color-shadow-rgb), 0.55), inset 0 1px rgba(var(--color-secondary-rgb), 0.14);
-  transform: translateY(-4px);
+.magic-concept-card:hover,
+.magic-concept-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-raised);
 }
 
-.magic-concept-card.has-thumbnail {
-  min-height: 470px;
-}
-
+/* The sprite plate at the top of a record, the pale green the game lays its
+   units on. */
 .magic-card-thumbnail {
   align-items: center;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(var(--color-secondary-rgb), 0.14), transparent 65%),
-    var(--color-bg-dark);
-  border-bottom: 1px solid var(--color-border);
+  background: radial-gradient(
+      circle at 50% 55%,
+      rgba(var(--color-canopy-bright-rgb), 0.5),
+      transparent 70%
+    ),
+    var(--color-surface-sunken);
+  border-radius: var(--radius-control-lg);
   display: flex;
-  height: 170px;
+  height: 168px;
   justify-content: center;
-  margin: -1.5rem -1.5rem 1.3rem;
+  margin: -0.35rem -0.35rem 1rem;
   overflow: hidden;
   position: relative;
 }
@@ -758,147 +960,137 @@ textarea:focus-visible {
 .magic-card-thumbnail img {
   height: 100%;
   object-fit: contain;
-  padding: 0.8rem;
-  transition: transform 0.3s ease;
+  padding: 0.85rem;
+  transition: transform var(--transition-normal);
   width: 100%;
 }
 
 .magic-concept-card:hover .magic-card-thumbnail img {
-  transform: scale(1.04);
-}
-
-.magic-card-emblem {
-  color: rgba(var(--color-secondary-rgb), 0.1);
-  height: 7rem;
-  position: absolute;
-  right: -0.8rem;
-  top: -0.6rem;
-  width: 7rem;
+  transform: scale(1.06);
 }
 
 .magic-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  position: relative;
+  gap: 0.35rem;
 }
 
 .magic-card-tags span {
-  background: rgba(var(--color-secondary-rgb), 0.08);
-  border: 1px solid rgba(var(--color-secondary-rgb), 0.24);
-  color: var(--color-secondary-bright);
-  font-size: 0.66rem;
-  padding: 0.3rem 0.45rem;
+  background: var(--color-ground-sunken);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
 }
 
 .magic-concept-card h2 {
-  font-size: 1.45rem;
-  margin-top: 2rem;
-  position: relative;
+  font-size: 1.3rem;
+  margin-top: 0.75rem;
 }
 
-.magic-card-legacy {
-  color: var(--color-secondary-dim);
-  font-size: 0.72rem;
-  margin-top: 0.15rem;
-}
-
-.magic-concept-card > p:not(.magic-card-legacy) {
+.magic-concept-card > p {
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  color: var(--color-text-muted);
+  -webkit-line-clamp: 3;
+  color: var(--color-ink-muted);
   display: -webkit-box;
-  font-size: 0.84rem;
-  line-height: 1.65;
-  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-top: 0.6rem;
   overflow: hidden;
-  position: relative;
+}
+
+.magic-detail-description {
+  margin-bottom: 1.5rem;
+  max-width: 44rem;
+  word-break: keep-all;
 }
 
 .magic-concept-card > strong {
-  bottom: 1.4rem;
-  color: var(--color-secondary-soft);
-  font-size: 0.72rem;
-  left: 1.5rem;
-  letter-spacing: 0.04em;
-  position: absolute;
+  color: var(--color-primary);
+  font-size: 0.8125rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
 }
 
 .magic-pagination {
   align-items: center;
   display: flex;
+  gap: 1.25rem;
   justify-content: center;
-  gap: 1.5rem;
   margin-top: 2.5rem;
 }
 
 .magic-pagination a,
 .magic-back-link {
   align-items: center;
-  color: var(--color-secondary-pale);
+  color: var(--color-primary);
   display: inline-flex;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  gap: 0.45rem;
-  letter-spacing: 0.06em;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  gap: 0.4rem;
   text-decoration: none;
 }
 
+.magic-pagination a:hover,
+.magic-back-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
 .magic-pagination span {
-  color: var(--color-text-faint);
+  color: var(--color-ink-muted);
   font-variant-numeric: tabular-nums;
 }
 
 .magic-detail-page {
-  padding: 3rem 0 6rem;
+  padding: 2rem 0 var(--space-band-md);
 }
 
 .magic-back-link {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .magic-detail-hero {
   align-items: center;
-  border-bottom: 1px solid var(--color-border);
   display: grid;
-  gap: 2rem;
+  gap: 1.75rem;
   grid-template-columns: auto 1fr;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .magic-faction-emblem {
   align-items: center;
-  background: radial-gradient(circle, rgba(var(--color-secondary-rgb), 0.13), transparent 68%);
-  border: 1px solid var(--color-secondary-edge-soft);
-  color: var(--color-secondary-bright);
+  background: radial-gradient(
+      circle,
+      rgba(var(--color-canopy-bright-rgb), 0.55),
+      transparent 70%
+    ),
+    var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--color-primary);
   display: flex;
-  height: clamp(100px, 18vw, 180px);
+  height: clamp(92px, 16vw, 160px);
   justify-content: center;
-  width: clamp(100px, 18vw, 180px);
+  width: clamp(92px, 16vw, 160px);
 }
 
 .magic-faction-emblem svg {
   height: 44%;
-  stroke-width: 1.35;
+  stroke-width: 1.5;
   width: 44%;
 }
 
 .magic-detail-hero h1 {
-  font-size: clamp(2.3rem, 7vw, 5.5rem);
-  letter-spacing: -0.02em;
-  line-height: 0.95;
-}
-
-.magic-legacy-name {
-  color: var(--color-secondary-dim);
-  font-size: 0.82rem;
-  margin-top: 0.85rem;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
 }
 
 .magic-artwork-gallery {
   display: grid;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .magic-related-artwork {
@@ -906,37 +1098,17 @@ textarea:focus-visible {
 }
 
 .magic-related-artwork > h2 {
+  font-size: var(--text-h3);
   margin: 0 0 0.75rem;
-  color: var(--color-text-light);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-}
-
-.summon-relation-link {
-  color: var(--color-secondary-pale);
-  text-decoration-color: color-mix(in srgb, var(--color-secondary) 65%, transparent);
-  text-underline-offset: 0.25em;
-}
-
-.summon-relation-link:hover {
-  color: var(--color-text-light);
 }
 
 .magic-concept-art,
 .magic-game-asset {
-  background: var(--color-bg-inset);
-  border: 1px solid var(--color-border-muted);
+  background: var(--color-surface);
+  border-radius: var(--radius-media);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   position: relative;
-}
-
-.magic-concept-art::after {
-  background: linear-gradient(180deg, transparent 55%, var(--color-scrim));
-  bottom: 0;
-  content: '';
-  inset-inline: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
 }
 
 .magic-concept-art img {
@@ -948,191 +1120,124 @@ textarea:focus-visible {
 }
 
 .magic-game-asset {
-  background:
-    linear-gradient(45deg, var(--color-checker-tile) 25%, transparent 25% 75%, var(--color-checker-tile) 75%),
-    linear-gradient(45deg, var(--color-checker-tile) 25%, var(--color-bg-checker) 25% 75%, var(--color-checker-tile) 75%);
-  background-position: 0 0, 14px 14px;
-  background-size: 28px 28px;
+  background: radial-gradient(
+      circle at 50% 45%,
+      rgba(var(--color-canopy-bright-rgb), 0.45),
+      transparent 72%
+    ),
+    var(--color-surface-sunken);
   display: grid;
-  min-height: 280px;
+  min-height: 260px;
   place-items: center;
 }
 
 .magic-game-asset img {
   display: block;
   height: auto;
-  max-height: 520px;
+  max-height: 480px;
   object-fit: contain;
-  padding: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
   width: 100%;
 }
 
 .magic-concept-art figcaption,
 .magic-game-asset figcaption {
-  bottom: 1rem;
-  color: var(--color-secondary-soft);
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  left: 1rem;
-  letter-spacing: 0.12em;
+  background: rgba(var(--color-surface-rgb), 0.92);
+  border-radius: var(--radius-pill);
+  bottom: 0.9rem;
+  color: var(--color-ink-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 0.9rem;
+  padding: 0.3rem 0.7rem;
   position: absolute;
+  right: 0.9rem;
+  width: fit-content;
+  max-width: calc(100% - 1.8rem);
   z-index: 1;
 }
 
-.magic-game-asset figcaption {
-  background: var(--color-scrim-soft);
-  padding: 0.45rem 0.55rem;
-}
-
-.magic-lore-panel {
-  background: linear-gradient(120deg, var(--color-bg-panel-top), var(--color-bg-panel-bottom));
-  border-left: 3px solid var(--color-secondary);
-  margin-top: 1.5rem;
-  padding: clamp(1.5rem, 5vw, 3rem);
-}
-
-.magic-lore-panel h2,
-.magic-behavior-panel h2,
-.magic-art-panel h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.magic-lore-panel > p:last-child {
-  color: var(--color-text-prose);
-  font-size: 1rem;
-  line-height: 1.85;
-  max-width: 900px;
-  text-wrap: pretty;
-}
-
-.magic-profile-grid {
-  display: grid;
-  gap: 1px;
-  grid-template-columns: 1fr;
-  margin-top: 1px;
-}
-
-.magic-profile-grid article {
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border-faint);
-  display: flex;
-  flex-direction: column;
-  min-height: 125px;
-  padding: 1.2rem;
-}
-
-.magic-profile-grid svg {
-  color: var(--color-secondary);
-  margin-bottom: 0.8rem;
-}
-
-.magic-profile-grid span {
-  color: var(--color-text-faint);
-  font-size: 0.68rem;
-  margin-bottom: 0.35rem;
-}
-
-.magic-profile-grid strong {
-  font-size: 0.9rem;
-  overflow-wrap: anywhere;
-}
-
-.magic-detail-columns {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  margin-top: 1rem;
-}
-
-.magic-behavior-panel,
-.magic-art-panel {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-.magic-behavior-panel ol,
-.magic-art-panel ul {
-  padding-left: 1.3rem;
-}
-
-.magic-behavior-panel li,
-.magic-art-panel li,
-.magic-art-panel > p {
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  margin: 0.55rem 0;
-}
-
-.magic-art-panel {
-  background: linear-gradient(145deg, var(--color-bg-panel-top), var(--color-bg-panel-bottom));
-  border-color: var(--color-border-field);
-}
-
-.magic-key {
-  color: var(--color-text-code);
-  font-family: monospace;
-  font-size: 0.7rem;
-  margin-top: 1.5rem;
-  overflow-wrap: anywhere;
-}
-
-.store-btn-google:hover {
-  border-color: var(--color-brand-google) !important;
-  box-shadow: 0 0 12px rgba(var(--color-brand-google-rgb), 0.4) !important;
-  transform: translateY(-2px);
-}
-
-.store-btn-itch:hover {
-  border-color: var(--color-brand-itch) !important;
-  box-shadow: 0 0 12px rgba(var(--color-brand-itch-rgb), 0.4) !important;
-  transform: translateY(-2px);
-}
-
-.store-btn-youtube:hover {
-  border-color: var(--color-brand-youtube) !important;
-  box-shadow: 0 0 12px rgba(var(--color-brand-youtube-rgb), 0.4) !important;
-  transform: translateY(-2px);
-}
-
+/* ---------------------------------------------------------------------------
+   Team page controls. The Team page runs under [data-theme='the-evil-ent'],
+   so these read their colours from whichever ground they land on.
+   --------------------------------------------------------------------------- */
 .Team_input:focus-visible,
 .Team_textarea:focus-visible {
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 0 8px var(--color-primary-glow) !important;
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.Team_socialLink {
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .Team_socialLink:hover {
-  color: var(--color-text-light) !important;
+  color: var(--color-primary) !important;
   transform: translateY(-2px);
 }
 
-.gothic-card-hover:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 4px 12px var(--color-primary-glow);
-}
-
-.gothic-card-hover:hover svg {
-  color: var(--color-text-light) !important;
-  transform: translateX(2px) translateY(-1px);
-}
-
-footer a:hover {
-  color: var(--color-text-light) !important;
-  transform: translateX(4px);
-}
-
-/* Responsive grid helpers */
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.hero-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.game-link-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .hero-btn-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .game-link-banner {
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  .game-link-banner > * {
+    flex: 1;
+  }
 }
 
 @media (min-width: 768px) {
+  .container,
+  .container-wide,
+  .container-narrow {
+    padding-inline: 2rem;
+  }
+
   .grid-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav-desktop-menu {
@@ -1145,41 +1250,14 @@ footer a:hover {
   }
 
   .footer-grid {
-    grid-template-columns: 2fr 1fr 2fr !important;
+    grid-template-columns: 1.6fr 1fr 1fr !important;
   }
 
   .footer-bottom {
+    align-items: center !important;
     flex-direction: row !important;
     justify-content: space-between !important;
     text-align: left !important;
-  }
-
-  .magic-compendium-hero-grid {
-    grid-template-columns: 1fr 0.8fr;
-  }
-
-  .magic-card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .magic-profile-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .magic-detail-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .games-header-grid {
@@ -1189,24 +1267,22 @@ footer a:hover {
   .games-web-play-row {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+
+  .sprite-grid {
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
   .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
   }
 
   .home-about-grid,
-  .Team_contactGrid {
-    grid-template-columns: 3fr 2fr !important;
-  }
-
-  .magic-card-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .magic-artwork-gallery {
-    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
   }
 }
 
@@ -1217,24 +1293,6 @@ footer a:hover {
 
   .magic-filter-row strong {
     width: 100%;
-  }
-}
-
-@media (min-width: 480px) {
-  .hero-btn-group {
-    flex-direction: row !important;
-  }
-}
-
-@media (min-width: 576px) {
-  .game-link-banner {
-    flex-direction: row !important;
-    align-items: center;
-  }
-
-  .game-link-banner a {
-    flex: 1;
-    text-align: center;
   }
 }
 
@@ -1250,9 +1308,5 @@ footer a:hover {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
-  }
-
-  .custom-cursor-glow {
-    display: none;
   }
 }

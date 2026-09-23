@@ -14,15 +14,16 @@ const syncThemeColorMeta = () => {
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
   if (!meta) return;
   const ground = getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-bg-darkest')
+    .getPropertyValue('--color-ground')
     .trim();
   if (ground) meta.content = ground;
 };
 
 /**
  * Puts `data-theme` on the document element for as long as the calling
- * component is mounted. Pages in a product's own section call this with that
- * product's theme name; everything else keeps the tokens on `:root`.
+ * component is mounted. :root carries Arcane Casters, the product the site is
+ * about, so almost nothing calls this. The studio's own pages call it with
+ * THE_EVIL_ENT_THEME to take the studio ground for as long as they are open.
  */
 export const useDocumentTheme = (theme: string) => {
   useEffect(() => {
@@ -46,6 +47,11 @@ export const useDocumentTheme = (theme: string) => {
   }, [theme]);
 };
 
-export const ARCANE_CASTERS_THEME = 'arcane-casters';
+/**
+ * The studio's identity: abyss black, the crimson of the Ent's eyes. Only the
+ * Team page opts in. Arcane Casters pages need no call at all — the game's
+ * clearing is what :root already holds.
+ */
+export const THE_EVIL_ENT_THEME = 'the-evil-ent';
 
 export default useDocumentTheme;

@@ -16,17 +16,37 @@ This document describes the AI Agentic development workflow, architectural struc
 The main design goal was to craft a premium, high-impact landing page and showcase for the game team **The Evil Ent** based on their official logo. 
 
 ### 1. Visual & Aesthetic Identity
-- **Atmosphere**: Dark fantasy, gothic, mysterious, and organic (roots/branches).
-- **Color Scheme**: Derived directly from the team's logo:
-  - `#0a0908` (Abyss Black)
-  - `#12100e` (Charcoal Black)
-  - `#1c1816` (Deep Bark Brown)
-  - `#e61e2a` (Glowing Crimson Red - matching the Ent's eyes)
-- **Accents**: Pulse animations on the Ent's eyes, custom cursor trail effects, glowing crimson card borders, and floating ember particles using canvas.
+
+The site is Arcane Casters' site. `:root` in `src/index.css` carries the game,
+and `[data-theme='the-evil-ent']` carries the studio; only the Team page opts
+in, through `useDocumentTheme()`.
+
+- **Atmosphere**: The clearing the match is played in — daylight, grass, warm
+  wood, white cards floating on a soft shadow.
+- **Color Scheme**: Sampled out of `public/gameplay/match.png` and
+  `public/gameplay/battle.png`, the two Play Store match screens:
+  - `#98b852` (arena grass) · `#83ac51` (its shade) · `#5c942d` (deeper field)
+  - `#aed347` / `#d8f156` (canopy leaves)
+  - `#d0a178` (the hud plank the six spell cards lie on)
+  - `#91be5a` (the mana gauge and the badge on each card)
+  - `#477320` (that mana green taken down until white text on it clears AA)
+- **Studio theme**: `#0d0b0a` ground with `#ff5a64`, the Ent's eyes lifted off
+  the logo's `#e61e2a` so body text clears AA on black.
+- **Type**: Pretendard alone, loaded from jsDelivr's dynamic subset. It is the
+  family the Unity client ships, so the site and the game set Korean the same
+  way. Weight and size carry the hierarchy — no second display family, no
+  letter-spaced small caps, no text shadow.
+- **Shape**: Cards are lifted by a shadow, never boxed by a 1px border. Buttons
+  are filled with one darker step along the bottom edge.
+- **Accents**: Leaves drifting down the canvas behind the page, and the Ent's
+  eyes pulsing on the studio's own page.
+
+Every colour outside a CSS variable declaration is a bug. Components read
+`var(--color-*)` and nothing else.
 
 ### 2. Tech Stack Decisions
 - **Vite & React & TypeScript**: Chosen for lightning-fast bundling, structured component-based development, and strong typing.
-- **Vanilla CSS (CSS Modules)**: Instead of Tailwind CSS, we utilized vanilla CSS to build custom, organic styling hooks, bespoke neon text glows, dark wood bark textures, and custom scrolling behaviors that feel premium and unique.
+- **Vanilla CSS**: Instead of Tailwind CSS, a hand-written token layer in `src/index.css` holds the palette, the type scale, the band backgrounds and the panel/button shapes. Components style themselves with `const styles: Record<string, React.CSSProperties>` reading those tokens.
 - **Lucide React**: For sharp, lightweight icons mapping itch.io, Google Play, and custom platform links.
 
 ---
@@ -36,19 +56,22 @@ The main design goal was to craft a premium, high-impact landing page and showca
 ```
 theevilent/
 ├── public/
-│   ├── theevilent-logo.png      # Team logo (Dark Ent with crimson eyes)
-│   └── favicon.ico              # Website icon
+│   ├── arcane-casters-logo.png  # Hero logotype (two lines)
+│   ├── arcane-casters-wordmark.png # Navbar logotype (one line)
+│   ├── hero-canopy.webp         # Treetops cropped from the match screen
+│   ├── gameplay/                # Play Store match screens
+│   └── theevilent-logo.png      # Team logo (Dark Ent with crimson eyes)
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.tsx           # Translucent glassmorphic header
 │   │   ├── Footer.tsx           # Link aggregator (itch.io, Play Store)
-│   │   └── ParticleBackground.tsx # HTML5 Canvas animated ember/ash drift
+│   │   └── ParticleBackground.tsx # HTML5 Canvas drifting leaves
 │   ├── pages/
 │   │   ├── Home.tsx             # Interactive Hero & team pitch
 │   │   ├── Games.tsx            # Arcane Casters details & media
 │   │   └── Team.tsx             # monolong & yunseong developer bios
 │   ├── App.tsx                  # Main router and page transition controller
-│   ├── index.css                # Global gothic typography, variables & layouts
+│   ├── index.css                # Theme tokens, global type, bands & panels
 │   └── main.tsx                 # Entrypoint
 ├── AGENTS.md                    # This document
 ├── package.json                 # Dependency list

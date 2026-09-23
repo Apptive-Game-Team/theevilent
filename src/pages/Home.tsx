@@ -1,157 +1,228 @@
 import React from 'react';
-import { Shield, Sparkles, Sword, Terminal, ExternalLink, Calendar } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { magicConcepts } from '../content/magicConcepts';
+import { platformLinks } from '../content/siteContent';
 import type { TabId } from '../content/siteContent';
+import { getTabPath } from '../routing';
 
 interface HomeProps {
   navigateToTab: (tab: TabId) => void;
 }
 
+interface SpriteEntry {
+  bean: string;
+  width: number;
+  height: number;
+}
+
+/**
+ * The wall of runtime sprites. Every entry is a magic that has its own record
+ * in the compendium, so each cell is a link into that record. The intrinsic
+ * size of each file is kept here so the grid never reflows while it loads.
+ */
+const spriteWall: SpriteEntry[] = [
+  { bean: 'magma_spirit', width: 256, height: 253 },
+  { bean: 'fire_drop', width: 104, height: 192 },
+  { bean: 'meteor_shower', width: 207, height: 256 },
+  { bean: 'fire_slime_nest', width: 128, height: 108 },
+  { bean: 'aqua_archer', width: 256, height: 246 },
+  { bean: 'bubble_spirit', width: 250, height: 256 },
+  { bean: 'sea_serpent', width: 201, height: 256 },
+  { bean: 'tidal_warhead', width: 256, height: 256 },
+  { bean: 'water_slime_swarm', width: 256, height: 224 },
+  { bean: 'cloud_dragon', width: 256, height: 182 },
+  { bean: 'zap_mouse', width: 256, height: 162 },
+  { bean: 'thunder_spirit', width: 256, height: 226 },
+  { bean: 'storm_stag', width: 256, height: 256 },
+  { bean: 'thunder_bird_swarm', width: 256, height: 188 },
+  { bean: 'lightning_drop', width: 320, height: 640 },
+  { bean: 'storm_rider', width: 256, height: 221 },
+  { bean: 'leafair', width: 178, height: 256 },
+  { bean: 'vine_spirit', width: 180, height: 256 },
+  { bean: 'seed_spirit_swarm', width: 256, height: 224 },
+  { bean: 'tree_golem', width: 240, height: 256 },
+  { bean: 'life_tree', width: 256, height: 207 },
+  { bean: 'overgrowth', width: 256, height: 245 },
+  { bean: 'rock_golem', width: 256, height: 244 },
+  { bean: 'rock_mage', width: 234, height: 256 },
+  { bean: 'wall_golem', width: 226, height: 254 },
+  { bean: 'mini_rock_swarm', width: 236, height: 256 },
+  { bean: 'titan_remnant', width: 253, height: 215 },
+  { bean: 'wind_spirit', width: 206, height: 256 },
+  { bean: 'razor_gale', width: 192, height: 155 },
+  { bean: 'tornado_strike', width: 224, height: 256 },
+  { bean: 'dimension_toad', width: 768, height: 456 },
+  { bean: 'frenzy_totem', width: 163, height: 256 },
+  { bean: 'will_o_wisp', width: 256, height: 180 },
+  { bean: 'bomb_sprite', width: 222, height: 256 },
+  { bean: 'dragon_tower', width: 161, height: 256 },
+  { bean: 'healing_totem', width: 188, height: 256 },
+];
+
+const magicNameByBean = new Map(magicConcepts.map((magic) => [magic.bean, magic.name]));
+
+const spriteSource = (bean: string) => `/game-assets/${bean.replace(/_/g, '-')}.webp`;
+
 export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
+  const [googlePlay, itchIo, youTube] = platformLinks;
+
+  // The tab links stay real links so they can be opened in a new tab, but a
+  // plain click is handed to the router instead of reloading the document.
+  const openTab = (tab: TabId) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    navigateToTab(tab);
+  };
+
   return (
     <div style={styles.page}>
-      {/* Hero Banner */}
-      <section style={styles.hero}>
-        <div style={styles.heroContent}>
-          <div style={styles.logoContainer} className="logo-pulse">
-            <img 
-              src="/theevilent-logo.png" 
-              alt="The Evil Ent logo with glowing red eyes" 
-              style={styles.heroLogo} 
-              width="220"
-              height="220"
+      {/* The clearing the match is played in, with the game's own logo on it. */}
+      <section className="band band-lg band-grove" style={styles.hero}>
+        <div className="container" style={styles.heroInner}>
+          <h1 style={styles.heroHeading}>
+            <img
+              src="/arcane-casters-logo.png"
+              srcSet="/arcane-casters-logo-800.png 800w, /arcane-casters-logo.png 1600w"
+              sizes="(min-width: 768px) 560px, 86vw"
+              alt="Arcane Casters"
+              style={styles.heroLogo}
+              width="1600"
+              height="1000"
               fetchPriority="high"
             />
-            <div style={styles.eyeLeft} className="eye-pulse eye-pulse-left" aria-hidden="true" />
-            <div style={styles.eyeRight} className="eye-pulse eye-pulse-right" aria-hidden="true" />
-          </div>
-          
-          <h1 style={styles.heroTitle} className="text-glow">
-            THE EVIL ENT
           </h1>
-          <p style={styles.heroSub}>
-            실시간 카드 조합 대전 전략 게임 '아케인 캐스터즈'를 개발하는 인디 게임 팀
+
+          <p className="lede" style={styles.heroLede}>
+            마법 카드로 겨루는 실시간 대전 게임
           </p>
 
-          <div className="hero-btn-group" style={styles.heroBtnGroup}>
-            <button 
-              type="button"
-              onClick={() => navigateToTab('games')} 
-              className="btn-primary"
+          <div className="hero-btn-group" style={styles.heroButtons}>
+            <a
+              href={googlePlay.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-lg"
             >
-              <Sword size={18} aria-hidden="true" />
-              아케인 캐스터즈 플레이
-            </button>
-            <button 
-              type="button"
-              onClick={() => navigateToTab('team')} 
-              className="btn-secondary"
+              <googlePlay.Icon size={20} aria-hidden="true" />
+              {googlePlay.label}
+            </a>
+            <a
+              href={itchIo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary btn-lg store-btn-itch"
             >
-              <Terminal size={18} aria-hidden="true" />
-              팀 멤버 소개
-            </button>
+              <itchIo.Icon size={20} aria-hidden="true" />
+              {itchIo.label}
+            </a>
+            <a
+              href={youTube.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary btn-lg store-btn-youtube"
+            >
+              <youTube.Icon size={20} aria-hidden="true" />
+              {youTube.label}
+            </a>
           </div>
         </div>
       </section>
 
-      {/* About The Studio */}
-      <section style={styles.sectionDark}>
-        <div className="container">
-          <div className="home-about-grid" style={styles.aboutGrid}>
-            <div style={styles.aboutTextCol}>
-              <h2 style={styles.sectionTitle}>
-                ABOUT <span className="accent-color">THE EVIL ENT</span>
-              </h2>
-              <p style={styles.paragraph}>
-                우리는 독창적인 시스템과 몰입감 넘치는 분위기를 가진 게임을 만드는 2인 개발 팀 <strong>The Evil Ent</strong>입니다. 어두운 숲속의 신비롭고 고딕한 아트를 기반으로 깊이 있는 대전 전략 경험을 설계하고 있습니다.
-              </p>
-              <p style={styles.paragraph}>
-                겉모습만 화려한 게임을 넘어, 플레이어의 지략과 순발력이 발휘될 수 있는 정교한 게임플레이 메커니즘을 핵심 가치로 삼아 개발에 집중하고 있습니다.
-              </p>
-              <div style={styles.featureList}>
-                <div style={styles.featureItem}>
-                  <Shield size={20} color="var(--color-primary)" aria-hidden="true" />
-                  <div>
-                    <h4 style={styles.featureTitle}>실시간 전략 대전</h4>
-                    <p style={styles.featureDesc}>빠른 템포의 전투 속에서 카드를 조합하여 최선의 마법을 도출해내는 두뇌 싸움.</p>
-                  </div>
-                </div>
-                <div style={styles.featureItem}>
-                  <Sparkles size={20} color="var(--color-primary)" aria-hidden="true" />
-                  <div>
-                    <h4 style={styles.featureTitle}>직관적인 마법 조합</h4>
-                    <p style={styles.featureDesc}>복잡한 조작 대신 카드를 결합하여 직관적이고 빠르게 마법을 시전하는 시스템.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style={styles.aboutImageCol}>
-              <div style={styles.imageCard}>
-                <img 
-                  src="/theevilent-logo.png" 
-                  alt="Team Emblem" 
-                  style={styles.showcaseImg} 
-                  width="320"
-                  height="320"
+      {/* One match screen, big enough to read the hand of cards. */}
+      <section className="band band-md band-ground" aria-label="경기 화면">
+        <div className="container-wide" style={styles.matchShotWrap}>
+          <img
+            src="/gameplay/match.png"
+            alt="초원 양 끝에 캐스터가 선 경기 화면. 아래 나무 판자 위에 마나값이 붙은 마법 카드 여섯 장이 놓여 있다"
+            className="media-shot"
+            width="1600"
+            height="894"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div className="container" style={styles.matchFacts}>
+          <a
+            href={getTabPath('games')}
+            onClick={openTab('games')}
+            className="btn-primary"
+            style={styles.inlineCta}
+          >
+            게임 자세히 보기
+          </a>
+        </div>
+      </section>
+
+      {/* The hud plank, carrying the runtime sprites the way it carries cards. */}
+      <section className="band band-lg band-wood">
+        <div className="container" style={styles.spriteIntro}>
+          <h2>마법 도감</h2>
+        </div>
+
+        <div className="container" style={styles.spriteWallWrap}>
+          <div className="sprite-grid">
+            {spriteWall.map(({ bean, width, height }) => (
+              <a className="sprite-cell" href={getTabPath('magic', bean)} key={bean}>
+                <img
+                  src={spriteSource(bean)}
+                  alt={`${magicNameByBean.get(bean) ?? bean} 인게임 스프라이트`}
+                  width={width}
+                  height={height}
                   loading="lazy"
+                  decoding="async"
                 />
-                <div style={styles.imageOverlay} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Game Callout */}
-      <section style={styles.sectionFeatured}>
-        <div className="container">
-          <div style={styles.featuredBox} className="gothic-card">
-            <span style={styles.featuredBadge}>MAIN FLAGSHIP GAME</span>
-            <h2 style={styles.featuredTitle} className="text-glow-subtle">ARCANE CASTERS</h2>
-            <p style={styles.featuredDesc}>
-              카드를 합쳐 강력한 마법을 영창하고 실시간으로 상대방과 싸우는 전략 대전 게임입니다. 
-              다양한 카드를 획득하고 자신만의 덱을 구축하여 실시간 마법 결투에서 승리하세요.
-            </p>
-            <div style={styles.featuredBtnRow}>
-              <button 
-                type="button"
-                onClick={() => navigateToTab('games')} 
-                className="btn-primary"
-              >
-                자세히 알아보기
-                <Sword size={16} aria-hidden="true" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Updates & Devlogs redirection */}
-      <section style={styles.sectionUpdates}>
-        <div className="container">
-          <h2 style={styles.sectionTitleCentered}>
-            DEVELOPMENT <span className="accent-color">DEVLOGS</span>
-          </h2>
-          <div style={styles.devlogCtaContainer}>
-            <div className="gothic-card" style={styles.devlogCtaCard}>
-              <div style={styles.devlogIconWrapper}>
-                <Calendar size={32} color="var(--color-primary)" aria-hidden="true" />
-              </div>
-              <h3 style={styles.devlogCtaTitle}>itch.io에서 공식 개발 일지 읽기</h3>
-              <p style={styles.devlogCtaDesc}>
-                아케인 캐스터즈의 최신 업데이트, 밸런스 패치, 버그 수정 및 새로운 마법 카드 추가 소식은 itch.io 개발자 블로그에 실시간으로 기록되고 있습니다.
-              </p>
-              <a 
-                href="https://theevilent.itch.io/arcane-casters/devlog" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-primary"
-                style={{ marginTop: '1rem' }}
-              >
-                공식 데브로그 보러가기
-                <ExternalLink size={16} aria-hidden="true" />
               </a>
-            </div>
+            ))}
           </div>
+
+          <div style={styles.compendiumBanner}>
+            <a className="btn-primary" href={getTabPath('magic')}>
+              마법 도감 보기
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* The studio, kept to one line. The Team page carries the rest. */}
+      <section className="band band-sm band-sunken">
+        <div className="container" style={styles.studioRow}>
+          <img
+            src="/theevilent-logo.png"
+            alt="The Evil Ent 팀 로고"
+            style={styles.studioLogo}
+            width="1254"
+            height="1254"
+            loading="lazy"
+            decoding="async"
+          />
+          <div style={styles.studioText}>
+            <h2 style={styles.studioName}>THE EVIL ENT</h2>
+          </div>
+          <a
+            href={getTabPath('team')}
+            onClick={openTab('team')}
+            className="btn-secondary"
+            style={styles.studioCta}
+          >
+            팀 보기
+          </a>
+        </div>
+      </section>
+
+      {/* itch.io devlog. */}
+      <section className="band band-md band-surface">
+        <div className="container-narrow" style={styles.devlog}>
+          <h2>개발 일지</h2>
+          <a
+            href="https://theevilent.itch.io/arcane-casters/devlog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            itch.io 에서 읽기
+            <ExternalLink size={18} aria-hidden="true" />
+          </a>
         </div>
       </section>
     </div>
@@ -163,240 +234,90 @@ const styles: Record<string, React.CSSProperties> = {
     width: '100%',
   },
   hero: {
-    position: 'relative',
-    minHeight: '85vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     textAlign: 'center',
-    padding: '4rem 1.5rem',
-    overflow: 'hidden',
   },
-  heroContent: {
-    maxWidth: '800px',
-    zIndex: 5,
-    display: 'flex',
-    flexDirection: 'column',
+  heroInner: {
     alignItems: 'center',
-  },
-  logoContainer: {
-    position: 'relative',
-    width: '220px',
-    height: '220px',
-    marginBottom: '2rem',
-    borderRadius: 'var(--radius-card)',
-    overflow: 'hidden',
-    boxShadow: '0 15px 45px rgba(var(--color-shadow-rgb), 0.8), 0 0 15px rgba(var(--color-shadow-rgb), 0.5)',
-    border: '1.5px solid var(--color-border)',
-    backgroundColor: 'var(--color-bg-void)',
-  },
-  heroLogo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  /* Eye placements matched exactly with logo coordinates for glowing overlay */
-  eyeLeft: {
-    position: 'absolute',
-    left: '42.3%',
-    top: '43.2%',
-    width: '28px',
-    height: '12px',
-    backgroundColor: 'var(--color-primary-flare)',
-    borderRadius: '50%',
-    filter: 'blur(3.5px)',
-    transform: 'rotate(-10deg)',
-    mixBlendMode: 'screen',
-  },
-  eyeRight: {
-    position: 'absolute',
-    left: '54.5%',
-    top: '43.2%',
-    width: '28px',
-    height: '12px',
-    backgroundColor: 'var(--color-primary-flare)',
-    borderRadius: '50%',
-    filter: 'blur(3.5px)',
-    transform: 'rotate(10deg)',
-    mixBlendMode: 'screen',
-  },
-  heroTitle: {
-    fontFamily: 'var(--font-display)',
-    fontSize: '3.2rem',
-    fontWeight: '900',
-    letterSpacing: '0.2em',
-    marginBottom: '1rem',
-    lineHeight: '1.1',
-  },
-  heroSub: {
-    fontFamily: 'var(--font-body)',
-    fontSize: '1.15rem',
-    color: 'var(--color-text-muted)',
-    marginBottom: '2.5rem',
-    letterSpacing: '0.05em',
-    fontWeight: '300',
-    maxWidth: '600px',
-  },
-  heroBtnGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    width: '100%',
-    justifyContent: 'center',
-  },
-  sectionDark: {
-    padding: '6rem 0',
-    position: 'relative',
-    backgroundColor: 'var(--color-surface-veil)',
-    borderTop: '1px solid var(--color-border-rule)',
-    borderBottom: '1px solid var(--color-border-rule)',
-  },
-  sectionTitle: {
-    fontSize: '2rem',
-    marginBottom: '2rem',
-    letterSpacing: '0.1em',
-    borderLeft: '4px solid var(--color-primary)',
-    paddingLeft: '1rem',
-  },
-  paragraph: {
-    fontSize: '1.05rem',
-    color: 'var(--color-text-muted)',
-    lineHeight: '1.75',
-    marginBottom: '1.5rem',
-  },
-  aboutGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: '4rem',
-    alignItems: 'center',
-  },
-  aboutTextCol: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  featureList: {
     display: 'flex',
     flexDirection: 'column',
     gap: '1.5rem',
-    marginTop: '1.5rem',
   },
-  featureItem: {
-    display: 'flex',
-    gap: '1rem',
-    alignItems: 'flex-start',
+  heroHeading: {
+    lineHeight: 0,
+    margin: 0,
   },
-  featureTitle: {
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    marginBottom: '0.25rem',
+  heroLogo: {
+    display: 'block',
+    height: 'auto',
+    width: 'min(100%, 560px)',
   },
-  featureDesc: {
-    fontSize: '0.95rem',
-    color: 'var(--color-text-muted)',
+  heroLede: {
+    wordBreak: 'keep-all',
+    color: 'var(--color-ink)',
+    maxWidth: '42ch',
   },
-  aboutImageCol: {
-    display: 'flex',
+  heroButtons: {
+    alignItems: 'center',
     justifyContent: 'center',
+    marginTop: '0.5rem',
   },
-  imageCard: {
-    position: 'relative',
-    width: '320px',
-    height: '320px',
-    borderRadius: 'var(--radius-media)',
-    overflow: 'hidden',
-    boxShadow: '0 20px 40px rgba(var(--color-shadow-rgb), 0.6)',
-    border: '2px solid var(--color-border)',
+  matchShotWrap: {
+    marginBottom: '2.5rem',
   },
-  showcaseImg: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  imageOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to bottom, transparent, rgba(var(--color-bg-dark-rgb), 0.4))',
-  },
-  sectionFeatured: {
-    padding: '4rem 0',
-  },
-  featuredBox: {
-    padding: '3rem',
-    textAlign: 'center',
-    background: 'linear-gradient(135deg, var(--color-bg-bark) 0%, var(--color-bg-dark) 100%)',
+  matchFacts: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    gap: '2rem',
   },
-  featuredBadge: {
-    fontSize: '0.75rem',
-    letterSpacing: '0.2em',
-    color: 'var(--color-primary)',
-    fontWeight: '700',
-    marginBottom: '1rem',
-    display: 'inline-block',
+  inlineCta: {
+    alignSelf: 'flex-start',
   },
-  featuredTitle: {
-    fontSize: '2.2rem',
-    marginBottom: '1rem',
-    letterSpacing: '0.15em',
-  },
-  featuredDesc: {
-    fontSize: '1.1rem',
-    color: 'var(--color-text-muted)',
-    maxWidth: '750px',
-    lineHeight: '1.7',
+  spriteIntro: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.75rem',
     marginBottom: '2rem',
   },
-  featuredBtnRow: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  sectionUpdates: {
-    padding: '6rem 0 8rem 0',
-  },
-  sectionTitleCentered: {
-    fontSize: '2rem',
-    textAlign: 'center',
-    marginBottom: '3rem',
-    letterSpacing: '0.15em',
-  },
-  devlogCtaContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  devlogCtaCard: {
-    maxWidth: '650px',
-    textAlign: 'center',
+  spriteWallWrap: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    padding: '3rem 2rem',
-    gap: '1rem',
+    gap: '2rem',
   },
-  devlogIconWrapper: {
-    width: '64px',
-    height: '64px',
-    borderRadius: '50%',
-    backgroundColor: 'var(--color-primary-tint)',
+  compendiumBanner: {
+    marginTop: '0.5rem',
+  },
+  studioRow: {
+    alignItems: 'center',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '0.5rem',
-    border: '1.5px dashed var(--color-primary)',
+    flexWrap: 'wrap',
+    gap: '1.25rem',
   },
-  devlogCtaTitle: {
-    fontSize: '1.4rem',
-    letterSpacing: '0.05em',
+  studioLogo: {
+    borderRadius: 'var(--radius-icon)',
+    flexShrink: 0,
+    height: '72px',
+    objectFit: 'cover',
+    width: '72px',
   },
-  devlogCtaDesc: {
-    fontSize: '0.95rem',
-    color: 'var(--color-text-muted)',
-    lineHeight: '1.65',
-    marginBottom: '0.5rem',
+  studioText: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1,
+    gap: '0.35rem',
+    minWidth: '12rem',
+  },
+  studioName: {
+    fontFamily: 'var(--font-wordmark)',
+    fontSize: 'var(--text-h3)',
+  },
+  studioCta: {
+    flexShrink: 0,
+  },
+  devlog: {
+    alignItems: 'flex-start',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
   },
 };
 
