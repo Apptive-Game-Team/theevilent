@@ -1,0 +1,425 @@
+/* Magic compendium: the client's Magic Book screen. Grid of sprite tiles on
+   the left, the selected magic's card on the right. */
+
+.magic-page {
+  padding-block: 1.75rem 3.5rem;
+}
+
+.magic-page-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.magic-back-button {
+  width: 60px;
+  min-height: 60px;
+  padding: 0;
+  flex-shrink: 0;
+  color: var(--color-on-ground);
+}
+
+.magic-back-button svg {
+  filter: drop-shadow(0 2px 0 var(--color-ink));
+}
+
+.magic-page-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.625rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* Every element colour is one token; the dot and the pill read it. */
+.element-fire { --element: var(--color-element-fire); }
+.element-lightning { --element: var(--color-element-lightning); }
+.element-nature { --element: var(--color-element-nature); }
+.element-rock { --element: var(--color-element-rock); }
+.element-water { --element: var(--color-element-water); }
+.element-wind { --element: var(--color-element-wind); }
+
+/* ---------------------------------------------------------------------------
+   Layout
+   --------------------------------------------------------------------------- */
+.magic-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* On a phone the card shows only for a selected magic, above the grid. */
+.magic-layout:not(.has-selection) .magic-detail {
+  display: none;
+}
+
+.magic-layout .magic-detail {
+  order: -1;
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 960px) {
+  .magic-layout {
+    grid-template-columns: minmax(0, 690fr) minmax(0, 510fr);
+    gap: 2.5rem;
+  }
+
+  .magic-layout .magic-detail,
+  .magic-layout:not(.has-selection) .magic-detail {
+    display: flex;
+    order: 0;
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+  }
+
+  .magic-layout .magic-detail-back {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Filters
+   --------------------------------------------------------------------------- */
+.magic-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+}
+
+.magic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.magic-chip,
+.magic-select select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: var(--border-flat);
+  border-radius: 12px;
+  box-shadow: 0 4px 0 var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.magic-chip:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--color-ink);
+}
+
+.magic-chip[aria-pressed='true'] {
+  background: var(--color-highlight);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--color-ink);
+}
+
+.magic-chip-all {
+  font-family: var(--font-display);
+}
+
+.magic-dot {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--element);
+}
+
+.magic-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.magic-select select {
+  appearance: none;
+  padding-right: 2.5rem;
+}
+
+.magic-select svg {
+  position: absolute;
+  right: 0.9rem;
+  pointer-events: none;
+  color: var(--color-ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Grid
+   --------------------------------------------------------------------------- */
+.magic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 480px) {
+  .magic-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 720px) {
+  .magic-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.125rem;
+  }
+}
+
+.magic-tile {
+  flex-direction: column;
+  gap: 0.25rem;
+  height: 100%;
+  min-height: 112px;
+  padding: 0.6rem 0.35rem 0.5rem;
+  color: var(--color-on-ground);
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.magic-tile:hover {
+  transform: translateY(-2px);
+  color: var(--color-on-ground);
+}
+
+.magic-tile[aria-current='true'] {
+  border-color: var(--color-highlight);
+  box-shadow: 0 0 0 3px var(--color-ink);
+}
+
+.magic-tile img {
+  width: 100%;
+  max-width: 84px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.magic-tile-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.magic-empty,
+.magic-ai-notice {
+  margin: 1.5rem 0 0;
+  color: var(--color-on-ground-soft);
+}
+
+.magic-ai-notice {
+  font-size: 0.875rem;
+  color: var(--color-on-ground-faint);
+}
+
+/* ---------------------------------------------------------------------------
+   Detail card
+   --------------------------------------------------------------------------- */
+.magic-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  min-width: 0;
+}
+
+.magic-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  text-decoration: none;
+}
+
+.magic-layout:not(.has-selection) .magic-detail-back {
+  display: none;
+}
+
+.magic-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.magic-detail-sprite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  background: var(--color-surface-sunken);
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+}
+
+.magic-detail-sprite img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+}
+
+.magic-detail-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.magic-detail-name {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.magic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.magic-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 1rem;
+  background: color-mix(in srgb, var(--element, var(--color-surface)) 30%, var(--color-surface));
+  color: var(--color-ink);
+  border: var(--border-flat);
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.magic-pill-mana {
+  background: var(--color-mana);
+  font-family: var(--font-display);
+}
+
+.magic-detail-description {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.magic-stats {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.magic-stats > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.25rem;
+  border-bottom: 3px solid var(--color-rule);
+  font-size: 1.1875rem;
+}
+
+.magic-stats dt {
+  color: var(--color-ink-muted);
+}
+
+.magic-stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  text-align: right;
+}
+
+.magic-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.magic-gallery-section h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.magic-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.magic-gallery-grid figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.magic-gallery-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--color-surface-sunken);
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+}
+
+.magic-gallery-grid figcaption {
+  color: var(--color-ink-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 479px) {
+  .magic-page-head {
+    gap: 1rem;
+  }
+
+  .magic-back-button {
+    width: 52px;
+    min-height: 52px;
+  }
+
+  .magic-detail {
+    padding: 1.25rem;
+  }
+
+  .magic-detail-head {
+    gap: 1rem;
+  }
+
+  .magic-detail-sprite {
+    width: 104px;
+    height: 104px;
+  }
+
+  .magic-detail-sprite img {
+    width: 84px;
+    height: 84px;
+  }
+}

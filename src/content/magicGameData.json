@@ -1,0 +1,602 @@
+{
+  "cannon": {
+    "nameEn": "Cannon",
+    "descriptionEn": "Builds a cannon of the human magic civilization that shells ground units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "fire_slime_nest": {
+    "nameEn": "Fire Slime Nest",
+    "elements": [
+      "Fire"
+    ]
+  },
+  "healing_totem": {
+    "nameEn": "Healing Totem",
+    "descriptionEn": "Places a World Tree healing totem that restores allies in range.",
+    "elements": [
+      "Nature",
+      "Water"
+    ],
+    "manaCost": 30
+  },
+  "lightning_slime_nest": {
+    "nameEn": "Lightning Slime Nest"
+  },
+  "mana_well": {
+    "nameEn": "Mana Well",
+    "descriptionEn": "Opens a well pooled with World Tree mana that restores your mana.",
+    "elements": [
+      "Lightning",
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "nature_slime_nest": {
+    "nameEn": "Nature Slime Nest"
+  },
+  "pve_water_slime_nest": {},
+  "rock_slime_nest": {
+    "nameEn": "Rock Slime Nest"
+  },
+  "tower": {
+    "nameEn": "Tower",
+    "descriptionEn": "Builds a human anti-air arcane tower that deals area damage to flying units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "towerback": {
+    "nameEn": "Towerback",
+    "descriptionEn": "Summons a MiniRock strapped with a human-made anti-air tower that attacks flying units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "vine_colony": {
+    "nameEn": "Vine Colony",
+    "descriptionEn": "Plants a vine colony that keeps sending out vines to fend off enemies.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "wind_slime_nest": {
+    "nameEn": "Wind Slime Nest"
+  },
+  "bubble_generator": {
+    "nameEn": "Bubble Generator",
+    "descriptionEn": "Builds a water slime bubble generator that shields allies.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 15
+  },
+  "crater": {
+    "nameEn": "Crater",
+    "descriptionEn": "Leaves a Hellfire Legion ember crater that spits fireballs around it.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 35
+  },
+  "electric_tower": {
+    "nameEn": "Electric Tower",
+    "descriptionEn": "Builds a human arcane lightning tower that fires bouncing bolts.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 15
+  },
+  "life_tree": {
+    "nameEn": "Life Tree",
+    "descriptionEn": "Plants a World Tree sapling that keeps healing nearby allies.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "rock_turret": {
+    "nameEn": "Rock Turret",
+    "descriptionEn": "Builds a small human siege turret that hurls rocks.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "wind_totem": {
+    "nameEn": "Wind Totem",
+    "descriptionEn": "Places a wind spirit's tailwind totem that blows enemies in a fixed direction.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "chicken_commando": {
+    "nameEn": "Arcane Drop Corps",
+    "descriptionEn": "Deploys a paratrooper of the human magic civilization that lands and fights ground enemies.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "fire_drop": {
+    "nameEn": "Fire Drop"
+  },
+  "frenzy_totem": {
+    "nameEn": "Frenzy Totem",
+    "descriptionEn": "Drops a Hellfire Legion frenzy totem that makes units in range attack anything, allies included.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 20
+  },
+  "leafair": {
+    "nameEn": "Leafair",
+    "descriptionEn": "Sends down leaf fairies that repair allied buildings and extend their duration.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 10
+  },
+  "lightning_drop": {
+    "nameEn": "Lightning Drop",
+    "descriptionEn": "Calls down a lightning spirit's thunderbolt onto the target area.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "meteor_shower": {
+    "nameEn": "Meteor Shower",
+    "descriptionEn": "Rains hellfire meteors over a wide area.",
+    "elements": [
+      "Fire",
+      "Rock"
+    ],
+    "manaCost": 70
+  },
+  "nature_drop": {
+    "nameEn": "Nature Drop"
+  },
+  "rallying_torch": {},
+  "rock_drop": {
+    "nameEn": "Rock Drop",
+    "descriptionEn": "Drops a rock golem tribe boulder from the sky.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 10
+  },
+  "wind_drop": {
+    "nameEn": "WInd Drop"
+  },
+  "lightning_explosion": {
+    "nameEn": "Lightning Explosion",
+    "descriptionEn": "Detonates a lightning spirit's charge that shocks nearby enemies.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "magma_explosion": {
+    "nameEn": "Magma Explosion",
+    "descriptionEn": "Tears open a hellfire magma rift that scorches the area.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 10
+  },
+  "overgrowth": {
+    "nameEn": "Overgrowth",
+    "descriptionEn": "Triggers a World Tree overgrowth that grows small lifeforms larger.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 10
+  },
+  "razor_gale": {
+    "nameEn": "Razor Gale",
+    "descriptionEn": "Spins up a wind spirit's razor gale that keeps cutting enemies in the area.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "sand_storm": {
+    "nameEn": "Sand Storm",
+    "descriptionEn": "Whips up a wind spirit's dust storm that batters enemies in the area.",
+    "elements": [
+      "Rock",
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "shock_overload": {
+    "nameEn": "Shock Overload",
+    "descriptionEn": "Overloads a lightning spirit's charge into a heavy shock and an anti-air blast.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 20
+  },
+  "water_explosion": {
+    "nameEn": "Water Explosion",
+    "descriptionEn": "Erupts a geyser that damages enemies and launches them into the air.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 10
+  },
+  "wind_explosion": {
+    "nameEn": "Wind Explosion",
+    "elements": [
+      "Wind"
+    ]
+  },
+  "chain_lightning": {
+    "nameEn": "Chain Lightning",
+    "descriptionEn": "Arcs a lightning spirit's bolt that chains between enemies.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "fire_shot": {
+    "nameEn": "Fire Shot",
+    "descriptionEn": "Fires a hellfire projectile in the target direction.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 10
+  },
+  "lightning_shot": {
+    "nameEn": "Lightning Shot",
+    "elements": [
+      "Lightning"
+    ]
+  },
+  "rock_rolling": {
+    "nameEn": "Rock Rolling",
+    "descriptionEn": "Rolls a rock golem tribe boulder that bounces off enemies and walls.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 10
+  },
+  "tide_call": {
+    "nameEn": "Tide Call",
+    "descriptionEn": "Calls a water slime tide that pushes enemies back and leaves a water trail.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 10
+  },
+  "vine_fan": {},
+  "vine_toss": {
+    "nameEn": "Vine Toss",
+    "descriptionEn": "Erupts a line of World Tree vines that strike enemies in sequence.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 10
+  },
+  "water_shot": {
+    "nameEn": "Water Shot",
+    "elements": [
+      "Water"
+    ]
+  },
+  "will_o_wisp": {
+    "nameEn": "Will O Wisp",
+    "descriptionEn": "Fires a will-o'-wisp of World Tree mana that seizes control of an enemy.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 55
+  },
+  "wind_blade": {
+    "nameEn": "Wind Blade",
+    "descriptionEn": "Launches a crescent wind blade that pierces through enemies.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "aqua_archer": {
+    "nameEn": "Aqua Archer",
+    "descriptionEn": "Summons an equipment-wielding water slime archer that attacks ground and flying units from range.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 40
+  },
+  "bubble_spirit": {
+    "nameEn": "Bubble Spirit",
+    "descriptionEn": "Summons a bubble-wielding water slime that attacks flying units with bursting bubbles.",
+    "elements": [
+      "Water",
+      "Wind"
+    ],
+    "manaCost": 35
+  },
+  "cloud_dragon": {
+    "nameEn": "Cloud Dragon",
+    "descriptionEn": "Summons a cloud-scaled wind spirit dragon that dampens the area and attacks enemies.",
+    "elements": [
+      "Lightning",
+      "Water",
+      "Wind"
+    ],
+    "manaCost": 80
+  },
+  "dimension_toad": {
+    "nameEn": "Boundary Carrier",
+    "descriptionEn": "Summons a Boundary Carrier of the dimensional wanderers that alternately opens gates for Cinder Shards and Storm Shards.",
+    "elements": [
+      "Fire",
+      "Lightning"
+    ],
+    "manaCost": 50
+  },
+  "ember_spirit_swarm": {
+    "nameEn": "Ember Spirit Swarm",
+    "descriptionEn": "Summons a swarm of small ember demons of the Hellfire Legion.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 15
+  },
+  "fire_lord_spirit": {
+    "nameEn": "Fire Lord Spirit",
+    "descriptionEn": "Summons a Hellfire Legion commander that keeps sending out lesser demons to attack enemies.",
+    "elements": [
+      "Fire",
+      "Wind"
+    ],
+    "manaCost": 80
+  },
+  "fire_spirit": {
+    "nameEn": "Fire Spirit",
+    "descriptionEn": "Summons a lesser demon of the Hellfire Legion that burns nearby enemies.",
+    "elements": [
+      "Fire",
+      "Wind"
+    ],
+    "manaCost": 40
+  },
+  "magma_spirit": {
+    "nameEn": "Magma Spirit",
+    "descriptionEn": "Summons a magma-crusted demon of the Hellfire Legion that burns enemies.",
+    "elements": [
+      "Fire",
+      "Rock"
+    ],
+    "manaCost": 50
+  },
+  "mini_rock_swarm": {
+    "nameEn": "Mini Rock Swarm",
+    "descriptionEn": "Summons a pair of MiniRock twins of the rock golem tribe.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "rock_golem": {
+    "nameEn": "Rock Golem",
+    "descriptionEn": "Summons a mossy warrior of the rock golem tribe that attacks ground enemies up close.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 40
+  },
+  "rock_mage": {
+    "nameEn": "Rock Mage",
+    "descriptionEn": "Summons a rune-stone shaman of the rock golem tribe that strikes enemies with two rocks.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 40
+  },
+  "seed_spirit_swarm": {
+    "nameEn": "Seed Spirit Swarm",
+    "descriptionEn": "Summons a swarm of small seed spirits fallen from the World Tree.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "storm_rider": {
+    "nameEn": "Storm Rider",
+    "descriptionEn": "Summons a World Tree wind spirit rider that prioritizes attacking the player.",
+    "elements": [
+      "Lightning",
+      "Water"
+    ],
+    "manaCost": 35
+  },
+  "thunder_spirit": {
+    "nameEn": "Thunder Spirit",
+    "descriptionEn": "Summons a lightning spirit born at the World Tree that flies fast and attacks enemies.",
+    "elements": [
+      "Lightning",
+      "Wind"
+    ],
+    "manaCost": 35
+  },
+  "tornado_strike": {
+    "nameEn": "Tornado Strike",
+    "descriptionEn": "Sends a wind spirit turned tornado sweeping across the field.",
+    "elements": [
+      "Nature",
+      "Wind"
+    ],
+    "manaCost": 70
+  },
+  "tree_golem": {
+    "nameEn": "Tree Golem",
+    "descriptionEn": "Summons a slow but sturdy World Tree ancient guardian that fights ground enemies.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "vine_spirit": {
+    "nameEn": "Vine Spirit",
+    "descriptionEn": "Summons a World Tree nature spirit woven from vines that chases down enemies.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 40
+  },
+  "water_slime_swarm": {
+    "nameEn": "Water Slime Swarm",
+    "descriptionEn": "Summons a swarm of surviving water slimes that leave a water field in their wake.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 15
+  },
+  "wind_spirit": {
+    "nameEn": "Wind Spirit",
+    "descriptionEn": "Summons a gale wind spirit that rushes at enemies and bursts.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "zap_mouse": {
+    "nameEn": "Zap mouse",
+    "descriptionEn": "Summons a cowardly lightning spirit mouse that loves buildings.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 15
+  },
+  "thunder_bird_swarm": {
+    "nameEn": "Thunder Bird Swarm",
+    "descriptionEn": "Summons a flock of World Tree thunderbirds that charge at enemies.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 35
+  },
+  "evil_ent": {
+    "nameEn": "Evil Ent",
+    "descriptionEn": "Summons an Evil Ent that punches from range and periodically drags in a light enemy to burn it.",
+    "elements": [
+      "Fire",
+      "Nature"
+    ],
+    "manaCost": 80
+  },
+  "sea_serpent": {
+    "nameEn": "Sea Serpent",
+    "descriptionEn": "Summons a serpent that leaves water fields where it moves and fires a water beam through every enemy in a line.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 80
+  },
+  "storm_stag": {
+    "nameEn": "Storm Stag",
+    "descriptionEn": "Summons a thunder stag that charges and attacks enemies.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 80
+  },
+  "wall_golem": {
+    "nameEn": "Wall Golem",
+    "descriptionEn": "Summons a large, sturdy rock golem that fights only ground enemies.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 45
+  },
+  "shock_trap": {
+    "nameEn": "Shock Trap",
+    "descriptionEn": "Places a trap that arms when an enemy steps in, then stuns the area.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 35
+  },
+  "repair_totem": {
+    "nameEn": "Repair Totem",
+    "descriptionEn": "Places a totem that stops nearby allied buildings from decaying.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 30
+  },
+  "grass_generator": {
+    "nameEn": "Grass Generator",
+    "descriptionEn": "Builds a structure that keeps spreading leaf fields around it.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 30
+  },
+  "dragon_tower": {
+    "nameEn": "Dragon Tower",
+    "descriptionEn": "Builds a tower that fires flame shots at both ground and air targets.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 35
+  },
+  "firework_tower": {
+    "nameEn": "Firework Tower",
+    "descriptionEn": "Builds a tower that lobs shells and blows up where they land.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 30
+  },
+  "boulder_strike": {
+    "nameEn": "Boulder Strike",
+    "descriptionEn": "Hurls a boulder that knocks its target back and deals extra damage when the target slams into a wall or another enemy.",
+    "elements": [
+      "Rock",
+      "Wind"
+    ],
+    "manaCost": 25
+  },
+  "spirit_bomb": {
+    "nameEn": "Spirit Bomb",
+    "descriptionEn": "Drains your own units down to half health and fires a beam that deals 70% of what it took, split over four hits.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 40
+  },
+  "titan_remnant": {
+    "nameEn": "Titan Remnant",
+    "descriptionEn": "Summons a titan remnant that remains on the battlefield for a time, periodically erupting a giant stone fist beneath nearby enemies.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "tidal_warhead": {
+    "nameEn": "Tidal Warhead",
+    "descriptionEn": "Fires a warhead that homes in on the nearest air target, or the nearest ground target when there is none.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 25
+  },
+  "bomb_sprite": {
+    "nameEn": "Bomb Sprite",
+    "descriptionEn": "Summons a flying sprite that drops bombs on ground targets and blows them up where they land.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 45
+  }
+}

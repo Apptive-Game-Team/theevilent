@@ -71,7 +71,7 @@
   },
   {
     "bean": "vine_colony",
-    "name": "덩굴 군집",
+    "name": "덩쿨 군집",
     "family": "build",
     "faction": "세계수 정령",
     "description": "덩굴 군락을 심어 덩굴을 계속 내보내며 적을 퇴치합니다."
@@ -435,7 +435,7 @@
   },
   {
     "bean": "vine_spirit",
-    "name": "덩굴 정령",
+    "name": "덩쿨 정령",
     "family": "spawn",
     "faction": "세계수 정령",
     "description": "덩굴로 몸을 엮은 세계수의 풀 정령을 소환해 적을 뒤쫓습니다."
@@ -449,7 +449,7 @@
   },
   {
     "bean": "wind_spirit",
-    "name": "바람 정령",
+    "name": "돌풀 정령",
     "family": "spawn",
     "faction": "세계수 정령",
     "description": "질풍의 바람 정령을 소환해 적에게 달려들어 자폭하게 합니다."

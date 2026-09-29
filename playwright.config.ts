@@ -14,6 +14,9 @@ export default defineConfig({
   reporter: 'list',
   use: {
     baseURL: `http://127.0.0.1:${PORT}`,
+    // The site picks Korean or English from the browser language. The tests
+    // assert Korean copy, so the browser has to ask for it.
+    locale: 'ko-KR',
     trace: 'on-first-retry',
   },
   projects: [

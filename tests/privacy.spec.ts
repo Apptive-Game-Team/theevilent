@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+// The notices are checked in English: an English browser gets the English
+// text and the English footer labels without touching the language switch.
+test.use({ locale: 'en-US' });
+
 // Google Play fetches the policy URL directly, so /privacy has to render on a
 // cold load rather than only after in-app navigation. The Vercel rewrite is
 // what makes that work; this test fails if the route stops being wired up.

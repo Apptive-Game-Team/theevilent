@@ -1,0 +1,401 @@
+/* Home: hero on the grass, three how-to tiles, one gameplay capture and the
+   magic wall. Sizes below mirror Main.dc.html (1440) and Mobile.dc.html
+   (390) — see the shared brief for the source files. */
+
+.home-page {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------- */
+.home-hero {
+  padding-top: 100px; /* the Navbar overlays this section transparently */
+  box-sizing: border-box;
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'logo' 'chars' 'buttons';
+  align-items: center;
+  justify-items: center;
+  gap: 32px;
+  padding-block: 32px 48px;
+}
+
+.home-hero-chars {
+  grid-area: chars;
+  position: relative;
+  width: 358px;
+  height: 270px;
+  max-width: 100%;
+}
+
+.home-hero-shadow {
+  position: absolute;
+  left: 40px;
+  bottom: 0;
+  width: 230px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(20, 18, 26, 0.22);
+}
+
+.home-hero-caster {
+  position: absolute;
+  left: 105px;
+  bottom: 0;
+  height: 260px;
+  width: auto;
+}
+
+.home-hero-archer {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  height: 100px;
+  width: auto;
+}
+
+.home-hero-golem {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  height: 120px;
+  width: auto;
+}
+
+.home-hero-logo {
+  grid-area: logo;
+  margin: 0;
+  line-height: 0;
+}
+
+.home-hero-logo img {
+  display: block;
+  width: min(320px, 82vw);
+  height: auto;
+}
+
+.home-hero-buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.home-hero-play {
+  width: 100%;
+  max-width: 358px;
+  height: 72px;
+  font-size: 32px;
+}
+
+.home-hero-stores {
+  display: flex;
+  gap: 12px;
+}
+
+.home-hero-stores .flat-btn {
+  width: 173px;
+  height: 52px;
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  .home-hero {
+    min-height: 100vh;
+  }
+
+  .home-hero-grid {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'chars logo' 'chars buttons';
+    justify-items: start;
+    align-items: center;
+    column-gap: 40px;
+    row-gap: 20px;
+    min-height: calc(100vh - 100px);
+    padding-block: 0;
+  }
+
+  .home-hero-chars {
+    width: 520px;
+    height: 640px;
+    justify-self: center;
+  }
+
+  .home-hero-shadow {
+    left: 80px;
+    bottom: 30px;
+    width: 360px;
+    height: 60px;
+  }
+
+  .home-hero-caster {
+    left: 60px;
+    bottom: 40px;
+    height: 560px;
+  }
+
+  .home-hero-archer {
+    left: -30px;
+    bottom: 10px;
+    height: 170px;
+  }
+
+  .home-hero-golem {
+    right: -20px;
+    bottom: 30px;
+    height: 210px;
+  }
+
+  .home-hero-logo {
+    justify-self: center;
+  }
+
+  .home-hero-logo img {
+    width: min(600px, 44vw);
+  }
+
+  .home-hero-buttons {
+    justify-self: center;
+    align-items: center;
+  }
+
+  .home-hero-play {
+    max-width: 460px;
+    height: 92px;
+    font-size: 44px;
+  }
+
+  .home-hero-stores {
+    gap: 16px;
+  }
+
+  .home-hero-stores .flat-btn {
+    width: 222px;
+    height: 60px;
+    font-size: 20px;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   How to play
+   --------------------------------------------------------------------- */
+.home-howto {
+  padding-block: 48px;
+}
+
+.home-howto-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.home-howto-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.home-howto-tile {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+}
+
+.home-howto-sprite {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.home-howto-badge {
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: var(--border-flat);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 19px;
+}
+
+.home-howto-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-howto-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.home-howto-body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--color-on-ground-soft);
+}
+
+@media (min-width: 768px) {
+  .home-howto {
+    padding-block: 90px 60px;
+  }
+
+  .home-howto-grid {
+    flex-direction: row;
+    justify-content: center;
+    gap: 120px;
+  }
+
+  .home-howto-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .home-howto-tile {
+    width: 170px;
+    height: 170px;
+  }
+
+  .home-howto-sprite {
+    width: 130px;
+    height: 130px;
+  }
+
+  .home-howto-badge {
+    left: -16px;
+    top: -16px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+
+  .home-howto-title {
+    font-size: 32px;
+  }
+
+  .home-howto-body {
+    font-size: 19px;
+    max-width: 280px;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Gameplay + magic wall
+   --------------------------------------------------------------------- */
+.home-gameplay {
+  padding-block: 44px;
+}
+
+.home-gameplay-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.home-gameplay-frame {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  border: 4px solid var(--color-ink);
+  border-radius: 20px;
+  box-shadow: 0 7px 0 var(--color-ink);
+  overflow: hidden;
+}
+
+.home-gameplay-shot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-magic-row {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.home-magic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.home-magic-tile {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+.home-magic-sprite {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.home-magic-cta {
+  width: 100%;
+  height: 56px;
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .home-gameplay {
+    padding-block: 60px 90px;
+  }
+
+  .home-gameplay-inner {
+    gap: 60px;
+  }
+
+  .home-magic-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .home-magic-grid {
+    display: flex;
+    gap: 18px;
+  }
+
+  .home-magic-tile {
+    width: 104px;
+    height: 104px;
+    aspect-ratio: auto;
+  }
+
+  .home-magic-tile:last-child {
+    display: none;
+  }
+
+  .home-magic-sprite {
+    width: 80px;
+    height: 80px;
+  }
+
+  .home-magic-cta {
+    width: auto;
+    height: 104px;
+    padding: 0 30px;
+    font-size: 24px;
+  }
+}

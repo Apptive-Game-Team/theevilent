@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navigationItems, type TabId } from '../content/siteContent';
-import { getPrimaryNavTab, getTabPath } from '../routing';
+import { getTabPath } from '../routing';
+import { useLanguage } from '../i18n/language';
+import { LanguageToggle } from './LanguageToggle';
+import './Navbar.css';
 
 interface NavbarProps {
   activeTab: TabId;
   navigateToTab: (tab: TabId) => void;
 }
 
-// The navbar's fixed height in pixels. ArcaneCastersSubNav.tsx imports this
-// constant for its own sticky `top` offset instead of repeating the number,
-// so the two files can only drift out of sync if this value itself moves.
-export const NAVBAR_HEIGHT = 72;
-
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
+  const { language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  // The magic compendium is a route inside the Arcane Casters section, so GAMES
-  // stays the highlighted top-level item while browsing either compendium.
-  const primaryTab = getPrimaryNavTab(activeTab);
+  const isHome = activeTab === 'home';
 
+  // The home page carries the hero's own logo, so the header stays
+  // transparent and logo-less there; every other page gets the ground-deep
+  // bar with the wordmark on the left (Main.dc.html / Magic.dc.html).
   const handleNavClick = (tabId: TabId) => {
     navigateToTab(tabId);
     setIsOpen(false);
@@ -32,144 +32,74 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
     handleNavClick(tabId);
   };
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
   return (
-    // position: sticky already makes this <nav> a positioned element, which
-    // is what .nav-mobile-drawer's `position: absolute; top: 100%` (set in
-    // index.css) needs to anchor to — no separate `position: relative` rule
-    // is needed on top of `sticky`.
-    <nav style={styles.nav} aria-label="Primary">
-      <div className="container" style={styles.navContainer}>
-        <button
-          type="button"
-          style={styles.brand}
-          onClick={() => handleNavClick('home')}
-          aria-label="Go To Home"
-        >
-          <img
-            src="/arcane-casters-wordmark.png"
-            alt="Arcane Casters"
-            style={styles.wordmark}
-            width={966}
-            height={205}
-            fetchPriority="high"
-          />
-        </button>
+    <header className={`navbar ${isHome ? 'navbar-home' : 'navbar-page'}`}>
+      <div className={`container navbar-inner ${isHome ? 'navbar-inner-home' : ''}`}>
+        {!isHome && (
+          <a
+            href={getTabPath('home')}
+            className="navbar-logo"
+            onClick={(event) => handleNavLinkClick(event, 'home')}
+            aria-label="Arcane Casters"
+          >
+            <img
+              src="/brand/logo-wide.webp"
+              alt="Arcane Casters"
+              className="navbar-logo-img"
+              width={966}
+              height={205}
+              fetchPriority="high"
+            />
+          </a>
+        )}
 
-        <div className="nav-desktop-menu">
-          {navigationItems.map((item) => {
-            const isActive = primaryTab === item.id;
-            return (
-              <a
-                key={item.id}
-                href={getTabPath(item.id)}
-                onClick={(event) => handleNavLinkClick(event, item.id)}
-                style={{
-                  ...styles.navLink,
-                  backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
-                  color: isActive ? 'var(--color-ink-inverse)' : 'var(--color-ink-soft)',
-                }}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+        <div className="navbar-actions">
+          <nav
+            id="navbar-links"
+            className={`navbar-links ${isOpen ? 'is-open' : ''}`}
+            aria-label="Primary"
+          >
+            {navigationItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={getTabPath(item.id)}
+                  onClick={(event) => handleNavLinkClick(event, item.id)}
+                  className="flat-btn navbar-link"
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label[language]}
+                </a>
+              );
+            })}
+          </nav>
+
+          <LanguageToggle />
+
+          <button
+            type="button"
+            className="navbar-menu-btn"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label={isOpen ? (language === 'ko' ? '메뉴 닫기' : 'Close menu') : (language === 'ko' ? '메뉴 열기' : 'Open menu')}
+            aria-expanded={isOpen}
+            aria-controls="navbar-links"
+          >
+            {isOpen ? <X size={22} color="#ffffff" aria-hidden="true" /> : <Menu size={22} color="#ffffff" aria-hidden="true" />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="nav-mobile-menu-btn"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-        >
-          {isOpen ? (
-            <X size={24} color="currentColor" aria-hidden="true" />
-          ) : (
-            <Menu size={24} color="currentColor" aria-hidden="true" />
-          )}
-        </button>
       </div>
-
-      {isOpen && (
-        // .nav-mobile-drawer (index.css) puts this on --color-wood, so link
-        // text below uses the wood-tuned ink tokens, not the generic ones.
-        <div id="mobile-navigation" className="nav-mobile-drawer">
-          {navigationItems.map((item) => {
-            const isActive = primaryTab === item.id;
-            return (
-              <a
-                key={item.id}
-                href={getTabPath(item.id)}
-                onClick={(event) => handleNavLinkClick(event, item.id)}
-                style={{
-                  ...styles.mobileNavLink,
-                  backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
-                  color: isActive ? 'var(--color-ink-inverse)' : 'var(--color-ink-wood-soft)',
-                }}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-      )}
-    </nav>
+    </header>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  nav: {
-    position: 'sticky',
-    top: 0,
-    zIndex: 1000,
-    backgroundColor: 'var(--color-surface)',
-    boxShadow: 'var(--shadow-bar)',
-  },
-  navContainer: {
-    height: `${NAVBAR_HEIGHT}px`,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  brand: {
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-    background: 'none',
-    border: 'none',
-    padding: 0,
-  },
-  wordmark: {
-    display: 'block',
-    height: '30px',
-    width: 'auto',
-  },
-  navLink: {
-    fontFamily: 'var(--font-body)',
-    fontWeight: 700,
-    fontSize: '0.95rem',
-    cursor: 'pointer',
-    padding: '0.55rem 1.1rem',
-    borderRadius: 'var(--radius-pill)',
-    transition: 'color var(--transition-fast), background-color var(--transition-fast)',
-    textDecoration: 'none',
-  },
-  mobileNavLink: {
-    fontFamily: 'var(--font-body)',
-    fontWeight: 700,
-    fontSize: '1.05rem',
-    cursor: 'pointer',
-    padding: '0.85rem 1.25rem',
-    margin: '0 0.75rem',
-    borderRadius: 'var(--radius-control)',
-    textAlign: 'left',
-    display: 'block',
-    transition: 'color var(--transition-fast), background-color var(--transition-fast)',
-    textDecoration: 'none',
-  },
 };
 
 export default Navbar;
