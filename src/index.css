@@ -1,246 +1,82 @@
 /* ---------------------------------------------------------------------------
    Theme tokens.
 
-   :root carries Arcane Casters: the sunlit clearing the match is played on.
-   Every colour below was sampled out of public/gameplay/match.png and
-   public/gameplay/battle.png, the two Play Store match screens, so the site
-   and the game read as one product. The sampled hex is in the comment beside
-   each token.
-
-   [data-theme='the-evil-ent'] swaps the whole ground for the studio's own
-   identity — abyss black and crimson. Only the Team page opts in, through
-   useDocumentTheme(). Everything else keeps the tokens on :root.
+   The site wears the Unity client's flat design (ArcaneCastersClient #129):
+   a navy ground, white cards and orange buttons, every one drawn with a 3px
+   ink outline and a solid drop under it. The hex values were sampled from
+   the client's WebGL screens in docs/pr-media/129.
 
    Values ending in -rgb hold bare channels so a one-off alpha can be written
-   as rgba(var(--token-rgb), 0.18) and still follow the active theme.
+   as rgba(var(--token-rgb), 0.18).
    --------------------------------------------------------------------------- */
 :root {
-  color-scheme: light;
-
-  /* Ground: the clearing, the grass washed out until text sits on it safely.
-     #98b852 is the arena grass; these are that hue carried up to near-white. */
-  --color-ground: #f4f7ea;
-  --color-ground-rgb: 244, 247, 234;
-  --color-ground-sunken: #e9f0d8;
-  --color-ground-edge: #dde7c4;
-
-  /* Surface: the white spell card on the hud plank, shadow and all. */
-  --color-surface: #ffffff;
-  --color-surface-rgb: 255, 255, 255;
-  --color-surface-soft: #fafcf2;
-  --color-surface-sunken: #f0f4e4;
-
-  /* Field: the arena the two casters fight across. */
-  --color-field: #98b852;          /* arena grass */
-  --color-field-rgb: 152, 184, 82;
-  --color-field-shade: #83ac51;    /* the shadow cast across the arena */
-  --color-field-shade-rgb: 131, 172, 81;
-  --color-field-deep: #5c942d;     /* the grass below the arena floor */
-  --color-field-deep-rgb: 92, 148, 45;
-
-  /* Canopy: the treetops along the top of the match screen. */
-  --color-canopy: #aed347;
-  --color-canopy-rgb: 174, 211, 71;
-  --color-canopy-bright: #d8f156;  /* sunlit leaves */
-  --color-canopy-bright-rgb: 216, 241, 86;
-
-  /* Wood: the hud plank the six cards are laid on. */
-  --color-wood: #d0a178;
-  --color-wood-rgb: 208, 161, 120;
-  --color-wood-edge: #c99b73;      /* the plank's top lip */
-  --color-wood-deep: #a2764c;      /* the step under a pressed wood control */
-
-  /* Mana: the green gauge and the badge on the corner of every card. */
-  --color-mana: #91be5a;
-  --color-mana-rgb: 145, 190, 90;
-
-  /* Accent: the mana green taken down until white text on it clears
-     WCAG AA (5.61:1). This is the fill of every primary button. */
-  --color-primary: #477320;
-  --color-primary-rgb: 71, 115, 32;
-  --color-primary-hover: #4e7d22;  /* white on it: 4.91:1 */
-  --color-primary-deep: #2f4c12;   /* the step under a pressed button */
-  --color-primary-tint: rgba(var(--color-primary-rgb), 0.1);
-  --color-primary-tint-strong: rgba(var(--color-primary-rgb), 0.2);
-
-  /* Battle bars: the health bars over every unit. */
-  --color-hp-enemy: #d04942;
-  --color-hp-enemy-rgb: 208, 73, 66;
-  --color-hp-enemy-deep: #b03a34;  /* the same red, AA as text on white */
-  --color-hp-ally: #5084e9;
-  --color-hp-ally-rgb: 80, 132, 233;
-  --color-hp-ally-deep: #2f62c9;   /* the same blue, AA as text on white */
-
-  /* Ink. Every value is checked against the surface it is allowed on:
-     ink 13.9:1 on ground / 15.1:1 on surface / 6.7:1 on the field green,
-     soft 7.3 / 7.9, muted 5.3 / 5.8, faint 4.8 / 5.3. muted and faint are
-     not allowed on the saturated field green. */
-  --color-ink: #20291a;
-  --color-ink-rgb: 32, 41, 26;
-  --color-ink-soft: #4a5540;
-  --color-ink-muted: #5c6a52;
-  --color-ink-faint: #63705a;
-  --color-ink-inverse: #ffffff;
-
-  /* Ink for the wood plank: 5.9:1 on --color-wood. White would be 2.3:1. */
-  --color-ink-wood: #3a2a18;
-  --color-ink-wood-soft: #4e3821;
-
-  /* Hairlines. Used for rules and dividers, never to box a card in. */
-  --color-rule: rgba(var(--color-ink-rgb), 0.1);
-  --color-rule-strong: rgba(var(--color-ink-rgb), 0.18);
-  --color-rule-wood: rgba(58, 42, 24, 0.2);
-
-  /* Store brands and status, outside the theme layer */
-  --color-brand-google: #34a853;
-  --color-brand-google-rgb: 52, 168, 83;
-  --color-brand-itch: #fa5c5c;
-  --color-brand-itch-rgb: 250, 92, 92;
-  --color-brand-youtube: #ff0000;
-  --color-brand-youtube-rgb: 255, 0, 0;
-
-  /* The studio's crimson, kept on :root so a Team-page link can still use it
-     from a page that has not opted into the studio theme. */
-  --color-ent-crimson: #e61e2a;
-  --color-ent-crimson-rgb: 230, 30, 42;
-  --color-ent-crimson-deep: #c2141f; /* 5.7:1 on the ground */
-
-  /* Shadow. The game floats its cards on a shadow rather than a border, and
-     the shadow is warm because the light is warm. */
-  --color-shadow-rgb: 58, 42, 24;
-  --shadow-card: 0 2px 4px rgba(var(--color-shadow-rgb), 0.06),
-    0 10px 24px rgba(var(--color-shadow-rgb), 0.12);
-  --shadow-card-raised: 0 4px 8px rgba(var(--color-shadow-rgb), 0.08),
-    0 18px 40px rgba(var(--color-shadow-rgb), 0.18);
-  --shadow-bar: 0 4px 18px rgba(var(--color-shadow-rgb), 0.16);
-  --shadow-media: 0 10px 40px rgba(var(--color-shadow-rgb), 0.22);
-
-  /* Radii. The game rounds everything generously. */
-  --radius-control: 14px;
-  --radius-control-lg: 18px;
-  --radius-card: 20px;
-  --radius-media: 24px;
-  --radius-icon: 16px;
-  --radius-pill: 999px;
-
-  /* Fonts. One family, Pretendard — the same face the Unity client sets its
-     Korean text in. Weight and size carry the hierarchy; there is no second
-     display family and no letter-spaced small caps. */
-  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
-    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-  --font-display: var(--font-body);
-
-  /* The studio wordmark's face. Fixed on :root on purpose: no theme block may
-     redefine it, so THE EVIL ENT is set the same way on every page. */
-  --font-wordmark: var(--font-body);
-
-  /* Type scale. The jump from body to a section title is deliberately large —
-     the old design set the hero at 3rem against 1.05rem body and the two read
-     as the same size. */
-  --text-body: 1.0625rem;
-  --text-lede: clamp(1.125rem, 1.6vw, 1.45rem);
-  --text-h3: clamp(1.25rem, 2.2vw, 1.75rem);
-  --text-h2: clamp(2rem, 5.2vw, 3.5rem);
-  --text-h1: clamp(2.5rem, 7vw, 4.75rem);
-  --text-label: 0.8125rem;
-
-  /* Section rhythm. Three sizes, so consecutive sections do not repeat the
-     same vertical gap. */
-  --space-band-sm: clamp(2.5rem, 5vw, 4rem);
-  --space-band-md: clamp(3.5rem, 7vw, 6rem);
-  --space-band-lg: clamp(5rem, 11vw, 9rem);
-
-  /* Leaves on the particle canvas: the canopy's own two greens. The old
-     canvas drifted embers up a black page; this one lets leaves fall through
-     a lit one. */
-  --color-leaf-rgb: 174, 211, 71;
-  --color-leaf-alt-rgb: 145, 190, 90;
-  --color-leaf-opacity: 0.3;
-
-  /* Transitions */
-  --transition-fast: 0.18s ease;
-  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ---------------------------------------------------------------------------
-   The Evil Ent.
-
-   The studio's own identity, from the logo: abyss black, bark brown, and the
-   crimson of the Ent's eyes. Only the Team page opts in. The token names are
-   the same as on :root, so a component written against the tokens follows the
-   ground it is placed on without knowing which one it is.
-   --------------------------------------------------------------------------- */
-[data-theme='the-evil-ent'] {
   color-scheme: dark;
 
-  --color-ground: #0d0b0a;
-  --color-ground-rgb: 13, 11, 10;
-  --color-ground-sunken: #050404;
-  --color-ground-edge: #1c1512;
+  /* Ground: the Magic Book's navy. */
+  --color-ground: #0d2238;
+  --color-ground-rgb: 13, 34, 56;
+  --color-ground-deep: #0a1a2c;     /* footer and header strip */
+  --color-tile: #22425f;            /* the slot a sprite sits in */
 
-  --color-surface: #151210;
-  --color-surface-rgb: 21, 18, 16;
-  --color-surface-soft: #1b1714;
-  --color-surface-sunken: #0a0908;
+  /* Ink draws every outline and every drop shadow. */
+  --color-ink: #14121a;
+  --color-ink-rgb: 20, 18, 26;
+  --color-ink-soft: #3d4150;        /* body text on white: 10.2:1 */
+  --color-ink-muted: #4b4f5e;       /* labels on white: 8.4:1 */
 
-  /* The clearing greens are Arcane Casters', not the studio's. On the dark
-     ground they drop to a mossy glow so a link into the game section still
-     reads as that section without lighting up the page. */
-  --color-field: #6f8c3c;
-  --color-field-rgb: 111, 140, 60;
-  --color-field-shade: #55702c;
-  --color-field-shade-rgb: 85, 112, 44;
-  --color-field-deep: #3d5320;
-  --color-field-deep-rgb: 61, 83, 32;
+  /* Text on the navy ground. */
+  --color-on-ground: #ffffff;
+  --color-on-ground-soft: #d6e0ee;  /* 11.6:1 on the ground */
+  --color-on-ground-faint: #9fb0c6; /* 6.9:1 on the ground */
 
-  --color-canopy: #8aa73c;
-  --color-canopy-rgb: 138, 167, 60;
-  --color-canopy-bright: #a8c74a;
-  --color-canopy-bright-rgb: 168, 199, 74;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f4f6fa;
+  --color-rule: #e6eaf0;            /* the rows of a stat table */
 
-  --color-wood: #2a201a;
-  --color-wood-rgb: 42, 32, 26;
-  --color-wood-edge: #1c1512;
-  --color-wood-deep: #120e0b;
+  /* Accent: the Battle button. White text on it always carries the ink
+     outline (.text-outline), never bare. */
+  --color-primary: #ff9a1c;
+  --color-primary-rgb: 255, 154, 28;
+  --color-title: #ff6b1b;           /* outlined page titles */
+  --color-highlight: #fdd33d;       /* the selected tile's ring, the All chip */
+  --color-mana: #2f7fe0;
+  --color-danger: #db4536;
 
-  --color-mana: #8fbd58;
-  --color-mana-rgb: 143, 189, 88;
+  /* The lobby's grass, for the hero and the team page. */
+  --color-grass: #5f9a30;
+  --grass-image: url('/brand/grass.jpg');
 
-  /* Accent: the Ent's eyes, lifted until it clears AA on the black ground
-     (6.5:1) instead of the logo's #e61e2a, which only makes 4.3:1. */
-  --color-primary: #ff5a64;
-  --color-primary-rgb: 255, 90, 100;
-  --color-primary-hover: #ff8088;
-  --color-primary-deep: #a3141c;
-  --color-primary-tint: rgba(var(--color-primary-rgb), 0.12);
-  --color-primary-tint-strong: rgba(var(--color-primary-rgb), 0.22);
+  /* Elements, as the client's chips colour them. */
+  --color-element-fire: #ff6b1b;
+  --color-element-lightning: #fdd33d;
+  --color-element-nature: #6aa84f;
+  --color-element-rock: #a88f6a;
+  --color-element-water: #4aa8e8;
+  --color-element-wind: #bfe8da;
 
-  --color-ink: #f5f3f0;
-  --color-ink-rgb: 245, 243, 240;
-  --color-ink-soft: #d8cfc8;
-  --color-ink-muted: #b3a9a1;
-  --color-ink-faint: #9b918a;
-  --color-ink-inverse: #0d0b0a;
+  --border-flat: 3px solid var(--color-ink);
+  --shadow-flat: 0 5px 0 var(--color-ink);
+  --shadow-flat-lg: 0 7px 0 var(--color-ink);
+  --shadow-flat-pressed: 0 2px 0 var(--color-ink);
 
-  --color-ink-wood: #f5f3f0;
-  --color-ink-wood-soft: #d8cfc8;
+  --radius-control: 14px;
+  --radius-card: 18px;
+  --radius-pill: 999px;
 
-  --color-rule: rgba(var(--color-ink-rgb), 0.12);
-  --color-rule-strong: rgba(var(--color-ink-rgb), 0.22);
-  --color-rule-wood: rgba(245, 243, 240, 0.14);
+  /* Lilita One sets titles and buttons in the client; Jua sets its Korean.
+     Latin falls through Lilita One, Hangul falls through to Jua. */
+  --font-display: 'Lilita One', 'Jua', system-ui, sans-serif;
+  --font-body: 'Jua', system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 
-  --color-shadow-rgb: 0, 0, 0;
-  --shadow-card: 0 2px 4px rgba(var(--color-shadow-rgb), 0.4),
-    0 10px 24px rgba(var(--color-shadow-rgb), 0.55);
-  --shadow-card-raised: 0 4px 8px rgba(var(--color-shadow-rgb), 0.5),
-    0 18px 40px rgba(var(--color-shadow-rgb), 0.7);
-  --shadow-bar: 0 4px 18px rgba(var(--color-shadow-rgb), 0.6);
-  --shadow-media: 0 10px 40px rgba(var(--color-shadow-rgb), 0.75);
+  --text-body: 1.0625rem;
+  --text-h1: clamp(2.25rem, 6vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 4.2vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 2.2vw, 1.75rem);
 
-  --color-leaf-rgb: 111, 140, 60;
-  --color-leaf-alt-rgb: 85, 112, 44;
-  --color-leaf-opacity: 0.22;
+  --space-band: clamp(3.5rem, 8vw, 6rem);
+  --gutter: 16px;
+
+  --transition-fast: 0.12s ease;
 }
 
 /* ---------------------------------------------------------------------------
@@ -261,18 +97,14 @@ html {
 
 body {
   font-family: var(--font-body);
-  /* No background-color: html already paints the canvas, and an opaque body
-     background would paint over the z-index:-1 ParticleBackground canvas. */
-  color: var(--color-ink);
+  color: var(--color-on-ground);
+  background-color: var(--color-ground);
   overflow-x: hidden;
   font-size: var(--text-body);
-  line-height: 1.75;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: var(--color-primary-tint-strong);
   touch-action: manipulation;
-  /* Korean wraps between words, not inside them. Without keep-all the browser
-     breaks a Korean word at any syllable, so `손패` lands as `손` / `패` across
-     two lines. break-word still rescues a long unbroken latin token or URL. */
+  /* Korean wraps between words, not inside them. */
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -284,87 +116,27 @@ canvas {
   max-width: 100%;
 }
 
-::selection {
-  background: var(--color-mana);
-  color: var(--color-ink);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-ground-sunken);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-field-shade);
-  border: 2px solid var(--color-ground-sunken);
-  border-radius: var(--radius-pill);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
-
-/* ---------------------------------------------------------------------------
-   Typography.
-
-   Weight and size carry the hierarchy. No letter-spaced upper-case labels, no
-   text shadow, no rule down the left of a heading, no accent colour on the
-   last word.
-   --------------------------------------------------------------------------- */
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  color: var(--color-ink);
-  scroll-margin-top: 96px;
+  font-weight: 400;
+  line-height: 1.15;
   text-wrap: balance;
 }
 
-h1 {
-  font-size: var(--text-h1);
-}
-
-h2 {
-  font-size: var(--text-h2);
-}
-
-h3 {
-  font-size: var(--text-h3);
-  letter-spacing: -0.01em;
-}
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
 
 p {
   text-wrap: pretty;
 }
 
-/* A short line under a heading. Never a paragraph of prose. */
-.lede {
-  color: var(--color-ink-soft);
-  font-size: var(--text-lede);
-  line-height: 1.6;
-  max-width: 46ch;
-}
-
-/* A quiet label above or beside a block. Sentence case, no tracking. */
-.label {
-  color: var(--color-ink-muted);
-  font-size: var(--text-label);
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.accent-color {
-  color: var(--color-primary);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 a,
@@ -374,39 +146,39 @@ textarea {
   min-width: 0;
 }
 
-/* A form control's intrinsic width comes from its `size` or `cols` and does
-   not shrink with its container, so one unconstrained control is enough to
-   push a phone-width page sideways. */
 input,
 textarea,
 select {
   max-width: 100%;
+  font: inherit;
 }
 
-/* Grid items take their content's min-content width as their automatic
-   minimum, which a phone-width track cannot honour. */
+button {
+  font: inherit;
+  color: inherit;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--color-ink);
+  outline: 3px solid var(--color-highlight);
   outline-offset: 3px;
-  border-radius: var(--radius-control);
+}
+
+::selection {
+  background: var(--color-highlight);
+  color: var(--color-ink);
 }
 
 .skip-link {
   position: fixed;
-  top: calc(0.75rem + env(safe-area-inset-top));
-  left: calc(0.75rem + env(safe-area-inset-left));
+  top: 0.75rem;
+  left: 0.75rem;
   z-index: 10000;
   transform: translateY(-200%);
-  color: var(--color-ink-inverse);
-  background: var(--color-primary);
-  border-radius: var(--radius-control);
-  padding: 0.75rem 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
   transition: transform 0.2s ease;
 }
 
@@ -414,899 +186,197 @@ textarea:focus-visible,
   transform: translateY(0);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* ---------------------------------------------------------------------------
    Layout
    --------------------------------------------------------------------------- */
 .container {
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  width: 100%;
-}
-
-.container-wide {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 .container-narrow {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
   width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-/* A band runs the full width of the viewport. Art and colour reach the edge of
-   the screen; only the text inside is held to a container. */
 .band {
-  position: relative;
-  width: 100%;
+  padding-block: var(--space-band);
 }
 
-.band-sm {
-  padding-block: var(--space-band-sm);
-}
-
-.band-md {
-  padding-block: var(--space-band-md);
-}
-
-.band-lg {
-  padding-block: var(--space-band-lg);
-}
-
-/* The default ground. It paints nothing: html already carries --color-ground,
-   and leaving this transparent is what lets the leaf canvas at z-index -1 show
-   through the page. Any band that needs to hide the leaves picks one of the
-   opaque modifiers below instead. */
-.band-ground {
-  background: transparent;
-}
-
-.band-sunken {
-  background: var(--color-ground-sunken);
-}
-
-.band-surface {
-  background: var(--color-surface);
-}
-
-/* The arena floor: the grass gradient the match is played on, top shaded the
-   way the canopy shades it in the screenshot. */
-.band-field {
-  background: linear-gradient(
-    180deg,
-    var(--color-field-shade) 0%,
-    var(--color-field) 45%,
-    var(--color-field-deep) 100%
-  );
-  color: var(--color-ink);
-}
-
-.band-field h1,
-.band-field h2,
-.band-field h3,
-.band-field p {
-  color: var(--color-ink);
-}
-
-/* The grove: the clearing's actual treetops, cropped straight out of the match
-   screen (public/gameplay/match.png, the canopy above the arena floor) and
-   stood along the top of the band the same way the game stands them over the
-   arena. The strip's own bottom edge fades to transparent, so it melts into
-   the grass gradient rather than ending on a cut. The band needs enough top
-   padding to clear the art: at 100% width the strip is 219/1600 of the
-   viewport, and 15vw stays above that at every width. */
-.band-grove {
-  background:
-    url('/hero-canopy.webp') top center / 100% auto no-repeat,
-    linear-gradient(
-      180deg,
-      var(--color-field-shade) 0%,
-      var(--color-field) 32%,
-      var(--color-ground) 100%
-    );
-  padding-top: clamp(5rem, 15vw, 12rem);
-}
-
-/* The canopy: sunlit leaves fading down into the clearing. */
-.band-canopy {
-  background: linear-gradient(
-    180deg,
-    var(--color-canopy-bright) 0%,
-    var(--color-canopy) 38%,
-    var(--color-field) 78%,
-    var(--color-ground) 100%
-  );
-}
-
-/* The hud plank, with the lip along its top edge the game draws. */
-.band-wood {
-  background: var(--color-wood);
-  border-top: 6px solid var(--color-wood-edge);
-  color: var(--color-ink-wood);
-}
-
-.band-wood h1,
-.band-wood h2,
-.band-wood h3 {
-  color: var(--color-ink-wood);
+/* The lobby's grass. The bottom edge is an ink line, as in the client. */
+.grass {
+  background-color: var(--color-grass);
+  background-image: var(--grass-image);
+  background-size: 420px 420px;
+  border-bottom: 6px solid var(--color-ink);
 }
 
 /* ---------------------------------------------------------------------------
-   Panels.
+   Flat components.
 
-   The game's card: a white rounded rectangle lifted by a shadow. No border.
+   Every raised thing is the same recipe: ink outline, solid ink drop below,
+   and on press the drop shrinks as the face moves down to meet it.
    --------------------------------------------------------------------------- */
-.panel {
+.flat-card {
   background: var(--color-surface);
+  color: var(--color-ink);
+  border: var(--border-flat);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  color: var(--color-ink);
-  padding: clamp(1.25rem, 3vw, 2rem);
-  position: relative;
+  box-shadow: var(--shadow-flat);
 }
 
-.panel-flush {
-  padding: 0;
-  overflow: hidden;
-}
-
-/* A panel that is also a link. It lifts on hover the way a card lifts when it
-   is picked up. */
-.panel-link {
-  display: block;
-  text-decoration: none;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.panel-link:hover,
-.panel-link:focus-visible {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-raised);
-}
-
-/* ---------------------------------------------------------------------------
-   Buttons.
-
-   Filled, generously rounded, with one darker step along the bottom so the
-   control looks pressable and moves down when it is pressed.
-   --------------------------------------------------------------------------- */
-.btn-primary,
-.btn-secondary {
-  align-items: center;
-  border: 0;
-  border-radius: var(--radius-control-lg);
-  cursor: pointer;
+.flat-btn {
   display: inline-flex;
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  font-weight: 700;
+  align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  justify-content: center;
-  line-height: 1.2;
-  padding: 0.95rem 1.75rem;
-  text-decoration: none;
-  transition: background-color var(--transition-fast), box-shadow var(--transition-fast),
-    transform var(--transition-fast), color var(--transition-fast);
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: var(--color-ink-inverse);
-  box-shadow: 0 5px 0 var(--color-primary-deep), var(--shadow-bar);
-}
-
-.btn-primary:hover {
-  background: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 7px 0 var(--color-primary-deep), var(--shadow-card-raised);
-}
-
-.btn-primary:active {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 var(--color-primary-deep);
-}
-
-.btn-secondary {
+  min-height: 48px;
+  padding: 0 1.4rem;
   background: var(--color-surface);
   color: var(--color-ink);
-  box-shadow: 0 5px 0 var(--color-ground-edge), var(--shadow-bar);
-}
-
-.btn-secondary:hover {
-  background: var(--color-surface-soft);
-  transform: translateY(-2px);
-  box-shadow: 0 7px 0 var(--color-ground-edge), var(--shadow-card-raised);
-}
-
-.btn-secondary:active {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 var(--color-ground-edge);
-}
-
-.btn-lg {
-  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
-  padding: 1.1rem 2.25rem;
-}
-
-/* ---------------------------------------------------------------------------
-   Chips.
-
-   The mana badge on the corner of a card, reused as a tag.
-   --------------------------------------------------------------------------- */
-.chip {
-  align-items: center;
-  background: var(--color-ground-sunken);
-  border-radius: var(--radius-pill);
-  color: var(--color-ink-soft);
-  display: inline-flex;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  gap: 0.3rem;
-  line-height: 1.3;
-  padding: 0.3rem 0.7rem;
-  white-space: nowrap;
-}
-
-/* The mana badge itself: dark ink on the gauge green, 7.0:1. */
-.chip-mana {
-  background: var(--color-mana);
-  color: var(--color-ink);
-  font-variant-numeric: tabular-nums;
-}
-
-/* ---------------------------------------------------------------------------
-   Media.
-
-   Art runs to the edge of its band. A screenshot is not put in a frame.
-   --------------------------------------------------------------------------- */
-.media-bleed {
-  display: block;
-  height: auto;
-  width: 100%;
-}
-
-/* A match screen, floated on the same shadow the game's cards use. */
-.media-shot {
-  border-radius: var(--radius-media);
-  box-shadow: var(--shadow-media);
-  display: block;
-  height: auto;
-  width: 100%;
-}
-
-/* ---------------------------------------------------------------------------
-   Sprite grid.
-
-   102 runtime sprites laid out tight. This is the one thing on the site that
-   exists nowhere else, so it is shown as a wall rather than as cards.
-   --------------------------------------------------------------------------- */
-.sprite-grid {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-}
-
-.sprite-cell {
-  align-items: center;
-  aspect-ratio: 1;
-  background: var(--color-surface);
-  border-radius: var(--radius-icon);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  padding: 0.45rem;
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-flat);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.sprite-cell img {
-  display: block;
-  height: 100%;
-  object-fit: contain;
-  width: 100%;
+.flat-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--color-ink);
 }
 
-a.sprite-cell:hover,
-a.sprite-cell:focus-visible {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: var(--shadow-card-raised);
+.flat-btn:active {
+  transform: translateY(3px);
+  box-shadow: var(--shadow-flat-pressed);
 }
 
-/* ---------------------------------------------------------------------------
-   Page transition
-   --------------------------------------------------------------------------- */
-.page-fade-in {
-  animation: pageFadeInEffect 0.4s ease-out;
-}
-
-@keyframes pageFadeInEffect {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* The Ent's eyes on the Team page. Scoped to the studio's own section. */
-.eye-pulse {
-  animation: eyeGlowPulse 4s infinite ease-in-out;
-}
-
-.eye-pulse-left {
-  --eye-rotate: -10deg;
-}
-
-.eye-pulse-right {
-  --eye-rotate: 10deg;
-}
-
-@keyframes eyeGlowPulse {
-  0%,
-  100% {
-    opacity: 0.4;
-    filter: blur(2px);
-    transform: rotate(var(--eye-rotate)) scale(0.9);
-  }
-
-  50% {
-    opacity: 0.95;
-    filter: blur(3.5px);
-    transform: rotate(var(--eye-rotate)) scale(1.1);
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Navigation
-   --------------------------------------------------------------------------- */
-.nav-desktop-menu {
-  display: none;
-  align-items: center;
-  gap: 1.75rem;
-  height: 100%;
-}
-
-.nav-mobile-menu-btn {
-  align-items: center;
-  background: var(--color-surface);
-  border: 0;
-  border-radius: var(--radius-control);
-  box-shadow: var(--shadow-card);
-  color: var(--color-ink);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
-}
-
-.nav-mobile-drawer {
-  background: var(--color-wood);
-  border-top: 1px solid var(--color-rule-wood);
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  padding: 0.75rem 0 1rem;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  z-index: 999;
-}
-
-/* ---------------------------------------------------------------------------
-   Store buttons. The brand colour stays the brand's.
-   --------------------------------------------------------------------------- */
-.store-btn-google:hover {
-  box-shadow: 0 7px 0 var(--color-brand-google), var(--shadow-card-raised);
-}
-
-.store-btn-itch:hover {
-  box-shadow: 0 7px 0 var(--color-brand-itch), var(--shadow-card-raised);
-}
-
-.store-btn-youtube:hover {
-  box-shadow: 0 7px 0 var(--color-brand-youtube), var(--shadow-card-raised);
-}
-
-/* ---------------------------------------------------------------------------
-   Compendium: magic and summons.
-
-   The compendium list and detail pages share this block. A record is a white card with a
-   sprite on a pale plate, the way a spell card is drawn in the match hud.
-   --------------------------------------------------------------------------- */
-.magic-compendium-page,
-.magic-detail-page {
-  min-height: 70vh;
-  width: 100%;
-}
-
-.magic-compendium-hero {
-  background: linear-gradient(
-    180deg,
-    var(--color-canopy) 0%,
-    var(--color-field) 55%,
-    var(--color-ground) 100%
-  );
-  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem);
-  position: relative;
-}
-
-.magic-kicker,
-.magic-section-label {
-  color: var(--color-ink-soft);
-  font-size: var(--text-label);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.magic-compendium-hero h1 {
-  font-size: var(--text-h1);
-  line-height: 1.02;
-}
-
-.magic-compendium-content {
-  padding-bottom: var(--space-band-md);
-  padding-top: 1.75rem;
-}
-
-.magic-filter-panel {
-  background: var(--color-surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  padding: 1.1rem 1.25rem;
-}
-
-.magic-filter-row {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.magic-filter-row + .magic-filter-row {
-  border-top: 1px solid var(--color-rule);
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
-}
-
-.magic-filter-row strong {
-  color: var(--color-ink);
-  font-size: var(--text-label);
-  font-weight: 700;
-  width: 72px;
-}
-
-.magic-filter-row a {
-  background: var(--color-ground-sunken);
-  border-radius: var(--radius-pill);
-  color: var(--color-ink-soft);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  padding: 0.35rem 0.75rem;
-  text-decoration: none;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.magic-filter-row a:hover {
-  background: var(--color-mana);
-  color: var(--color-ink);
-}
-
-.magic-filter-row a.is-active {
+/* Orange face, white outlined text. Also the selected state of a nav item. */
+.flat-btn-primary,
+.flat-btn[aria-current='page'] {
   background: var(--color-primary);
-  color: var(--color-ink-inverse);
+  color: var(--color-on-ground);
+  text-shadow: 2px 0 0 var(--color-ink), -2px 0 0 var(--color-ink), 0 2px 0 var(--color-ink),
+    0 -2px 0 var(--color-ink), 0 4px 0 var(--color-ink);
 }
 
-.magic-ai-notice {
-  color: var(--color-ink-muted);
-  font-size: 0.8125rem;
-  padding: 0.25rem 0 1.25rem;
-}
-
-.magic-card-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-}
-
-.magic-concept-card {
-  background: var(--color-surface);
+.flat-btn-lg {
+  min-height: 84px;
+  padding: 0 2.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  color: var(--color-ink);
-  /* No content-visibility here. A page holds 24 records, well under the count
-     that earns skipping render work, and skipping it leaves every off-screen
-     card blank in a full-page screenshot or a print. */
+  box-shadow: var(--shadow-flat-lg);
+}
+
+/* A navy slot a sprite sits in, as in the Magic Book grid. */
+.tile {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 1.15rem;
-  position: relative;
-  text-decoration: none;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.magic-concept-card:hover,
-.magic-concept-card:focus-visible {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-raised);
-}
-
-/* The sprite plate at the top of a record, the pale green the game lays its
-   units on. */
-.magic-card-thumbnail {
   align-items: center;
-  background: radial-gradient(
-      circle at 50% 55%,
-      rgba(var(--color-canopy-bright-rgb), 0.5),
-      transparent 70%
-    ),
-    var(--color-surface-sunken);
-  border-radius: var(--radius-control-lg);
-  display: flex;
-  height: 168px;
   justify-content: center;
-  margin: -0.35rem -0.35rem 1rem;
-  overflow: hidden;
-  position: relative;
+  background: var(--color-tile);
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
 }
 
-.magic-card-thumbnail img {
-  height: 100%;
-  object-fit: contain;
-  padding: 0.85rem;
-  transition: transform var(--transition-normal);
-  width: 100%;
+/* White text with an ink outline, the client's LilitaOne SDF Outline. */
+.text-outline {
+  color: var(--color-on-ground);
+  text-shadow: 2px 0 0 var(--color-ink), -2px 0 0 var(--color-ink), 0 2px 0 var(--color-ink),
+    0 -2px 0 var(--color-ink), 0 4px 0 var(--color-ink);
 }
 
-.magic-concept-card:hover .magic-card-thumbnail img {
-  transform: scale(1.06);
+/* Orange title with a heavy ink outline, as on the Magic Book header. */
+.text-title {
+  font-family: var(--font-display);
+  color: var(--color-title);
+  text-shadow: 3px 0 0 var(--color-ink), -3px 0 0 var(--color-ink), 0 3px 0 var(--color-ink),
+    0 -3px 0 var(--color-ink), 2px 2px 0 var(--color-ink), -2px -2px 0 var(--color-ink),
+    2px -2px 0 var(--color-ink), -2px 2px 0 var(--color-ink), 0 5px 0 var(--color-ink);
 }
 
-.magic-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+/* The slanted white banner a page title sits on. */
+.title-banner {
+  display: inline-block;
+  padding: 0.4rem 2rem;
+  background: var(--color-surface);
+  border: var(--border-flat);
+  box-shadow: var(--shadow-flat);
+  transform: skewX(-10deg);
 }
 
-.magic-card-tags span {
-  background: var(--color-ground-sunken);
-  border-radius: var(--radius-pill);
-  color: var(--color-ink-soft);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.6rem;
+.title-banner > * {
+  display: block;
+  transform: skewX(10deg);
 }
 
-.magic-concept-card h2 {
-  font-size: 1.3rem;
-  margin-top: 0.75rem;
-}
-
-.magic-concept-card > p {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  color: var(--color-ink-muted);
-  display: -webkit-box;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-top: 0.6rem;
-  overflow: hidden;
-}
-
-.magic-detail-description {
-  margin-bottom: 1.5rem;
-  max-width: 44rem;
-  word-break: keep-all;
-}
-
-.magic-concept-card > strong {
-  color: var(--color-primary);
-  font-size: 0.8125rem;
-  margin-top: auto;
-  padding-top: 0.9rem;
-}
-
-.magic-pagination {
-  align-items: center;
-  display: flex;
-  gap: 1.25rem;
-  justify-content: center;
-  margin-top: 2.5rem;
-}
-
-.magic-pagination a,
-.magic-back-link {
-  align-items: center;
-  color: var(--color-primary);
+/* Two-option switch: 한국어 | English, Dictionary | Element Chart.
+   The selected option carries aria-pressed="true". */
+.segmented {
   display: inline-flex;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  gap: 0.4rem;
-  text-decoration: none;
-}
-
-.magic-pagination a:hover,
-.magic-back-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
-.magic-pagination span {
-  color: var(--color-ink-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.magic-detail-page {
-  padding: 2rem 0 var(--space-band-md);
-}
-
-.magic-back-link {
-  margin-bottom: 2rem;
-}
-
-.magic-detail-hero {
-  align-items: center;
-  display: grid;
-  gap: 1.75rem;
-  grid-template-columns: auto 1fr;
-  padding-bottom: 2rem;
-}
-
-.magic-faction-emblem {
-  align-items: center;
-  background: radial-gradient(
-      circle,
-      rgba(var(--color-canopy-bright-rgb), 0.55),
-      transparent 70%
-    ),
-    var(--color-surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  color: var(--color-primary);
-  display: flex;
-  height: clamp(92px, 16vw, 160px);
-  justify-content: center;
-  width: clamp(92px, 16vw, 160px);
-}
-
-.magic-faction-emblem svg {
-  height: 44%;
-  stroke-width: 1.5;
-  width: 44%;
-}
-
-.magic-detail-hero h1 {
-  font-size: clamp(2rem, 6vw, 4rem);
-  line-height: 1.05;
-}
-
-.magic-artwork-gallery {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1.25rem;
-}
-
-.magic-related-artwork {
-  margin-top: 1.5rem;
-}
-
-.magic-related-artwork > h2 {
-  font-size: var(--text-h3);
-  margin: 0 0 0.75rem;
-}
-
-.magic-concept-art,
-.magic-game-asset {
+  gap: 4px;
+  padding: 4px;
   background: var(--color-surface);
-  border-radius: var(--radius-media);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  position: relative;
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+  box-shadow: 0 4px 0 var(--color-ink);
 }
 
-.magic-concept-art img {
-  aspect-ratio: 3 / 2;
-  display: block;
-  height: auto;
-  object-fit: cover;
-  width: 100%;
+.segmented button {
+  min-height: 38px;
+  padding: 0 0.9rem;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.magic-game-asset {
-  background: radial-gradient(
-      circle at 50% 45%,
-      rgba(var(--color-canopy-bright-rgb), 0.45),
-      transparent 72%
-    ),
-    var(--color-surface-sunken);
-  display: grid;
-  min-height: 260px;
-  place-items: center;
+.segmented button[aria-pressed='true'] {
+  background: var(--color-primary);
+  border-color: var(--color-ink);
+  color: var(--color-on-ground);
+  text-shadow: 0 2px 0 var(--color-ink);
 }
 
-.magic-game-asset img {
-  display: block;
-  height: auto;
-  max-height: 480px;
-  object-fit: contain;
-  padding: clamp(1.25rem, 4vw, 3rem);
-  width: 100%;
+.page-fade-in {
+  animation: pageFadeIn 0.25s ease-out;
 }
 
-.magic-concept-art figcaption,
-.magic-game-asset figcaption {
-  background: rgba(var(--color-surface-rgb), 0.92);
-  border-radius: var(--radius-pill);
-  bottom: 0.9rem;
-  color: var(--color-ink-soft);
-  font-size: 0.75rem;
-  font-weight: 600;
-  left: 0.9rem;
-  padding: 0.3rem 0.7rem;
-  position: absolute;
-  right: 0.9rem;
-  width: fit-content;
-  max-width: calc(100% - 1.8rem);
-  z-index: 1;
-}
-
-/* ---------------------------------------------------------------------------
-   Team page controls. The Team page runs under [data-theme='the-evil-ent'],
-   so these read their colours from whichever ground they land on.
-   --------------------------------------------------------------------------- */
-.Team_input:focus-visible,
-.Team_textarea:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.Team_socialLink {
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.Team_socialLink:hover {
-  color: var(--color-primary) !important;
-  transform: translateY(-2px);
-}
-
-/* ---------------------------------------------------------------------------
-   Responsive
-   --------------------------------------------------------------------------- */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.hero-btn-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  width: 100%;
-}
-
-.game-link-banner {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .hero-btn-group {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: auto;
-  }
-}
-
-@media (min-width: 576px) {
-  .game-link-banner {
-    align-items: stretch;
-    flex-direction: row;
-  }
-
-  .game-link-banner > * {
-    flex: 1;
-  }
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (min-width: 768px) {
-  .container,
-  .container-wide,
-  .container-narrow {
-    padding-inline: 2rem;
-  }
-
-  .grid-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .nav-desktop-menu {
-    display: flex;
-  }
-
-  .nav-mobile-menu-btn,
-  .nav-mobile-drawer {
-    display: none;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1.6fr 1fr 1fr !important;
-  }
-
-  .footer-bottom {
-    align-items: center !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    text-align: left !important;
-  }
-
-  .games-header-grid {
-    grid-template-columns: 1fr 1.08fr !important;
-  }
-
-  .games-web-play-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .sprite-grid {
-    gap: 0.75rem;
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
-  }
-
-  .home-about-grid,
-  .magic-artwork-gallery {
-    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
-  }
-}
-
-@media (max-width: 520px) {
-  .magic-detail-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .magic-filter-row strong {
-    width: 100%;
+  :root {
+    --gutter: 32px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

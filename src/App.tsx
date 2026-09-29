@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
-import ArcaneCastersSubNav from './components/ArcaneCastersSubNav';
 import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
-import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
-import { getLegacyPathFromHash, getRouteFromPathname, getSummonRedirectPath, getTabPath, isArcaneCastersTab } from './routing';
+import { getLegacyPathFromHash, getRedirectPath, getRouteFromPathname, getTabPath } from './routing';
 
 function App() {
   const [route, setRoute] = useState(() => {
     const legacyPath = getLegacyPathFromHash(window.location.hash)
-      ?? getSummonRedirectPath(window.location.pathname);
+      ?? getRedirectPath(window.location.pathname);
     if (legacyPath) window.history.replaceState(null, '', legacyPath);
     return getRouteFromPathname(window.location.pathname);
   });
 
   useEffect(() => {
     const handlePopState = () => {
-      const summonRedirect = getSummonRedirectPath(window.location.pathname);
-      if (summonRedirect) window.history.replaceState(null, '', summonRedirect);
+      const redirect = getRedirectPath(window.location.pathname);
+      if (redirect) window.history.replaceState(null, '', redirect);
       setRoute(getRouteFromPathname(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -49,8 +46,6 @@ function App() {
     switch (route.tab) {
       case 'home':
         return <Home navigateToTab={navigateToTab} />;
-      case 'games':
-        return <Games />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
       case 'team':
@@ -66,16 +61,11 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      <ParticleBackground />
       <a href="#main-content" className="skip-link">
         Skip To Main Content
       </a>
 
       <Navbar activeTab={route.tab} navigateToTab={navigateToTab} />
-
-      {isArcaneCastersTab(route.tab) && (
-        <ArcaneCastersSubNav activeTab={route.tab} navigateToTab={navigateToTab} />
-      )}
 
       <main id="main-content" style={styles.mainContent} className="page-fade-in">
         {renderContent()}

@@ -1,17 +1,12 @@
 import type { LucideIcon } from 'lucide-react';
 import { Play, SquarePlay } from 'lucide-react';
+import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'games' | 'magic' | 'team' | 'privacy' | 'terms';
+export type TabId = 'home' | 'magic' | 'team' | 'privacy' | 'terms';
 
 export interface NavigationItem {
   id: TabId;
-  label: string;
-  footerLabel: string;
-}
-
-export interface SectionNavigationItem {
-  id: TabId;
-  label: string;
+  label: Record<Language, string>;
 }
 
 export interface PlatformLink {
@@ -32,32 +27,17 @@ export interface TeamMember {
   email: string;
 }
 
+// The home page is the game, so the menu carries only what sits beside it.
 export const navigationItems: NavigationItem[] = [
-  { id: 'home', label: 'HOME', footerLabel: 'Home' },
-  { id: 'games', label: 'GAMES', footerLabel: 'Games' },
-  { id: 'team', label: 'TEAM', footerLabel: 'Team Members' },
-];
-
-// Section-level sub navigation shown only inside the Arcane Casters section
-// (the games and magic routes under /arcane-casters). Keeps the magic
-// compendium out of the top-level navigationItems above.
-export const arcaneCastersSectionNav: SectionNavigationItem[] = [
-  { id: 'games', label: 'OVERVIEW' },
-  { id: 'magic', label: 'MAGIC' },
-];
-
-// The footer still needs a site-wide link to the compendium even though the
-// top-level navigationItems above does not carry it. Footer.tsx renders it
-// indented beneath the Games entry.
-export const arcaneCastersFooterLinks: NavigationItem[] = [
-  { id: 'magic', label: 'MAGIC', footerLabel: 'Magic Compendium' },
+  { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
+  { id: 'team', label: { ko: '팀', en: 'Team' } },
 ];
 
 // Legal notices are not navigation, so they stay out of navigationItems and
 // out of the Navbar. Footer.tsx renders them in the bottom row instead.
 export const legalLinks: NavigationItem[] = [
-  { id: 'terms', label: 'TERMS', footerLabel: 'Terms of Service' },
-  { id: 'privacy', label: 'PRIVACY', footerLabel: 'Privacy Policy' },
+  { id: 'terms', label: { ko: '이용약관', en: 'Terms of Service' } },
+  { id: 'privacy', label: { ko: '개인정보처리방침', en: 'Privacy Policy' } },
 ];
 
 export const platformLinks: PlatformLink[] = [
@@ -87,14 +67,12 @@ export const platformLinks: PlatformLink[] = [
   },
 ];
 
-// AI 기본법 제31조 1항 고지. 고지는 읽는 사람이 알아볼 수 있어야 뜻이 있어서
-// 문구를 두 벌 둔다. footer 는 전체가 영어라 영어를 쓰고, 마법 도감은
-// 본문이 한국어라 한국어를 쓴다.
-export const aiArtworkNoticeEn =
-  'Some artwork on this site was created with generative AI.';
-
-export const aiArtworkNoticeKo =
-  '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.';
+// AI 기본법 제31조 1항 고지. 읽는 사람이 알아볼 수 있어야 뜻이 있어서 고른
+// 언어로 보여 준다.
+export const aiArtworkNotice: Record<Language, string> = {
+  ko: '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.',
+  en: 'Some artwork on this site was created with generative AI.',
+};
 
 export const teamMembers: TeamMember[] = [
   {
