@@ -49,28 +49,22 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   });
   console.log('Saved screenshot_home.png');
 
-  // Navigate to Games page
-  await page.locator('nav').getByRole('link', { name: 'GAMES', exact: true }).click();
-  await page.waitForTimeout(1000);
-  
-  // Take screenshot of Games page
+  // Navigate to Magic compendium
+  await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: '마법 도감', exact: true }).click();
+  await expect(page.getByRole('heading', { name: '마법 도감', level: 1 })).toBeVisible();
+  await expect(page.locator('.magic-grid li')).toHaveCount(81);
+
+  // Element chips filter the grid, and the All chip brings every magic back.
+  await page.getByRole('button', { name: '물', exact: true }).click();
+  await expect(page.locator('.magic-grid li')).not.toHaveCount(81);
+  await page.getByRole('button', { name: '전체', exact: true }).click();
+  await expect(page.locator('.magic-grid li')).toHaveCount(81);
+
   await settlePage(page);
   await page.screenshot({
-    path: testInfo.outputPath('screenshot_games.png'),
+    path: testInfo.outputPath('screenshot_magic.png'),
     fullPage: true,
   });
-  console.log('Saved screenshot_games.png');
-
-  // Navigate to Magic compendium
-  await page.locator('nav').getByRole('link', { name: 'MAGIC', exact: true }).click();
-  await expect(page.getByRole('heading', { name: '마법 도감' })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(24);
-
-  // The list filters by type and faction only, and the three World Tree
-  // factions are one.
-  await expect(page.locator('.magic-filter-panel').getByText('기동', { exact: true })).toHaveCount(0);
-  await expect(page.locator('.magic-filter-panel').getByRole('link', { name: '세계수 정령', exact: true })).toBeVisible();
-  await expect(page.locator('.magic-filter-panel').getByText('세계수 바람 정령')).toHaveCount(0);
 
   // Direct detail route
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
@@ -93,7 +87,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('heading', { name: '번개 투하' })).toBeVisible();
   await expect(page.getByRole('heading', { name: '단계별 모습' })).toBeVisible();
   await expect(
-    page.locator('.magic-related-artwork', { has: page.getByRole('heading', { name: '단계별 모습' }) }).locator('figure'),
+    page.locator('.magic-gallery-section', { has: page.getByRole('heading', { name: '단계별 모습' }) }).locator('figure'),
   ).toHaveCount(7);
 
   // A frame sequence is titled for any magic, not only the lightning cloud.
@@ -145,7 +139,7 @@ test('old summon addresses land on the magic that summons them', async ({ page }
   ]) {
     await page.goto(`/arcane-casters/summons/${summon}`);
     await expect(page).toHaveURL(new RegExp(`/arcane-casters/magic/${magic}$`));
-    await expect(page.getByRole('heading', { name, exact: true, level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name, exact: true, level: 2 })).toBeVisible();
   }
 
   await page.goto('/arcane-casters/summons');
@@ -161,19 +155,12 @@ test('art that only a summon record carried moved onto its magic', async ({ page
   await expect(page.getByRole('img', { name: /물을 뱉어 공격하는 물방울 생존자/ })).toBeVisible();
 });
 
-test('body background stays transparent so the particle canvas shows', async ({ page }) => {
-  await page.goto('/');
-
-  // An opaque body background paints over the z-index:-1 canvas.
-  await expect(page.locator('body')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-});
-
 test('magic compendium remains usable on mobile', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/arcane-casters/magic');
 
-  await expect(page.getByRole('heading', { name: '마법 도감' })).toBeVisible();
-  await expect(page.locator('.magic-concept-card')).toHaveCount(24);
+  await expect(page.getByRole('heading', { name: '마법 도감', level: 1 })).toBeVisible();
+  await expect(page.locator('.magic-grid li')).toHaveCount(81);
 
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
@@ -186,13 +173,13 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
 
 test('skip link keeps the active tab instead of resetting to home', async ({ page }) => {
   await page.goto('/team');
-  await expect(page.getByRole('heading', { name: 'THE EVIL ENT', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'The Evil Ent', level: 1 })).toBeVisible();
 
   await page.getByRole('link', { name: 'Skip To Main Content' }).focus();
   await page.keyboard.press('Enter');
 
   await expect(page).toHaveURL(/\/team#main-content$/);
-  await expect(page.getByRole('heading', { name: 'THE EVIL ENT', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'The Evil Ent', level: 1 })).toBeVisible();
 });
 
 // The redesign runs art to the edge of the viewport, which is exactly the shape
@@ -204,7 +191,6 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
 
   const routes: Array<[string, string]> = [
     ['/', 'home'],
-    ['/arcane-casters', 'games'],
     ['/arcane-casters/magic', 'magic'],
     ['/team', 'team'],
     ['/privacy', 'privacy'],
@@ -220,7 +206,7 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
     );
     expect(overflow, `${path} overflows by ${overflow}px`).toBeLessThanOrEqual(0);
 
-    if (['home', 'games', 'team'].includes(name)) {
+    if (['home', 'magic', 'team'].includes(name)) {
       await settlePage(page);
       await page.screenshot({
         path: testInfo.outputPath(`screenshot_mobile-${name}.png`),
@@ -230,28 +216,15 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
   }
 });
 
-// Nothing outside a CSS variable declaration may carry a literal colour, and
-// the light ground makes a missed one obvious. This checks the rendered result
-// instead of the source: the navbar, the footer and the page body must all
-// resolve to a colour the token layer actually defines.
+// Every route reads the one token layer on :root; no page swaps in a theme of
+// its own any more.
 test('every route paints from the token layer', async ({ page }) => {
-  for (const path of ['/', '/arcane-casters', '/arcane-casters/magic', '/privacy']) {
+  for (const path of ['/', '/arcane-casters/magic', '/team', '/privacy']) {
     await page.goto(path);
     const ground = await page.evaluate(() =>
       getComputedStyle(document.documentElement).getPropertyValue('--color-ground').trim(),
     );
-    expect(ground, `${path} lost the token layer`).toBe('#f4f7ea');
+    expect(ground, `${path} lost the token layer`).toBe('#0d2238');
+    await expect(page.locator('html')).not.toHaveAttribute('data-theme', /.+/);
   }
-
-  // The Team page is the one route that opts into the studio's own ground.
-  await page.goto('/team');
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'the-evil-ent');
-  const teamGround = await page.evaluate(() =>
-    getComputedStyle(document.documentElement).getPropertyValue('--color-ground').trim(),
-  );
-  expect(teamGround).toBe('#0d0b0a');
-
-  // Leaving the studio's section gives the ground back to the game.
-  await page.goto('/');
-  await expect(page.locator('html')).not.toHaveAttribute('data-theme', 'the-evil-ent');
 });

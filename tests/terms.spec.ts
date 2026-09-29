@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+// The notices are checked in English: an English browser gets the English
+// text and the English footer labels without touching the language switch.
+test.use({ locale: 'en-US' });
+
 test('direct entry to /terms renders the terms', async ({ page }, testInfo) => {
   await page.goto('/terms');
 

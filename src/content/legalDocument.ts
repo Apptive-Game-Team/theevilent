@@ -27,10 +27,5 @@ export interface LegalDocumentContent {
   sections: LegalSection[];
 }
 
-export const legalLanguageLabels: Record<LegalLanguage, string> = {
-  ko: '한국어',
-  en: 'English',
-};
-
 // One address answers both notices, so neither file gets its own copy to drift.
 export const legalContact = 'me@yunseong.dev';

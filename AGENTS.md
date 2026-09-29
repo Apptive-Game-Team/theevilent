@@ -17,29 +17,28 @@ The main design goal was to craft a premium, high-impact landing page and showca
 
 ### 1. Visual & Aesthetic Identity
 
-The site is Arcane Casters' site. `:root` in `src/index.css` carries the game,
-and `[data-theme='the-evil-ent']` carries the studio; only the Team page opts
-in, through `useDocumentTheme()`.
+The site is Arcane Casters' site and wears the Unity client's flat design
+(ArcaneCastersClient #129). `:root` in `src/index.css` holds every token; there
+is no second theme.
 
-- **Atmosphere**: The clearing the match is played in — daylight, grass, warm
-  wood, white cards floating on a soft shadow.
-- **Color Scheme**: Sampled out of `public/gameplay/match.png` and
-  `public/gameplay/battle.png`, the two Play Store match screens:
-  - `#98b852` (arena grass) · `#83ac51` (its shade) · `#5c942d` (deeper field)
-  - `#aed347` / `#d8f156` (canopy leaves)
-  - `#d0a178` (the hud plank the six spell cards lie on)
-  - `#91be5a` (the mana gauge and the badge on each card)
-  - `#477320` (that mana green taken down until white text on it clears AA)
-- **Studio theme**: `#0d0b0a` ground with `#ff5a64`, the Ent's eyes lifted off
-  the logo's `#e61e2a` so body text clears AA on black.
-- **Type**: Pretendard alone, loaded from jsDelivr's dynamic subset. It is the
-  family the Unity client ships, so the site and the game set Korean the same
-  way. Weight and size carry the hierarchy — no second display family, no
-  letter-spaced small caps, no text shadow.
-- **Shape**: Cards are lifted by a shadow, never boxed by a 1px border. Buttons
-  are filled with one darker step along the bottom edge.
-- **Accents**: Leaves drifting down the canvas behind the page, and the Ent's
-  eyes pulsing on the studio's own page.
+- **Color Scheme**: Sampled from the client's WebGL screens
+  (`client/docs/pr-media/129`):
+  - `#0d2238` navy ground (the Magic Book) · `#0a1a2c` header and footer strip
+  - `#22425f` the tile a sprite sits in
+  - `#14121a` ink: every outline and every drop shadow
+  - `#ff9a1c` orange buttons · `#ff6b1b` outlined titles · `#fdd33d` selection
+  - the lobby's grass texture (`public/brand/grass.jpg`) behind the hero and
+    the team page
+- **Type**: Lilita One for titles and buttons, Jua for body text — the two
+  faces the client sets its UI in — loaded from Google Fonts.
+- **Shape**: Every raised thing has a 3px ink outline and a solid ink drop
+  below it (`.flat-card`, `.flat-btn`, `.tile`). White text on orange always
+  carries an ink outline (`.text-outline`). No gradients, no glow, no blurred
+  shadows.
+- **Copy**: Short, and only where the picture cannot say it. Korean is 해요체.
+- **Language**: Korean and English. `src/i18n/language.tsx` holds the choice;
+  each component keeps its own `{ ko, en }` strings and reads them with
+  `useCopy`.
 
 Every colour outside a CSS variable declaration is a bug. Components read
 `var(--color-*)` and nothing else.
@@ -56,20 +55,19 @@ Every colour outside a CSS variable declaration is a bug. Components read
 ```
 theevilent/
 ├── public/
-│   ├── arcane-casters-logo.png  # Hero logotype (two lines)
-│   ├── arcane-casters-wordmark.png # Navbar logotype (one line)
-│   ├── hero-canopy.webp         # Treetops cropped from the match screen
+│   ├── brand/                   # Client logo, grass, hero characters
 │   ├── gameplay/                # Play Store match screens
 │   └── theevilent-logo.png      # Team logo (Dark Ent with crimson eyes)
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.tsx           # Translucent glassmorphic header
-│   │   ├── Footer.tsx           # Link aggregator (itch.io, Play Store)
-│   │   └── ParticleBackground.tsx # HTML5 Canvas drifting leaves
+│   │   ├── Navbar.tsx           # Menu and language switch
+│   │   ├── Footer.tsx           # Studio, store links, legal links
+│   │   └── LanguageToggle.tsx   # 한국어 / English switch
+│   ├── i18n/language.tsx        # Language choice, useCopy
 │   ├── pages/
-│   │   ├── Home.tsx             # Interactive Hero & team pitch
-│   │   ├── Games.tsx            # Arcane Casters details & media
-│   │   └── Team.tsx             # monolong & yunseong developer bios
+│   │   ├── Home.tsx             # The game: hero, how to play, gameplay
+│   │   ├── MagicCompendium.tsx  # /arcane-casters/magic[/<slug>]
+│   │   └── Team.tsx             # monolong & yunseong
 │   ├── App.tsx                  # Main router and page transition controller
 │   ├── index.css                # Theme tokens, global type, bands & panels
 │   └── main.tsx                 # Entrypoint
@@ -124,7 +122,7 @@ gh pr view <pr-number> --json assignees,labels
 This repository keeps its own skills under `.agents/skills/`. Read the one that covers the task before starting. An agent that only auto-loads skills from its own home directory does not see these, so open the file by path.
 
 - `.agents/skills/frontend-design/SKILL.md` — builds distinctive, production-grade frontend web components, pages, and applications with high design quality, avoiding generic AI aesthetics.
-- `.agents/skills/verify-homepage/SKILL.md` — compiles the Vite React project and runs Playwright tests to visually verify the Home, Games, and Team pages of the Evil Ent homepage.
+- `.agents/skills/verify-homepage/SKILL.md` — compiles the Vite React project and runs Playwright tests to visually verify the Home, Magic, and Team pages of the Evil Ent homepage.
 - `.agents/skills/web-interface-guidelines/SKILL.md` — reviews UI code for compliance with the Vercel Web Interface Guidelines.
 
 ---
@@ -136,7 +134,7 @@ We have created an automated visual verification skill script:
 
 This script automates the complete validation process:
 1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
-2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Games, and Team tabs.
+2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Magic, and Team pages.
 
 ## Arcane Casters Content Sources
 

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext } from 'react';
 
 export type Language = 'ko' | 'en';
 
@@ -9,11 +9,11 @@ export const languageLabels: Record<Language, string> = {
   en: 'English',
 };
 
-const STORAGE_KEY = 'arcane-casters-language';
+export const STORAGE_KEY = 'arcane-casters-language';
 
 // A stored choice wins; otherwise Korean readers get Korean and everyone else
 // English. Storage can throw in a private window, so every access is guarded.
-const getInitialLanguage = (): Language => {
+export const getInitialLanguage = (): Language => {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'ko' || stored === 'en') return stored;
@@ -23,32 +23,12 @@ const getInitialLanguage = (): Language => {
   return navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en';
 };
 
-interface LanguageContextValue {
+export interface LanguageContextValue {
   language: Language;
   setLanguage: (language: Language) => void;
 }
 
-const LanguageContext = createContext<LanguageContextValue | null>(null);
-
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const setLanguage = useCallback((next: Language) => {
-    setLanguageState(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // the choice still holds for this visit
-    }
-  }, []);
-
-  const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
-};
+export const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export const useLanguage = (): LanguageContextValue => {
   const value = useContext(LanguageContext);

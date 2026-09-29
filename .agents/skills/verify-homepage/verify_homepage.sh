@@ -35,7 +35,7 @@ fi
 echo "=== [Project Skill] Visual Verification Successful! ==="
 echo "Screenshots saved to artifacts directory:"
 echo " - screenshot_home.png"
-echo " - screenshot_games.png"
+echo " - screenshot_magic.png"
 echo " - screenshot_team.png"
 
 exit 0
