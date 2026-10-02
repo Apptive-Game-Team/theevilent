@@ -21,7 +21,15 @@ export interface MagicConcept {
   description: string;
 }
 
-export const magicConcepts = rawConcepts as MagicConcept[];
+/**
+ * Magics the compendium leaves out because a player cannot use them in a match:
+ * the PVE-only water slime nest and the rock slime nest (confirmed by the team).
+ * Their rows stay in the JSON so the generated data keeps matching its source;
+ * the list, the detail pages and the home tiles all read this filtered array.
+ */
+const EXCLUDED_BEANS = new Set(['pve_water_slime_nest', 'rock_slime_nest']);
+
+export const magicConcepts = (rawConcepts as MagicConcept[]).filter((magic) => !EXCLUDED_BEANS.has(magic.bean));
 
 /**
  * What the game itself knows about a magic, keyed by bean. Generated, not
