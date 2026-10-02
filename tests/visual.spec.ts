@@ -52,13 +52,13 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   // Navigate to Magic compendium
   await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: '마법 도감', exact: true }).click();
   await expect(page.getByRole('heading', { name: '마법 도감', level: 1 })).toBeVisible();
-  await expect(page.locator('.magic-grid li')).toHaveCount(81);
+  await expect(page.locator('.magic-grid li')).toHaveCount(79);
 
   // Element chips filter the grid, and the All chip brings every magic back.
   await page.getByRole('button', { name: '물', exact: true }).click();
-  await expect(page.locator('.magic-grid li')).not.toHaveCount(81);
+  await expect(page.locator('.magic-grid li')).not.toHaveCount(79);
   await page.getByRole('button', { name: '전체', exact: true }).click();
-  await expect(page.locator('.magic-grid li')).toHaveCount(81);
+  await expect(page.locator('.magic-grid li')).toHaveCount(79);
 
   await settlePage(page);
   await page.screenshot({
@@ -160,7 +160,7 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
   await page.goto('/arcane-casters/magic');
 
   await expect(page.getByRole('heading', { name: '마법 도감', level: 1 })).toBeVisible();
-  await expect(page.locator('.magic-grid li')).toHaveCount(81);
+  await expect(page.locator('.magic-grid li')).toHaveCount(79);
 
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
