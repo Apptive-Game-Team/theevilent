@@ -1,0 +1,64 @@
+.frame-pair {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.frame-pair img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* 도감 갤러리의 img 규칙(윤곽, 배경, 정사각형)을 덮어쓴다. */
+  aspect-ratio: auto;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.frame-pair-plate {
+  background: var(--color-surface-sunken);
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.frame-pair-plate img {
+  inset: 0.5rem;
+  width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
+}
+
+.frame-pair-a {
+  animation: frame-pair-a var(--frame-pair-seconds, 2.6s) steps(1, end) infinite;
+}
+
+.frame-pair-b {
+  animation: frame-pair-b var(--frame-pair-seconds, 2.6s) steps(1, end) infinite;
+}
+
+@keyframes frame-pair-a {
+  0% { opacity: 1; }
+  58% { opacity: 0; }
+  82% { opacity: 1; }
+}
+
+@keyframes frame-pair-b {
+  0% { opacity: 0; }
+  58% { opacity: 1; }
+  82% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame-pair-a,
+  .frame-pair-b {
+    animation: none;
+  }
+
+  .frame-pair-b {
+    display: none;
+  }
+}

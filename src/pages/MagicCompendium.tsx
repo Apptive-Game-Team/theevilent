@@ -14,6 +14,8 @@ import {
   type MagicElement,
   type MagicFamily,
 } from '../content/magicConcepts';
+import { FramePair } from '../components/FramePair';
+import { hiresArtwork } from '../content/hiresArtwork';
 import { magicAccessoryArtwork, magicArtwork, magicRelatedArtwork } from '../content/magicArtwork';
 import { summonConcepts } from '../content/summonConcepts';
 import { aiArtworkNotice } from '../content/siteContent';
@@ -45,6 +47,7 @@ const copy = {
     artwork: '그림',
     concept: '컨셉 아트',
     inGame: '게임 속 모습',
+    hires: '고해상도 아트',
     frames: '단계별 모습',
     idle: '대기',
     strike: (n: string) => `강타 ${n}`,
@@ -66,6 +69,7 @@ const copy = {
     artwork: 'artwork',
     concept: 'Concept art',
     inGame: 'In game',
+    hires: 'High-res art',
     frames: 'Frames',
     idle: 'Idle',
     strike: (n: string) => `Strike ${n}`,
@@ -204,6 +208,7 @@ interface Figure {
   width: number;
   height: number;
   caption: string;
+  swap?: string;
 }
 
 interface GallerySection {
@@ -228,7 +233,7 @@ const frameLabel = (caption: string, t: Copy) => {
   return firstLabel(caption);
 };
 
-const buildGallery = (bean: string, t: Copy): GallerySection[] => {
+const buildGallery = (bean: string, t: Copy, language: Language): GallerySection[] => {
   const shown = new Set<string>();
   const take = (figures: Figure[]) => figures.filter((figure) => {
     if (shown.has(figure.src)) return false;
@@ -247,9 +252,14 @@ const buildGallery = (bean: string, t: Copy): GallerySection[] => {
   ): Figure => ({ src: art.src, alt: art.alt, width: art.width, height: art.height, caption });
 
   const own = magicArtwork[bean];
-  const main = take(own
-    ? [conceptFigure(own.concept), ...(own.gameAsset ? [assetFigure(own.gameAsset)] : [])]
-    : []);
+  const hires = hiresArtwork[bean];
+  const hiresFigures: Figure[] = hires
+    ? [{ src: hires.src, swap: hires.swap, alt: hires.alt[language], width: hires.width, height: hires.height, caption: t.hires }]
+    : [];
+  const main = take([
+    ...hiresFigures,
+    ...(own ? [conceptFigure(own.concept), ...(own.gameAsset ? [assetFigure(own.gameAsset)] : [])] : []),
+  ]);
 
   const named: GallerySection[] = [];
   if (own?.sequenceArtwork) {
@@ -294,7 +304,7 @@ const MagicDetail: React.FC<{
   const name = getMagicName(magic, language);
   const description = getMagicDescription(magic, language);
   const sprite = getSprite(magic.bean);
-  const gallery = buildGallery(magic.bean, t);
+  const gallery = buildGallery(magic.bean, t, language);
   const faction = language === 'en' ? magicFactionLabelsEn[magic.faction] ?? magic.faction : magic.faction;
   const elementText = data.elements?.length
     ? data.elements.map((element) => magicElementLabels[language][element]).join(' · ')
@@ -352,14 +362,18 @@ const MagicDetail: React.FC<{
               <div className="magic-gallery-grid">
                 {section.figures.map((figure) => (
                   <figure key={figure.src}>
-                    <img
-                      alt={figure.alt}
-                      decoding="async"
-                      height={figure.height}
-                      loading="lazy"
-                      src={figure.src}
-                      width={figure.width}
-                    />
+                    {figure.swap ? (
+                      <FramePair src={figure.src} swap={figure.swap} alt={figure.alt} width={figure.width} height={figure.height} />
+                    ) : (
+                      <img
+                        alt={figure.alt}
+                        decoding="async"
+                        height={figure.height}
+                        loading="lazy"
+                        src={figure.src}
+                        width={figure.width}
+                      />
+                    )}
                     <figcaption>{figure.caption}</figcaption>
                   </figure>
                 ))}

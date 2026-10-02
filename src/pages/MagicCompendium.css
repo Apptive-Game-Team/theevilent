@@ -380,7 +380,7 @@
   margin: 0;
 }
 
-.magic-gallery-grid img {
+.magic-gallery-grid img:not(.frame-pair img) {
   width: 100%;
   height: auto;
   aspect-ratio: 1;

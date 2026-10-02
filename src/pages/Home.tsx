@@ -2,6 +2,7 @@ import React from 'react';
 import { getMagicName, magicConcepts } from '../content/magicConcepts';
 import { platformLinks } from '../content/siteContent';
 import type { TabId } from '../content/siteContent';
+import { StoryBand } from '../components/StoryBand';
 import { useCopy, useLanguage, type Language } from '../i18n/language';
 import { getTabPath } from '../routing';
 import './Home.css';
@@ -10,9 +11,8 @@ interface HomeProps {
   navigateToTab: (tab: TabId) => void;
 }
 
-// Placeholder Play Store match screen. Swap for a capture of the current
-// client build once one exists — see issue #70.
-const GAMEPLAY_SHOT = '/gameplay/battle.png';
+// A capture of the current public build (practice mode, Korean UI, hand open).
+const GAMEPLAY_SHOT = '/gameplay/battle.webp';
 
 interface HowToStep {
   key: string;
@@ -163,6 +163,8 @@ export const Home: React.FC<HomeProps> = ({ navigateToTab }) => {
           </div>
         </div>
       </section>
+
+      <StoryBand />
 
       {/* Gameplay: one screen capture, then the magic wall. */}
       <section className="home-gameplay">
