@@ -58,8 +58,8 @@ const tiles: StoryTile[] = [
     key: 'player',
     src: '/hires/Player.webp',
     swap: '/hires/PlayerAttack.webp',
-    width: 965,
-    height: 945,
+    width: 946,
+    height: 896,
     title: { ko: '수습 마법생', en: 'The Apprentice' },
     body: {
       ko: '마법사의 탑에서 내려와 워드의 카드를 따라가요.',
