@@ -9,6 +9,7 @@ import Rankings from './pages/Rankings';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import News from './pages/News';
+import Account from './pages/Account';
 import { getLegacyPathFromHash, getRedirectPath, getRouteFromPathname, getTabPath } from './routing';
 
 function App() {
@@ -60,6 +61,8 @@ function App() {
         return <Terms />;
       case 'news':
         return <News />;
+      case 'account':
+        return <Account />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }
