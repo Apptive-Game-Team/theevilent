@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Play, SquarePlay } from 'lucide-react';
+import { AtSign, Play, SquarePlay } from 'lucide-react';
 import type { Language } from '../i18n/language';
 
 export type TabId = 'home' | 'magic' | 'team' | 'privacy' | 'terms';
@@ -14,7 +14,7 @@ export interface PlatformLink {
   label: string;
   subtitle: string;
   title: string;
-  variant: 'google' | 'itch' | 'youtube';
+  variant: 'google' | 'itch' | 'youtube' | 'x';
   Icon: LucideIcon;
 }
 
@@ -64,6 +64,14 @@ export const platformLinks: PlatformLink[] = [
     title: 'YouTube',
     variant: 'youtube',
     Icon: SquarePlay,
+  },
+  {
+    href: 'https://x.com/arcanecastersof',
+    label: 'X (@arcanecastersof)',
+    subtitle: 'FOLLOW ON',
+    title: 'X',
+    variant: 'x',
+    Icon: AtSign,
   },
 ];
 
