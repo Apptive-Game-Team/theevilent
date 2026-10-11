@@ -66,3 +66,21 @@
   color: var(--color-ink-soft);
   line-height: 1.8;
 }
+
+.news-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.news-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  border: var(--border-flat);
+  border-radius: var(--radius-control);
+  background: var(--color-tile);
+}

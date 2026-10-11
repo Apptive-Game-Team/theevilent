@@ -40,6 +40,22 @@ export const News: React.FC = () => {
                   {release.date}
                 </time>
               </header>
+              {release.images && (
+                <div className="news-images">
+                  {release.images.map((image) => (
+                    <img
+                      key={image.src}
+                      className="news-image"
+                      src={image.src}
+                      alt={image.alt[language]}
+                      width={image.width}
+                      height={image.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+              )}
               <ul className="news-items">
                 {copy.items.map((item) => (
                   <li key={item}>{item}</li>

@@ -13,11 +13,26 @@ export interface NewsCopy {
  * Only what a player notices is listed. Refactors, CI, tooling, infra and
  * account/admin work are left out on purpose. Magic names are the ones in the
  * client's Korean and English localization.
+ *
+ * `images` are display copies under `public/news/<version>/`, at most 3 per
+ * release, converted to WebP. Each one comes from a file the release's commit
+ * range added or changed in the client repository (listed in the pull request
+ * that added it): a screenshot under `docs/pr-media`, or a sprite or map under
+ * `Assets`. A release with no fitting image has none.
  */
+export interface NewsImage {
+  /** Public path, such as `/news/v1.3.0/treasure-chests.webp`. */
+  src: string;
+  alt: Record<Language, string>;
+  width: number;
+  height: number;
+}
+
 export interface NewsRelease {
   version: string;
   /** ISO date of the client release. */
   date: string;
+  images?: NewsImage[];
   ko: NewsCopy;
   en: NewsCopy;
 }
@@ -28,6 +43,35 @@ export const newsReleases: NewsRelease[] = [
   {
     version: 'v1.3.0',
     date: '2026-10-05',
+    images: [
+      {
+        src: '/news/v1.3.0/gate-adventure-map.webp',
+        alt: {
+          ko: '차원문 모험의 지도. 길 끝에 불과 번개가 이는 차원문이 서 있고, 길가에도 작은 문이 떠 있어요.',
+          en: 'The Gate adventure map. A gate with fire and lightning stands at the end of the road, with smaller gates floating beside it.',
+        },
+        width: 867,
+        height: 256,
+      },
+      {
+        src: '/news/v1.3.0/fortress-adventure-map.webp',
+        alt: {
+          ko: '요새 모험의 지도. 숲길이 돌로 지은 요새 성벽과 탑으로 이어져요.',
+          en: 'The Fortress adventure map. A forest road leads to a stone fortress wall and towers.',
+        },
+        width: 867,
+        height: 256,
+      },
+      {
+        src: '/news/v1.3.0/treasure-chests.webp',
+        alt: {
+          ko: '모험 보상 상자 두 개. 덩굴이 감긴 숲 상자와 돌로 만든 요새 상자가 열려 있어요.',
+          en: 'Two adventure reward chests, open: a vine-wrapped forest chest and a stone fortress chest.',
+        },
+        width: 780,
+        height: 356,
+      },
+    ],
     ko: {
       title: 'v1.3.0 업데이트',
       items: [
@@ -58,6 +102,35 @@ export const newsReleases: NewsRelease[] = [
   {
     version: 'v1.2.0',
     date: '2026-09-28',
+    images: [
+      {
+        src: '/news/v1.2.0/emotes.webp',
+        alt: {
+          ko: '이모티콘 5종: 인사, 웃음, 놀람, 울음, 놀리기.',
+          en: 'The 5 emotes: greeting, laughing, surprised, crying and taunting.',
+        },
+        width: 1032,
+        height: 190,
+      },
+      {
+        src: '/news/v1.2.0/flat-lobby.webp',
+        alt: {
+          ko: '평면 디자인으로 바뀐 로비. 전투 버튼과 연습, 모험, 마법 도감, 덱 관리 표지판이 보여요.',
+          en: 'The lobby in the new flat style, with the Battle button and the Practice, Adventure, Magic Book and Manage Deck signs.',
+        },
+        width: 960,
+        height: 540,
+      },
+      {
+        src: '/news/v1.2.0/deck-search-filter.webp',
+        alt: {
+          ko: '덱 관리 화면. 위쪽에 검색 칸과 원소 필터가 있어요. 화면 글자는 영어예요.',
+          en: 'The Manage Deck screen, with a search box and element filters at the top.',
+        },
+        width: 960,
+        height: 540,
+      },
+    ],
     ko: {
       title: 'v1.2.0 업데이트',
       items: [
@@ -88,6 +161,17 @@ export const newsReleases: NewsRelease[] = [
   {
     version: 'v1.1.0',
     date: '2026-09-21',
+    images: [
+      {
+        src: '/news/v1.1.0/low-poly-field.webp',
+        alt: {
+          ko: 'low-poly 스타일로 바뀐 필드. 각진 풀밭과 나무 위에 아쿠아 아처, 이끼바위 골렘, 대포 같은 소환수가 서 있어요.',
+          en: 'The field in the new low-poly style: faceted grass and trees, with summons such as Aqua Archer, Rock Golem and a cannon standing on it.',
+        },
+        width: 960,
+        height: 540,
+      },
+    ],
     ko: {
       title: 'v1.1.0 업데이트',
       items: [
