@@ -9,3 +9,8 @@ export const accountBaseUrl = trimTrailingSlash(
 export const lobbyBaseUrl = trimTrailingSlash(
   import.meta.env.VITE_LOBBY_BASE_URL ?? 'https://lobby.ac.theevilent.com',
 );
+
+// Cloudflare's public always-pass test key. The real site key replaces it
+// through VITE_TURNSTILE_SITE_KEY at build time.
+export const turnstileSiteKey: string =
+  import.meta.env.VITE_TURNSTILE_SITE_KEY ?? '1x00000000000000000000AA';

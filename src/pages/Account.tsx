@@ -3,10 +3,12 @@ import { useAccount } from '../account/accountContext';
 import {
   ApiError,
   accountUrl,
+  classifyJoinFailure,
   lobbyUrl,
   type GamesPage,
   type StatisticsOverview,
 } from '../account/api';
+import Turnstile from '../account/Turnstile';
 import { useCopy, useLanguage } from '../i18n/language';
 import './Account.css';
 
@@ -22,7 +24,31 @@ const copy = {
     submitting: '로그인하는 중…',
     loginFailed: '이메일이나 비밀번호가 맞지 않아요.',
     loginUnavailable: '지금은 로그인할 수 없어요. 잠시 뒤에 다시 시도해 주세요.',
-    signUpHint: '계정은 게임에서 만들 수 있어요.',
+    tabLogin: '로그인',
+    tabSignUp: '회원가입',
+    modeLabel: '로그인 또는 회원가입',
+    signUpTitle: '회원가입',
+    guestNotice:
+      '게임에서 손님으로 플레이했다면, 진행 상황을 이어 가려면 게임 안에서 가입해 주세요. 여기서 가입하면 비어 있는 새 계정이 만들어져요.',
+    nicknameField: '닉네임',
+    nicknameHint: '31자까지 쓸 수 있어요.',
+    passwordHint: '8자 이상으로 정해 주세요.',
+    passwordConfirm: '비밀번호 확인',
+    signUpSubmit: '가입하기',
+    signingUp: '가입하는 중…',
+    captchaWaiting: '아래 확인을 마치면 가입할 수 있어요.',
+    errEmail: '이메일 형식이 맞지 않아요.',
+    errNickname: '닉네임을 1자 이상 31자 이하로 적어 주세요.',
+    errPassword: '비밀번호는 8자 이상이어야 해요.',
+    errConfirm: '비밀번호가 서로 달라요.',
+    signUpErrors: {
+      captcha: '자동 가입 방지 확인에 실패했어요. 확인을 다시 마치고 시도해 주세요.',
+      duplicateEmail: '이미 쓰고 있는 이메일이에요.',
+      duplicate: '이미 쓰고 있는 이메일이나 닉네임이에요.',
+      tooMany: '시도가 너무 많아요. 잠시 뒤에 다시 시도해 주세요.',
+      invalid: '입력한 내용을 다시 확인해 주세요.',
+      unavailable: '지금은 가입할 수 없어요. 잠시 뒤에 다시 시도해 주세요.',
+    } as Record<string, string>,
     nickname: '닉네임',
     stats: '전적',
     total: '전체',
@@ -69,7 +95,31 @@ const copy = {
     submitting: 'Logging in…',
     loginFailed: 'The email or password is incorrect.',
     loginUnavailable: 'Logging in is unavailable right now. Please try again in a moment.',
-    signUpHint: 'You can create an account in the game.',
+    tabLogin: 'Log in',
+    tabSignUp: 'Sign up',
+    modeLabel: 'Log in or sign up',
+    signUpTitle: 'Sign up',
+    guestNotice:
+      'If you play as a guest in the game, register inside the game to keep your progress. Signing up here creates a new, empty account.',
+    nicknameField: 'Nickname',
+    nicknameHint: 'Up to 31 characters.',
+    passwordHint: 'At least 8 characters.',
+    passwordConfirm: 'Confirm password',
+    signUpSubmit: 'Sign up',
+    signingUp: 'Signing up…',
+    captchaWaiting: 'Finish the check below to sign up.',
+    errEmail: 'Enter a valid email address.',
+    errNickname: 'Enter a nickname of 1 to 31 characters.',
+    errPassword: 'The password must be at least 8 characters.',
+    errConfirm: 'The passwords do not match.',
+    signUpErrors: {
+      captcha: 'The bot check failed. Complete it again and retry.',
+      duplicateEmail: 'That email is already in use.',
+      duplicate: 'That email or nickname is already in use.',
+      tooMany: 'Too many attempts. Please try again in a moment.',
+      invalid: 'Please check what you entered.',
+      unavailable: 'Signing up is unavailable right now. Please try again in a moment.',
+    } as Record<string, string>,
     nickname: 'Nickname',
     stats: 'Record',
     total: 'Games',
@@ -174,8 +224,140 @@ const LoginForm: React.FC<{ t: Copy }> = ({ t }) => {
       <button type="submit" className="flat-btn flat-btn-primary" disabled={pending}>
         {pending ? t.submitting : t.submit}
       </button>
-      <p className="account-hint">{t.signUpHint}</p>
     </form>
+  );
+};
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type SignUpField = 'email' | 'name' | 'password' | 'confirm';
+
+const SignUpForm: React.FC<{ t: Copy }> = ({ t }) => {
+  const { signUp } = useAccount();
+  const ids = { email: useId(), name: useId(), password: useId(), confirm: useId() };
+  const errorId = useId();
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [token, setToken] = useState<string | null>(null);
+  const [resetSignal, setResetSignal] = useState(0);
+  const [pending, setPending] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<SignUpField, string>>>({});
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const validate = () => {
+    const found: Partial<Record<SignUpField, string>> = {};
+    if (!emailPattern.test(email.trim())) found.email = t.errEmail;
+    if (name.trim() === '' || name.length > 31) found.name = t.errNickname;
+    if (password.length < 8) found.password = t.errPassword;
+    if (confirm !== password) found.confirm = t.errConfirm;
+    return found;
+  };
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!token || pending) return;
+    const found = validate();
+    setFieldErrors(found);
+    setError(null);
+    const first = (['email', 'name', 'password', 'confirm'] as SignUpField[]).find((f) => found[f]);
+    if (first) {
+      formRef.current?.querySelector<HTMLInputElement>(`[name="${first}"]`)?.focus();
+      return;
+    }
+    setPending(true);
+    try {
+      await signUp(email.trim(), name.trim(), password, token);
+    } catch (caught) {
+      setError(t.signUpErrors[classifyJoinFailure(caught)]);
+      setPending(false);
+      // A captcha token works once, so a failed attempt needs a fresh one.
+      setResetSignal((n) => n + 1);
+    }
+  };
+
+  const field = (
+    key: SignUpField,
+    label: string,
+    value: string,
+    set: (v: string) => void,
+    props: React.InputHTMLAttributes<HTMLInputElement>,
+    hint?: string,
+  ) => (
+    <div className="account-field">
+      <label htmlFor={ids[key]}>{label}</label>
+      <input
+        id={ids[key]}
+        name={key}
+        required
+        value={value}
+        onChange={(event) => set(event.target.value)}
+        aria-invalid={fieldErrors[key] ? true : undefined}
+        aria-describedby={fieldErrors[key] ? `${ids[key]}-error` : undefined}
+        {...props}
+      />
+      {hint && !fieldErrors[key] && <span className="account-hint">{hint}</span>}
+      {fieldErrors[key] && (
+        <span id={`${ids[key]}-error`} className="account-error">
+          {fieldErrors[key]}
+        </span>
+      )}
+    </div>
+  );
+
+  return (
+    <form ref={formRef} className="flat-card account-card account-form" onSubmit={submit} noValidate>
+      <h1 className="account-heading">{t.signUpTitle}</h1>
+      <p className="account-notice">{t.guestNotice}</p>
+      {field('email', t.email, email, setEmail, {
+        type: 'email',
+        inputMode: 'email',
+        autoComplete: 'email',
+        spellCheck: false,
+        placeholder: t.emailPlaceholder,
+      })}
+      {field('name', t.nicknameField, name, setName, {
+        type: 'text',
+        autoComplete: 'nickname',
+        maxLength: 31,
+        spellCheck: false,
+      }, t.nicknameHint)}
+      {field('password', t.password, password, setPassword, {
+        type: 'password',
+        autoComplete: 'new-password',
+      }, t.passwordHint)}
+      {field('confirm', t.passwordConfirm, confirm, setConfirm, {
+        type: 'password',
+        autoComplete: 'new-password',
+      })}
+      <Turnstile onToken={setToken} resetSignal={resetSignal} />
+      <p id={errorId} className="account-error" role="alert">
+        {error}
+      </p>
+      <button type="submit" className="flat-btn flat-btn-primary" disabled={pending || !token}>
+        {pending ? t.signingUp : t.signUpSubmit}
+      </button>
+      {!token && !pending && <p className="account-hint">{t.captchaWaiting}</p>}
+    </form>
+  );
+};
+
+const AuthPanel: React.FC<{ t: Copy }> = ({ t }) => {
+  const [mode, setMode] = useState<'login' | 'signUp'>('login');
+  return (
+    <>
+      <div className="segmented account-mode" role="group" aria-label={t.modeLabel}>
+        <button type="button" aria-pressed={mode === 'login'} onClick={() => setMode('login')}>
+          {t.tabLogin}
+        </button>
+        <button type="button" aria-pressed={mode === 'signUp'} onClick={() => setMode('signUp')}>
+          {t.tabSignUp}
+        </button>
+      </div>
+      {mode === 'login' ? <LoginForm t={t} /> : <SignUpForm t={t} />}
+    </>
   );
 };
 
@@ -497,7 +679,7 @@ export const Account: React.FC = () => {
   } else if (status === 'signedIn') {
     content = <Profile t={t} onDeleted={() => setDeleted(true)} />;
   } else {
-    content = <LoginForm t={t} />;
+    content = <AuthPanel t={t} />;
   }
 
   return <section className="grass account-page">{content}</section>;

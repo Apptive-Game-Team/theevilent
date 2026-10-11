@@ -3,6 +3,7 @@ import { AccountContext, type SessionStatus } from './accountContext';
 import {
   ApiError,
   accountUrl,
+  requestJoin,
   requestLogin,
   requestLogout,
   requestRefresh,
@@ -89,9 +90,9 @@ const AccountProvider: React.FC<{ children: React.ReactNode }> = ({ children }) 
     };
   }, [refreshAccessToken, loadMember, clearSession]);
 
-  const login = useCallback(
-    async (email: string, password: string) => {
-      accessToken.current = await requestLogin(email, password);
+  const startSession = useCallback(
+    async (token: string) => {
+      accessToken.current = token;
       try {
         setMember(await loadMember());
         setStatus('signedIn');
@@ -101,6 +102,17 @@ const AccountProvider: React.FC<{ children: React.ReactNode }> = ({ children }) 
       }
     },
     [loadMember, clearSession],
+  );
+
+  const login = useCallback(
+    async (email: string, password: string) => startSession(await requestLogin(email, password)),
+    [startSession],
+  );
+
+  const signUp = useCallback(
+    async (email: string, name: string, password: string, captchaToken: string) =>
+      startSession(await requestJoin(email, name, password, captchaToken)),
+    [startSession],
   );
 
   const logout = useCallback(async () => {
@@ -114,8 +126,8 @@ const AccountProvider: React.FC<{ children: React.ReactNode }> = ({ children }) 
   }, [clearSession]);
 
   const value = useMemo(
-    () => ({ status, member, login, logout, authorizedFetch }),
-    [status, member, login, logout, authorizedFetch],
+    () => ({ status, member, login, signUp, logout, authorizedFetch }),
+    [status, member, login, signUp, logout, authorizedFetch],
   );
   return <AccountContext.Provider value={value}>{children}</AccountContext.Provider>;
 };

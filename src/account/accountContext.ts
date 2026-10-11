@@ -8,6 +8,8 @@ export interface AccountContextValue {
   member: Member | null;
   /** Throws ApiError on a rejected login. */
   login: (email: string, password: string) => Promise<void>;
+  /** Creates the account, then signs in with the tokens it returns. */
+  signUp: (email: string, name: string, password: string, captchaToken: string) => Promise<void>;
   logout: () => Promise<void>;
   /**
    * Fetch with the in-memory access token. A 401 triggers one refresh and one

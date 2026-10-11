@@ -188,3 +188,24 @@
 .account-dialog::backdrop {
   background: rgba(var(--color-ink-rgb), 0.7);
 }
+
+.account-mode {
+  align-self: center;
+}
+
+.account-notice {
+  padding: 0.75rem 0.9rem;
+  background: var(--color-surface-sunken);
+  border: 2px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+.account-turnstile {
+  min-height: 65px;
+}
+
+.account-field input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}

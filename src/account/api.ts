@@ -27,10 +27,13 @@ export interface GamesPage {
 
 export class ApiError extends Error {
   readonly status: number;
+  /** Raw response text. Only read to classify an error, never shown. */
+  readonly detail: string;
 
-  constructor(status: number) {
+  constructor(status: number, detail = '') {
     super(`HTTP ${status}`);
     this.status = status;
+    this.detail = detail;
   }
 }
 
@@ -59,6 +62,46 @@ export const requestLogin = async (email: string, password: string): Promise<str
       body: JSON.stringify({ email, password }),
     }),
   );
+
+export const requestJoin = async (
+  email: string,
+  name: string,
+  password: string,
+  captchaToken: string,
+): Promise<string> => {
+  const response = await fetch(`${accountBaseUrl}/api/members`, {
+    method: 'POST',
+    headers: { ...cookieDelivery.headers, 'Content-Type': 'application/json' },
+    credentials: cookieDelivery.credentials,
+    body: JSON.stringify({ email, name, password, captchaToken }),
+  });
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '');
+    throw new ApiError(response.status, detail);
+  }
+  return readAccessToken(response);
+};
+
+export type JoinFailure = 'captcha' | 'duplicateEmail' | 'duplicate' | 'tooMany' | 'invalid' | 'unavailable';
+
+/**
+ * The account server answers a taken email with 400 and "사용 중인 Email입니다.",
+ * a database unique violation with "duplicated email", and the sign-up guard
+ * with a 400 that mentions the captcha. The text is only matched here, never
+ * shown.
+ */
+export const classifyJoinFailure = (error: unknown): JoinFailure => {
+  if (!(error instanceof ApiError)) return 'unavailable';
+  if (error.status === 429) return 'tooMany';
+  if (error.status >= 500) return 'unavailable';
+  if (error.status === 400) {
+    if (/captcha|자동 가입/i.test(error.detail)) return 'captcha';
+    if (/사용 중인 Email/i.test(error.detail)) return 'duplicateEmail';
+    if (/duplicat/i.test(error.detail)) return 'duplicate';
+    return 'invalid';
+  }
+  return 'invalid';
+};
 
 export const requestRefresh = async (): Promise<string> =>
   readAccessToken(
