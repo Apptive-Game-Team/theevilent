@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import { AtSign, Play, SquarePlay } from 'lucide-react';
 import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'magic' | 'team' | 'privacy' | 'terms';
+export type TabId = 'home' | 'magic' | 'team' | 'privacy' | 'terms' | 'news';
 
 export interface NavigationItem {
   id: TabId;
@@ -31,6 +31,7 @@ export interface TeamMember {
 export const navigationItems: NavigationItem[] = [
   { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
   { id: 'team', label: { ko: '팀', en: 'Team' } },
+  { id: 'news', label: { ko: '소식', en: 'News' } },
 ];
 
 // Legal notices are not navigation, so they stay out of navigationItems and

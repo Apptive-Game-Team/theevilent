@@ -7,6 +7,7 @@ import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import News from './pages/News';
 import { getLegacyPathFromHash, getRedirectPath, getRouteFromPathname, getTabPath } from './routing';
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
         return <Privacy />;
       case 'terms':
         return <Terms />;
+      case 'news':
+        return <News />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }
