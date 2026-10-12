@@ -14,17 +14,77 @@ export interface NewsCopy {
  * account/admin work are left out on purpose. Magic names are the ones in the
  * client's Korean and English localization.
  */
+export interface NewsImage {
+  /** Path under `public/`, such as `/news/v1.4.0/river-map.webp`. */
+  src: string;
+  width: number;
+  height: number;
+  alt: { ko: string; en: string };
+}
+
 export interface NewsRelease {
   version: string;
   /** ISO date of the client release. */
   date: string;
   ko: NewsCopy;
   en: NewsCopy;
+  /** Up to three pictures, one per main change. Optional. */
+  images?: NewsImage[];
 }
 
 export const newsAnchorId = (version: string) => version.replace(/\./g, '-');
 
 export const newsReleases: NewsRelease[] = [
+  {
+    version: 'v1.4.0',
+    date: '2026-10-12',
+    ko: {
+      title: 'v1.4.0 업데이트',
+      items: [
+        '강이 흐르는 새 맵이 생겼어요. 경기마다 맵이 무작위로 정해지고, 강에는 다리가 놓여 있어요.',
+        '친구 목록과 친구 관리, 친선전 초대가 추가됐어요. 로비 메뉴에서 친구를 열어요.',
+        '튜토리얼이 손가락 그림으로 눌러야 할 버튼과 카드를 짚어줘요. 화면 위에는 한 줄 안내가 뜨고, 덱 화면 요소 6개도 설명해줘요.',
+        '불, 물, 자연, 번개, 바위, 바람 원소 아이콘 6개가 새 그림체로 바뀌었어요.',
+        '공격을 맞은 대상이 공격 반대 방향으로 밀렸다가 돌아와요.',
+        '손패 바를 올려 두면 그대로 유지되고, 조준하는 동안에만 잠시 내려가요.',
+        '서버의 tick rate 에 맞춰 위치를 보간해서 움직임이 더 부드러워졌어요.',
+        '매칭할 때 게임 서버 핑을 재서, 핑이 낮은 서버를 골라요.',
+      ],
+    },
+    en: {
+      title: 'v1.4.0 Update',
+      items: [
+        'A new map with a river is here. The map is picked at random for each match, and bridges cross the river.',
+        'Friends are added: a friend list, friend management, and invites to friendly matches. Open Friends from the lobby menu.',
+        'The tutorial now points a finger at the button or card you need to tap. A one-line hint shows at the top, and the deck screen walks through 6 elements.',
+        'The 6 element icons (fire, water, nature, lightning, rock, wind) are redrawn in a new style.',
+        'A target that gets hit is pushed back away from the attack and then returns.',
+        'A raised hand bar now stays up and only lowers briefly while you aim.',
+        'Positions are interpolated at the server tick rate, so movement looks smoother.',
+        'When matching, the game measures ping to each game server and picks the one with the lowest ping.',
+      ],
+    },
+    images: [
+      {
+        src: '/news/v1.4.0/river-map.webp',
+        width: 1152,
+        height: 640,
+        alt: {
+          ko: '다리 두 개가 놓인 강 맵',
+          en: 'The river map with two bridges',
+        },
+      },
+      {
+        src: '/news/v1.4.0/element-icons.webp',
+        width: 1204,
+        height: 200,
+        alt: {
+          ko: '새 그림체의 불, 물, 자연, 번개, 바위, 바람 원소 아이콘',
+          en: 'The new fire, water, nature, lightning, rock and wind element icons',
+        },
+      },
+    ],
+  },
   {
     version: 'v1.3.0',
     date: '2026-10-05',
