@@ -75,6 +75,15 @@ export const newsReleases: NewsRelease[] = [
         },
       },
       {
+        src: '/news/v1.4.0/tutorial-fire-shot.webp',
+        width: 1280,
+        height: 720,
+        alt: {
+          ko: '튜토리얼에서 손가락이 화염탄 카드를 짚고, 위에 한 줄 안내가 뜬 화면',
+          en: 'The tutorial finger tapping the Fire Shot card, with a one-line hint at the top',
+        },
+      },
+      {
         src: '/news/v1.4.0/element-icons.webp',
         width: 1204,
         height: 200,
