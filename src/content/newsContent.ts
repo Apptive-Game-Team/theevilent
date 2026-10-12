@@ -56,7 +56,7 @@ export const newsReleases: NewsRelease[] = [
       items: [
         'A new map with a river is here. The map is picked at random for each match, and bridges cross the river.',
         'Friends are added: a friend list, friend management, and invites to friendly matches. Open Friends from the lobby menu.',
-        'The tutorial now points a finger at the button or card you need to tap. A one-line hint shows at the top, and the deck screen walks through 6 elements.',
+        'The tutorial now points a finger at the button or card you need to tap. A one-line hint shows at the top, and the deck step explains 6 parts of the deck screen.',
         'The 6 element icons (fire, water, nature, lightning, rock, wind) are redrawn in a new style.',
         'A target that gets hit is pushed back away from the attack and then returns.',
         'A raised hand bar now stays up and only lowers briefly while you aim.',
