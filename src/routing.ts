@@ -9,6 +9,7 @@ export interface AppRoute {
 const tabPaths: Record<TabId, string> = {
   home: '/',
   magic: '/arcane-casters/magic',
+  rankings: '/arcane-casters/rankings',
   team: '/team',
   privacy: '/privacy',
   terms: '/terms',
@@ -40,8 +41,7 @@ export const getRedirectPath = (pathname: string): string | null => {
   const segments = pathname.split('/').filter(Boolean);
   if (segments[0] !== 'arcane-casters') return null;
   if (segments[1] === 'summons') return summonRedirectPath(segments[2]);
-  if (segments[1] === 'magic') return null;
-  if (segments[1] === 'news') return null;
+  if (segments[1] === 'magic' || segments[1] === 'rankings' || segments[1] === 'news') return null;
   return getTabPath('home');
 };
 
@@ -58,6 +58,9 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
   }
   if (segments[0] === 'arcane-casters' && segments[1] === 'news' && segments.length === 2) {
     return { tab: 'news' };
+  }
+  if (segments[0] === 'arcane-casters' && segments[1] === 'rankings' && segments.length === 2) {
+    return { tab: 'rankings' };
   }
   return { tab: 'home' };
 };

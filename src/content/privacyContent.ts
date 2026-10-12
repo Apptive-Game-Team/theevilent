@@ -18,7 +18,7 @@ import {
 const korean: LegalDocumentContent = {
   title: '개인정보처리방침',
   effectiveLabel: '시행일',
-  effectiveDate: '2026년 9월 21일',
+  effectiveDate: '2026년 10월 11일',
   intro: [
     'The Evil Ent(이하 "팀")는 Arcane Casters(이하 "게임")와 이 웹사이트를 운영합니다. 이 방침은 팀이 어떤 정보를 수집하고, 무엇에 쓰고, 어디에 두고, 언제 지우는지를 설명합니다.',
     '팀은 실명, 생년월일, 전화번호, 주소, 결제 정보, 위치 정보를 수집하지 않습니다. 게임에 텍스트 채팅이 없어서, 이용자가 직접 입력해 다른 사람에게 보이는 정보는 닉네임 하나뿐입니다.',
@@ -33,9 +33,11 @@ const korean: LegalDocumentContent = {
           ['게스트 플레이', '없음', '팀이 임의의 식별자와 닉네임을 자동으로 만들어 씁니다'],
           ['게임 진행', '레이팅, 총 승수, 대전 기록(승패·경기 시간·일시), 보유 마법과 덱 구성, 퀘스트 진행도', '게임을 플레이하는 동안 자동 기록'],
           ['접속 기록', 'IP 주소, 접속 일시, 요청 경로', '서버에 접속할 때 자동 생성'],
+          ['공개 랭킹', '닉네임, 레이팅(MMR), 승·패·무 횟수', '대전 기록이 쌓이면 자동으로 집계해 웹사이트에 게시'],
         ],
       },
       notes: [
+        '공개 랭킹: 이 웹사이트의 랭킹 페이지는 닉네임, 레이팅(MMR), 승·패·무 횟수를 이 웹사이트를 방문하는 누구에게나 보여 줍니다. 게스트가 아닌 정식 계정으로 끝낸 대전이 5판 이상이고 상위 50위 안에 든 이용자만 올라가며, 게스트 계정은 올라가지 않습니다. 순위에서 내려가면 목록에서 빠집니다. 마법별 선택률과 승률 같은 통계는 모든 이용자의 기록을 합친 값이라 개인을 알아볼 수 없습니다.',
         '게스트로 시작하면 이용자가 넘기는 정보가 하나도 없습니다. 팀이 무작위 식별자와 임의의 닉네임을 만들어 계정을 대신 열어 줍니다. 나중에 이메일과 비밀번호를 등록해 정식 계정으로 바꿀 때 비로소 그 두 가지를 수집합니다.',
       ],
     },
@@ -130,7 +132,7 @@ const korean: LegalDocumentContent = {
 const english: LegalDocumentContent = {
   title: 'Privacy Policy',
   effectiveLabel: 'Effective',
-  effectiveDate: '21 September 2026',
+  effectiveDate: '11 October 2026',
   intro: [
     'The Evil Ent ("we") operates Arcane Casters ("the game") and this website. This policy explains what we collect, what we use it for, where we keep it, and when we delete it.',
     'We do not collect legal names, dates of birth, phone numbers, addresses, payment details, or location data. The game has no text chat, so the only thing you type that other players see is your nickname.',
@@ -145,9 +147,11 @@ const english: LegalDocumentContent = {
           ['Guest play', 'Nothing', 'We generate a random identifier and nickname for you'],
           ['Game progress', 'Rating, total wins, match records (result, duration, timestamp), owned magics and deck contents, quest progress', 'Recorded automatically as you play'],
           ['Access logs', 'IP address, timestamp, requested path', 'Generated automatically when you reach our servers'],
+          ['Public ranking', 'Nickname, rating (MMR), wins, losses and draws', 'Compiled automatically from your match records and published on this website'],
         ],
       },
       notes: [
+        'Public ranking: the ranking page on this website shows nickname, rating (MMR), wins, losses and draws to anyone who visits the site. Only registered (non-guest) accounts with at least 5 finished matches that rank in the top 50 are listed; guest accounts are never listed. A player who drops out of the top 50 is removed from the list. Per-magic figures such as pick rate and win rate combine every player\'s records and cannot identify anyone.',
         'Starting as a guest hands us nothing. We generate a random identifier and a random nickname and open the account for you. We only collect an email address and password later, if you convert the guest account into a full one.',
       ],
     },

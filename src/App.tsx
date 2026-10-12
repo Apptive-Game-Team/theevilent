@@ -5,6 +5,7 @@ import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
+import Rankings from './pages/Rankings';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import News from './pages/News';
@@ -49,6 +50,8 @@ function App() {
         return <Home navigateToTab={navigateToTab} />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
+      case 'rankings':
+        return <Rankings />;
       case 'team':
         return <Team />;
       case 'privacy':
