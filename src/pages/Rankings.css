@@ -33,6 +33,10 @@
   margin: 0.25rem 0 0.9rem;
 }
 
+.rankings-section-head + .rankings-card {
+  margin-top: 0.9rem;
+}
+
 .rankings-card {
   overflow: hidden;
 }
