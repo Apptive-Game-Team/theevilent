@@ -598,5 +598,45 @@
       "Wind"
     ],
     "manaCost": 45
+  },
+  "earth_call": {
+    "nameEn": "Earth Call",
+    "descriptionEn": "Shakes a circular area, turning medium rock remnants into Rock Golems and small remnants into MiniRocks.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 20
+  },
+  "rock_blast": {
+    "nameEn": "Rock Blast",
+    "descriptionEn": "Detonates every rock remnant in a circular area, creating an explosion centered on each remnant.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "rallying_totem": {
+    "nameEn": "Rallying Totem",
+    "descriptionEn": "Builds a human rally beacon that gathers nearby allies and sends them at enemies around it.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 15
+  },
+  "seed_nest": {
+    "nameEn": "Seed Nest",
+    "descriptionEn": "Builds a nest that keeps sending out seed spirits until it expires.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "vine_world": {
+    "nameEn": "Vine World",
+    "descriptionEn": "Plants a giant vine, then grows two rings of vines around it a moment later.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 70
   }
 }

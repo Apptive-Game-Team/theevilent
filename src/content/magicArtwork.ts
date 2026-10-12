@@ -668,6 +668,41 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       caption: '귀속 미정의 소환 마법 · 공습 폭탄요정',
     },
   },
+  earth_call: {
+    concept: {
+      src: '/game-assets/earth-call.webp',
+      alt: '돌 골렘 부족의 대지의 부름 인게임 스프라이트',
+      caption: '돌 골렘 부족의 소환 마법 · 대지의 부름',
+    },
+  },
+  rock_blast: {
+    concept: {
+      src: '/game-assets/rock-blast.webp',
+      alt: '돌 골렘 부족의 돌 폭발 인게임 스프라이트',
+      caption: '돌 골렘 부족의 폭발 마법 · 돌 폭발',
+    },
+  },
+  rallying_totem: {
+    concept: {
+      src: '/game-assets/rallying-totem.webp',
+      alt: '인간 마법 문명의 집결 신호탑 인게임 스프라이트',
+      caption: '인간 마법 문명의 설치 마법 · 집결의 토템',
+    },
+  },
+  seed_nest: {
+    concept: {
+      src: '/game-assets/seed-nest.webp',
+      alt: '세계수 정령의 풀씨 둥지 인게임 스프라이트',
+      caption: '세계수 정령의 설치 마법 · 풀씨 둥지',
+    },
+  },
+  vine_world: {
+    concept: {
+      src: '/game-assets/vine-world.webp',
+      alt: '세계수 정령의 거대 덩굴 인게임 스프라이트',
+      caption: '세계수 정령의 폭발 마법 · 덩굴 세계',
+    },
+  },
 };
 
 export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
