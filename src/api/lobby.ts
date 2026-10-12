@@ -1,11 +1,6 @@
-// The lobby server's public, read-only API. The base address lives here and
-// nowhere else; VITE_LOBBY_BASE_URL overrides it for a local lobby.
-
-const DEFAULT_LOBBY_BASE_URL = 'https://lobby.ac.theevilent.com';
-
-export const lobbyBaseUrl = (
-  (import.meta.env.VITE_LOBBY_BASE_URL as string | undefined) || DEFAULT_LOBBY_BASE_URL
-).replace(/\/+$/, '');
+// The lobby server's public, read-only API. The base address is defined once,
+// in src/account/config.ts, beside the account server's.
+import { lobbyBaseUrl } from '../account/config';
 
 export interface RankedPlayer {
   rank: number;

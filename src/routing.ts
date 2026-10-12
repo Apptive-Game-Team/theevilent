@@ -62,6 +62,7 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
   }
   if (segments[0] === 'arcane-casters' && segments[1] === 'rankings' && segments.length === 2) {
     return { tab: 'rankings' };
+  }
   if (segments[0] === 'arcane-casters' && segments[1] === 'account' && segments.length === 2) {
     return { tab: 'account' };
   }
