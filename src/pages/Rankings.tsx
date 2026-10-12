@@ -18,7 +18,6 @@ const copy = {
     title: '랭킹',
     updated: '갱신',
     playersHeading: '플레이어 랭킹',
-    playersNote: '상위 50명이에요. 게스트가 아닌 계정으로 5판 이상 끝낸 플레이어만 올라와요.',
     magicsHeading: '마법 통계',
     window: (days: number) => `최근 ${days}일`,
     games: (count: string) => `${count}판 기준`,
@@ -45,7 +44,6 @@ const copy = {
     title: 'Rankings',
     updated: 'Updated',
     playersHeading: 'Player Ranking',
-    playersNote: 'Top 50. Only registered (non-guest) accounts with at least 5 finished matches appear.',
     magicsHeading: 'Magic Statistics',
     window: (days: number) => `Last ${days} days`,
     games: (count: string) => `${count} games`,
@@ -194,7 +192,6 @@ const PlayersSection: React.FC = () => {
         <h2 id="rankings-players-heading" className="text-title">{t.playersHeading}</h2>
         {remote.status === 'ready' && <UpdatedAt iso={remote.data.updatedAt} />}
       </header>
-      <p className="rankings-note">{t.playersNote}</p>
 
       <div className="flat-card rankings-card">
         {remote.status === 'loading' && <SkeletonRows columns={5} label={t.loading} />}

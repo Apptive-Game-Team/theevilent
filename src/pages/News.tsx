@@ -25,7 +25,6 @@ export const News: React.FC = () => {
             {page.title}
           </h1>
         </div>
-        <p className="news-intro">{page.intro}</p>
       </div>
 
       <div className="container-narrow news-list">

@@ -135,13 +135,11 @@ export const newsReleases: NewsRelease[] = [
   },
 ];
 
-export const newsPageCopy: Record<Language, { title: string; intro: string }> = {
+export const newsPageCopy: Record<Language, { title: string }> = {
   ko: {
     title: '소식',
-    intro: '버전마다 플레이어가 느낄 수 있는 변화를 적었어요.',
   },
   en: {
     title: 'News',
-    intro: 'What changed for players in each version.',
   },
 };
