@@ -638,5 +638,13 @@
       "Nature"
     ],
     "manaCost": 70
+  },
+  "bean_shooter": {
+    "nameEn": "Bean Shooter",
+    "descriptionEn": "Summons a headless soil crawler that shoots kidney beans from far away. It attacks only ground units.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 40
   }
 }

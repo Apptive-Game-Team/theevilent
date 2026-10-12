@@ -703,6 +703,13 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       caption: '세계수 정령의 폭발 마법 · 덩굴 세계',
     },
   },
+  bean_shooter: {
+    concept: {
+      src: '/game-assets/bean-shooter.webp',
+      alt: '세계수 정령의 콩알 사수 인게임 스프라이트',
+      caption: '세계수 정령의 소환 마법 · 콩알 사수',
+    },
+  },
 };
 
 export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
