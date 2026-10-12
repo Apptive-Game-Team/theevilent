@@ -22,12 +22,36 @@ export interface MagicConcept {
 }
 
 /**
- * Magics the compendium leaves out because a player cannot use them in a match:
- * the PVE-only water slime nest and the rock slime nest (confirmed by the team).
+ * Magics the compendium leaves out because a player cannot use them in a match.
+ * Every bean here is either missing from `magics` or has a `purpose` other than
+ * 'PLAYER' in WordOnlineDatabase (V003, V006, V007), so the lobby never grants
+ * it and the magic book never lists it:
+ *
+ * - no `magics` row: the slime nests other than fire, the three drops,
+ *   rallying_torch (rallying_totem is the player card) and vine_fan.
+ * - LEGACY: fire_slime_nest, wind_explosion, lightning_shot, water_shot and
+ *   seed_spirit_swarm (replaced by seed_nest).
+ *
  * Their rows stay in the JSON so the generated data keeps matching its source;
  * the list, the detail pages and the home tiles all read this filtered array.
  */
-const EXCLUDED_BEANS = new Set(['pve_water_slime_nest', 'rock_slime_nest']);
+const EXCLUDED_BEANS = new Set([
+  'fire_slime_nest',
+  'lightning_slime_nest',
+  'nature_slime_nest',
+  'pve_water_slime_nest',
+  'rock_slime_nest',
+  'wind_slime_nest',
+  'fire_drop',
+  'nature_drop',
+  'wind_drop',
+  'rallying_torch',
+  'vine_fan',
+  'wind_explosion',
+  'lightning_shot',
+  'water_shot',
+  'seed_spirit_swarm',
+]);
 
 export const magicConcepts = (rawConcepts as MagicConcept[]).filter((magic) => !EXCLUDED_BEANS.has(magic.bean));
 
