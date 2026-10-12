@@ -600,5 +600,12 @@
     "family": "explode",
     "faction": "세계수 정령",
     "description": "거대 덩굴을 심고, 잠시 뒤 그 둘레에 덩굴 두 겹을 돋아나게 합니다."
+  },
+  {
+    "bean": "bean_shooter",
+    "name": "콩알 사수",
+    "family": "spawn",
+    "faction": "세계수 정령",
+    "description": "강낭콩을 실제로 날려 보내는 흙 벌레를 소환합니다. 사거리가 길지만 지상 유닛만 공격합니다."
   }
 ]
