@@ -44,6 +44,20 @@ export const News: React.FC = () => {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              {release.images && (
+                <div className="news-images">
+                  {release.images.map((image) => (
+                    <img
+                      key={image.src}
+                      src={image.src}
+                      width={image.width}
+                      height={image.height}
+                      alt={image.alt[language]}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              )}
             </article>
           );
         })}
