@@ -65,9 +65,9 @@ export const magicConcepts = (rawConcepts as MagicConcept[]).filter((magic) => !
  * - `elements`: WordOnlineDatabase V001 baseline, `prefab_elements` rows of the
  *   magic's prefab; `magics.element` only where the prefab has no row.
  * - `manaCost`: WordOnlineDatabase V002 (`rebalance_mana_by_card_tier`), the
- *   last migration that sets mana_cost. Three exceptions: seed_nest takes 15
- *   from V007, and earth_call and rock_blast, registered after V002, take 20
- *   and 15 from V016.
+ *   last migration that sets mana_cost. Four exceptions: seed_nest and
+ *   overgrowth take 15 and 20 from V007, and earth_call and rock_blast,
+ *   registered after V002, take 20 and 15 from V016.
  *
  * A field is absent where its source has no value. No English name exists for
  * pve_water_slime_nest, rallying_torch and vine_fan (the client tables have no
