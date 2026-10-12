@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import { AtSign, Play, SquarePlay } from 'lucide-react';
 import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news';
+export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news' | 'account';
 
 export interface NavigationItem {
   id: TabId;

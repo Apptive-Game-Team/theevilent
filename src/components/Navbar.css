@@ -141,3 +141,19 @@
     font-size: 0.875rem;
   }
 }
+
+/* A nickname can be long; keep the bar one line high. */
+.navbar-account {
+  display: inline-block;
+  max-width: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44px;
+}
+
+@media (max-width: 767px) {
+  .navbar-account {
+    max-width: none;
+  }
+}

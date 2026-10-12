@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { navigationItems, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
 import { useLanguage } from '../i18n/language';
+import { useAccount } from '../account/accountContext';
 import { LanguageToggle } from './LanguageToggle';
 import './Navbar.css';
 
@@ -11,8 +12,14 @@ interface NavbarProps {
   navigateToTab: (tab: TabId) => void;
 }
 
+const accountLabel = {
+  signedOut: { ko: '로그인', en: 'Log in' },
+  signedIn: { ko: '내 정보', en: 'My account' },
+};
+
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const { language } = useLanguage();
+  const { status, member } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
   const isHome = activeTab === 'home';
 
@@ -82,6 +89,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
                 </a>
               );
             })}
+            <a
+              href={getTabPath('account')}
+              onClick={(event) => handleNavLinkClick(event, 'account')}
+              className="flat-btn navbar-link navbar-account"
+              aria-current={activeTab === 'account' ? 'page' : undefined}
+            >
+              {status === 'signedIn' && member
+                ? member.name
+                : status === 'signedIn'
+                  ? accountLabel.signedIn[language]
+                  : accountLabel.signedOut[language]}
+            </a>
           </nav>
 
           <LanguageToggle />
