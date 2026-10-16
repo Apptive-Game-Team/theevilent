@@ -70,7 +70,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await page.goto('/arcane-casters/magic/fire_lord_spirit');
   await expect(page.getByRole('heading', { name: '지옥불 군단장' })).toBeVisible();
   // The description is the in-game magic book's own sentence.
-  await expect(page.getByText('지옥불 군단장을 불러 적을 공격하는 하급 악마를 계속 내보냅니다.')).toBeVisible();
+  await expect(page.getByText('하늘을 나는 지옥불 군단장을 소환합니다.')).toBeVisible();
   await expect(page.getByRole('img', { name: /지옥불 차원의 하늘/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: '화염탄 비행 악마' })).toBeVisible();
   await expect(page.getByRole('img', { name: /FireChildSpirit 컨셉 아트/ })).toBeVisible();
