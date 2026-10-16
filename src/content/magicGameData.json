@@ -1,7 +1,7 @@
 {
   "cannon": {
     "nameEn": "Cannon",
-    "descriptionEn": "Builds a cannon of the human magic civilization that shells ground units.",
+    "descriptionEn": "Builds a human arcane cannon that shells the closest ground enemy in range, buildings and the enemy base included. It cannot hit flying units, and it leaves rubble that blocks ground movement when destroyed.",
     "elements": [
       "Rock"
     ],
@@ -15,7 +15,7 @@
   },
   "healing_totem": {
     "nameEn": "Healing Totem",
-    "descriptionEn": "Places a World Tree healing totem that restores allies in range.",
+    "descriptionEn": "Places a healing totem that heals your own units, buildings and base within its reach at regular intervals, flying units included. If it is placed on top of a friendly unit it follows that unit, and it fades after a while.",
     "elements": [
       "Nature",
       "Water"
@@ -27,7 +27,7 @@
   },
   "mana_well": {
     "nameEn": "Mana Well",
-    "descriptionEn": "Opens a well pooled with World Tree mana that restores your mana.",
+    "descriptionEn": "Opens a well that speeds up your mana regeneration for as long as it stands. Enemies can destroy it, and it dries up on its own after a while.",
     "elements": [
       "Lightning",
       "Nature"
@@ -43,7 +43,7 @@
   },
   "tower": {
     "nameEn": "Tower",
-    "descriptionEn": "Builds a human anti-air arcane tower that deals area damage to flying units.",
+    "descriptionEn": "Builds a human anti-air tower that shoots the closest flying enemy in range and also damages enemies right next to it. It cannot attack ground units.",
     "elements": [
       "Rock"
     ],
@@ -51,7 +51,7 @@
   },
   "towerback": {
     "nameEn": "Towerback",
-    "descriptionEn": "Summons a MiniRock strapped with a human-made anti-air tower that attacks flying units.",
+    "descriptionEn": "Summons a slow MiniRock with an anti-air tower strapped to its back. It walks toward the nearest enemy but always prefers a flyer in reach, shooting it from range with a small splash; against ground enemies it only hits at close range.",
     "elements": [
       "Rock"
     ],
@@ -59,7 +59,7 @@
   },
   "vine_colony": {
     "nameEn": "Vine Colony",
-    "descriptionEn": "Plants a vine colony that keeps sending out vines to fend off enemies.",
+    "descriptionEn": "Plants a vine colony that raises a vine under the nearest ground enemy in reach every few seconds, damaging and slowing everything the vine touches. The colony can be attacked and fades after a while.",
     "elements": [
       "Nature"
     ],
@@ -70,7 +70,7 @@
   },
   "bubble_generator": {
     "nameEn": "Bubble Generator",
-    "descriptionEn": "Builds a water slime bubble generator that shields allies.",
+    "descriptionEn": "Builds a bubble generator that wraps the nearest ally in reach in a bubble that blocks the next hit it takes. It skips allies that already have a bubble, never attacks, and fades after a while.",
     "elements": [
       "Water"
     ],
@@ -78,7 +78,7 @@
   },
   "crater": {
     "nameEn": "Crater",
-    "descriptionEn": "Leaves a Hellfire Legion ember crater that spits fireballs around it.",
+    "descriptionEn": "Leaves an ember crater that can be attacked and spits fireballs in random directions. A fireball damages the first enemy it touches, otherwise it lands and leaves a fire patch that burns anything standing on it, your own units too.",
     "elements": [
       "Fire"
     ],
@@ -86,7 +86,7 @@
   },
   "electric_tower": {
     "nameEn": "Electric Tower",
-    "descriptionEn": "Builds a human arcane lightning tower that fires bouncing bolts.",
+    "descriptionEn": "Builds a tower that zaps the nearest enemy in reach, ground or flying, then arcs to a few more nearby enemies for less damage. The tower can be attacked and fades after a while.",
     "elements": [
       "Lightning"
     ],
@@ -94,7 +94,7 @@
   },
   "life_tree": {
     "nameEn": "Life Tree",
-    "descriptionEn": "Plants a World Tree sapling that keeps healing nearby allies.",
+    "descriptionEn": "Plants a World Tree sapling that heals your ground units, buildings and base standing close to it at regular intervals. It withers after a while, and enemies can destroy it sooner.",
     "elements": [
       "Nature"
     ],
@@ -102,7 +102,7 @@
   },
   "rock_turret": {
     "nameEn": "Rock Turret",
-    "descriptionEn": "Builds a small human siege turret that hurls rocks.",
+    "descriptionEn": "Builds a small stationary turret that hurls rocks at the nearest enemy ground unit, building or base within its reach, and it cannot hit flying units. It crumbles after a short time, and enemies can destroy it sooner.",
     "elements": [
       "Rock"
     ],
@@ -110,7 +110,7 @@
   },
   "wind_totem": {
     "nameEn": "Wind Totem",
-    "descriptionEn": "Places a wind spirit's tailwind totem that blows enemies in a fixed direction.",
+    "descriptionEn": "Places a wind totem that repeatedly pushes enemy ground units in the area in front of it back toward their own base without damaging them, heavy ones less. It fades after a short time and enemies can destroy it sooner; flying units are not pushed.",
     "elements": [
       "Wind"
     ],
@@ -118,7 +118,7 @@
   },
   "chicken_commando": {
     "nameEn": "Arcane Drop Corps",
-    "descriptionEn": "Deploys a paratrooper of the human magic civilization that lands and fights ground enemies.",
+    "descriptionEn": "Deploys a paratrooper of the human magic civilization on the target point who cannot act until it lands, then walks to the nearest ground enemy and fights it in melee. It cannot attack flying units.",
     "elements": [
       "Wind"
     ],
@@ -129,7 +129,7 @@
   },
   "frenzy_totem": {
     "nameEn": "Frenzy Totem",
-    "descriptionEn": "Drops a Hellfire Legion frenzy totem that makes units in range attack anything, allies included.",
+    "descriptionEn": "Drops a totem that lands at the target point and throws units around it into a frenzy for a short time: they attack the nearest unit of either side, allies included, and attack faster. It affects your units as well as the enemy's.",
     "elements": [
       "Fire"
     ],
@@ -137,7 +137,7 @@
   },
   "leafair": {
     "nameEn": "Leafair",
-    "descriptionEn": "Sends down leaf fairies that repair allied buildings and extend their duration.",
+    "descriptionEn": "Drops a leaf fairy that heals the first allied unit, building or base it touches and restarts the lifetime of allied buildings that expire. If it touches an enemy first, it damages and snares that enemy instead.",
     "elements": [
       "Nature"
     ],
@@ -145,7 +145,7 @@
   },
   "lightning_drop": {
     "nameEn": "Lightning Drop",
-    "descriptionEn": "Calls down a lightning spirit's thunderbolt onto the target area.",
+    "descriptionEn": "Calls down lightning on a narrow column at the target point at once and twice more after short pauses, hitting every enemy in the column on the ground or in the air. Your own lightning units in the column are charged instead, and each strike leaves a brief electric field that stuns non-lightning units that enter it.",
     "elements": [
       "Lightning"
     ],
@@ -153,7 +153,7 @@
   },
   "meteor_shower": {
     "nameEn": "Meteor Shower",
-    "descriptionEn": "Rains hellfire meteors over a wide area.",
+    "descriptionEn": "Rains meteors at random spots around the target point for several seconds. Each meteor falls from the sky and hits only the first enemy it touches, on the ground or in the air, and a meteor that touches nothing is wasted.",
     "elements": [
       "Fire",
       "Rock"
@@ -166,7 +166,7 @@
   "rallying_torch": {},
   "rock_drop": {
     "nameEn": "Rock Drop",
-    "descriptionEn": "Drops a rock golem tribe boulder from the sky.",
+    "descriptionEn": "Drops a boulder from the sky that takes a moment to fall, then damages only the first enemy it touches, ground or flying. It deals no area damage and does nothing if no enemy is under it.",
     "elements": [
       "Rock"
     ],
@@ -177,7 +177,7 @@
   },
   "lightning_explosion": {
     "nameEn": "Lightning Explosion",
-    "descriptionEn": "Detonates a lightning spirit's charge that shocks nearby enemies.",
+    "descriptionEn": "Detonates a lightning charge on the target point after a short delay, shocking enemies in the area so they cannot act. It damages every ground unit, building and base in the area, your own included.",
     "elements": [
       "Lightning"
     ],
@@ -185,7 +185,7 @@
   },
   "magma_explosion": {
     "nameEn": "Magma Explosion",
-    "descriptionEn": "Tears open a hellfire magma rift that scorches the area.",
+    "descriptionEn": "Opens a magma rift at the target point that erupts after a short delay, damaging every unit and building in the area, your own included, and setting enemies on fire. Flying units are out of reach.",
     "elements": [
       "Fire"
     ],
@@ -193,7 +193,7 @@
   },
   "overgrowth": {
     "nameEn": "Overgrowth",
-    "descriptionEn": "Triggers a World Tree overgrowth that grows small lifeforms larger.",
+    "descriptionEn": "Bursts roots out of the target point after a short delay, damaging and slowing enemies in the area. Your seed spirits in the area grow into tree golems; if there are none, it summons new seed spirits there instead.",
     "elements": [
       "Nature"
     ],
@@ -201,7 +201,7 @@
   },
   "razor_gale": {
     "nameEn": "Razor Gale",
-    "descriptionEn": "Spins up a wind spirit's razor gale that keeps cutting enemies in the area.",
+    "descriptionEn": "Spins up a razor gale on the target point that lasts a few seconds and cuts everything in the area again and again, your own units and buildings included.",
     "elements": [
       "Wind"
     ],
@@ -209,7 +209,7 @@
   },
   "sand_storm": {
     "nameEn": "Sand Storm",
-    "descriptionEn": "Whips up a wind spirit's dust storm that batters enemies in the area.",
+    "descriptionEn": "Whips up a dust storm at the target point that lingers and keeps damaging every enemy standing inside it. It only reaches ground enemies.",
     "elements": [
       "Rock",
       "Wind"
@@ -218,7 +218,7 @@
   },
   "shock_overload": {
     "nameEn": "Shock Overload",
-    "descriptionEn": "Overloads a lightning spirit's charge into a heavy shock and an anti-air blast.",
+    "descriptionEn": "Overloads a lightning charge on the target point: after a short delay it damages and shocks every enemy in the area, then a moment later each shocked enemy bursts, hurting the enemies around it for less damage. Your own units are not hurt.",
     "elements": [
       "Lightning"
     ],
@@ -226,7 +226,7 @@
   },
   "water_explosion": {
     "nameEn": "Water Explosion",
-    "descriptionEn": "Erupts a geyser that damages enemies and launches them into the air.",
+    "descriptionEn": "Erupts a geyser at the target point after a short delay that damages every unit and building in the area, your own included, and launches ground units into the air, heavier ones less. Units thrown up cannot be targeted by ground attackers until they land.",
     "elements": [
       "Water"
     ],
@@ -240,7 +240,7 @@
   },
   "chain_lightning": {
     "nameEn": "Chain Lightning",
-    "descriptionEn": "Arcs a lightning spirit's bolt that chains between enemies.",
+    "descriptionEn": "Fires a lightning bolt that strikes the first enemy it touches and briefly stuns it, then jumps to another nearby enemy it has not hit yet, dealing less damage with each jump up to a limited number of enemies. Only the first strike is blocked by what is in its path; later jumps can reach nearby flying units.",
     "elements": [
       "Lightning"
     ],
@@ -248,7 +248,7 @@
   },
   "fire_shot": {
     "nameEn": "Fire Shot",
-    "descriptionEn": "Fires a hellfire projectile in the target direction.",
+    "descriptionEn": "Fires a hellfire projectile in the target direction that explodes on the first enemy unit, building or base it touches, damaging enemies around the impact and setting the one it hit on fire. Flying units are out of its reach.",
     "elements": [
       "Fire"
     ],
@@ -262,7 +262,7 @@
   },
   "rock_rolling": {
     "nameEn": "Rock Rolling",
-    "descriptionEn": "Rolls a rock golem tribe boulder that bounces off enemies and walls.",
+    "descriptionEn": "Rolls a heavy boulder along the ground that damages every enemy it touches and bounces off enemies and the field walls. It disappears after a few bounces and cannot hit flying units.",
     "elements": [
       "Rock"
     ],
@@ -270,7 +270,7 @@
   },
   "tide_call": {
     "nameEn": "Tide Call",
-    "descriptionEn": "Calls a water slime tide that pushes enemies back and leaves a water trail.",
+    "descriptionEn": "Calls a water tide that rolls through the field, pushing every enemy ground unit it touches in its direction of travel and dealing only slight damage once to each. It leaves water fields along its path that make any non-water unit wet, your own included, and fades after a short time.",
     "elements": [
       "Water"
     ],
@@ -279,7 +279,7 @@
   "vine_fan": {},
   "vine_toss": {
     "nameEn": "Vine Toss",
-    "descriptionEn": "Erupts a line of World Tree vines that strike enemies in sequence.",
+    "descriptionEn": "Erupts a line of vines from the caster toward the target one after another, damaging each enemy ground unit, building or base along the line once and snaring it to slow it down. Units do not block the line, flying units are out of reach, and fire damage on a snared target breaks the snare for extra damage.",
     "elements": [
       "Nature"
     ],
@@ -293,7 +293,7 @@
   },
   "will_o_wisp": {
     "nameEn": "Will O Wisp",
-    "descriptionEn": "Fires a will-o'-wisp of World Tree mana that seizes control of an enemy.",
+    "descriptionEn": "Fires a will-o'-wisp along the ground that takes control of the first enemy unit it touches, which then fights for you for good. Bases and some buildings cannot be taken over, and the wisp flies on past them.",
     "elements": [
       "Fire"
     ],
@@ -301,7 +301,7 @@
   },
   "wind_blade": {
     "nameEn": "Wind Blade",
-    "descriptionEn": "Launches a crescent wind blade that pierces through enemies.",
+    "descriptionEn": "Launches a wind blade that cuts straight through every enemy ground unit, building and base in its path, dealing less damage to each one it passes, until it leaves the field. It cannot hit flying units.",
     "elements": [
       "Wind"
     ],
@@ -309,7 +309,7 @@
   },
   "aqua_archer": {
     "nameEn": "Aqua Archer",
-    "descriptionEn": "Summons an equipment-wielding water slime archer that attacks ground and flying units from range.",
+    "descriptionEn": "Summons a water slime archer that walks toward the nearest enemy and shoots it from range. It can hit ground units, flying units, buildings and the enemy base.",
     "elements": [
       "Water"
     ],
@@ -317,7 +317,7 @@
   },
   "bubble_spirit": {
     "nameEn": "Bubble Spirit",
-    "descriptionEn": "Summons a bubble-wielding water slime that attacks flying units with bursting bubbles.",
+    "descriptionEn": "Summons a flying water slime that only targets flying enemies. It floats toward the nearest one and shoots bursting bubbles that also hurt other flyers next to the target. It never attacks ground units, buildings or the base.",
     "elements": [
       "Water",
       "Wind"
@@ -326,7 +326,7 @@
   },
   "cloud_dragon": {
     "nameEn": "Cloud Dragon",
-    "descriptionEn": "Summons a cloud-scaled wind spirit dragon that dampens the area and attacks enemies.",
+    "descriptionEn": "Summons a flying cloud dragon that shoots the nearest enemy, ground or air, from range, and wets every unit around it, which puts out burning. Now and then it looses a chain lightning that stuns the first enemy it hits and jumps on to others for less damage each time.",
     "elements": [
       "Lightning",
       "Water",
@@ -336,7 +336,7 @@
   },
   "dimension_toad": {
     "nameEn": "Boundary Carrier",
-    "descriptionEn": "Summons a Boundary Carrier of the dimensional wanderers that alternately opens gates for Cinder Shards and Storm Shards.",
+    "descriptionEn": "Summons a toad that never attacks. It walks toward the nearest enemy building or base and keeps its distance, runs from enemy ground units that come close, and releases fire and lightning tadpoles in turn, starting at once. Tadpoles are short-lived melee ground fighters.",
     "elements": [
       "Fire",
       "Lightning"
@@ -345,7 +345,7 @@
   },
   "ember_spirit_swarm": {
     "nameEn": "Ember Spirit Swarm",
-    "descriptionEn": "Summons a swarm of small ember demons of the Hellfire Legion.",
+    "descriptionEn": "Summons a swarm of small ember demons that walk to the nearest ground target and hit it in melee, but cannot attack flying units. Their trail leaves burning fields that scorch any non-fire unit that steps in, your own included.",
     "elements": [
       "Fire"
     ],
@@ -353,7 +353,7 @@
   },
   "fire_lord_spirit": {
     "nameEn": "Fire Lord Spirit",
-    "descriptionEn": "Summons a Hellfire Legion commander that keeps sending out lesser demons to attack enemies.",
+    "descriptionEn": "Summons a flying Hellfire Legion commander that never attacks itself: it drifts toward the nearest enemy and stops at a distance. Every few seconds it sends out a flying lesser demon that shoots ground and flying targets, up to a limited number in total.",
     "elements": [
       "Fire",
       "Wind"
@@ -362,7 +362,7 @@
   },
   "fire_spirit": {
     "nameEn": "Fire Spirit",
-    "descriptionEn": "Summons a lesser demon of the Hellfire Legion that burns nearby enemies.",
+    "descriptionEn": "Summons lesser demons that walk to the nearest ground enemy and spray flames in a line, burning whatever they hit. Their fiery aura also burns every nearby unit that is not fire, your own included.",
     "elements": [
       "Fire",
       "Wind"
@@ -371,7 +371,7 @@
   },
   "magma_spirit": {
     "nameEn": "Magma Spirit",
-    "descriptionEn": "Summons a magma-crusted demon of the Hellfire Legion that burns enemies.",
+    "descriptionEn": "Summons a heavy magma demon that, on reaching a ground enemy, slams a burst of fire onto its position that damages and burns every enemy around it. It cannot target flying units, its aura burns every nearby unit that is not fire, and it leaves rubble when it falls.",
     "elements": [
       "Fire",
       "Rock"
@@ -380,7 +380,7 @@
   },
   "mini_rock_swarm": {
     "nameEn": "Mini Rock Swarm",
-    "descriptionEn": "Summons a pair of MiniRock twins of the rock golem tribe.",
+    "descriptionEn": "Summons small rock golems that slowly walk to the nearest ground target and hit it in melee. They are sturdy but cannot attack flying units.",
     "elements": [
       "Rock"
     ],
@@ -388,7 +388,7 @@
   },
   "rock_golem": {
     "nameEn": "Rock Golem",
-    "descriptionEn": "Summons a mossy warrior of the rock golem tribe that attacks ground enemies up close.",
+    "descriptionEn": "Summons a mossy rock golem that walks to the nearest ground enemy and punches it, pushing it back a little. It cannot hit flying units, and it leaves rubble that blocks ground movement when it falls.",
     "elements": [
       "Rock"
     ],
@@ -396,7 +396,7 @@
   },
   "rock_mage": {
     "nameEn": "Rock Mage",
-    "descriptionEn": "Summons a rune-stone shaman of the rock golem tribe that strikes enemies with two rocks.",
+    "descriptionEn": "Summons a rune-stone shaman of the rock golem tribe that walks toward the nearest enemy and throws two rocks per attack, one at each of the two closest enemies in range, or both at one if it is alone. It hits ground and flying targets alike.",
     "elements": [
       "Rock"
     ],
@@ -412,7 +412,7 @@
   },
   "storm_rider": {
     "nameEn": "Storm Rider",
-    "descriptionEn": "Summons a World Tree wind spirit rider that prioritizes attacking the player.",
+    "descriptionEn": "Summons a fast wind spirit rider that runs straight for the enemy base and attacks it in melee. It only fights other ground enemies when the base cannot be targeted.",
     "elements": [
       "Lightning",
       "Water"
@@ -421,7 +421,7 @@
   },
   "thunder_spirit": {
     "nameEn": "Thunder Spirit",
-    "descriptionEn": "Summons a lightning spirit born at the World Tree that flies fast and attacks enemies.",
+    "descriptionEn": "Summons a flying lightning spirit that shoots ground enemies, buildings and the enemy base from range. It cannot attack other flying units.",
     "elements": [
       "Lightning",
       "Wind"
@@ -430,7 +430,7 @@
   },
   "tornado_strike": {
     "nameEn": "Tornado Strike",
-    "descriptionEn": "Sends a wind spirit turned tornado sweeping across the field.",
+    "descriptionEn": "Sends a tornado drifting slowly from the target point toward the center of the field. It catches ground enemies it touches, spins and lifts them into the air, and damages them more the more it carries.",
     "elements": [
       "Nature",
       "Wind"
@@ -439,7 +439,7 @@
   },
   "tree_golem": {
     "nameEn": "Tree Golem",
-    "descriptionEn": "Summons a slow but sturdy World Tree ancient guardian that fights ground enemies.",
+    "descriptionEn": "Summons a slow, sturdy tree golem that melee-attacks ground enemies and slowly heals itself. It leaves a trail of leaves that heals anyone standing on it, friend or foe, and slows units that are not nature.",
     "elements": [
       "Nature"
     ],
@@ -447,7 +447,7 @@
   },
   "vine_spirit": {
     "nameEn": "Vine Spirit",
-    "descriptionEn": "Summons a World Tree nature spirit woven from vines that chases down enemies.",
+    "descriptionEn": "Summons vine spirits that shoot the nearest enemy, ground or air, from range. Each hit snares the target, slowing it and pulling flying units down, and fire damage tears the snare off for extra damage. Nature enemies are immune.",
     "elements": [
       "Nature"
     ],
@@ -455,7 +455,7 @@
   },
   "water_slime_swarm": {
     "nameEn": "Water Slime Swarm",
-    "descriptionEn": "Summons a swarm of surviving water slimes that leave a water field in their wake.",
+    "descriptionEn": "Summons a swarm of water slimes that attack the nearest ground target from a distance and cannot hit flying units. Their trail leaves water fields that make any non-water unit wet, your own included.",
     "elements": [
       "Water"
     ],
@@ -463,7 +463,7 @@
   },
   "wind_spirit": {
     "nameEn": "Wind Spirit",
-    "descriptionEn": "Summons a gale wind spirit that rushes at enemies and bursts.",
+    "descriptionEn": "Summons a flying wind spirit that waits until an enemy flying unit appears, then dives at the nearest one and explodes, damaging flying enemies around it. It also explodes where it is killed and never attacks ground units or buildings.",
     "elements": [
       "Wind"
     ],
@@ -471,7 +471,7 @@
   },
   "zap_mouse": {
     "nameEn": "Zap mouse",
-    "descriptionEn": "Summons a cowardly lightning spirit mouse that loves buildings.",
+    "descriptionEn": "Summons a few lightning spirit mice that run past enemy units to the nearest enemy building and attack it in melee, then go for the enemy base. They never target enemy units.",
     "elements": [
       "Lightning"
     ],
@@ -479,7 +479,7 @@
   },
   "thunder_bird_swarm": {
     "nameEn": "Thunder Bird Swarm",
-    "descriptionEn": "Summons a flock of World Tree thunderbirds that charge at enemies.",
+    "descriptionEn": "Summons a flock of fragile thunderbirds that dive onto ground enemies, buildings or the enemy base, hitting harder the farther they fall, then climb back up. They cannot attack flying units.",
     "elements": [
       "Lightning"
     ],
@@ -487,7 +487,7 @@
   },
   "evil_ent": {
     "nameEn": "Evil Ent",
-    "descriptionEn": "Summons an Evil Ent that punches from range and periodically drags in a light enemy to burn it.",
+    "descriptionEn": "Summons a slow ground giant that punches enemies from range. When a light enemy comes within reach, it drags that enemy in, stuns it, and burns it with a fire fist.",
     "elements": [
       "Fire",
       "Nature"
@@ -496,7 +496,7 @@
   },
   "sea_serpent": {
     "nameEn": "Sea Serpent",
-    "descriptionEn": "Summons a serpent that leaves water fields where it moves and fires a water beam through every enemy in a line.",
+    "descriptionEn": "Summons a slow ground serpent that leaves water fields along its path. It fires a water beam that hits every enemy standing in a line, flying ones included.",
     "elements": [
       "Water"
     ],
@@ -504,7 +504,7 @@
   },
   "storm_stag": {
     "nameEn": "Storm Stag",
-    "descriptionEn": "Summons a thunder stag that charges and attacks enemies.",
+    "descriptionEn": "Summons a thunder stag that builds up speed and rams ground enemies, hitting harder the faster it is going. It bolts away after each hit and zaps nearby enemies with small lightning.",
     "elements": [
       "Lightning"
     ],
@@ -512,7 +512,7 @@
   },
   "wall_golem": {
     "nameEn": "Wall Golem",
-    "descriptionEn": "Summons a large, sturdy rock golem that fights only ground enemies.",
+    "descriptionEn": "Summons a very sturdy, slow rock golem that attacks only ground enemies and knocks them back. It leaves a rock remnant behind when it is killed.",
     "elements": [
       "Rock"
     ],
@@ -520,7 +520,7 @@
   },
   "shock_trap": {
     "nameEn": "Shock Trap",
-    "descriptionEn": "Places a trap that arms when an enemy steps in, then stuns the area.",
+    "descriptionEn": "Places a trap that arms when an enemy walks into its area, then after a short delay stuns every enemy still in the area. It is used up once it goes off and deals no damage.",
     "elements": [
       "Lightning"
     ],
@@ -528,7 +528,7 @@
   },
   "repair_totem": {
     "nameEn": "Repair Totem",
-    "descriptionEn": "Places a totem that stops nearby allied buildings from decaying.",
+    "descriptionEn": "Builds a totem that pauses the countdown of nearby allied buildings so they last longer while they stay in range. It does not heal them.",
     "elements": [
       "Nature"
     ],
@@ -536,7 +536,7 @@
   },
   "grass_generator": {
     "nameEn": "Grass Generator",
-    "descriptionEn": "Builds a structure that keeps spreading leaf fields around it.",
+    "descriptionEn": "Builds a structure that keeps growing leaf fields around it, which snare enemies and heal allies. Allied seed spirits near it sprout vines that hurt nearby enemies.",
     "elements": [
       "Nature"
     ],
@@ -544,7 +544,7 @@
   },
   "dragon_tower": {
     "nameEn": "Dragon Tower",
-    "descriptionEn": "Builds a tower that fires flame shots at both ground and air targets.",
+    "descriptionEn": "Builds a tower that keeps firing burning flame shots straight toward the enemy side, hitting the first ground enemy in the line and burning it. It does not aim, and it expires after a while.",
     "elements": [
       "Fire"
     ],
@@ -552,7 +552,7 @@
   },
   "firework_tower": {
     "nameEn": "Firework Tower",
-    "descriptionEn": "Builds a tower that lobs shells and blows up where they land.",
+    "descriptionEn": "Builds a tower that keeps lobbing fireworks onto a fixed spot ahead of it toward the enemy side, exploding on arrival and hurting enemies there. It does not aim and expires after a while.",
     "elements": [
       "Fire"
     ],
@@ -560,7 +560,7 @@
   },
   "boulder_strike": {
     "nameEn": "Boulder Strike",
-    "descriptionEn": "Hurls a boulder that knocks its target back and deals extra damage when the target slams into a wall or another enemy.",
+    "descriptionEn": "Hurls a boulder that hits the first enemy in its path, knocking it back and stunning it briefly. If the pushed enemy slams into a wall, a rock remnant, or another enemy, it takes extra damage, and so does that enemy.",
     "elements": [
       "Rock",
       "Wind"
@@ -569,7 +569,7 @@
   },
   "spirit_bomb": {
     "nameEn": "Spirit Bomb",
-    "descriptionEn": "Drains your own units down to half health and fires a beam that deals 70% of what it took, split over four hits.",
+    "descriptionEn": "Drains your own units down to half health and channels the stolen health into a beam that strikes the closest enemy in the line, four times. Damage left over from a kill moves on to the next enemy in the line.",
     "elements": [
       "Lightning"
     ],
@@ -577,7 +577,7 @@
   },
   "titan_remnant": {
     "nameEn": "Titan Remnant",
-    "descriptionEn": "Summons a titan remnant that remains on the battlefield for a time, periodically erupting a giant stone fist beneath nearby enemies.",
+    "descriptionEn": "Builds a titan remnant that stays for a while and, whenever an enemy is in range, thrusts a giant stone fist up under it, damaging enemies around that spot. It leaves a rock remnant if destroyed.",
     "elements": [
       "Rock"
     ],
@@ -585,7 +585,7 @@
   },
   "tidal_warhead": {
     "nameEn": "Tidal Warhead",
-    "descriptionEn": "Fires a warhead that homes in on the nearest air target, or the nearest ground target when there is none.",
+    "descriptionEn": "Launches a homing warhead that locks onto the enemy nearest the aimed spot, preferring air targets and using ground targets only if none are flying. It explodes on the first enemy it touches, hurting enemies around the blast, and hits harder against air targets.",
     "elements": [
       "Water"
     ],
@@ -593,7 +593,7 @@
   },
   "bomb_sprite": {
     "nameEn": "Bomb Sprite",
-    "descriptionEn": "Summons a flying sprite that drops bombs on ground targets and blows them up where they land.",
+    "descriptionEn": "Summons a flying sprite that flies over ground enemies and drops bombs on them, which explode where they land and hurt nearby ground enemies. It ignores air targets and does not die when attacking.",
     "elements": [
       "Wind"
     ],
@@ -601,7 +601,7 @@
   },
   "earth_call": {
     "nameEn": "Earth Call",
-    "descriptionEn": "Shakes a circular area, turning medium rock remnants into Rock Golems and small remnants into MiniRocks.",
+    "descriptionEn": "Shakes the ground at the chosen spot and raises every rock remnant there, from either side, into your own units: small remnants into mini rocks and medium remnants into rock golems. It does nothing without remnants.",
     "elements": [
       "Rock"
     ],
@@ -609,7 +609,7 @@
   },
   "rock_blast": {
     "nameEn": "Rock Blast",
-    "descriptionEn": "Detonates every rock remnant in a circular area, creating an explosion centered on each remnant.",
+    "descriptionEn": "Detonates every rock remnant in the area, from either side, after a short delay, with each explosion hurting everything near it, your own units too. Medium remnants leave a small remnant behind.",
     "elements": [
       "Rock"
     ],
@@ -617,7 +617,7 @@
   },
   "rallying_totem": {
     "nameEn": "Rallying Totem",
-    "descriptionEn": "Builds a human rally beacon that gathers nearby allies and sends them at enemies around it.",
+    "descriptionEn": "Drops a beacon on the target point that stands for a while and cannot be attacked. Allies within a wide reach stop advancing and gather around it, fighting only enemies that come near, and they attack faster while close to it.",
     "elements": [
       "Fire"
     ],
@@ -625,7 +625,7 @@
   },
   "seed_nest": {
     "nameEn": "Seed Nest",
-    "descriptionEn": "Builds a nest that keeps sending out seed spirits until it expires.",
+    "descriptionEn": "Builds a nest that spawns a ground seed spirit at regular intervals until the nest expires or is destroyed. Seed spirits fight in melee and leave leaf fields behind as they walk.",
     "elements": [
       "Nature"
     ],
@@ -633,7 +633,7 @@
   },
   "vine_world": {
     "nameEn": "Vine World",
-    "descriptionEn": "Plants a giant vine, then grows two rings of vines around it a moment later.",
+    "descriptionEn": "Plants a giant vine that damages and slows enemies around it at once, then a moment later grows two rings of vines that hit each enemy once more. Each enemy the vines hit leaves you a seed spirit, and your seed spirits touched by the vines grow into vine spirits.",
     "elements": [
       "Nature"
     ],
@@ -641,7 +641,7 @@
   },
   "bean_shooter": {
     "nameEn": "Bean Shooter",
-    "descriptionEn": "Summons a headless soil crawler that shoots kidney beans from far away. It attacks only ground units.",
+    "descriptionEn": "Summons a ground unit that shoots beans in a straight line at the closest ground enemy. A bean hits the first ground enemy in its path and cannot hit air units.",
     "elements": [
       "Nature"
     ],
