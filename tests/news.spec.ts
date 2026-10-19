@@ -6,6 +6,7 @@ test('direct entry to /arcane-casters/news lists every release, newest first', a
   await expect(page.getByRole('heading', { level: 1, name: '소식' })).toBeVisible();
   const titles = page.getByRole('heading', { level: 2 });
   await expect(titles).toHaveText([
+    'v1.5.0 업데이트',
     'v1.4.0 업데이트',
     'v1.3.0 업데이트',
     'v1.2.0 업데이트',
@@ -24,8 +25,8 @@ test('the news page follows the language switch', async ({ page }, testInfo) => 
 
   await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'News' })).toBeVisible();
-  await expect(page.getByRole('heading', { level: 2, name: 'v1.4.0 Update' })).toBeVisible();
-  await expect(page.getByText('A new map with a river is here.', { exact: false })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'v1.5.0 Update' })).toBeVisible();
+  await expect(page.getByText('Three new magics are here.', { exact: false })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath('screenshot_news_en.png'), fullPage: true });
 });
 
