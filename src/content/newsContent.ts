@@ -36,6 +36,47 @@ export const newsAnchorId = (version: string) => version.replace(/\./g, '-');
 
 export const newsReleases: NewsRelease[] = [
   {
+    version: 'v1.5.0',
+    date: '2026-10-19',
+    ko: {
+      title: 'v1.5.0 업데이트',
+      items: [
+        '새 마법 3개가 생겼어요. 비전 보병은 응축된 마법 곤봉으로 지상 적을 때려요. 분화구 운반수는 돌 박격포를 세우고 지상 적에게 폭발탄을 쏴요. 콩알 사수는 가장 가까운 지상 적에게 콩을 일직선으로 쏴요.',
+        '요새 모험의 마지막 시나리오 보스가 벽돌 골렘으로 바뀌었어요. 움직이지 않고, 경고 표시가 뜨는 내려찍기와 휩쓸기로 공격해요.',
+        '차원문 모험의 이야기와 경기 중 대사를 새로 썼어요.',
+        '모험 전투에 배경음악이 나와요. 숲과 요새 테마마다 곡이 다르고, 보스가 나오면 보스 음악으로 바뀌어요.',
+        '팀 색이 내 진영 기준으로 보여요. 유닛 sprite 에는 팀 색 윤곽선이 생겼어요.',
+        '집결의 토템이 목표 지점에 떨어져요. 땅에 집결 범위 원이 보이고 남은 시간 게이지가 떠요. 모인 아군은 범위 안에서 공격해요.',
+        '정령 폭탄이 누른 방향의 조준선을 따라 사거리 끝까지 직선 레이저를 쏴요. 맞은 날아다니는 유닛의 높이에 맞춰 조준해요.',
+        '찌릿쥐의 겁쟁이 특성이 없어졌어요.',
+      ],
+    },
+    en: {
+      title: 'v1.5.0 Update',
+      items: [
+        'Three new magics are here. Arcane Infantry hits ground enemies with a club of condensed magic. Crater Carrier plants a stone mortar and fires explosive shells at ground enemies. Bean Shooter shoots beans in a straight line at the closest ground enemy.',
+        'The boss of the last scenario in the Fortress adventure is now the Brick Golem. It does not move, and attacks with a slam that shows a warning marker and a sweep.',
+        'The Gate adventure story and the in-match dialogue are rewritten.',
+        'Adventure battles now have music. Each theme (forest and fortress) has its own battle track, and the music switches to the boss track when a boss appears.',
+        'Team colors are now shown from your own side. Unit sprites get a team-color outline.',
+        'Rallying Totem is now dropped onto the target point. It shows the rally zone ring on the ground and a remaining-time gauge, and gathered allies attack inside the zone.',
+        'Spirit Bomb now fires a straight laser along the aim line to the end of its range in the direction you click. It aims at the height of flying units it hits.',
+        'Zap mouse lost its coward trait.',
+      ],
+    },
+    images: [
+      {
+        src: '/news/v1.5.0/new-units-and-brick-golem.webp',
+        width: 1600,
+        height: 900,
+        alt: {
+          ko: '왼쪽부터 비전 보병, 분화구 운반수, 콩알 사수, 벽돌 골렘',
+          en: 'Arcane Infantry, Crater Carrier, Bean Shooter and Brick Golem, from left to right',
+        },
+      },
+    ],
+  },
+  {
     version: 'v1.4.0',
     date: '2026-10-12',
     ko: {
