@@ -36,6 +36,47 @@ export const newsAnchorId = (version: string) => version.replace(/\./g, '-');
 
 export const newsReleases: NewsRelease[] = [
   {
+    version: 'v1.6.0',
+    date: '2026-10-26',
+    ko: {
+      title: 'v1.6.0 업데이트',
+      items: [
+        '친구의 접속 상태와 친선전 초대가 전달됐는지 확인할 수 있어요. 초대 응답이 늦거나 유실될 때의 상태 표시도 고쳤어요.',
+        '카드에 마우스를 1초 올리면 마법의 간단한 설명이 나와요. 연습경기는 카드 설명을 읽는 동안 멈춰요.',
+        '카드에 유닛, 건물, 투사체 등 마법 유형을 구분하는 문양이 생겼어요.',
+        '비전 보병이 양손에 마력 칼날을 들고, 걸을 때 두 발을 번갈아 움직여요.',
+        '대전 상대를 15초 넘게 찾지 못하면 MMR이 가까운 봇과 매칭돼요. 이 대전은 MMR에 반영되고, 활성 봇도 랭킹에 보여요.',
+        '경기 중 설정을 열고, 확인을 거쳐 항복할 수 있어요.',
+        '데스크톱에서 봇전과 모험을 로컬 서버로 실행할 수 있어요. 앱 업데이트를 내려받아 설치하는 기능도 추가됐어요.',
+        '연습경기를 준비하는 동안 안내가 나와요. 매칭 취소와 친선전 초대자의 경기 입장도 고쳤어요.',
+      ],
+    },
+    en: {
+      title: 'v1.6.0 Update',
+      items: [
+        'You can see whether friends are online and whether a friendly match invite was delivered. Invite status also handles delayed or lost responses.',
+        'Hover over a card for 1 second to see a short magic description. Practice matches pause while you read it.',
+        'Cards now have symbols for magic types such as units, buildings and projectiles.',
+        'Arcane Infantry now carries magic blades in both hands and alternates its feet as it walks.',
+        'After more than 15 seconds without an opponent, matchmaking pairs you with a bot close to your MMR. These matches affect MMR, and active bots appear in the rankings.',
+        'You can open settings during a match and surrender after confirming.',
+        'Desktop players can run practice and adventure matches on a local server. The app can also download and install updates.',
+        'A message now shows while a practice match is being prepared. Matchmaking cancellation and the inviter entering a friendly match are also fixed.',
+      ],
+    },
+    images: [
+      {
+        src: '/news/v1.6.0/arcane-infantry.webp',
+        width: 768,
+        height: 486,
+        alt: {
+          ko: '양손에 마력 칼날을 든 비전 보병',
+          en: 'Arcane Infantry holding magic blades in both hands',
+        },
+      },
+    ],
+  },
+  {
     version: 'v1.5.0',
     date: '2026-10-19',
     ko: {
