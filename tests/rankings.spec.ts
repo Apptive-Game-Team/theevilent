@@ -113,6 +113,7 @@ test.describe('phone width', () => {
 test('the menu reaches the page', async ({ page }) => {
   await mockApi(page, 'ok');
   await page.goto('/team');
+  await page.getByRole('navigation', { name: 'Primary' }).getByRole('button', { name: '게임', exact: true }).click();
   await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: '랭킹' }).click();
   await expect(page).toHaveURL(/\/arcane-casters\/rankings$/);
 });

@@ -81,12 +81,9 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
             <img src={`/arcane-casters/comic/001/${locale}/page-${String(page.number).padStart(2, '0')}.webp`}
               alt={`${copy.page} ${page.number}. ${page[locale].title}`}
               width="1024" height="1536" loading="lazy" decoding="async" />
-            <figcaption>
-              <span>{String(page.number).padStart(2, '0')} / 20</span>
-              <div className="visually-hidden">
+            <figcaption className="visually-hidden">
                 <p>{page[locale].description}</p>
                 {page[locale].dialogue.map((line, index) => <p key={index}>{line}</p>)}
-              </div>
             </figcaption>
           </figure>
         ))}

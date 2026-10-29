@@ -31,6 +31,7 @@ for (const language of ['ko', 'en'] as const) {
         await page.setViewportSize({ width, height: 900 });
         const menu = page.locator('.navbar-menu-btn');
         if (await menu.isVisible()) await menu.click();
+        await page.locator('.navbar-game-trigger').click();
         const overflow = await page.locator('.navbar a, .navbar button').evaluateAll(controls =>
           controls.filter(control => {
             const bounds = control.getBoundingClientRect();
@@ -43,14 +44,16 @@ for (const language of ['ko', 'en'] as const) {
         if (await menu.isVisible()) {
           const bounds = await page.locator('.navbar-links').boundingBox();
           expect(bounds!.width).toBeLessThanOrEqual(320);
-          await expect(page.getByRole('navigation', { name: 'Primary' }).getByRole('link')).toHaveCount(5);
-          await page.keyboard.press('Escape');
-          await expect(menu).toHaveAttribute('aria-expanded', 'false');
+          await expect(page.getByRole('navigation', { name: 'Primary' }).getByRole('link')).toHaveCount(6);
         }
+        await page.keyboard.press('Escape');
+        await expect(page.locator('.navbar-game-trigger')).toHaveAttribute('aria-expanded', 'false');
+        await expect(menu).toHaveAttribute('aria-expanded', 'false');
       }
       expect(clipped).toEqual([]);
       await page.setViewportSize({ width: 820, height: 280 });
       await page.locator('.navbar-menu-btn').click();
+      await page.locator('.navbar-game-trigger').click();
       const account = page.locator('.navbar-account');
       await account.scrollIntoViewIfNeeded();
       await expect(account).toBeInViewport();
@@ -64,11 +67,14 @@ for (const language of ['ko', 'en'] as const) {
       await page.setViewportSize({ width: 900, height: 900 });
       const homeMenu = page.locator('.navbar-menu-btn');
       await homeMenu.click();
+      await page.locator('.navbar-game-trigger').click();
       const popover = await page.locator('.navbar-links').boundingBox();
       const trigger = await homeMenu.boundingBox();
       expect(popover!.width).toBeLessThanOrEqual(320);
       expect(Math.abs(popover!.x + popover!.width - trigger!.x - trigger!.width)).toBeLessThanOrEqual(2);
       await page.screenshot({ path: info.outputPath('navigation-home-900.png') });
+      await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: language === 'ko' ? '만화' : 'Comic', exact: true }).click();
+      await expect(page).toHaveURL(new RegExp('/comic/1/' + language + '$'));
     });
   }
 }

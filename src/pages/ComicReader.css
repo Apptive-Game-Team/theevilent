@@ -32,7 +32,6 @@
 .comic-pages { max-width: 900px; margin-inline: auto; }
 .comic-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
 .comic-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }
-.comic-page figcaption { padding: .75rem 1rem; color: var(--color-on-ground-faint); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .comic-sharing { max-width: 900px; margin-inline: auto; padding: 2.5rem 1.5rem 3.5rem; border-top: var(--border-flat); }
 .comic-sharing h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1.5rem; }
 .comic-share-actions { display: flex; flex-wrap: wrap; gap: .75rem; }

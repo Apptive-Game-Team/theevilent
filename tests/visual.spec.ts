@@ -50,6 +50,7 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   console.log('Saved screenshot_home.png');
 
   // Navigate to Magic compendium
+  await page.getByRole('navigation', { name: 'Primary' }).getByRole('button', { name: '게임', exact: true }).click();
   await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: '마법 도감', exact: true }).click();
   await expect(page.getByRole('heading', { name: '마법 도감', level: 1 })).toBeVisible();
   await expect(page.locator('.magic-grid li')).toHaveCount(72);

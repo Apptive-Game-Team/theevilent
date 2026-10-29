@@ -2,10 +2,28 @@ import { test, expect, type Page } from '@playwright/test';
 
 const primaryNav = (page: Page) => page.getByRole('navigation', { name: 'Primary' });
 
+test('game submenu supports keyboard dismissal and outside clicks', async ({ page }, info) => {
+  await page.goto('/team');
+  const trigger = primaryNav(page).getByRole('button', { name: '게임', exact: true });
+  await trigger.focus();
+  await page.keyboard.press('Enter');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Tab');
+  await expect(primaryNav(page).getByRole('link', { name: '마법 도감', exact: true })).toBeFocused();
+  await page.screenshot({ path: info.outputPath('navigation-game-desktop.png') });
+  await page.keyboard.press('Escape');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await page.getByRole('main').click({ position: { x: 8, y: 8 } });
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+});
+
 test('nav clicks push a single history entry', async ({ page }) => {
   await page.goto('/team');
   await expect(primaryNav(page).locator('a[aria-current="page"]')).toHaveText('팀');
 
+  await primaryNav(page).getByRole('button', { name: '게임', exact: true }).click();
   await primaryNav(page).getByRole('link', { name: '마법 도감', exact: true }).click();
   await expect(page).toHaveURL(/\/arcane-casters\/magic$/);
   await expect(primaryNav(page).locator('a[aria-current="page"]')).toHaveText('마법 도감');
@@ -18,6 +36,7 @@ test('nav clicks push a single history entry', async ({ page }) => {
 
 test('modifier click does not navigate the current tab', async ({ page }) => {
   await page.goto('/team');
+  await primaryNav(page).getByRole('button', { name: '게임', exact: true }).click();
 
   await primaryNav(page)
     .getByRole('link', { name: '마법 도감', exact: true })
@@ -65,6 +84,7 @@ test('the language switch changes the copy and is remembered', async ({ page }) 
   await page.getByRole('button', { name: 'English', exact: true }).click();
 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await primaryNav(page).getByRole('button', { name: 'Game', exact: true }).click();
   await expect(primaryNav(page).getByRole('link', { name: 'Magic Book', exact: true })).toBeVisible();
 
   await page.reload();
@@ -72,5 +92,6 @@ test('the language switch changes the copy and is remembered', async ({ page }) 
   await expect(page.getByRole('button', { name: 'English', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
   await page.getByRole('button', { name: '한국어', exact: true }).click();
+  await primaryNav(page).getByRole('button', { name: '게임', exact: true }).click();
   await expect(primaryNav(page).getByRole('link', { name: '마법 도감', exact: true })).toBeVisible();
 });
