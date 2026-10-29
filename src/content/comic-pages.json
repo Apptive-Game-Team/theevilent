@@ -1,0 +1,421 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "세계수와 마법 타워",
+      "description": "세계수와 마법 타워",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The World Tree and the tower",
+      "description": "A vast grassland surrounds the World Tree and a lone magic tower.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "남겨둔 빵",
+      "description": "남겨둔 빵",
+      "dialogue": [
+        "핀: “내 것도 남겼지?”",
+        "미라: “늦었어.”",
+        "핀: “두 개 있잖아.” / 미라: “둘 다 내 거야.”"
+      ]
+    },
+    "en": {
+      "title": "Breakfast",
+      "description": "Finn joins Mira for breakfast on the terrace.",
+      "dialogue": [
+        "You saved me one, right?",
+        "Too late.",
+        "There are two.",
+        "They're both mine."
+      ]
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "오늘은 뭐 해?",
+      "description": "오늘은 뭐 해?",
+      "dialogue": [
+        "핀: “오늘 뭐 해?”",
+        "미라: “일단 이거 읽고.”",
+        "핀: “그다음은?” / 미라: “네가 조용히 해주면 알 것 같아.”"
+      ]
+    },
+    "en": {
+      "title": "Plans for today",
+      "description": "Finn chats while Mira tries to read.",
+      "dialogue": [
+        "What are you doing today?",
+        "Reading this first.",
+        "And then?",
+        "I might find out if you'd let me read."
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "이것도 같이",
+      "description": "이것도 같이",
+      "dialogue": [
+        "미라: “아, 어디까지 읽었더라.”",
+        "핀: “이것도.”",
+        "미라: “손 놔도 돼.” / 핀: “고마워.”"
+      ]
+    },
+    "en": {
+      "title": "Hold this, too",
+      "description": "Mira uses a physical spell card to hold a book and napkin against the wind.",
+      "dialogue": [
+        "Now, where was I?",
+        "This too.",
+        "You can let go.",
+        "Thanks."
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "식사 뒤에",
+      "description": "식사 뒤에",
+      "dialogue": [
+        "오린: “둘 다 있었으니 잘됐다.”",
+        "핀: “선생님도 드시겠습니까?” / 미라: “그건 내 건데.”",
+        "오린: “식사는 마쳤다.”",
+        "오린: “식사 후 내 방에서 보겠다.”"
+      ]
+    },
+    "en": {
+      "title": "After breakfast",
+      "description": "Professor Orin calls the two students to his office.",
+      "dialogue": [
+        "Good. You're both here.",
+        "Would you like some, Professor?",
+        "That's mine, though.",
+        "I've eaten.",
+        "Come to my office after breakfast."
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "두 곳의 현장 연구",
+      "description": "두 곳의 현장 연구",
+      "dialogue": [
+        "오린: “이제 현장 연구를 시작한다.”",
+        "오린: “미라는 세계수 근처로 간다.”",
+        "오린: “핀은 돌골렘 마을로 간다.”",
+        "핀: “언제 출발합니까?” / 오린: “내일 아침이다.”"
+      ]
+    },
+    "en": {
+      "title": "Two field assignments",
+      "description": "Orin sends Mira to the World Tree and Finn to the stone golem village.",
+      "dialogue": [
+        "Your field research begins now.",
+        "Mira, go to the World Tree.",
+        "Finn, go to the stone golem village.",
+        "When do we leave, Professor?",
+        "Tomorrow morning."
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "가서 무엇을 볼까",
+      "description": "가서 무엇을 볼까",
+      "dialogue": [
+        "미라: “무엇부터 관찰하면 되겠습니까?”",
+        "오린: “어디서 지내고, 어떻게 움직이는지부터 살핀다.”",
+        "핀: “이 정도 크기입니까?” / 오린: “크기도 직접 확인한다. 추측으로 채우지 않는다.”",
+        "핀: “가서 발자국도 봐야겠다.” / 미라: “난 정령들이 어디서 자는지 궁금해.”"
+      ]
+    },
+    "en": {
+      "title": "What to look for",
+      "description": "The students ask about their research. Orin insists on direct observation.",
+      "dialogue": [
+        "What should we look for?",
+        "Where they live. How they move.",
+        "About this big?",
+        "Measure them. No guesswork.",
+        "I'll check their footprints, too.",
+        "I wonder where the spirits sleep."
+      ]
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "오후의 준비",
+      "description": "오후의 준비",
+      "dialogue": [
+        "핀: “그걸 다 가져가?” / 미라: “아직 고르는 중이야.”",
+        "미라: “그림 많이 그릴 거면 이것도.” / 핀: “아, 고마워.”",
+        "핀: “이 정도면 메겠어?” / 미라: “응. 훨씬 낫다.”"
+      ]
+    },
+    "en": {
+      "title": "Packing",
+      "description": "Mira and Finn help each other pack for the journey.",
+      "dialogue": [
+        "You're taking all of those?",
+        "I'm still choosing.",
+        "If you'll be sketching, take this too.",
+        "Oh, thanks.",
+        "Can you carry that?",
+        "Yes. Much better."
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "다음 날 아침",
+      "description": "다음 날 아침",
+      "dialogue": [
+        "작은 시간 상자: “다음 날 아침”",
+        "핀: “책 몇 권 남겼어?” / 미라: “반은 뺐어.”",
+        "오린: “안전이 우선이다. 잘 보고 오면 된다.” / 미라·핀: “다녀오겠습니다.”"
+      ]
+    },
+    "en": {
+      "title": "The next morning",
+      "description": "Orin sees them off the following morning.",
+      "dialogue": [
+        "Next morning",
+        "How many books did you leave?",
+        "Half of them.",
+        "Safety comes first. Observe carefully.",
+        "We'll be back, Professor."
+      ]
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "갈림길",
+      "description": "갈림길",
+      "dialogue": [
+        "미라: “난 이쪽이네.”",
+        "핀: “저녁에 돌아와서 맥주나 마시자.” / 미라: “좋아. 먼저 오면 기다려.”"
+      ]
+    },
+    "en": {
+      "title": "The fork in the road",
+      "description": "They promise to have a beer together that evening, then take separate paths.",
+      "dialogue": [
+        "This is my way.",
+        "Let's have a beer when we're back tonight.",
+        "Deal. Wait for me if you're first."
+      ]
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "저 멀리 돌골렘 마을",
+      "description": "저 멀리 돌골렘 마을",
+      "dialogue": [
+        "핀: “저기가 돌골렘 마을이구나.”",
+        "핀: “안녕하세요.”"
+      ]
+    },
+    "en": {
+      "title": "The stone golem village",
+      "description": "Finn approaches the golems' rocky habitat, greets them and begins observing.",
+      "dialogue": [
+        "So that's the stone golem village.",
+        "Hello!"
+      ]
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "움직임과 발자국",
+      "description": "움직임과 발자국",
+      "dialogue": [
+        "핀: “발자국이 꽤 깊네.”",
+        "핀: “궁금해?”"
+      ]
+    },
+    "en": {
+      "title": "Footprints",
+      "description": "Finn studies deep footprints. A small golem peers at his notebook.",
+      "dialogue": [
+        "Those footprints are pretty deep.",
+        "Curious?"
+      ]
+    }
+  },
+  {
+    "number": 13,
+    "ko": {
+      "title": "한 번 굴려 볼까",
+      "description": "한 번 굴려 볼까",
+      "dialogue": [
+        "핀: “여기 있어도 돼?”",
+        "미니록: “꾸?”",
+        "핀: “이렇게?”",
+        "효과: “또르륵”"
+      ]
+    },
+    "en": {
+      "title": "A rolling pebble",
+      "description": "Finn and a small golem roll pebbles. A pebble rolls under a slab.",
+      "dialogue": [
+        "Mind if I sit here?",
+        "Ku?",
+        "Like this?",
+        "Sound: roll"
+      ]
+    }
+  },
+  {
+    "number": 14,
+    "ko": {
+      "title": "닿지 않는 돌멩이",
+      "description": "닿지 않는 돌멩이",
+      "dialogue": [
+        "미니록: “꾸…”",
+        "핀: “손으로는 안 닿겠다.”"
+      ]
+    },
+    "en": {
+      "title": "Out of reach",
+      "description": "The golem and Finn cannot reach the pebble by hand.",
+      "dialogue": [
+        "Ku...",
+        "I can't reach it by hand."
+      ]
+    }
+  },
+  {
+    "number": 15,
+    "ko": {
+      "title": "이 돌만 조금",
+      "description": "이 돌만 조금",
+      "dialogue": [
+        "핀: “이 돌만 조금 들게.”",
+        "핀: “조금 뒤로.”"
+      ]
+    },
+    "en": {
+      "title": "Just this stone",
+      "description": "Finn draws a spell card and asks the small golem to stand back.",
+      "dialogue": [
+        "I'll just lift this stone a little.",
+        "Step back a bit."
+      ]
+    }
+  },
+  {
+    "number": 16,
+    "ko": {
+      "title": "꺼냈다",
+      "description": "꺼냈다",
+      "dialogue": [
+        "핀: “잡았어?”",
+        "미니록: “꾸!”",
+        "핀: “됐다.”"
+      ]
+    },
+    "en": {
+      "title": "Got it",
+      "description": "Finn lifts the stone with a card. The small golem retrieves its pebble.",
+      "dialogue": [
+        "Got it?",
+        "Ku!",
+        "There."
+      ]
+    }
+  },
+  {
+    "number": 17,
+    "ko": {
+      "title": "돌려주기",
+      "description": "돌려주기",
+      "dialogue": [
+        "핀: “네 거잖아.”",
+        "핀: “아. 또 하자고?”"
+      ]
+    },
+    "en": {
+      "title": "Another round",
+      "description": "The golem rolls its pebble back to Finn, asking to play again.",
+      "dialogue": [
+        "It's yours.",
+        "Oh. You want to play again?"
+      ]
+    }
+  },
+  {
+    "number": 18,
+    "ko": {
+      "title": "모크",
+      "description": "모크",
+      "dialogue": [
+        "핀: “모크라고 불러도 돼?”",
+        "모크: “꾸?”",
+        "핀: “잠깐, 이번 건 빨랐어.”"
+      ]
+    },
+    "en": {
+      "title": "Mok",
+      "description": "Finn names his new companion Mok.",
+      "dialogue": [
+        "Can I call you Mok?",
+        "Ku?",
+        "Wait! That one was fast."
+      ]
+    }
+  },
+  {
+    "number": 19,
+    "ko": {
+      "title": "첫 기록",
+      "description": "첫 기록",
+      "dialogue": [
+        "핀: “조금만 그대로 있어 봐.”",
+        "핀: “됐어.”"
+      ]
+    },
+    "en": {
+      "title": "First notes",
+      "description": "Finn sketches Mok and shows him the drawing.",
+      "dialogue": [
+        "Stay like that for a moment.",
+        "Done."
+      ]
+    }
+  },
+  {
+    "number": 20,
+    "ko": {
+      "title": "대답하지 않는 모크",
+      "description": "대답하지 않는 모크",
+      "dialogue": [
+        "핀: “오늘은 여기까지 할까?”",
+        "핀: “모크?”",
+        "핀: “어디 가?”"
+      ]
+    },
+    "en": {
+      "title": "No answer",
+      "description": "Mok's eyes turn red. He ignores Finn and walks toward a dark cave.",
+      "dialogue": [
+        "Shall we call it a day?",
+        "Mok?",
+        "Where are you going?"
+      ]
+    }
+  }
+]

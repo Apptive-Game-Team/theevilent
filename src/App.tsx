@@ -8,6 +8,7 @@ import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
 import SummonCompendium from './pages/SummonCompendium';
+import ComicReader from './pages/ComicReader';
 import { getLegacyPathFromHash, getRouteFromPathname, getTabPath } from './routing';
 
 function CursorGlow() {
@@ -76,6 +77,8 @@ function App() {
         return <SummonCompendium slug={route.slug} />;
       case 'team':
         return <Team />;
+      case 'comic':
+        return <ComicReader key={route.locale} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }
@@ -83,9 +86,9 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      <CursorGlow />
+      {route.tab !== 'comic' && <CursorGlow />}
 
-      <ParticleBackground />
+      {route.tab !== 'comic' && <ParticleBackground />}
       <a href="#main-content" className="skip-link">
         Skip To Main Content
       </a>

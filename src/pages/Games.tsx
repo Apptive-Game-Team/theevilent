@@ -67,6 +67,10 @@ export const Games: React.FC = () => {
                 <BookOpen size={18} aria-hidden="true" />
                 마법 컨셉 도감 열기
               </a>
+              <a href={getTabPath('comic')} className="games-compendium-link">
+                <BookOpen size={18} aria-hidden="true" />
+                연재 만화 1화 읽기 · Read the comic
+              </a>
             </div>
 
             <div style={styles.headerImageWrapper}>

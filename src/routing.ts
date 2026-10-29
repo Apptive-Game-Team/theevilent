@@ -3,6 +3,7 @@ import type { TabId } from './content/siteContent';
 export interface AppRoute {
   tab: TabId;
   slug?: string;
+  locale?: 'ko' | 'en';
 }
 
 const tabPaths: Record<TabId, string> = {
@@ -11,6 +12,7 @@ const tabPaths: Record<TabId, string> = {
   magic: '/arcane-casters/magic',
   summons: '/arcane-casters/summons',
   team: '/team',
+  comic: '/arcane-casters/comic/1/ko',
 };
 
 export const getTabPath = (tab: TabId, slug?: string) =>
@@ -24,6 +26,11 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
   if (segments[0] === 'team' && segments.length === 1) return { tab: 'team' };
   if (segments[0] !== 'arcane-casters') return { tab: 'home' };
   if (segments.length === 1) return { tab: 'games' };
+  if (segments[1] === 'comic') return {
+    tab: 'comic',
+    slug: segments[2] || '1',
+    locale: segments[3] === 'en' ? 'en' : 'ko',
+  };
   if (segments[1] === 'magic') return { tab: 'magic', slug: segments[2] };
   if (segments[1] === 'summons') return { tab: 'summons', slug: segments[2] };
   return { tab: 'games' };
