@@ -30,6 +30,10 @@
 .comic-languages { display: flex; flex-wrap: wrap; gap: .75rem; }
 .comic-languages .flat-btn { min-height: 44px; padding-inline: 1rem; font-size: 1rem; }
 .comic-pages { max-width: 900px; margin-inline: auto; }
+.comic-episodes { display: flex; flex-wrap: wrap; gap: .75rem; padding-bottom: 2rem; }
+.comic-episodes .flat-btn { white-space: normal; text-align: left; min-height: 44px; flex-wrap: wrap; gap: .5rem; font-size: 1rem; }
+.comic-reading-state { font-family: var(--font-body); font-size: .85rem; }
+.comic-reading-end { height: 1px; }
 .comic-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
 .comic-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }
 .comic-sharing { max-width: 900px; margin-inline: auto; padding: 2.5rem 1.5rem 3.5rem; border-top: var(--border-flat); }

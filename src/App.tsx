@@ -67,7 +67,7 @@ function App() {
       case 'account':
         return <Account />;
       case 'comic':
-        return <ComicReader key={route.locale} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
+        return <ComicReader key={`${route.slug}:${route.locale}`} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }

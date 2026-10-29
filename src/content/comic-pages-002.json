@@ -1,0 +1,158 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "정령들이 맞이하는 세계수",
+      "description": "미라가 세계수에 도착하자 정령들이 먼저 다가온다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "At the World Tree",
+      "description": "Mira reaches the World Tree. Curious leaf spirits gather around her.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "무릎 위의 정령",
+      "description": "수첩 위에 올라온 정령을 옆으로 옮기고 미라가 기록을 계속한다.",
+      "dialogue": [
+        "옆에 있어."
+      ]
+    },
+    "en": {
+      "title": "A spirit on her lap",
+      "description": "A spirit sits on Mira's notebook. She gently moves it beside her and keeps writing.",
+      "dialogue": [
+        "Stay beside me."
+      ]
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "멀리 뒤따라",
+      "description": "핀이 모크를 멀리서 따라 동굴로 들어가 카드로 길을 비춘다.",
+      "dialogue": [
+        "모크, 잠깐."
+      ]
+    },
+    "en": {
+      "title": "Following at a distance",
+      "description": "Finn follows Mok into the cave, lighting the way with a card.",
+      "dialogue": [
+        "Mok, wait."
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "신전과 문",
+      "description": "핀이 고대 양식을 알아보고 몸 안에 공간을 품은 생물의 벽화를 살핀다.",
+      "dialogue": [
+        "2천 년 전 양식인데… 책에서 본 거랑 똑같잖아.",
+        "몸 안에… 공간이 있네?"
+      ]
+    },
+    "en": {
+      "title": "The temple and its carvings",
+      "description": "Finn recognizes ancient architecture and studies worn carvings of beings with spaces inside their bodies.",
+      "dialogue": [
+        "Two-thousand-year-old architecture... Just like in the book.",
+        "There's... a space inside its body?"
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "손이 닿자",
+      "description": "모크가 먼 차원문의 조작판을 건드린다.",
+      "dialogue": [
+        "모크, 거기서 나와."
+      ]
+    },
+    "en": {
+      "title": "A touch at the gate",
+      "description": "Mok touches a panel at the distant gate. Finn calls from the entrance.",
+      "dialogue": [
+        "Mok, get away from there!"
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "차원문 개방",
+      "description": "열린 문 바로 너머에서 대기하던 군단이 모습을 드러낸다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The gate opens",
+      "description": "The opening reveals a legion already waiting on the other side.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "지옥불 군단",
+      "description": "다양한 악마와 괴수가 밀려들고 핀의 망토 끝이 그슬린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The Hellfire Legion",
+      "description": "Beasts, riders and winged demons advance. Embers scorch the edge of Finn's cloak.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "기록을 멈춘 소리",
+      "description": "충격음에 미라의 기록이 멈춘다. 미라가 지팡이를 들고 일어난다.",
+      "dialogue": [
+        "쾅"
+      ]
+    },
+    "en": {
+      "title": "The interrupted notebook",
+      "description": "A distant boom stops Mira's writing. She rises with her staff as the spirits startle.",
+      "dialogue": [
+        "Sound: BOOM."
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "멀리 번지는 사악한 기운",
+      "description": "검붉은 기운이 먼 산맥 위의 하늘을 뒤덮는다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "An overwhelming presence",
+      "description": "A vast black and crimson presence fills the distant sky above the mountains.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "핀이 간 방향",
+      "description": "정령들이 달아나고 미라는 핀이 간 방향을 알아본다.",
+      "dialogue": [
+        "어… 핀이 간 곳인데."
+      ]
+    },
+    "en": {
+      "title": "Where Finn went",
+      "description": "The spirits flee past Mira as she recognizes the direction of the disturbance.",
+      "dialogue": [
+        "Uh... that's where Finn went."
+      ]
+    }
+  }
+]

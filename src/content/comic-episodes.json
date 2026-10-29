@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "directory": "001",
+    "pages": "comic-pages.json",
+    "ko": {
+      "title": "1화 · 첫 현장 연구",
+      "description": "마법 타워의 평범한 아침. 핀과 미라는 첫 현장 연구를 떠난다.",
+      "coverAlt": "세계수와 초원의 아침 풍경"
+    },
+    "en": {
+      "title": "Episode 1 · First Fieldwork",
+      "description": "An ordinary morning at the magic tower. Finn and Mira set out on their first field assignment.",
+      "coverAlt": "Morning over the World Tree and the grasslands"
+    }
+  },
+  {
+    "id": "2",
+    "directory": "002",
+    "pages": "comic-pages-002.json",
+    "ko": {
+      "title": "2화 · 문 너머",
+      "description": "세계수 아래에서 기록을 시작한 미라. 핀은 모크를 따라 동굴 속 신전으로 들어간다.",
+      "coverAlt": "세계수 아래로 정령들에게 다가가는 미라"
+    },
+    "en": {
+      "title": "Episode 2 · Beyond the Gate",
+      "description": "Mira begins her notes beneath the World Tree. Finn follows Mok into an ancient temple hidden in a cave.",
+      "coverAlt": "Mira meets the spirits beneath the World Tree"
+    }
+  }
+]
