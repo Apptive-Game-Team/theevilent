@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, Copy, Share2 } from 'lucide-react';
 import { comicCopy, comicPages, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
 import './ComicReader.css';
+import { useLanguage } from '../i18n/language';
 
 export default function ComicReader({ locale, episode }: { locale: ComicLocale; episode: string }) {
+  const { setLanguage } = useLanguage();
   const copy = comicCopy[locale];
   const [status, setStatus] = useState('');
   const [manualCopy, setManualCopy] = useState(false);
   const url = comicUrl(locale);
+  useEffect(() => { setLanguage(locale); }, [locale, setLanguage]);
 
   useEffect(() => {
     const previousTitle = document.title;

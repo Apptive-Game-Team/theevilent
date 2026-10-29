@@ -1,0 +1,650 @@
+{
+  "cannon": {
+    "nameEn": "Cannon",
+    "descriptionEn": "Builds a human arcane cannon that shells the closest ground enemy in range, buildings and the enemy base included. It cannot hit flying units, and it leaves rubble that blocks ground movement when destroyed.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "fire_slime_nest": {
+    "nameEn": "Fire Slime Nest",
+    "elements": [
+      "Fire"
+    ]
+  },
+  "healing_totem": {
+    "nameEn": "Healing Totem",
+    "descriptionEn": "Places a healing totem that heals your own units, buildings and base within its reach at regular intervals, flying units included. If it is placed on top of a friendly unit it follows that unit, and it fades after a while.",
+    "elements": [
+      "Nature",
+      "Water"
+    ],
+    "manaCost": 30
+  },
+  "lightning_slime_nest": {
+    "nameEn": "Lightning Slime Nest"
+  },
+  "mana_well": {
+    "nameEn": "Mana Well",
+    "descriptionEn": "Opens a well that speeds up your mana regeneration for as long as it stands. Enemies can destroy it, and it dries up on its own after a while.",
+    "elements": [
+      "Lightning",
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "nature_slime_nest": {
+    "nameEn": "Nature Slime Nest"
+  },
+  "pve_water_slime_nest": {},
+  "rock_slime_nest": {
+    "nameEn": "Rock Slime Nest"
+  },
+  "tower": {
+    "nameEn": "Tower",
+    "descriptionEn": "Builds a human anti-air tower that shoots the closest flying enemy in range and also damages enemies right next to it. It cannot attack ground units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "towerback": {
+    "nameEn": "Towerback",
+    "descriptionEn": "Summons a slow MiniRock with an anti-air tower strapped to its back. It walks toward the nearest enemy but always prefers a flyer in reach, shooting it from range with a small splash; against ground enemies it only hits at close range.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "vine_colony": {
+    "nameEn": "Vine Colony",
+    "descriptionEn": "Plants a vine colony that raises a vine under the nearest ground enemy in reach every few seconds, damaging and slowing everything the vine touches. The colony can be attacked and fades after a while.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "wind_slime_nest": {
+    "nameEn": "Wind Slime Nest"
+  },
+  "bubble_generator": {
+    "nameEn": "Bubble Generator",
+    "descriptionEn": "Builds a bubble generator that wraps the nearest ally in reach in a bubble that blocks the next hit it takes. It skips allies that already have a bubble, never attacks, and fades after a while.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 15
+  },
+  "crater": {
+    "nameEn": "Crater",
+    "descriptionEn": "Leaves an ember crater that can be attacked and spits fireballs in random directions. A fireball damages the first enemy it touches, otherwise it lands and leaves a fire patch that burns anything standing on it, your own units too.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 35
+  },
+  "electric_tower": {
+    "nameEn": "Electric Tower",
+    "descriptionEn": "Builds a tower that zaps the nearest enemy in reach, ground or flying, then arcs to a few more nearby enemies for less damage. The tower can be attacked and fades after a while.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 15
+  },
+  "life_tree": {
+    "nameEn": "Life Tree",
+    "descriptionEn": "Plants a World Tree sapling that heals your ground units, buildings and base standing close to it at regular intervals. It withers after a while, and enemies can destroy it sooner.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "rock_turret": {
+    "nameEn": "Rock Turret",
+    "descriptionEn": "Builds a small stationary turret that hurls rocks at the nearest enemy ground unit, building or base within its reach, and it cannot hit flying units. It crumbles after a short time, and enemies can destroy it sooner.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "wind_totem": {
+    "nameEn": "Wind Totem",
+    "descriptionEn": "Places a wind totem that repeatedly pushes enemy ground units in the area in front of it back toward their own base without damaging them, heavy ones less. It fades after a short time and enemies can destroy it sooner; flying units are not pushed.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "chicken_commando": {
+    "nameEn": "Arcane Drop Corps",
+    "descriptionEn": "Deploys a paratrooper of the human magic civilization on the target point who cannot act until it lands, then walks to the nearest ground enemy and fights it in melee. It cannot attack flying units.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "fire_drop": {
+    "nameEn": "Fire Drop"
+  },
+  "frenzy_totem": {
+    "nameEn": "Frenzy Totem",
+    "descriptionEn": "Drops a totem that lands at the target point and throws units around it into a frenzy for a short time: they attack the nearest unit of either side, allies included, and attack faster. It affects your units as well as the enemy's.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 20
+  },
+  "leafair": {
+    "nameEn": "Leafair",
+    "descriptionEn": "Drops a leaf fairy that heals the first allied unit, building or base it touches and restarts the lifetime of allied buildings that expire. If it touches an enemy first, it damages and snares that enemy instead.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 10
+  },
+  "lightning_drop": {
+    "nameEn": "Lightning Drop",
+    "descriptionEn": "Calls down lightning on a narrow column at the target point at once and twice more after short pauses, hitting every enemy in the column on the ground or in the air. Your own lightning units in the column are charged instead, and each strike leaves a brief electric field that stuns non-lightning units that enter it.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "meteor_shower": {
+    "nameEn": "Meteor Shower",
+    "descriptionEn": "Rains meteors at random spots around the target point for several seconds. Each meteor falls from the sky and hits only the first enemy it touches, on the ground or in the air, and a meteor that touches nothing is wasted.",
+    "elements": [
+      "Fire",
+      "Rock"
+    ],
+    "manaCost": 70
+  },
+  "nature_drop": {
+    "nameEn": "Nature Drop"
+  },
+  "rallying_torch": {},
+  "rock_drop": {
+    "nameEn": "Rock Drop",
+    "descriptionEn": "Drops a boulder from the sky that takes a moment to fall, then damages only the first enemy it touches, ground or flying. It deals no area damage and does nothing if no enemy is under it.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 10
+  },
+  "wind_drop": {
+    "nameEn": "WInd Drop"
+  },
+  "lightning_explosion": {
+    "nameEn": "Lightning Explosion",
+    "descriptionEn": "Detonates a lightning charge on the target point after a short delay, shocking enemies in the area so they cannot act. It damages every ground unit, building and base in the area, your own included.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "magma_explosion": {
+    "nameEn": "Magma Explosion",
+    "descriptionEn": "Opens a magma rift at the target point that erupts after a short delay, damaging every unit and building in the area, your own included, and setting enemies on fire. Flying units are out of reach.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 10
+  },
+  "overgrowth": {
+    "nameEn": "Overgrowth",
+    "descriptionEn": "Bursts roots out of the target point after a short delay, damaging and slowing enemies in the area. Your seed spirits in the area grow into tree golems; if there are none, it summons new seed spirits there instead.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 20
+  },
+  "razor_gale": {
+    "nameEn": "Razor Gale",
+    "descriptionEn": "Spins up a razor gale on the target point that lasts a few seconds and cuts everything in the area again and again, your own units and buildings included.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "sand_storm": {
+    "nameEn": "Sand Storm",
+    "descriptionEn": "Whips up a dust storm at the target point that lingers and keeps damaging every enemy standing inside it. It only reaches ground enemies.",
+    "elements": [
+      "Rock",
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "shock_overload": {
+    "nameEn": "Shock Overload",
+    "descriptionEn": "Overloads a lightning charge on the target point: after a short delay it damages and shocks every enemy in the area, then a moment later each shocked enemy bursts, hurting the enemies around it for less damage. Your own units are not hurt.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 20
+  },
+  "water_explosion": {
+    "nameEn": "Water Explosion",
+    "descriptionEn": "Erupts a geyser at the target point after a short delay that damages every unit and building in the area, your own included, and launches ground units into the air, heavier ones less. Units thrown up cannot be targeted by ground attackers until they land.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 10
+  },
+  "wind_explosion": {
+    "nameEn": "Wind Explosion",
+    "elements": [
+      "Wind"
+    ]
+  },
+  "chain_lightning": {
+    "nameEn": "Chain Lightning",
+    "descriptionEn": "Fires a lightning bolt that strikes the first enemy it touches and briefly stuns it, then jumps to another nearby enemy it has not hit yet, dealing less damage with each jump up to a limited number of enemies. Only the first strike is blocked by what is in its path; later jumps can reach nearby flying units.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 10
+  },
+  "fire_shot": {
+    "nameEn": "Fire Shot",
+    "descriptionEn": "Fires a hellfire projectile in the target direction that explodes on the first enemy unit, building or base it touches, damaging enemies around the impact and setting the one it hit on fire. Flying units are out of its reach.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 10
+  },
+  "lightning_shot": {
+    "nameEn": "Lightning Shot",
+    "elements": [
+      "Lightning"
+    ]
+  },
+  "rock_rolling": {
+    "nameEn": "Rock Rolling",
+    "descriptionEn": "Rolls a heavy boulder along the ground that damages every enemy it touches and bounces off enemies and the field walls. It disappears after a few bounces and cannot hit flying units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 10
+  },
+  "tide_call": {
+    "nameEn": "Tide Call",
+    "descriptionEn": "Calls a water tide that rolls through the field, pushing every enemy ground unit it touches in its direction of travel and dealing only slight damage once to each. It leaves water fields along its path that make any non-water unit wet, your own included, and fades after a short time.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 10
+  },
+  "vine_fan": {},
+  "vine_toss": {
+    "nameEn": "Vine Toss",
+    "descriptionEn": "Erupts a line of vines from the caster toward the target one after another, damaging each enemy ground unit, building or base along the line once and snaring it to slow it down. Units do not block the line, flying units are out of reach, and fire damage on a snared target breaks the snare for extra damage.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 10
+  },
+  "water_shot": {
+    "nameEn": "Water Shot",
+    "elements": [
+      "Water"
+    ]
+  },
+  "will_o_wisp": {
+    "nameEn": "Will O Wisp",
+    "descriptionEn": "Fires a will-o'-wisp along the ground that takes control of the first enemy unit it touches, which then fights for you for good. Bases and some buildings cannot be taken over, and the wisp flies on past them.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 55
+  },
+  "wind_blade": {
+    "nameEn": "Wind Blade",
+    "descriptionEn": "Launches a wind blade that cuts straight through every enemy ground unit, building and base in its path, dealing less damage to each one it passes, until it leaves the field. It cannot hit flying units.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 10
+  },
+  "aqua_archer": {
+    "nameEn": "Aqua Archer",
+    "descriptionEn": "Summons a water slime archer that walks toward the nearest enemy and shoots it from range. It can hit ground units, flying units, buildings and the enemy base.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 40
+  },
+  "bubble_spirit": {
+    "nameEn": "Bubble Spirit",
+    "descriptionEn": "Summons a flying water slime that only targets flying enemies. It floats toward the nearest one and shoots bursting bubbles that also hurt other flyers next to the target. It never attacks ground units, buildings or the base.",
+    "elements": [
+      "Water",
+      "Wind"
+    ],
+    "manaCost": 35
+  },
+  "cloud_dragon": {
+    "nameEn": "Cloud Dragon",
+    "descriptionEn": "Summons a flying cloud dragon that shoots the nearest enemy, ground or air, from range, and wets every unit around it, which puts out burning. Now and then it looses a chain lightning that stuns the first enemy it hits and jumps on to others for less damage each time.",
+    "elements": [
+      "Lightning",
+      "Water",
+      "Wind"
+    ],
+    "manaCost": 80
+  },
+  "dimension_toad": {
+    "nameEn": "Boundary Carrier",
+    "descriptionEn": "Summons a toad that never attacks. It walks toward the nearest enemy building or base and keeps its distance, runs from enemy ground units that come close, and releases fire and lightning tadpoles in turn, starting at once. Tadpoles are short-lived melee ground fighters.",
+    "elements": [
+      "Fire",
+      "Lightning"
+    ],
+    "manaCost": 50
+  },
+  "ember_spirit_swarm": {
+    "nameEn": "Ember Spirit Swarm",
+    "descriptionEn": "Summons a swarm of small ember demons that walk to the nearest ground target and hit it in melee, but cannot attack flying units. Their trail leaves burning fields that scorch any non-fire unit that steps in, your own included.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 15
+  },
+  "fire_lord_spirit": {
+    "nameEn": "Fire Lord Spirit",
+    "descriptionEn": "Summons a flying Hellfire Legion commander that never attacks itself: it drifts toward the nearest enemy and stops at a distance. Every few seconds it sends out a flying lesser demon that shoots ground and flying targets, up to a limited number in total.",
+    "elements": [
+      "Fire",
+      "Wind"
+    ],
+    "manaCost": 80
+  },
+  "fire_spirit": {
+    "nameEn": "Fire Spirit",
+    "descriptionEn": "Summons lesser demons that walk to the nearest ground enemy and spray flames in a line, burning whatever they hit. Their fiery aura also burns every nearby unit that is not fire, your own included.",
+    "elements": [
+      "Fire",
+      "Wind"
+    ],
+    "manaCost": 40
+  },
+  "magma_spirit": {
+    "nameEn": "Magma Spirit",
+    "descriptionEn": "Summons a heavy magma demon that, on reaching a ground enemy, slams a burst of fire onto its position that damages and burns every enemy around it. It cannot target flying units, its aura burns every nearby unit that is not fire, and it leaves rubble when it falls.",
+    "elements": [
+      "Fire",
+      "Rock"
+    ],
+    "manaCost": 50
+  },
+  "mini_rock_swarm": {
+    "nameEn": "Mini Rock Swarm",
+    "descriptionEn": "Summons small rock golems that slowly walk to the nearest ground target and hit it in melee. They are sturdy but cannot attack flying units.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "rock_golem": {
+    "nameEn": "Rock Golem",
+    "descriptionEn": "Summons a mossy rock golem that walks to the nearest ground enemy and punches it, pushing it back a little. It cannot hit flying units, and it leaves rubble that blocks ground movement when it falls.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 40
+  },
+  "rock_mage": {
+    "nameEn": "Rock Mage",
+    "descriptionEn": "Summons a rune-stone shaman of the rock golem tribe that walks toward the nearest enemy and throws two rocks per attack, one at each of the two closest enemies in range, or both at one if it is alone. It hits ground and flying targets alike.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 40
+  },
+  "seed_spirit_swarm": {
+    "nameEn": "Seed Spirit Swarm",
+    "descriptionEn": "Summons a swarm of small seed spirits fallen from the World Tree.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "storm_rider": {
+    "nameEn": "Storm Rider",
+    "descriptionEn": "Summons a fast wind spirit rider that runs straight for the enemy base and attacks it in melee. It only fights other ground enemies when the base cannot be targeted.",
+    "elements": [
+      "Lightning",
+      "Water"
+    ],
+    "manaCost": 35
+  },
+  "thunder_spirit": {
+    "nameEn": "Thunder Spirit",
+    "descriptionEn": "Summons a flying lightning spirit that shoots ground enemies, buildings and the enemy base from range. It cannot attack other flying units.",
+    "elements": [
+      "Lightning",
+      "Wind"
+    ],
+    "manaCost": 35
+  },
+  "tornado_strike": {
+    "nameEn": "Tornado Strike",
+    "descriptionEn": "Sends a tornado drifting slowly from the target point toward the center of the field. It catches ground enemies it touches, spins and lifts them into the air, and damages them more the more it carries.",
+    "elements": [
+      "Nature",
+      "Wind"
+    ],
+    "manaCost": 70
+  },
+  "tree_golem": {
+    "nameEn": "Tree Golem",
+    "descriptionEn": "Summons a slow, sturdy tree golem that melee-attacks ground enemies and slowly heals itself. It leaves a trail of leaves that heals anyone standing on it, friend or foe, and slows units that are not nature.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 35
+  },
+  "vine_spirit": {
+    "nameEn": "Vine Spirit",
+    "descriptionEn": "Summons vine spirits that shoot the nearest enemy, ground or air, from range. Each hit snares the target, slowing it and pulling flying units down, and fire damage tears the snare off for extra damage. Nature enemies are immune.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 40
+  },
+  "water_slime_swarm": {
+    "nameEn": "Water Slime Swarm",
+    "descriptionEn": "Summons a swarm of water slimes that attack the nearest ground target from a distance and cannot hit flying units. Their trail leaves water fields that make any non-water unit wet, your own included.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 15
+  },
+  "wind_spirit": {
+    "nameEn": "Wind Spirit",
+    "descriptionEn": "Summons a flying wind spirit that waits until an enemy flying unit appears, then dives at the nearest one and explodes, damaging flying enemies around it. It also explodes where it is killed and never attacks ground units or buildings.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 15
+  },
+  "zap_mouse": {
+    "nameEn": "Zap mouse",
+    "descriptionEn": "Summons a few lightning spirit mice that run past enemy units to the nearest enemy building and attack it in melee, then go for the enemy base. They never target enemy units.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 15
+  },
+  "thunder_bird_swarm": {
+    "nameEn": "Thunder Bird Swarm",
+    "descriptionEn": "Summons a flock of fragile thunderbirds that dive onto ground enemies, buildings or the enemy base, hitting harder the farther they fall, then climb back up. They cannot attack flying units.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 35
+  },
+  "evil_ent": {
+    "nameEn": "Evil Ent",
+    "descriptionEn": "Summons a slow ground giant that punches enemies from range. When a light enemy comes within reach, it drags that enemy in, stuns it, and burns it with a fire fist.",
+    "elements": [
+      "Fire",
+      "Nature"
+    ],
+    "manaCost": 80
+  },
+  "sea_serpent": {
+    "nameEn": "Sea Serpent",
+    "descriptionEn": "Summons a slow ground serpent that leaves water fields along its path. It fires a water beam that hits every enemy standing in a line, flying ones included.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 80
+  },
+  "storm_stag": {
+    "nameEn": "Storm Stag",
+    "descriptionEn": "Summons a thunder stag that builds up speed and rams ground enemies, hitting harder the faster it is going. It bolts away after each hit and zaps nearby enemies with small lightning.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 80
+  },
+  "wall_golem": {
+    "nameEn": "Wall Golem",
+    "descriptionEn": "Summons a very sturdy, slow rock golem that attacks only ground enemies and knocks them back. It leaves a rock remnant behind when it is killed.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 45
+  },
+  "shock_trap": {
+    "nameEn": "Shock Trap",
+    "descriptionEn": "Places a trap that arms when an enemy walks into its area, then after a short delay stuns every enemy still in the area. It is used up once it goes off and deals no damage.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 35
+  },
+  "repair_totem": {
+    "nameEn": "Repair Totem",
+    "descriptionEn": "Builds a totem that pauses the countdown of nearby allied buildings so they last longer while they stay in range. It does not heal them.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 30
+  },
+  "grass_generator": {
+    "nameEn": "Grass Generator",
+    "descriptionEn": "Builds a structure that keeps growing leaf fields around it, which snare enemies and heal allies. Allied seed spirits near it sprout vines that hurt nearby enemies.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 30
+  },
+  "dragon_tower": {
+    "nameEn": "Dragon Tower",
+    "descriptionEn": "Builds a tower that keeps firing burning flame shots straight toward the enemy side, hitting the first ground enemy in the line and burning it. It does not aim, and it expires after a while.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 35
+  },
+  "firework_tower": {
+    "nameEn": "Firework Tower",
+    "descriptionEn": "Builds a tower that keeps lobbing fireworks onto a fixed spot ahead of it toward the enemy side, exploding on arrival and hurting enemies there. It does not aim and expires after a while.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 30
+  },
+  "boulder_strike": {
+    "nameEn": "Boulder Strike",
+    "descriptionEn": "Hurls a boulder that hits the first enemy in its path, knocking it back and stunning it briefly. If the pushed enemy slams into a wall, a rock remnant, or another enemy, it takes extra damage, and so does that enemy.",
+    "elements": [
+      "Rock",
+      "Wind"
+    ],
+    "manaCost": 25
+  },
+  "spirit_bomb": {
+    "nameEn": "Spirit Bomb",
+    "descriptionEn": "Drains your own units down to half health and channels the stolen health into a beam that strikes the closest enemy in the line, four times. Damage left over from a kill moves on to the next enemy in the line.",
+    "elements": [
+      "Lightning"
+    ],
+    "manaCost": 40
+  },
+  "titan_remnant": {
+    "nameEn": "Titan Remnant",
+    "descriptionEn": "Builds a titan remnant that stays for a while and, whenever an enemy is in range, thrusts a giant stone fist up under it, damaging enemies around that spot. It leaves a rock remnant if destroyed.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 35
+  },
+  "tidal_warhead": {
+    "nameEn": "Tidal Warhead",
+    "descriptionEn": "Launches a homing warhead that locks onto the enemy nearest the aimed spot, preferring air targets and using ground targets only if none are flying. It explodes on the first enemy it touches, hurting enemies around the blast, and hits harder against air targets.",
+    "elements": [
+      "Water"
+    ],
+    "manaCost": 25
+  },
+  "bomb_sprite": {
+    "nameEn": "Bomb Sprite",
+    "descriptionEn": "Summons a flying sprite that flies over ground enemies and drops bombs on them, which explode where they land and hurt nearby ground enemies. It ignores air targets and does not die when attacking.",
+    "elements": [
+      "Wind"
+    ],
+    "manaCost": 45
+  },
+  "earth_call": {
+    "nameEn": "Earth Call",
+    "descriptionEn": "Shakes the ground at the chosen spot and raises every rock remnant there, from either side, into your own units: small remnants into mini rocks and medium remnants into rock golems. It does nothing without remnants.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 20
+  },
+  "rock_blast": {
+    "nameEn": "Rock Blast",
+    "descriptionEn": "Detonates every rock remnant in the area, from either side, after a short delay, with each explosion hurting everything near it, your own units too. Medium remnants leave a small remnant behind.",
+    "elements": [
+      "Rock"
+    ],
+    "manaCost": 15
+  },
+  "rallying_totem": {
+    "nameEn": "Rallying Totem",
+    "descriptionEn": "Drops a beacon on the target point that stands for a while and cannot be attacked. Allies within a wide reach stop advancing and gather around it, fighting only enemies that come near, and they attack faster while close to it.",
+    "elements": [
+      "Fire"
+    ],
+    "manaCost": 15
+  },
+  "seed_nest": {
+    "nameEn": "Seed Nest",
+    "descriptionEn": "Builds a nest that spawns a ground seed spirit at regular intervals until the nest expires or is destroyed. Seed spirits fight in melee and leave leaf fields behind as they walk.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 15
+  },
+  "vine_world": {
+    "nameEn": "Vine World",
+    "descriptionEn": "Plants a giant vine that damages and slows enemies around it at once, then a moment later grows two rings of vines that hit each enemy once more. Each enemy the vines hit leaves you a seed spirit, and your seed spirits touched by the vines grow into vine spirits.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 70
+  },
+  "bean_shooter": {
+    "nameEn": "Bean Shooter",
+    "descriptionEn": "Summons a ground unit that shoots beans in a straight line at the closest ground enemy. A bean hits the first ground enemy in its path and cannot hit air units.",
+    "elements": [
+      "Nature"
+    ],
+    "manaCost": 40
+  }
+}

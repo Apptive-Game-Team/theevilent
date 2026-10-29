@@ -178,6 +178,538 @@ export const magicArtwork: Record<string, MagicArtwork> = {
       height: 640,
     })),
   },
+  shock_trap: {
+    concept: {
+      src: '/game-assets/shock-trap.webp',
+      alt: '나뭇가지 둥지 안에 노란 전격 결정이 세워진 감전 덫',
+      caption: '세계수 전기 정령의 설치 마법 · 감전 덫',
+    },
+  },
+  repair_totem: {
+    concept: {
+      src: '/game-assets/repair-totem.webp',
+      alt: '덩굴로 감긴 나무 기둥 위에 녹색 결정이 자란 정비 토템',
+      caption: '귀속 미정의 설치 마법 · 정비 토템',
+    },
+  },
+  grass_generator: {
+    concept: {
+      src: '/game-assets/grass-generator.webp',
+      alt: '녹색 잎 더미 중앙에 연두색 결정이 박힌 풀 배양기',
+      caption: '귀속 미정의 설치 마법 · 풀 배양기',
+    },
+  },
+  dragon_tower: {
+    concept: {
+      src: '/game-assets/dragon-tower.webp',
+      alt: '갈라진 용암 결이 흐르는 인간 마법 문명의 화룡 포탑',
+      caption: '인간 마법 문명의 설치 마법 · 화룡 포탑',
+    },
+  },
+  firework_tower: {
+    concept: {
+      src: '/game-assets/firework-tower.webp',
+      alt: '검붉은 종이 갑각 안에서 용암광이 새어 나오는 폭죽 포탑',
+      caption: '지옥불 군단의 설치 마법 · 폭죽 포탑',
+    },
+  },
+  frenzy_totem: {
+    concept: {
+      src: '/game-assets/frenzy-totem.webp',
+      alt: '뿔 달린 붉은 악마 가면 모양의 군단 광란토템',
+      caption: '지옥불 군단의 투하 마법 · 군단 광란토템',
+    },
+  },
+  boulder_strike: {
+    concept: {
+      src: '/game-assets/boulder-strike.webp',
+      alt: '초승달 모양 바람 자국을 뒤따르며 밀려 나가는 이끼 낀 바위',
+      caption: '귀속 미정의 투사체 마법 · 질풍 낙석탄',
+    },
+  },
+  spirit_bomb: {
+    concept: {
+      src: '/game-assets/spirit-bomb.webp',
+      alt: '금색 코어에서 풀색 결정 날개가 뻗어 나가는 정령력 집속포',
+      caption: '귀속 미정의 투사체 마법 · 정령력 집속포',
+    },
+  },
+  titan_remnant: {
+    concept: {
+      src: '/game-assets/titan-remnant.webp',
+      alt: '이끼 낀 거대한 석재 잔해가 쌓여 형태를 이룬 거신의 잔해',
+      caption: '귀속 미정의 설치 마법 · 거신의 잔해',
+    },
+  },
+  tidal_warhead: {
+    concept: {
+      src: '/game-assets/tidal-warhead.webp',
+      alt: '어두운 눈을 가진 청록색 상어 모양의 공중 표적용 해일 탄두',
+      caption: '귀속 미정의 투사체 마법 · 해일 탄두 · 공중 표적',
+    },
+  },
+  cannon: {
+    concept: {
+      src: '/game-assets/cannon.webp',
+      alt: '인간 마법 문명의 마도 대포 인게임 스프라이트',
+      caption: '인간 마법 문명의 설치 마법 · 마도 대포',
+    },
+  },
+  fire_slime_nest: {
+    concept: {
+      src: '/game-assets/fire-slime-nest.webp',
+      alt: '지옥불 군단의 지옥불 산란장 인게임 스프라이트',
+      caption: '지옥불 군단의 설치 마법 · 지옥불 산란장',
+    },
+  },
+  healing_totem: {
+    concept: {
+      src: '/game-assets/healing-totem.webp',
+      alt: '세계수 풀 정령의 세계수 치유토템 인게임 스프라이트',
+      caption: '세계수 풀 정령의 설치 마법 · 세계수 치유토템',
+    },
+  },
+  lightning_slime_nest: {
+    concept: {
+      src: '/game-assets/lightning-slime-nest.webp',
+      alt: '세계수 전기 정령의 뇌광 정령제단 인게임 스프라이트',
+      caption: '세계수 전기 정령의 설치 마법 · 뇌광 정령제단',
+    },
+  },
+  mana_well: {
+    concept: {
+      src: '/game-assets/mana-well.webp',
+      alt: '세계수 풀 정령의 비전 마나샘 인게임 스프라이트',
+      caption: '세계수 풀 정령의 설치 마법 · 비전 마나샘',
+    },
+  },
+  nature_slime_nest: {
+    concept: {
+      src: '/game-assets/nature-slime-nest.webp',
+      alt: '세계수 풀 정령의 세계수 씨앗터 인게임 스프라이트',
+      caption: '세계수 풀 정령의 설치 마법 · 세계수 씨앗터',
+    },
+  },
+  pve_water_slime_nest: {
+    concept: {
+      src: '/game-assets/pve-water-slime-nest.webp',
+      alt: '물 슬라임의 물방울 보금자리 인게임 스프라이트',
+      caption: '물 슬라임의 설치 마법 · 물방울 보금자리',
+    },
+  },
+  rock_slime_nest: {
+    concept: {
+      src: '/game-assets/rock-slime-nest.webp',
+      alt: '돌 골렘 부족의 꼬마돌 집결지 인게임 스프라이트',
+      caption: '돌 골렘 부족의 설치 마법 · 꼬마돌 집결지',
+    },
+  },
+  tower: {
+    concept: {
+      src: '/game-assets/tower.webp',
+      alt: '인간 마법 문명의 대공 마도탑 인게임 스프라이트',
+      caption: '인간 마법 문명의 설치 마법 · 대공 마도탑',
+    },
+  },
+  towerback: {
+    concept: {
+      src: '/game-assets/towerback.webp',
+      alt: '인간 마법 문명의 포탑등이 인게임 스프라이트',
+      caption: '인간 마법 문명의 설치 마법 · 포탑등이',
+    },
+  },
+  vine_colony: {
+    concept: {
+      src: '/game-assets/vine-colony.webp',
+      alt: '세계수 풀 정령의 덩굴 군락 인게임 스프라이트',
+      caption: '세계수 풀 정령의 설치 마법 · 덩굴 군락',
+    },
+  },
+  wind_slime_nest: {
+    concept: {
+      src: '/game-assets/wind-slime-nest.webp',
+      alt: '세계수 바람 정령의 바람 정령제단 인게임 스프라이트',
+      caption: '세계수 바람 정령의 설치 마법 · 바람 정령제단',
+    },
+  },
+  bubble_generator: {
+    concept: {
+      src: '/game-assets/bubble-generator.webp',
+      alt: '물 슬라임의 물방울 배양기 인게임 스프라이트',
+      caption: '물 슬라임의 설치 마법 · 물방울 배양기',
+    },
+  },
+  electric_tower: {
+    concept: {
+      src: '/game-assets/electric-tower.webp',
+      alt: '세계수 전기 정령의 뇌전 마도탑 인게임 스프라이트',
+      caption: '세계수 전기 정령의 설치 마법 · 뇌전 마도탑',
+    },
+  },
+  life_tree: {
+    concept: {
+      src: '/game-assets/life-tree.webp',
+      alt: '세계수 풀 정령의 생명의 묘목 인게임 스프라이트',
+      caption: '세계수 풀 정령의 설치 마법 · 생명의 묘목',
+    },
+  },
+  rock_turret: {
+    concept: {
+      src: '/game-assets/rock-turret.webp',
+      alt: '돌 골렘 부족의 암석 포탑 인게임 스프라이트',
+      caption: '돌 골렘 부족의 설치 마법 · 암석 포탑',
+    },
+  },
+  wind_totem: {
+    concept: {
+      src: '/game-assets/wind-totem.webp',
+      alt: '세계수 바람 정령의 순풍 토템 인게임 스프라이트',
+      caption: '세계수 바람 정령의 설치 마법 · 순풍 토템',
+    },
+  },
+  fire_drop: {
+    concept: {
+      src: '/game-assets/fire-drop.webp',
+      alt: '지옥불 군단의 지옥불 강하 인게임 스프라이트',
+      caption: '지옥불 군단의 투하 마법 · 지옥불 강하',
+    },
+  },
+  leafair: {
+    concept: {
+      src: '/game-assets/leafair.webp',
+      alt: '세계수 풀 정령의 잎바람 요정 인게임 스프라이트',
+      caption: '세계수 풀 정령의 투하 마법 · 잎바람 요정',
+    },
+  },
+  meteor_shower: {
+    concept: {
+      src: '/game-assets/meteor-shower.webp',
+      alt: '지옥불 군단의 지옥불 유성우 인게임 스프라이트',
+      caption: '지옥불 군단의 투하 마법 · 지옥불 유성우',
+    },
+  },
+  nature_drop: {
+    concept: {
+      src: '/game-assets/nature-drop.webp',
+      alt: '세계수 풀 정령의 뿌리 강하 인게임 스프라이트',
+      caption: '세계수 풀 정령의 투하 마법 · 뿌리 강하',
+    },
+  },
+  rallying_torch: {
+    concept: {
+      src: '/game-assets/rallying-torch.webp',
+      alt: '인간 마법 문명의 집결 신호화 인게임 스프라이트',
+      caption: '인간 마법 문명의 투하 마법 · 집결 신호화',
+    },
+  },
+  rock_drop: {
+    concept: {
+      src: '/game-assets/rock-drop.webp',
+      alt: '돌 골렘 부족의 거석 낙하 인게임 스프라이트',
+      caption: '돌 골렘 부족의 투하 마법 · 거석 낙하',
+    },
+  },
+  wind_drop: {
+    concept: {
+      src: '/game-assets/wind-drop.webp',
+      alt: '세계수 바람 정령의 하강 돌풍 인게임 스프라이트',
+      caption: '세계수 바람 정령의 투하 마법 · 하강 돌풍',
+    },
+  },
+  lightning_explosion: {
+    concept: {
+      src: '/game-assets/lightning-explosion.webp',
+      alt: '세계수 전기 정령의 뇌광 폭발 인게임 스프라이트',
+      caption: '세계수 전기 정령의 폭발 마법 · 뇌광 폭발',
+    },
+  },
+  overgrowth: {
+    concept: {
+      src: '/game-assets/overgrowth.webp',
+      alt: '세계수 풀 정령의 세계수의 과생장 인게임 스프라이트',
+      caption: '세계수 풀 정령의 폭발 마법 · 세계수의 과생장',
+    },
+  },
+  razor_gale: {
+    concept: {
+      src: '/game-assets/razor-gale.webp',
+      alt: '세계수 바람 정령의 면도날 회오리 인게임 스프라이트',
+      caption: '세계수 바람 정령의 폭발 마법 · 면도날 회오리',
+    },
+  },
+  sand_storm: {
+    concept: {
+      src: '/game-assets/sand-storm.webp',
+      alt: '세계수 바람 정령의 황진 폭풍 인게임 스프라이트',
+      caption: '세계수 바람 정령의 폭발 마법 · 황진 폭풍',
+    },
+  },
+  shock_overload: {
+    concept: {
+      src: '/game-assets/shock-overload.webp',
+      alt: '세계수 전기 정령의 뇌광 과부하 인게임 스프라이트',
+      caption: '세계수 전기 정령의 폭발 마법 · 뇌광 과부하',
+    },
+  },
+  water_explosion: {
+    concept: {
+      src: '/game-assets/water-explosion.webp',
+      alt: '물 슬라임의 솟구치는 간헐천 인게임 스프라이트',
+      caption: '물 슬라임의 폭발 마법 · 솟구치는 간헐천',
+    },
+  },
+  wind_explosion: {
+    concept: {
+      src: '/game-assets/wind-explosion.webp',
+      alt: '세계수 바람 정령의 터지는 돌풍 인게임 스프라이트',
+      caption: '세계수 바람 정령의 폭발 마법 · 터지는 돌풍',
+    },
+  },
+  lightning_shot: {
+    concept: {
+      src: '/game-assets/lightning-shot.webp',
+      alt: '세계수 전기 정령의 번개 파편 인게임 스프라이트',
+      caption: '세계수 전기 정령의 투사체 마법 · 번개 파편',
+    },
+  },
+  rock_rolling: {
+    concept: {
+      src: '/game-assets/rock-rolling.webp',
+      alt: '돌 골렘 부족의 구르는 거석 인게임 스프라이트',
+      caption: '돌 골렘 부족의 투사체 마법 · 구르는 거석',
+    },
+  },
+  tide_call: {
+    concept: {
+      src: '/game-assets/tide-call.webp',
+      alt: '물 슬라임의 밀려드는 해일 인게임 스프라이트',
+      caption: '물 슬라임의 투사체 마법 · 밀려드는 해일',
+    },
+  },
+  vine_fan: {
+    concept: {
+      src: '/game-assets/vine-fan.webp',
+      alt: '세계수 풀 정령의 세 갈래 덩굴 인게임 스프라이트',
+      caption: '세계수 풀 정령의 투사체 마법 · 세 갈래 덩굴',
+    },
+  },
+  vine_toss: {
+    concept: {
+      src: '/game-assets/vine-toss.webp',
+      alt: '세계수 풀 정령의 솟구치는 덩굴 인게임 스프라이트',
+      caption: '세계수 풀 정령의 투사체 마법 · 솟구치는 덩굴',
+    },
+  },
+  water_shot: {
+    concept: {
+      src: '/game-assets/water-shot.webp',
+      alt: '물 슬라임의 응축 물방울 인게임 스프라이트',
+      caption: '물 슬라임의 투사체 마법 · 응축 물방울',
+    },
+  },
+  will_o_wisp: {
+    concept: {
+      src: '/game-assets/will-o-wisp.webp',
+      alt: '세계수 풀 정령의 길잡이 도깨비불 인게임 스프라이트',
+      caption: '세계수 풀 정령의 투사체 마법 · 길잡이 도깨비불',
+    },
+  },
+  wind_blade: {
+    concept: {
+      src: '/game-assets/wind-blade.webp',
+      alt: '세계수 바람 정령의 초승달 바람칼 인게임 스프라이트',
+      caption: '세계수 바람 정령의 투사체 마법 · 초승달 바람칼',
+    },
+  },
+  aqua_archer: {
+    concept: {
+      src: '/game-assets/aqua-archer.webp',
+      alt: '물 슬라임의 물결 궁수 인게임 스프라이트',
+      caption: '물 슬라임의 소환 마법 · 물결 궁수',
+    },
+  },
+  bubble_spirit: {
+    concept: {
+      src: '/game-assets/bubble-spirit.webp',
+      alt: '물 슬라임의 거품 슬라임 인게임 스프라이트',
+      caption: '물 슬라임의 소환 마법 · 거품 슬라임',
+    },
+  },
+  cloud_dragon: {
+    concept: {
+      src: '/game-assets/cloud-dragon.webp',
+      alt: '세계수 바람 정령의 구름비늘 운룡 인게임 스프라이트',
+      caption: '세계수 바람 정령의 소환 마법 · 구름비늘 운룡',
+    },
+  },
+  magma_spirit: {
+    concept: {
+      src: '/game-assets/magma-spirit.webp',
+      alt: '지옥불 군단의 용암 갑각 악마 인게임 스프라이트',
+      caption: '지옥불 군단의 소환 마법 · 용암 갑각 악마',
+    },
+  },
+  mini_rock_swarm: {
+    concept: {
+      src: '/game-assets/mini-rock-swarm.webp',
+      alt: '돌 골렘 부족의 꼬마돌 돌격대 인게임 스프라이트',
+      caption: '돌 골렘 부족의 소환 마법 · 꼬마돌 돌격대',
+    },
+  },
+  rock_golem: {
+    concept: {
+      src: '/game-assets/rock-golem.webp',
+      alt: '돌 골렘 부족의 이끼바위 골렘 인게임 스프라이트',
+      caption: '돌 골렘 부족의 소환 마법 · 이끼바위 골렘',
+    },
+  },
+  rock_mage: {
+    concept: {
+      src: '/game-assets/rock-mage.webp',
+      alt: '돌 골렘 부족의 룬바위 주술사 인게임 스프라이트',
+      caption: '돌 골렘 부족의 소환 마법 · 룬바위 주술사',
+    },
+  },
+  seed_spirit_swarm: {
+    concept: {
+      src: '/game-assets/seed-spirit-swarm.webp',
+      alt: '세계수 풀 정령의 씨앗 정령 군락 인게임 스프라이트',
+      caption: '세계수 풀 정령의 소환 마법 · 씨앗 정령 군락',
+    },
+  },
+  storm_rider: {
+    concept: {
+      src: '/game-assets/storm-rider.webp',
+      alt: '세계수 바람 정령의 폭풍갈기 기수 인게임 스프라이트',
+      caption: '세계수 바람 정령의 소환 마법 · 폭풍갈기 기수',
+    },
+  },
+  thunder_spirit: {
+    concept: {
+      src: '/game-assets/thunder-spirit.webp',
+      alt: '세계수 전기 정령의 뇌광 정령 인게임 스프라이트',
+      caption: '세계수 전기 정령의 소환 마법 · 뇌광 정령',
+    },
+  },
+  tornado_strike: {
+    concept: {
+      src: '/game-assets/tornado-strike.webp',
+      alt: '세계수 바람 정령의 회오리 정령 인게임 스프라이트',
+      caption: '세계수 바람 정령의 소환 마법 · 회오리 정령',
+    },
+  },
+  tree_golem: {
+    concept: {
+      src: '/game-assets/tree-golem.webp',
+      alt: '세계수 풀 정령의 고목 수호자 인게임 스프라이트',
+      caption: '세계수 풀 정령의 소환 마법 · 고목 수호자',
+    },
+  },
+  vine_spirit: {
+    concept: {
+      src: '/game-assets/vine-spirit.webp',
+      alt: '세계수 풀 정령의 덩굴 추적자 인게임 스프라이트',
+      caption: '세계수 풀 정령의 소환 마법 · 덩굴 추적자',
+    },
+  },
+  water_slime_swarm: {
+    concept: {
+      src: '/game-assets/water-slime-swarm.webp',
+      alt: '물 슬라임의 물방울 생존자 무리 인게임 스프라이트',
+      caption: '물 슬라임의 소환 마법 · 물방울 생존자 무리',
+    },
+  },
+  wind_spirit: {
+    concept: {
+      src: '/game-assets/wind-spirit.webp',
+      alt: '세계수 바람 정령의 질풍 정령 인게임 스프라이트',
+      caption: '세계수 바람 정령의 소환 마법 · 질풍 정령',
+    },
+  },
+  zap_mouse: {
+    concept: {
+      src: '/game-assets/zap-mouse.webp',
+      alt: '세계수 전기 정령의 찌릿꼬리쥐 인게임 스프라이트',
+      caption: '세계수 전기 정령의 소환 마법 · 찌릿꼬리쥐',
+    },
+  },
+  thunder_bird_swarm: {
+    concept: {
+      src: '/game-assets/thunder-bird-swarm.webp',
+      alt: '세계수 전기 정령의 천둥새 편대 인게임 스프라이트',
+      caption: '세계수 전기 정령의 소환 마법 · 천둥새 편대',
+    },
+  },
+  sea_serpent: {
+    concept: {
+      src: '/game-assets/sea-serpent.webp',
+      alt: '귀속 미정의 심해 뱀 인게임 스프라이트',
+      caption: '귀속 미정의 소환 마법 · 심해 뱀',
+    },
+  },
+  storm_stag: {
+    concept: {
+      src: '/game-assets/storm-stag.webp',
+      alt: '세계수 바람 정령의 폭풍 사슴 인게임 스프라이트',
+      caption: '세계수 바람 정령의 소환 마법 · 폭풍 사슴',
+    },
+  },
+  wall_golem: {
+    concept: {
+      src: '/game-assets/wall-golem.webp',
+      alt: '귀속 미정의 성벽 골렘 인게임 스프라이트',
+      caption: '귀속 미정의 소환 마법 · 성벽 골렘',
+    },
+  },
+  bomb_sprite: {
+    concept: {
+      src: '/game-assets/bomb-sprite.webp',
+      alt: '귀속 미정의 공습 폭탄요정 인게임 스프라이트',
+      caption: '귀속 미정의 소환 마법 · 공습 폭탄요정',
+    },
+  },
+  earth_call: {
+    concept: {
+      src: '/game-assets/earth-call.webp',
+      alt: '돌 골렘 부족의 대지의 부름 인게임 스프라이트',
+      caption: '돌 골렘 부족의 소환 마법 · 대지의 부름',
+    },
+  },
+  rock_blast: {
+    concept: {
+      src: '/game-assets/rock-blast.webp',
+      alt: '돌 골렘 부족의 돌 폭발 인게임 스프라이트',
+      caption: '돌 골렘 부족의 폭발 마법 · 돌 폭발',
+    },
+  },
+  rallying_totem: {
+    concept: {
+      src: '/game-assets/rallying-totem.webp',
+      alt: '인간 마법 문명의 집결 신호탑 인게임 스프라이트',
+      caption: '인간 마법 문명의 설치 마법 · 집결의 토템',
+    },
+  },
+  seed_nest: {
+    concept: {
+      src: '/game-assets/seed-nest.webp',
+      alt: '세계수 정령의 풀씨 둥지 인게임 스프라이트',
+      caption: '세계수 정령의 설치 마법 · 풀씨 둥지',
+    },
+  },
+  vine_world: {
+    concept: {
+      src: '/game-assets/vine-world.webp',
+      alt: '세계수 정령의 거대 덩굴 인게임 스프라이트',
+      caption: '세계수 정령의 폭발 마법 · 덩굴 세계',
+    },
+  },
+  bean_shooter: {
+    concept: {
+      src: '/game-assets/bean-shooter.webp',
+      alt: '세계수 정령의 콩알 사수 인게임 스프라이트',
+      caption: '세계수 정령의 소환 마법 · 콩알 사수',
+    },
+  },
 };
 
 export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
@@ -199,6 +731,44 @@ export const magicAccessoryArtwork: Record<string, AccessoryArtwork[]> = {
       caption: '지옥불 공용 오라 · 대기 맥동과 공격 파동에 사용',
       width: 512,
       height: 295,
+    },
+  ],
+  titan_remnant: [
+    {
+      heading: '부속 에셋 · 솟구치는 돌주먹',
+      src: '/game-assets/titan-fist.webp',
+      alt: '적 위치에서 아래에서 위로 솟구치는 거대한 돌주먹',
+      caption: '거신의 잔해 · 적 위치에 별도 생성되는 돌주먹 공격 · 본체와 별도 개체',
+      width: 180,
+      height: 247,
+    },
+  ],
+  tidal_warhead: [
+    {
+      heading: '부속 에셋 · 지상 표적 변형',
+      src: '/game-assets/ground-tidal-warhead.webp',
+      alt: '밝은 눈을 가진 지상 표적용 해일 탄두, 몸통 실루엣은 공중형과 동일',
+      caption: '해일 탄두 · 지상 표적 · 밝은 눈 · 본체와 동일 실루엣',
+      width: 256,
+      height: 256,
+    },
+  ],
+  firework_tower: [
+    {
+      heading: '부속 에셋 · 발사 포탄',
+      src: '/game-assets/firework-shell.webp',
+      alt: '검붉은 갑각에 감싸인 작은 폭죽 포탄',
+      caption: '폭죽 타워 · 발사되는 포탄',
+      width: 128,
+      height: 109,
+    },
+    {
+      heading: '부속 에셋 · 폭발',
+      src: '/game-assets/firework-explosion.webp',
+      alt: '검붉은 갑각 파편이 사방으로 터지며 용암광이 번지는 폭발',
+      caption: '폭죽 타워 · 착탄 시 폭발',
+      width: 254,
+      height: 238,
     },
   ],
 };

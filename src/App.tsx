@@ -1,49 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
 import type { TabId } from './content/siteContent';
 import Home from './pages/Home';
-import Games from './pages/Games';
 import Team from './pages/Team';
 import MagicCompendium from './pages/MagicCompendium';
-import SummonCompendium from './pages/SummonCompendium';
+import Rankings from './pages/Rankings';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import News from './pages/News';
+import Account from './pages/Account';
 import ComicReader from './pages/ComicReader';
-import { getLegacyPathFromHash, getRouteFromPathname, getTabPath } from './routing';
-
-function CursorGlow() {
-  const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const glow = glowRef.current;
-      if (!glow) return;
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return <div ref={glowRef} className="custom-cursor-glow" style={{ left: 0, top: 0 }} />;
-}
+import { useLanguage } from './i18n/language';
+import { getLegacyPathFromHash, getRedirectPath, getRouteFromPathname, getTabPath } from './routing';
 
 function App() {
+  const { language } = useLanguage();
   const [route, setRoute] = useState(() => {
-    const legacyPath = getLegacyPathFromHash(window.location.hash);
+    const legacyPath = getLegacyPathFromHash(window.location.hash)
+      ?? getRedirectPath(window.location.pathname);
     if (legacyPath) window.history.replaceState(null, '', legacyPath);
     return getRouteFromPathname(window.location.pathname);
   });
 
   useEffect(() => {
     const handlePopState = () => {
+      const redirect = getRedirectPath(window.location.pathname);
+      if (redirect) window.history.replaceState(null, '', redirect);
       setRoute(getRouteFromPathname(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -55,8 +38,8 @@ function App() {
   }, []);
 
   const navigateToTab = (tabId: TabId) => {
-    setRoute({ tab: tabId });
-    const nextPath = getTabPath(tabId);
+    const nextPath = tabId === 'comic' ? `/arcane-casters/comic/1/${language}` : getTabPath(tabId);
+    setRoute(getRouteFromPathname(nextPath));
 
     if (`${window.location.pathname}${window.location.search}` !== nextPath) {
       window.history.pushState(null, '', nextPath);
@@ -69,14 +52,20 @@ function App() {
     switch (route.tab) {
       case 'home':
         return <Home navigateToTab={navigateToTab} />;
-      case 'games':
-        return <Games />;
       case 'magic':
         return <MagicCompendium slug={route.slug} />;
-      case 'summons':
-        return <SummonCompendium slug={route.slug} />;
+      case 'rankings':
+        return <Rankings />;
       case 'team':
         return <Team />;
+      case 'privacy':
+        return <Privacy />;
+      case 'terms':
+        return <Terms />;
+      case 'news':
+        return <News />;
+      case 'account':
+        return <Account />;
       case 'comic':
         return <ComicReader key={route.locale} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
       default:
@@ -86,9 +75,6 @@ function App() {
 
   return (
     <div style={styles.appLayout}>
-      {route.tab !== 'comic' && <CursorGlow />}
-
-      {route.tab !== 'comic' && <ParticleBackground />}
       <a href="#main-content" className="skip-link">
         Skip To Main Content
       </a>

@@ -1,6 +1,6 @@
 ---
 name: verify-homepage
-description: Compiles the Vite React project and runs Playwright tests to visually verify all pages (Home, Games, Team) of the Evil Ent homepage.
+description: Compiles the Vite React project and runs Playwright tests to visually verify all pages (Home, Magic, Team) of the Evil Ent homepage.
 ---
 
 # Visual Verification Skill

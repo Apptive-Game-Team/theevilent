@@ -1,448 +1,66 @@
-import React, { useState } from 'react';
-import { Mail, Compass, Send, Sparkles } from 'lucide-react';
+import React from 'react';
 import { teamMembers } from '../content/siteContent';
+import { useCopy } from '../i18n/language';
+import './Team.css';
 
-const summonRecipients = teamMembers.map((member) => member.email).join(',');
+// The first card is the client's Battle orange, the second its mana blue —
+// the same two-accent pairing the mockup (Team.dc.html) uses, independent of
+// whatever `accent` sits on the teamMembers record.
+const avatarAccents = ['var(--color-primary)', 'var(--color-mana)'];
 
-export const Team: React.FC = () => {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formState.name && formState.email && formState.message) {
-      const subject = encodeURIComponent(`[The Evil Ent] Summon from ${formState.name}`);
-      const body = encodeURIComponent(
-        [
-          formState.message,
-          '',
-          '---',
-          `Name: ${formState.name}`,
-          `Reply-To: ${formState.email}`,
-        ].join('\n'),
-      );
-
-      window.location.href = `mailto:${summonRecipients}?subject=${subject}&body=${body}`;
-    }
-  };
-
-  return (
-    <div style={styles.page}>
-      {/* Introduction Header */}
-      <section style={styles.introSection}>
-        <div className="container" style={styles.introContainer}>
-          <h1 style={styles.title} className="text-glow">THE SUMMONERS</h1>
-          <p style={styles.subtitle}>
-            The Evil Ent는 2명의 개발자로 구성된 인디 게임 팀입니다. 클라이언트(Unity), 서버(Backend), 시스템 인프라(Infra)를 직접 설계하고 아우르며 완성도 높은 게임을 빌드하고 있습니다.
-          </p>
-        </div>
-      </section>
-
-      {/* Member Cards Grid */}
-      <section style={styles.teamSection}>
-        <div className="container">
-          <div className="grid-2" style={styles.teamGrid}>
-            {teamMembers.map((member) => (
-              <div 
-                key={member.name} 
-                className="gothic-card" 
-                style={{
-                  ...styles.memberCard,
-                  borderColor: `rgba(45, 35, 30, 0.6)`,
-                }}
-              >
-                {/* Avatar Icon */}
-                <div style={styles.avatarRow}>
-                  <div 
-                    style={{
-                      ...styles.avatar,
-                      borderColor: member.accent,
-                      boxShadow: `0 0 15px ${member.accent}33`,
-                    }}
-                  >
-                    <span style={{ ...styles.avatarText, color: member.accent }}>
-                      {member.avatarText}
-                    </span>
-                  </div>
-                  <div>
-                    <h2 style={styles.memberName} translate="no">{member.name}</h2>
-                    <h4 style={{ ...styles.memberRole, color: member.accent }}>
-                      {member.role}
-                    </h4>
-                  </div>
-                </div>
-
-                <p style={styles.memberBio}>{member.bio}</p>
-
-                {/* Member links */}
-                <div style={styles.socialRow}>
-                  <a 
-                    href={member.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    style={styles.socialLink}
-                    className="Team_socialLink"
-                    title="GitHub Profile"
-                    aria-label={`${member.name} GitHub Profile`}
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                      <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                  </a>
-                  <a 
-                    href={`mailto:${member.email}`} 
-                    style={styles.socialLink}
-                    className="Team_socialLink"
-                    title="Send Email"
-                    aria-label={`Send Email To ${member.name}`}
-                  >
-                    <Mail size={20} aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Studio Philosophy / Contact Section */}
-      <section style={styles.sectionDark}>
-        <div className="container">
-          <div className="Team_contactGrid" style={styles.contactGrid}>
-            {/* Left: Philosophy */}
-            <div style={styles.philosophyCol}>
-              <h2 style={styles.sectionTitle}>
-                OUR <span className="accent-color">PHILOSOPHY</span>
-              </h2>
-              <ul style={styles.philoList}>
-                <li style={styles.philoItem}>
-                  <div style={styles.philoIconWrapper}>
-                    <Sparkles size={18} color="var(--color-primary)" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <strong style={styles.philoTitle}>재미있는 게임을 만들자</strong>
-                    <p style={styles.philoDesc}>
-                      장르적 클리셰에 얽매이지 않고, 플레이어에게 실질적인 흥미와 도전을 유발하는 가장 원초적인 즐거움을 연구합니다.
-                    </p>
-                  </div>
-                </li>
-                <li style={styles.philoItem}>
-                  <div style={styles.philoIconWrapper}>
-                    <Compass size={18} color="var(--color-primary)" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <strong style={styles.philoTitle}>게임 같은 게임을 만들자</strong>
-                    <p style={styles.philoDesc}>
-                      조작과 선택의 결과가 직관적이며, 플레이어가 몰입하여 스스로 흐름을 장악해 나가는 진정한 의미의 놀이를 창조하고자 합니다.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Right: Contact Form */}
-            <div style={styles.formCol}>
-              <div className="gothic-card" style={styles.formCard}>
-                <h3 style={styles.formTitle}>SEND A SUMMON</h3>
-                <p style={styles.formSubtitle}>건의 사항, 버그 리포트, 협업 제안 등을 작성하면 이메일 앱에서 최종 전송할 수 있습니다.</p>
-
-                <form onSubmit={handleSubmit} style={styles.form}>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-name" style={styles.label}>Name</label>
-                    <input 
-                      id="contact-name"
-                      name="name"
-                      type="text" 
-                      autoComplete="name"
-                      required 
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      style={styles.input}
-                      className="Team_input"
-                      placeholder="이름 또는 닉네임…"
-                    />
-                  </div>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-email" style={styles.label}>Email Address</label>
-                    <input 
-                      id="contact-email"
-                      name="email"
-                      type="email" 
-                      autoComplete="email"
-                      required 
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      style={styles.input}
-                      className="Team_input"
-                      placeholder="player@example.com…"
-                      spellCheck={false}
-                    />
-                  </div>
-                  <div style={styles.formGroup}>
-                    <label htmlFor="contact-message" style={styles.label}>Message</label>
-                    <textarea 
-                      id="contact-message"
-                      name="message"
-                      rows={4} 
-                      required 
-                      autoComplete="off"
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      style={styles.textarea}
-                      className="Team_textarea"
-                      placeholder="메시지 내용을 입력하세요…"
-                    />
-                  </div>
-                  <button type="submit" className="btn-primary" style={styles.submitBtn}>
-                    <Send size={16} aria-hidden="true" />
-                    이메일 앱 열기
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+const copy = {
+  ko: { mail: '메일', github: 'GitHub', logoAlt: 'The Evil Ent 스튜디오 로고' },
+  en: { mail: 'Email', github: 'GitHub', logoAlt: 'The Evil Ent studio logo' },
 };
 
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    width: '100%',
-  },
-  introSection: {
-    padding: '6.5rem 0 3rem 0',
-    textAlign: 'center',
-  },
-  introContainer: {
-    maxWidth: '750px',
-  },
-  title: {
-    fontSize: '2.8rem',
-    marginBottom: '1rem',
-    letterSpacing: '0.15em',
-  },
-  subtitle: {
-    fontSize: '1.1rem',
-    color: 'var(--color-text-muted)',
-    lineHeight: '1.7',
-    fontWeight: '300',
-  },
-  teamSection: {
-    padding: '3rem 0 6rem 0',
-  },
-  teamGrid: {
-    maxWidth: '1000px',
-    margin: '0 auto',
-  },
-  memberCard: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.5rem',
-    padding: '2.5rem',
-    minWidth: 0,
-  },
-  avatarRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1.25rem',
-    minWidth: 0,
-  },
-  avatar: {
-    width: '64px',
-    height: '64px',
-    borderRadius: '8px',
-    border: '2px solid',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#0a0908',
-  },
-  avatarText: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '900',
-    fontSize: '1.5rem',
-    letterSpacing: '0.05em',
-  },
-  memberName: {
-    fontSize: '1.6rem',
-    fontWeight: '700',
-    letterSpacing: '0.05em',
-    overflowWrap: 'anywhere',
-  },
-  memberRole: {
-    fontSize: '0.9rem',
-    fontWeight: '600',
-    letterSpacing: '0.05em',
-    marginTop: '0.2rem',
-    overflowWrap: 'anywhere',
-  },
-  memberBio: {
-    color: 'var(--color-text-muted)',
-    fontSize: '1rem',
-    lineHeight: '1.7',
-    flexGrow: 1,
-    overflowWrap: 'anywhere',
-  },
-  socialRow: {
-    display: 'flex',
-    gap: '1rem',
-    marginTop: '0.5rem',
-  },
-  socialLink: {
-    color: 'var(--color-text-muted)',
-    transition: 'color 0.2s ease, transform 0.2s ease',
-    display: 'inline-flex',
-    padding: '0.25rem',
-    borderRadius: '4px',
-  },
-  sectionDark: {
-    padding: '6rem 0 8rem 0',
-    backgroundColor: 'rgba(9, 8, 7, 0.4)',
-    borderTop: '1px solid #1a1512',
-  },
-  sectionTitle: {
-    fontSize: '2rem',
-    marginBottom: '2rem',
-    letterSpacing: '0.1em',
-    borderLeft: '4px solid var(--color-primary)',
-    paddingLeft: '1rem',
-  },
-  contactGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: '4rem',
-    alignItems: 'start',
-  },
-  philosophyCol: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  philoList: {
-    listStyle: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '2rem',
-  },
-  philoItem: {
-    display: 'flex',
-    gap: '1.25rem',
-    alignItems: 'flex-start',
-  },
-  philoIconWrapper: {
-    backgroundColor: 'rgba(230, 30, 42, 0.1)',
-    width: '40px',
-    height: '40px',
-    borderRadius: '6px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    border: '1px solid #3d2222',
-  },
-  philoTitle: {
-    display: 'block',
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    color: 'var(--color-text-light)',
-    marginBottom: '0.35rem',
-  },
-  philoDesc: {
-    fontSize: '0.95rem',
-    color: 'var(--color-text-muted)',
-    lineHeight: '1.65',
-  },
-  formCol: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  formCard: {
-    width: '100%',
-    maxWidth: '480px',
-    padding: '2.5rem',
-  },
-  formTitle: {
-    fontSize: '1.3rem',
-    letterSpacing: '0.1em',
-    marginBottom: '0.5rem',
-  },
-  formSubtitle: {
-    color: 'var(--color-text-muted)',
-    fontSize: '0.9rem',
-    marginBottom: '2rem',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.25rem',
-  },
-  formGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem',
-  },
-  label: {
-    fontSize: '0.8rem',
-    fontWeight: '600',
-    letterSpacing: '0.05em',
-    color: 'var(--color-text-muted)',
-    textTransform: 'uppercase',
-  },
-  input: {
-    backgroundColor: '#0a0908',
-    border: '1px solid #322822',
-    color: 'var(--color-text-light)',
-    padding: '0.8rem 1rem',
-    borderRadius: '4px',
-    fontSize: '0.95rem',
-    fontFamily: 'var(--font-body)',
-    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-  },
-  textarea: {
-    backgroundColor: '#0a0908',
-    border: '1px solid #322822',
-    color: 'var(--color-text-light)',
-    padding: '0.8rem 1rem',
-    borderRadius: '4px',
-    fontSize: '0.95rem',
-    fontFamily: 'var(--font-body)',
-    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-    resize: 'none',
-  },
-  submitBtn: {
-    marginTop: '0.5rem',
-    width: '100%',
-    justifyContent: 'center',
-  },
-  successBox: {
-    textAlign: 'center',
-    padding: '2rem 1.5rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  successTitle: {
-    fontSize: '1.1rem',
-    letterSpacing: '0.08em',
-    color: '#4cd137',
-    marginBottom: '0.5rem',
-  },
-  successDesc: {
-    color: 'var(--color-text-muted)',
-    fontSize: '0.95rem',
-    lineHeight: '1.6',
-  },
+export const Team: React.FC = () => {
+  const t = useCopy(copy);
+
+  return (
+    <section className="grass team-page">
+      <div className="team-hero">
+        <img
+          src="/theevilent-logo.png"
+          alt={t.logoAlt}
+          className="team-logo"
+          width={150}
+          height={150}
+        />
+        <div className="title-banner">
+          <h1 className="text-title">The Evil Ent</h1>
+        </div>
+      </div>
+
+      <div className="team-members">
+        {teamMembers.map((member, index) => (
+          <article key={member.name} className="flat-card team-card">
+            <div
+              className="team-avatar"
+              style={{ backgroundColor: avatarAccents[index % avatarAccents.length] }}
+            >
+              <span className="team-avatar-text text-outline">{member.avatarText}</span>
+            </div>
+
+            <h2 className="team-name" translate="no">{member.name}</h2>
+
+            <div className="team-links">
+              <a
+                className="flat-btn"
+                href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.github}
+              </a>
+              <a className="flat-btn" href={`mailto:${member.email}`}>
+                {t.mail}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Team;

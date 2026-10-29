@@ -1,12 +1,12 @@
 import type { LucideIcon } from 'lucide-react';
-import { Globe, Play } from 'lucide-react';
+import { AtSign, Play, SquarePlay } from 'lucide-react';
+import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'games' | 'magic' | 'summons' | 'team' | 'comic';
+export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news' | 'account' | 'comic';
 
 export interface NavigationItem {
   id: TabId;
-  label: string;
-  footerLabel: string;
+  label: Record<Language, string>;
 }
 
 export interface PlatformLink {
@@ -14,27 +14,33 @@ export interface PlatformLink {
   label: string;
   subtitle: string;
   title: string;
-  variant: 'google' | 'itch' | 'ping';
+  variant: 'google' | 'itch' | 'youtube' | 'x';
   Icon: LucideIcon;
 }
 
 export interface TeamMember {
   name: string;
   role: string;
-  bio: string;
   accent: string;
   avatarText: string;
   github: string;
   email: string;
 }
 
+// The home page is the game, so the menu carries only what sits beside it.
 export const navigationItems: NavigationItem[] = [
-  { id: 'home', label: 'HOME', footerLabel: 'Home' },
-  { id: 'games', label: 'GAMES', footerLabel: 'Games' },
-  { id: 'comic', label: 'COMIC', footerLabel: 'Comic' },
-  { id: 'magic', label: 'MAGIC', footerLabel: 'Magic Compendium' },
-  { id: 'summons', label: 'SUMMONS', footerLabel: 'Summon Compendium' },
-  { id: 'team', label: 'TEAM', footerLabel: 'Team Members' },
+  { id: 'comic', label: { ko: '만화', en: 'Comic' } },
+  { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
+  { id: 'rankings', label: { ko: '랭킹', en: 'Rankings' } },
+  { id: 'team', label: { ko: '팀', en: 'Team' } },
+  { id: 'news', label: { ko: '소식', en: 'News' } },
+];
+
+// Legal notices are not navigation, so they stay out of navigationItems and
+// out of the Navbar. Footer.tsx renders them in the bottom row instead.
+export const legalLinks: NavigationItem[] = [
+  { id: 'terms', label: { ko: '이용약관', en: 'Terms of Service' } },
+  { id: 'privacy', label: { ko: '개인정보처리방침', en: 'Privacy Policy' } },
 ];
 
 export const platformLinks: PlatformLink[] = [
@@ -55,20 +61,34 @@ export const platformLinks: PlatformLink[] = [
     Icon: Play,
   },
   {
-    href: 'https://www.game-ping.kr/games/arcane-casters',
-    label: 'game-ping',
-    subtitle: 'EXPLORE ON',
-    title: 'game-ping',
-    variant: 'ping',
-    Icon: Globe,
+    href: 'https://www.youtube.com/@ArcaneCastersOfficial',
+    label: 'YouTube',
+    subtitle: 'WATCH ON',
+    title: 'YouTube',
+    variant: 'youtube',
+    Icon: SquarePlay,
+  },
+  {
+    href: 'https://x.com/arcanecastersof',
+    label: 'X (@arcanecastersof)',
+    subtitle: 'FOLLOW ON',
+    title: 'X',
+    variant: 'x',
+    Icon: AtSign,
   },
 ];
+
+// AI 기본법 제31조 1항 고지. 읽는 사람이 알아볼 수 있어야 뜻이 있어서 고른
+// 언어로 보여 준다.
+export const aiArtworkNotice: Record<Language, string> = {
+  ko: '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.',
+  en: 'Some artwork on this site was created with generative AI.',
+};
 
 export const teamMembers: TeamMember[] = [
   {
     name: 'monolong',
-    role: 'Game Developer (Unity / Backend)',
-    bio: '아케인 캐스터즈의 Unity 클라이언트 코어 콘텐츠 개발 및 실시간 매치 플레이를 위한 인게임 백엔드 시스템 구축을 전담하고 있습니다.',
+    role: 'Unity · Backend',
     accent: '#e61e2a',
     avatarText: 'ML',
     github: 'https://github.com/monolong',
@@ -76,8 +96,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'yunseong',
-    role: 'Server Developer (Backend / Unity / Infra)',
-    bio: '안정적이고 중단 없는 실시간 PvP 매치를 서비스하기 위한 백엔드 분산 서버 아키텍처 설계와 인프라 파이프라인 구축을 담당하며, 클라이언트 기능 개발을 공유합니다.',
+    role: 'Backend · Infra · Unity',
     accent: '#dfb73c',
     avatarText: 'YS',
     github: 'https://github.com/dev-yunseong',

@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navigationItems, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
+import { useLanguage } from '../i18n/language';
+import { useAccount } from '../account/accountContext';
+import { LanguageToggle } from './LanguageToggle';
+import './Navbar.css';
 
 interface NavbarProps {
   activeTab: TabId;
   navigateToTab: (tab: TabId) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const accountLabel = {
+  signedOut: { ko: '로그인', en: 'Log in' },
+  signedIn: { ko: '내 정보', en: 'My account' },
+};
 
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
+  const { language } = useLanguage();
+  const { status, member } = useAccount();
+  const [isOpen, setIsOpen] = useState(false);
+  const isHome = activeTab === 'home';
+
+  // The home page carries the hero's own logo, so the header stays
+  // transparent and logo-less there; every other page gets the ground-deep
+  // bar with the wordmark on the left (Main.dc.html / Magic.dc.html).
   const handleNavClick = (tabId: TabId) => {
     navigateToTab(tabId);
     setIsOpen(false);
@@ -24,161 +39,86 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
     handleNavClick(tabId);
   };
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
   return (
-    <nav style={styles.nav}>
-      <div style={styles.navContainer}>
-        <button
-          type="button"
-          style={styles.brand}
-          onClick={() => handleNavClick('home')}
-          aria-label="Go To Home"
-        >
-          <div style={styles.logoWrapper}>
-            <img 
-              src="/theevilent-logo.png" 
-              alt="The Evil Ent Logo" 
-              style={styles.logo} 
-              width="40"
-              height="40"
+    <header className={`navbar ${isHome ? 'navbar-home' : 'navbar-page'}`}>
+      <div className={`container navbar-inner ${isHome ? 'navbar-inner-home' : ''}`}>
+        {!isHome && (
+          <a
+            href={getTabPath('home')}
+            className="navbar-logo"
+            onClick={(event) => handleNavLinkClick(event, 'home')}
+            aria-label="Arcane Casters"
+          >
+            <img
+              src="/brand/logo-wide.webp"
+              alt="Arcane Casters"
+              className="navbar-logo-img"
+              width={966}
+              height={205}
               fetchPriority="high"
             />
-          </div>
-          <span style={styles.brandName} className="text-glow-subtle">
-            THE EVIL ENT
-          </span>
-        </button>
+          </a>
+        )}
 
-        <div className="nav-desktop-menu">
-          {navigationItems.map((item) => (
+        <div className="navbar-actions">
+          <nav
+            id="navbar-links"
+            className={`navbar-links ${isOpen ? 'is-open' : ''}`}
+            aria-label="Primary"
+          >
+            {navigationItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={getTabPath(item.id)}
+                  onClick={(event) => handleNavLinkClick(event, item.id)}
+                  className="flat-btn navbar-link"
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label[language]}
+                </a>
+              );
+            })}
             <a
-              key={item.id}
-              href={getTabPath(item.id)}
-              onClick={(event) => handleNavLinkClick(event, item.id)}
-              style={{
-                ...styles.navLink,
-                color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                borderBottom: activeTab === item.id ? '2px solid var(--color-primary)' : '2px solid transparent',
-              }}
-              className={activeTab === item.id ? 'text-glow-subtle' : ''}
-              aria-current={activeTab === item.id ? 'page' : undefined}
+              href={getTabPath('account')}
+              onClick={(event) => handleNavLinkClick(event, 'account')}
+              className="flat-btn navbar-link navbar-account"
+              aria-current={activeTab === 'account' ? 'page' : undefined}
             >
-              {item.label}
+              {status === 'signedIn' && member
+                ? member.name
+                : status === 'signedIn'
+                  ? accountLabel.signedIn[language]
+                  : accountLabel.signedOut[language]}
             </a>
-          ))}
-        </div>
+          </nav>
 
-        <button 
-          type="button"
-          className="nav-mobile-menu-btn"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-        >
-          {isOpen ? (
-            <X size={24} color="#f5f3f0" aria-hidden="true" />
-          ) : (
-            <Menu size={24} color="#f5f3f0" aria-hidden="true" />
-          )}
-        </button>
+          <LanguageToggle />
+
+          <button
+            type="button"
+            className="navbar-menu-btn"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label={isOpen ? (language === 'ko' ? '메뉴 닫기' : 'Close menu') : (language === 'ko' ? '메뉴 열기' : 'Open menu')}
+            aria-expanded={isOpen}
+            aria-controls="navbar-links"
+          >
+            {isOpen ? <X size={22} color="#ffffff" aria-hidden="true" /> : <Menu size={22} color="#ffffff" aria-hidden="true" />}
+          </button>
+        </div>
       </div>
-
-      {isOpen && (
-        <div id="mobile-navigation" className="nav-mobile-drawer">
-          {navigationItems.map((item) => (
-            <a
-              key={item.id}
-              href={getTabPath(item.id)}
-              onClick={(event) => handleNavLinkClick(event, item.id)}
-              style={{
-                ...styles.mobileNavLink,
-                color: activeTab === item.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
-                backgroundColor: activeTab === item.id ? 'rgba(230, 30, 42, 0.05)' : 'transparent',
-              }}
-              aria-current={activeTab === item.id ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+    </header>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  nav: {
-    position: 'sticky',
-    top: 0,
-    zIndex: 1000,
-    backgroundColor: 'rgba(13, 11, 10, 0.85)',
-    backdropFilter: 'blur(12px)',
-    borderBottom: '1px solid rgba(45, 35, 30, 0.5)',
-    transition: 'background-color 0.3s ease',
-  },
-  navContainer: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 1.5rem',
-    height: '70px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  brand: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-    cursor: 'pointer',
-    background: 'none',
-    border: 'none',
-    padding: 0,
-  },
-  logoWrapper: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '4px',
-    overflow: 'hidden',
-    border: '1px solid #3d332d',
-    backgroundColor: '#000000',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  brandName: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '900',
-    fontSize: '1.2rem',
-    letterSpacing: '0.15em',
-    color: 'var(--color-text-light)',
-    transition: 'color 0.3s ease',
-  },
-  navLink: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '600',
-    fontSize: '0.95rem',
-    letterSpacing: '0.1em',
-    cursor: 'pointer',
-    padding: '1.6rem 0.2rem 1.4rem 0.2rem',
-    transition: 'color 0.2s ease, border-bottom-color 0.2s ease',
-    textDecoration: 'none',
-  },
-  mobileNavLink: {
-    fontFamily: 'var(--font-display)',
-    fontWeight: '600',
-    fontSize: '1.1rem',
-    letterSpacing: '0.1em',
-    cursor: 'pointer',
-    padding: '1rem 2rem',
-    textAlign: 'left',
-    transition: 'color 0.2s ease, background-color 0.2s ease',
-    textDecoration: 'none',
-  },
 };
 
 export default Navbar;

@@ -16,17 +16,36 @@ This document describes the AI Agentic development workflow, architectural struc
 The main design goal was to craft a premium, high-impact landing page and showcase for the game team **The Evil Ent** based on their official logo. 
 
 ### 1. Visual & Aesthetic Identity
-- **Atmosphere**: Dark fantasy, gothic, mysterious, and organic (roots/branches).
-- **Color Scheme**: Derived directly from the team's logo:
-  - `#0a0908` (Abyss Black)
-  - `#12100e` (Charcoal Black)
-  - `#1c1816` (Deep Bark Brown)
-  - `#e61e2a` (Glowing Crimson Red - matching the Ent's eyes)
-- **Accents**: Pulse animations on the Ent's eyes, custom cursor trail effects, glowing crimson card borders, and floating ember particles using canvas.
+
+The site is Arcane Casters' site and wears the Unity client's flat design
+(ArcaneCastersClient #129). `:root` in `src/index.css` holds every token; there
+is no second theme.
+
+- **Color Scheme**: Sampled from the client's WebGL screens
+  (`client/docs/pr-media/129`):
+  - `#0d2238` navy ground (the Magic Book) · `#0a1a2c` header and footer strip
+  - `#22425f` the tile a sprite sits in
+  - `#14121a` ink: every outline and every drop shadow
+  - `#ff9a1c` orange buttons · `#ff6b1b` outlined titles · `#fdd33d` selection
+  - the lobby's grass texture (`public/brand/grass.jpg`) behind the hero and
+    the team page
+- **Type**: Lilita One for titles and buttons, Jua for body text — the two
+  faces the client sets its UI in — loaded from Google Fonts.
+- **Shape**: Every raised thing has a 3px ink outline and a solid ink drop
+  below it (`.flat-card`, `.flat-btn`, `.tile`). White text on orange always
+  carries an ink outline (`.text-outline`). No gradients, no glow, no blurred
+  shadows.
+- **Copy**: Short, and only where the picture cannot say it. Korean is 해요체.
+- **Language**: Korean and English. `src/i18n/language.tsx` holds the choice;
+  each component keeps its own `{ ko, en }` strings and reads them with
+  `useCopy`.
+
+Every colour outside a CSS variable declaration is a bug. Components read
+`var(--color-*)` and nothing else.
 
 ### 2. Tech Stack Decisions
 - **Vite & React & TypeScript**: Chosen for lightning-fast bundling, structured component-based development, and strong typing.
-- **Vanilla CSS (CSS Modules)**: Instead of Tailwind CSS, we utilized vanilla CSS to build custom, organic styling hooks, bespoke neon text glows, dark wood bark textures, and custom scrolling behaviors that feel premium and unique.
+- **Vanilla CSS**: Instead of Tailwind CSS, a hand-written token layer in `src/index.css` holds the palette, the type scale, the band backgrounds and the panel/button shapes. Components style themselves with `const styles: Record<string, React.CSSProperties>` reading those tokens.
 - **Lucide React**: For sharp, lightweight icons mapping itch.io, Google Play, and custom platform links.
 
 ---
@@ -36,19 +55,21 @@ The main design goal was to craft a premium, high-impact landing page and showca
 ```
 theevilent/
 ├── public/
-│   ├── theevilent-logo.png      # Team logo (Dark Ent with crimson eyes)
-│   └── favicon.ico              # Website icon
+│   ├── brand/                   # Client logo, grass, hero characters
+│   ├── gameplay/                # Play Store match screens
+│   └── theevilent-logo.png      # Team logo (Dark Ent with crimson eyes)
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.tsx           # Translucent glassmorphic header
-│   │   ├── Footer.tsx           # Link aggregator (itch.io, game-ping, Play Store)
-│   │   └── ParticleBackground.tsx # HTML5 Canvas animated ember/ash drift
+│   │   ├── Navbar.tsx           # Menu and language switch
+│   │   ├── Footer.tsx           # Studio, store links, legal links
+│   │   └── LanguageToggle.tsx   # 한국어 / English switch
+│   ├── i18n/language.tsx        # Language choice, useCopy
 │   ├── pages/
-│   │   ├── Home.tsx             # Interactive Hero & team pitch
-│   │   ├── Games.tsx            # Arcane Casters details & media
-│   │   └── Team.tsx             # monolong & yunseong developer bios
+│   │   ├── Home.tsx             # The game: hero, how to play, gameplay
+│   │   ├── MagicCompendium.tsx  # /arcane-casters/magic[/<slug>]
+│   │   └── Team.tsx             # monolong & yunseong
 │   ├── App.tsx                  # Main router and page transition controller
-│   ├── index.css                # Global gothic typography, variables & layouts
+│   ├── index.css                # Theme tokens, global type, bands & panels
 │   └── main.tsx                 # Entrypoint
 ├── AGENTS.md                    # This document
 ├── package.json                 # Dependency list
@@ -63,7 +84,6 @@ theevilent/
 - **Developers**: `monolong`, `yunseong`
 - **Flagship Game**: **Arcane Casters**
   - **Itch.io**: [https://theevilent.itch.io/arcane-casters](https://theevilent.itch.io/arcane-casters)
-  - **Game-Ping**: [https://www.game-ping.kr/games/arcane-casters](https://www.game-ping.kr/games/arcane-casters)
   - **Google Play Store**: [https://play.google.com/store/apps/details?id=com.team6515.wordonline](https://play.google.com/store/apps/details?id=com.team6515.wordonline)
 
 ---
@@ -97,6 +117,16 @@ gh pr view <pr-number> --json assignees,labels
 
 ---
 
+## Project Skills
+
+This repository keeps its own skills under `.agents/skills/`. Read the one that covers the task before starting. An agent that only auto-loads skills from its own home directory does not see these, so open the file by path.
+
+- `.agents/skills/frontend-design/SKILL.md` — builds distinctive, production-grade frontend web components, pages, and applications with high design quality, avoiding generic AI aesthetics.
+- `.agents/skills/verify-homepage/SKILL.md` — compiles the Vite React project and runs Playwright tests to visually verify the Home, Magic, and Team pages of the Evil Ent homepage.
+- `.agents/skills/web-interface-guidelines/SKILL.md` — reviews UI code for compliance with the Vercel Web Interface Guidelines.
+
+---
+
 ## 🔬 Visual Verification & Validation Skill
 
 We have created an automated visual verification skill script:
@@ -104,7 +134,7 @@ We have created an automated visual verification skill script:
 
 This script automates the complete validation process:
 1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
-2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Games, and Team tabs.
+2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Magic, and Team pages.
 
 ## Arcane Casters Content Sources
 
@@ -128,3 +158,18 @@ To execute this verification flow at any time:
 ```bash
 ./.agents/skills/verify-homepage/verify_homepage.sh
 ```
+
+## Code Review Rules
+
+- Write all code review titles, descriptions, comments, and summaries in Korean.
+- Preserve code identifiers, file paths, commands, error messages, and technical terms in their original form.
+- For each finding, concisely explain the cause, impact, and suggested fix.
+
+## Writing Style
+
+Follow [`.agents/docs/writing-style.md`](.agents/docs/writing-style.md) for chat
+replies, reviews, plans, handoffs, issues, commit titles and bodies, pull
+requests, release notes, source comments, and all frontend copy (including
+localization, errors, labels, and accessibility text).
+Its wording and title rules take precedence over older style examples;
+preserve project-specific technical constraints and workflows.
