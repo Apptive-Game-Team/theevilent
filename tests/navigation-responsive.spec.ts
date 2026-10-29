@@ -41,6 +41,8 @@ for (const language of ['ko', 'en'] as const) {
         if (overflow.length) clipped.push(`${width}px: ${overflow.join(', ')}`);
         if (width === 900) await page.screenshot({ path: info.outputPath('navigation-900.png') });
         if (await menu.isVisible()) {
+          const bounds = await page.locator('.navbar-links').boundingBox();
+          expect(bounds!.width).toBeLessThanOrEqual(320);
           await expect(page.getByRole('navigation', { name: 'Primary' }).getByRole('link')).toHaveCount(5);
           await page.keyboard.press('Escape');
           await expect(menu).toHaveAttribute('aria-expanded', 'false');
@@ -58,6 +60,15 @@ for (const language of ['ko', 'en'] as const) {
       await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: language === 'ko' ? '팀' : 'Team', exact: true }).click();
       await expect(page).toHaveURL(/\/team$/);
       await expect(page.locator('.navbar-menu-btn')).toHaveAttribute('aria-expanded', 'false');
+      await page.goto('/');
+      await page.setViewportSize({ width: 900, height: 900 });
+      const homeMenu = page.locator('.navbar-menu-btn');
+      await homeMenu.click();
+      const popover = await page.locator('.navbar-links').boundingBox();
+      const trigger = await homeMenu.boundingBox();
+      expect(popover!.width).toBeLessThanOrEqual(320);
+      expect(Math.abs(popover!.x + popover!.width - trigger!.x - trigger!.width)).toBeLessThanOrEqual(2);
+      await page.screenshot({ path: info.outputPath('navigation-home-900.png') });
     });
   }
 }
