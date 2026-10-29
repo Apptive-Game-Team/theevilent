@@ -1,0 +1,365 @@
+[
+  {
+    "number": 1,
+    "balloons": []
+  },
+  {
+    "number": 2,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "You saved me one, right?"
+      },
+      {
+        "region": 3,
+        "text": "Too late."
+      },
+      {
+        "region": 4,
+        "text": "There are two."
+      },
+      {
+        "region": 5,
+        "text": "They're both mine."
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "What are you doing today?"
+      },
+      {
+        "region": 4,
+        "text": "Reading this first."
+      },
+      {
+        "region": 5,
+        "text": "And then?"
+      },
+      {
+        "region": 6,
+        "text": "I might find out if you'd let me read."
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Now, where was I?"
+      },
+      {
+        "region": 3,
+        "text": "This too."
+      },
+      {
+        "region": 5,
+        "text": "You can let go."
+      },
+      {
+        "region": 6,
+        "text": "Thanks."
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Good. You're both here."
+      },
+      {
+        "region": 1,
+        "text": "Would you like some, Professor?"
+      },
+      {
+        "region": 2,
+        "text": "That's mine, though."
+      },
+      {
+        "region": 3,
+        "text": "I've eaten."
+      },
+      {
+        "region": 5,
+        "text": "Come to my office after breakfast."
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Your field research begins now."
+      },
+      {
+        "region": 1,
+        "text": "Mira, go to the World Tree."
+      },
+      {
+        "region": 2,
+        "text": "Finn, go to the stone golem village."
+      },
+      {
+        "region": 3,
+        "text": "When do we leave, Professor?"
+      },
+      {
+        "region": 4,
+        "text": "Tomorrow morning."
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "What should we look for?"
+      },
+      {
+        "region": 1,
+        "text": "Where they live. How they move."
+      },
+      {
+        "region": 3,
+        "text": "About this big?"
+      },
+      {
+        "region": 2,
+        "text": "Measure them. No guesswork."
+      },
+      {
+        "region": 4,
+        "text": "I'll check their footprints, too."
+      },
+      {
+        "region": 5,
+        "text": "I wonder where the spirits sleep."
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "You're taking all of those?"
+      },
+      {
+        "region": 1,
+        "text": "I'm still choosing."
+      },
+      {
+        "region": 2,
+        "text": "If you'll be sketching, take this too."
+      },
+      {
+        "region": 3,
+        "text": "Oh, thanks."
+      },
+      {
+        "region": 4,
+        "text": "Can you carry that?"
+      },
+      {
+        "region": 5,
+        "text": "Yes. Much better."
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Next morning"
+      },
+      {
+        "region": 2,
+        "text": "How many books did you leave?"
+      },
+      {
+        "region": 3,
+        "text": "Half of them."
+      },
+      {
+        "region": 4,
+        "text": "Safety comes first. Observe carefully."
+      },
+      {
+        "region": 5,
+        "text": "We'll be back, Professor."
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "This is my way."
+      },
+      {
+        "region": 2,
+        "text": "Let's have a beer when we're back tonight."
+      },
+      {
+        "region": 3,
+        "text": "Deal. Wait for me if you're first."
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "So that's the stone golem village."
+      },
+      {
+        "region": 2,
+        "text": "Hello!"
+      }
+    ]
+  },
+  {
+    "number": 12,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "Those footprints are pretty deep."
+      },
+      {
+        "region": 3,
+        "text": "Curious?"
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "Mind if I sit here?"
+      },
+      {
+        "region": 3,
+        "text": "Ku?"
+      },
+      {
+        "region": 4,
+        "text": "Like this?"
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "Ku..."
+      },
+      {
+        "region": 2,
+        "text": "I can't reach it by hand."
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "I'll just lift this stone a little."
+      },
+      {
+        "region": 1,
+        "text": "Step back a bit."
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Got it?"
+      },
+      {
+        "region": 1,
+        "text": "Ku!"
+      },
+      {
+        "region": 2,
+        "text": "There."
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "balloons": [
+      {
+        "region": 2,
+        "text": "It's yours."
+      },
+      {
+        "region": 3,
+        "text": "Oh. You want to play again?"
+      }
+    ]
+  },
+  {
+    "number": 18,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Can I call you Mok?"
+      },
+      {
+        "region": 2,
+        "text": "Ku?"
+      },
+      {
+        "region": 3,
+        "text": "Wait! That one was fast."
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Stay like that for a moment."
+      },
+      {
+        "region": 2,
+        "text": "Done."
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Shall we call it a day?"
+      },
+      {
+        "region": 1,
+        "text": "Mok?"
+      },
+      {
+        "region": 2,
+        "text": "Where are you going?"
+      }
+    ]
+  }
+]

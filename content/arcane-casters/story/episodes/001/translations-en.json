@@ -1,0 +1,153 @@
+{
+  "titles": [
+    "The World Tree and the tower",
+    "Breakfast",
+    "Plans for today",
+    "Hold this, too",
+    "After breakfast",
+    "Two field assignments",
+    "What to look for",
+    "Packing",
+    "The next morning",
+    "The fork in the road",
+    "The stone golem village",
+    "Footprints",
+    "A rolling pebble",
+    "Out of reach",
+    "Just this stone",
+    "Got it",
+    "Another round",
+    "Mok",
+    "First notes",
+    "No answer"
+  ],
+  "descriptions": [
+    "A vast grassland surrounds the World Tree and a lone magic tower.",
+    "Finn joins Mira for breakfast on the terrace.",
+    "Finn chats while Mira tries to read.",
+    "Mira uses a physical spell card to hold a book and napkin against the wind.",
+    "Professor Orin calls the two students to his office.",
+    "Orin sends Mira to the World Tree and Finn to the stone golem village.",
+    "The students ask about their research. Orin insists on direct observation.",
+    "Mira and Finn help each other pack for the journey.",
+    "Orin sees them off the following morning.",
+    "They promise to have a beer together that evening, then take separate paths.",
+    "Finn approaches the golems' rocky habitat, greets them and begins observing.",
+    "Finn studies deep footprints. A small golem peers at his notebook.",
+    "Finn and a small golem roll pebbles. A pebble rolls under a slab.",
+    "The golem and Finn cannot reach the pebble by hand.",
+    "Finn draws a spell card and asks the small golem to stand back.",
+    "Finn lifts the stone with a card. The small golem retrieves its pebble.",
+    "The golem rolls its pebble back to Finn, asking to play again.",
+    "Finn names his new companion Mok.",
+    "Finn sketches Mok and shows him the drawing.",
+    "Mok's eyes turn red. He ignores Finn and walks toward a dark cave."
+  ],
+  "dialogue": [
+    [],
+    [
+      "You saved me one, right?",
+      "Too late.",
+      "There are two.",
+      "They're both mine."
+    ],
+    [
+      "What are you doing today?",
+      "Reading this first.",
+      "And then?",
+      "I might find out if you'd let me read."
+    ],
+    [
+      "Now, where was I?",
+      "This too.",
+      "You can let go.",
+      "Thanks."
+    ],
+    [
+      "Good. You're both here.",
+      "Would you like some, Professor?",
+      "That's mine, though.",
+      "I've eaten.",
+      "Come to my office after breakfast."
+    ],
+    [
+      "Your field research begins now.",
+      "Mira, go to the World Tree.",
+      "Finn, go to the stone golem village.",
+      "When do we leave, Professor?",
+      "Tomorrow morning."
+    ],
+    [
+      "What should we look for?",
+      "Where they live. How they move.",
+      "About this big?",
+      "Measure them. No guesswork.",
+      "I'll check their footprints, too.",
+      "I wonder where the spirits sleep."
+    ],
+    [
+      "You're taking all of those?",
+      "I'm still choosing.",
+      "If you'll be sketching, take this too.",
+      "Oh, thanks.",
+      "Can you carry that?",
+      "Yes. Much better."
+    ],
+    [
+      "Next morning",
+      "How many books did you leave?",
+      "Half of them.",
+      "Safety comes first. Observe carefully.",
+      "We'll be back, Professor."
+    ],
+    [
+      "This is my way.",
+      "Let's have a beer when we're back tonight.",
+      "Deal. Wait for me if you're first."
+    ],
+    [
+      "So that's the stone golem village.",
+      "Hello!"
+    ],
+    [
+      "Those footprints are pretty deep.",
+      "Curious?"
+    ],
+    [
+      "Mind if I sit here?",
+      "Ku?",
+      "Like this?"
+    ],
+    [
+      "Ku...",
+      "I can't reach it by hand."
+    ],
+    [
+      "I'll just lift this stone a little.",
+      "Step back a bit."
+    ],
+    [
+      "Got it?",
+      "Ku!",
+      "There."
+    ],
+    [
+      "It's yours.",
+      "Oh. You want to play again?"
+    ],
+    [
+      "Can I call you Mok?",
+      "Ku?",
+      "Wait! That one was fast."
+    ],
+    [
+      "Stay like that for a moment.",
+      "Done."
+    ],
+    [
+      "Shall we call it a day?",
+      "Mok?",
+      "Where are you going?"
+    ]
+  ]
+}

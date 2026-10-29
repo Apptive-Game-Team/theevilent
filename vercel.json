@@ -4,7 +4,13 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/arcane-casters/comic", "destination": "/arcane-casters/comic/1/ko", "permanent": false },
+    { "source": "/arcane-casters/comic/1", "destination": "/arcane-casters/comic/1/ko", "permanent": false }
+  ],
   "rewrites": [
+    { "source": "/arcane-casters/comic/1/ko", "destination": "/arcane-casters/comic/1/ko.html" },
+    { "source": "/arcane-casters/comic/1/en", "destination": "/arcane-casters/comic/1/en.html" },
     {
       "source": "/(.*)",
       "destination": "/index.html"

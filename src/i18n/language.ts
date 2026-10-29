@@ -14,6 +14,8 @@ export const STORAGE_KEY = 'arcane-casters-language';
 // A stored choice wins; otherwise Korean readers get Korean and everyone else
 // English. Storage can throw in a private window, so every access is guarded.
 export const getInitialLanguage = (): Language => {
+  const comicLocale = window.location.pathname.match(/^\/arcane-casters\/comic\/1\/(ko|en)\/?$/)?.[1];
+  if (comicLocale === 'ko' || comicLocale === 'en') return comicLocale;
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'ko' || stored === 'en') return stored;

@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import { AtSign, Play, SquarePlay } from 'lucide-react';
 import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news' | 'account';
+export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news' | 'account' | 'comic';
 
 export interface NavigationItem {
   id: TabId;
@@ -29,6 +29,7 @@ export interface TeamMember {
 
 // The home page is the game, so the menu carries only what sits beside it.
 export const navigationItems: NavigationItem[] = [
+  { id: 'comic', label: { ko: '만화', en: 'Comic' } },
   { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
   { id: 'rankings', label: { ko: '랭킹', en: 'Rankings' } },
   { id: 'team', label: { ko: '팀', en: 'Team' } },

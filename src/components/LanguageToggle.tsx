@@ -12,7 +12,12 @@ export const LanguageToggle: React.FC = () => {
           type="button"
           lang={option}
           aria-pressed={language === option}
-          onClick={() => setLanguage(option)}
+          onClick={() => {
+            setLanguage(option);
+            if (/^\/arcane-casters\/comic\/1\/(ko|en)\/?$/.test(window.location.pathname)) {
+              window.location.assign(`/arcane-casters/comic/1/${option}${window.location.hash}`);
+            }
+          }}
         >
           {languageLabels[option]}
         </button>

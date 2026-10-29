@@ -4,10 +4,12 @@ import { summonConcepts } from './content/summonConcepts';
 export interface AppRoute {
   tab: TabId;
   slug?: string;
+  locale?: 'ko' | 'en';
 }
 
 const tabPaths: Record<TabId, string> = {
   home: '/',
+  comic: '/arcane-casters/comic/1/ko',
   magic: '/arcane-casters/magic',
   rankings: '/arcane-casters/rankings',
   team: '/team',
@@ -42,6 +44,7 @@ export const getRedirectPath = (pathname: string): string | null => {
   const segments = pathname.split('/').filter(Boolean);
   if (segments[0] !== 'arcane-casters') return null;
   if (segments[1] === 'summons') return summonRedirectPath(segments[2]);
+  if (segments[1] === 'comic') return null;
   if (segments[1] === 'magic' || segments[1] === 'rankings' || segments[1] === 'news' || segments[1] === 'account') return null;
   return getTabPath('home');
 };
@@ -51,6 +54,9 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
   const segments = path.split('/').filter(Boolean);
 
   if (segments.length === 0) return { tab: 'home' };
+  if (segments[0] === 'arcane-casters' && segments[1] === 'comic') {
+    return { tab: 'comic', slug: segments[2] || '1', locale: segments[3] === 'en' ? 'en' : 'ko' };
+  }
   if (segments[0] === 'team' && segments.length === 1) return { tab: 'team' };
   if (segments[0] === 'privacy' && segments.length === 1) return { tab: 'privacy' };
   if (segments[0] === 'terms' && segments.length === 1) return { tab: 'terms' };
