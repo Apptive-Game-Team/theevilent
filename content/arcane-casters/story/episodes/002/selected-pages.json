@@ -1,0 +1,130 @@
+{
+  "version": 6,
+  "status": "draft-complete",
+  "tool": "built-in imagegen",
+  "pages": [
+    {
+      "number": 1,
+      "title": "정령들이 맞이하는 세계수",
+      "src": "art-v6/page-01.png",
+      "prompt": "prompts-v6/page-01.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [],
+      "revisionNotes": "REFERENCES-v6.md"
+    },
+    {
+      "number": 2,
+      "title": "무릎 위의 정령",
+      "src": "art-v6/page-02.png",
+      "prompt": "prompts-v6/page-02.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "옆에 있어."
+      ],
+      "revisionNotes": "REFERENCES-v6.md"
+    },
+    {
+      "number": 3,
+      "title": "멀리 뒤따라",
+      "src": "art-v2/page-01.png",
+      "prompt": "prompts-v2/page-01.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "모크, 잠깐."
+      ],
+      "previousNumber": 1
+    },
+    {
+      "number": 4,
+      "title": "신전과 문",
+      "src": "art-v4/page-02-looking-at-relief.png",
+      "prompt": "prompts-v4/page-02-looking-at-relief.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "2천 년 전 양식인데… 책에서 본 거랑 똑같잖아.",
+        "몸 안에… 공간이 있네?"
+      ],
+      "baseSource": "art-v3/page-02.png",
+      "revisionNotes": "REFERENCES-v4.md",
+      "previousNumber": 2
+    },
+    {
+      "number": 5,
+      "title": "손이 닿자",
+      "src": "art-v4/page-03-diverse.png",
+      "prompt": "prompts-v4/page-03-diverse.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "모크, 거기서 나와."
+      ],
+      "baseSource": "art-v2/page-03.png",
+      "revisionNotes": "REFERENCES-v4.md",
+      "previousNumber": 3
+    },
+    {
+      "number": 6,
+      "title": "차원문 개방",
+      "src": "art-v4/page-04-diverse.png",
+      "prompt": "prompts-v4/page-04-diverse.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [],
+      "baseSource": "art-v2/page-04.png",
+      "revisionNotes": "REFERENCES-v4.md",
+      "previousNumber": 4
+    },
+    {
+      "number": 7,
+      "title": "지옥불 군단",
+      "src": "art-v4/page-05-cloak-embers.png",
+      "prompt": "prompts-v4/page-05-cloak-embers.txt",
+      "status": "draft-reviewed",
+      "fullPage": true,
+      "dialogue": [],
+      "previousNumber": 5
+    },
+    {
+      "number": 8,
+      "title": "기록을 멈춘 소리",
+      "src": "art-v6/page-08-single-staff.png",
+      "prompt": "prompts-v6/page-08-single-staff.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "쾅"
+      ],
+      "revisionNotes": "REFERENCES-v6.md",
+      "baseSource": "art-v2/page-06.png",
+      "basePrompt": "prompts-v6/page-08.txt"
+    },
+    {
+      "number": 9,
+      "title": "멀리 번지는 사악한 기운",
+      "src": "art-v3/page-07.png",
+      "prompt": "prompts-v3/page-07.txt",
+      "status": "draft-reviewed",
+      "fullPage": true,
+      "dialogue": [],
+      "baseSource": "art-v2/page-07.png",
+      "previousNumber": 7
+    },
+    {
+      "number": 10,
+      "title": "핀이 간 방향",
+      "src": "art-v3/page-08.png",
+      "prompt": "prompts-v3/page-08.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "어… 핀이 간 곳인데."
+      ],
+      "baseSource": "art-v2/page-08.png",
+      "previousNumber": 8
+    }
+  ]
+}

@@ -11,6 +11,8 @@ import Terms from './pages/Terms';
 import News from './pages/News';
 import Account from './pages/Account';
 import ComicReader from './pages/ComicReader';
+import ComicLibrary from './pages/ComicLibrary';
+import { comicListPath } from './content/comic';
 import { useLanguage } from './i18n/language';
 import { getLegacyPathFromHash, getRedirectPath, getRouteFromPathname, getTabPath } from './routing';
 
@@ -38,7 +40,7 @@ function App() {
   }, []);
 
   const navigateToTab = (tabId: TabId) => {
-    const nextPath = tabId === 'comic' ? `/arcane-casters/comic/1/${language}` : getTabPath(tabId);
+    const nextPath = tabId === 'comic' ? comicListPath(language) : getTabPath(tabId);
     setRoute(getRouteFromPathname(nextPath));
 
     if (`${window.location.pathname}${window.location.search}` !== nextPath) {
@@ -67,7 +69,8 @@ function App() {
       case 'account':
         return <Account />;
       case 'comic':
-        return <ComicReader key={route.locale} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
+        if (route.slug === 'list') return <ComicLibrary key={route.locale} locale={route.locale || 'ko'} />;
+        return <ComicReader key={`${route.slug}:${route.locale}`} locale={route.locale || 'ko'} episode={route.slug || '1'} />;
       default:
         return <Home navigateToTab={navigateToTab} />;
     }

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { gameNavigationItems, navigationItems, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
-import { comicPath } from '../content/comic';
+import { comicListPath } from '../content/comic';
 import { useLanguage } from '../i18n/language';
 import { useAccount } from '../account/accountContext';
 import { LanguageToggle } from './LanguageToggle';
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
               <div id="navbar-game-links" className="navbar-game-links" hidden={!gameOpen}>
                 {gameNavigationItems.map(item => (
                   <a key={item.id}
-                    href={item.id === 'comic' ? comicPath(language) : getTabPath(item.id)}
+                    href={item.id === 'comic' ? comicListPath(language) : getTabPath(item.id)}
                     onClick={event => handleNavLinkClick(event, item.id)}
                     className="flat-btn navbar-link"
                     aria-current={activeTab === item.id ? 'page' : undefined}>

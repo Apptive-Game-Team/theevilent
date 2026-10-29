@@ -1,9 +1,17 @@
 import pages from './comic-pages.json';
+import secondPages from './comic-pages-002.json';
+import episodes from './comic-episodes.json';
 
 export type ComicLocale = 'ko' | 'en';
-export const comicPath = (locale: ComicLocale) => `/arcane-casters/comic/1/${locale}`;
-export const comicUrl = (locale: ComicLocale) => `https://theevilent.com${comicPath(locale)}`;
+export const comicListPath = (locale: ComicLocale) => `/arcane-casters/comic/${locale}`;
+export const comicPath = (locale: ComicLocale, episode = '1') => `/arcane-casters/comic/${episode}/${locale}`;
+export const comicUrl = (locale: ComicLocale, episode = '1') => `https://theevilent.com${comicPath(locale, episode)}`;
 export const comicPages = pages;
+export const comicEpisodes = episodes;
+export const getComicEpisode = (id: string) => {
+  const metadata = episodes.find(episode => episode.id === id);
+  return metadata ? { ...metadata, pages: id === '1' ? pages : secondPages } : undefined;
+};
 export const comicCopy = {
   ko: {
     title: '1화 · 첫 현장 연구',
@@ -27,9 +35,9 @@ export const comicCopy = {
   },
 } as const;
 
-export const getShareLinks = (locale: ComicLocale) => {
-  const url = comicUrl(locale);
-  const title = `Arcane Casters — ${comicCopy[locale].title}`;
+export const getShareLinks = (locale: ComicLocale, episode = '1') => {
+  const url = comicUrl(locale, episode);
+  const title = `Arcane Casters — ${getComicEpisode(episode)?.[locale].title ?? comicCopy[locale].title}`;
   return [
     { name: 'X', href: `https://x.com/intent/tweet?${new URLSearchParams({ text: title, url })}` },
     { name: 'Bluesky', href: `https://bsky.app/intent/compose?${new URLSearchParams({ text: `${title}\n${url}` })}` },

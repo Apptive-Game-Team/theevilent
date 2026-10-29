@@ -14,8 +14,10 @@ export const LanguageToggle: React.FC = () => {
           aria-pressed={language === option}
           onClick={() => {
             setLanguage(option);
-            if (/^\/arcane-casters\/comic\/1\/(ko|en)\/?$/.test(window.location.pathname)) {
-              window.location.assign(`/arcane-casters/comic/1/${option}${window.location.hash}`);
+            const comic = /^\/arcane-casters\/comic\/(?:(\d+)\/)?(ko|en)\/?$/.exec(window.location.pathname);
+            if (comic && comic[2] !== option) {
+              const episode = comic[1] ? `/${comic[1]}` : '';
+              window.location.assign(`/arcane-casters/comic${episode}/${option}${window.location.hash}`);
             }
           }}
         >

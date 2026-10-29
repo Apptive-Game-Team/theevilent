@@ -13,12 +13,17 @@
     }
   ],
   "redirects": [
-    { "source": "/arcane-casters/comic", "destination": "/arcane-casters/comic/1/ko", "permanent": false },
-    { "source": "/arcane-casters/comic/1", "destination": "/arcane-casters/comic/1/ko", "permanent": false }
+    { "source": "/arcane-casters/comic", "destination": "/arcane-casters/comic/ko", "permanent": false },
+    { "source": "/arcane-casters/comic/1", "destination": "/arcane-casters/comic/1/ko", "permanent": false },
+    { "source": "/arcane-casters/comic/2", "destination": "/arcane-casters/comic/2/ko", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/arcane-casters/comic/ko", "destination": "/arcane-casters/comic/ko.html" },
+    { "source": "/arcane-casters/comic/en", "destination": "/arcane-casters/comic/en.html" },
     { "source": "/arcane-casters/comic/1/ko", "destination": "/arcane-casters/comic/1/ko.html" },
     { "source": "/arcane-casters/comic/1/en", "destination": "/arcane-casters/comic/1/en.html" },
+    { "source": "/arcane-casters/comic/2/ko", "destination": "/arcane-casters/comic/2/ko.html" },
+    { "source": "/arcane-casters/comic/2/en", "destination": "/arcane-casters/comic/2/en.html" },
     {
       "source": "/(.*)",
       "destination": "/index.html"
