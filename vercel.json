@@ -4,6 +4,14 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/arcane-casters/comic/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, noimageindex" }
+      ]
+    }
+  ],
   "redirects": [
     { "source": "/arcane-casters/comic", "destination": "/arcane-casters/comic/1/ko", "permanent": false },
     { "source": "/arcane-casters/comic/1", "destination": "/arcane-casters/comic/1/ko", "permanent": false }

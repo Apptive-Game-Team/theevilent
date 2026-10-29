@@ -15,6 +15,7 @@ for (const locale of ['ko', 'en']) {
   const url = `${origin}/arcane-casters/comic/1/${locale}`;
   const fullTitle = `${title} | Arcane Casters | The Evil Ent`;
   const metadata = `
+    <meta name="robots" content="noindex, noimageindex" />
     <meta name="description" content="${escape(description)}" />
     <link rel="canonical" href="${url}" />
     <link rel="alternate" hreflang="ko" href="${origin}/arcane-casters/comic/1/ko" />

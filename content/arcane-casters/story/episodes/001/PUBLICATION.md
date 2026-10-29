@@ -3,6 +3,8 @@
 - 한국어: https://theevilent.com/arcane-casters/comic/1/ko
 - 영어: https://theevilent.com/arcane-casters/comic/1/en
 - 웹 리더는 공개된 1화 20페이지만 사용한다. 설정 문서와 제작 참고 이미지는 공개 자산으로 복사하지 않는다.
+- 사이트 메뉴에는 만화 링크를 표시하지 않고 직접 주소로만 접근한다.
+- 만화 HTML과 만화 경로 응답에 noindex, noimageindex를 지정한다.
 - 한국어는 selected-pages.json v7의 확정 이미지다. 영어는 같은 원화의 말풍선 안쪽 글자를 지우고 번역을 합성한 이미지다. 이미지 생성으로 다시 그린 영어 시안은 게시하지 않는다.
 - 효과음 '또르륵'은 원화에 남아 있다. 영어 접근성 텍스트에는 'Sound: roll'을 제공한다.
 
