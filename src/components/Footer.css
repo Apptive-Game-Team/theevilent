@@ -49,20 +49,24 @@
 }
 
 .footer-links a,
-.footer-platform-links a {
+.footer-platform-links a,
+.footer-comic-link {
   font-size: 0.9rem;
   color: var(--color-on-ground-soft);
   transition: color var(--transition-fast);
 }
 
-.footer-platform-links a {
+.footer-platform-links a,
+.footer-comic-link {
   font-size: 0.82rem;
 }
 
 .footer-links a:hover,
 .footer-links a:focus-visible,
 .footer-platform-links a:hover,
-.footer-platform-links a:focus-visible {
+.footer-platform-links a:focus-visible,
+.footer-comic-link:hover,
+.footer-comic-link:focus-visible {
   color: var(--color-on-ground);
 }
 

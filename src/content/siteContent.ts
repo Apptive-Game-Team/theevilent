@@ -28,12 +28,15 @@ export interface TeamMember {
 }
 
 // The home page is the game, so the menu carries only what sits beside it.
-export const navigationItems: NavigationItem[] = [
-  { id: 'comic', label: { ko: '만화', en: 'Comic' } },
+export const gameNavigationItems: NavigationItem[] = [
   { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
   { id: 'rankings', label: { ko: '랭킹', en: 'Rankings' } },
-  { id: 'team', label: { ko: '팀', en: 'Team' } },
   { id: 'news', label: { ko: '소식', en: 'News' } },
+  { id: 'comic', label: { ko: '만화', en: 'Comic' } },
+];
+
+export const navigationItems: NavigationItem[] = [
+  { id: 'team', label: { ko: '팀', en: 'Team' } },
 ];
 
 // Legal notices are not navigation, so they stay out of navigationItems and

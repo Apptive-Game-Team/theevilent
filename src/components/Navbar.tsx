@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { navigationItems, type TabId } from '../content/siteContent';
+import React, { useEffect, useRef, useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { gameNavigationItems, navigationItems, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
+import { comicPath } from '../content/comic';
 import { useLanguage } from '../i18n/language';
 import { useAccount } from '../account/accountContext';
 import { LanguageToggle } from './LanguageToggle';
@@ -21,7 +22,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const { language } = useLanguage();
   const { status, member } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
+  const [gameOpen, setGameOpen] = useState(false);
+  const navbarRef = useRef<HTMLElement>(null);
+  const gameTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const isHome = activeTab === 'home';
+  const gameActive = gameNavigationItems.some(item => item.id === activeTab);
 
   // The home page carries the hero's own logo, so the header stays
   // transparent and logo-less there; every other page gets the ground-deep
@@ -29,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   const handleNavClick = (tabId: TabId) => {
     navigateToTab(tabId);
     setIsOpen(false);
+    setGameOpen(false);
   };
 
   // Let modifier clicks fall through to the browser (open in new tab/window),
@@ -40,16 +47,30 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
   };
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen && !gameOpen) return;
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false);
+      if (event.key !== 'Escape') return;
+      setIsOpen(false);
+      setGameOpen(false);
+      const mobile = menuTriggerRef.current && getComputedStyle(menuTriggerRef.current).display !== 'none';
+      (mobile ? menuTriggerRef.current : gameTriggerRef.current)?.focus();
+    };
+    const handlePointerDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && !navbarRef.current?.contains(event.target)) {
+        setIsOpen(false);
+        setGameOpen(false);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [isOpen, gameOpen]);
 
   return (
-    <header className={`navbar ${isHome ? 'navbar-home' : 'navbar-page'}`}>
+    <header ref={navbarRef} className={`navbar ${isHome ? 'navbar-home' : 'navbar-page'}`}>
       <div className={`container navbar-inner ${isHome ? 'navbar-inner-home' : ''}`}>
         {!isHome && (
           <a
@@ -75,6 +96,30 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
             className={`navbar-links ${isOpen ? 'is-open' : ''}`}
             aria-label="Primary"
           >
+            <div className="navbar-game">
+              <button
+                ref={gameTriggerRef}
+                type="button"
+                className={`flat-btn navbar-link navbar-game-trigger${gameActive ? ' flat-btn-primary' : ''}`}
+                aria-expanded={gameOpen}
+                aria-controls="navbar-game-links"
+                onClick={() => setGameOpen(open => !open)}
+              >
+                {language === 'ko' ? '게임' : 'Game'}
+                <ChevronDown size={16} aria-hidden="true" />
+              </button>
+              <div id="navbar-game-links" className="navbar-game-links" hidden={!gameOpen}>
+                {gameNavigationItems.map(item => (
+                  <a key={item.id}
+                    href={item.id === 'comic' ? comicPath(language) : getTabPath(item.id)}
+                    onClick={event => handleNavLinkClick(event, item.id)}
+                    className="flat-btn navbar-link"
+                    aria-current={activeTab === item.id ? 'page' : undefined}>
+                    {item.label[language]}
+                  </a>
+                ))}
+              </div>
+            </div>
             {navigationItems.map((item) => {
               const isActive = activeTab === item.id;
               return (
@@ -106,9 +151,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, navigateToTab }) => {
           <LanguageToggle />
 
           <button
+            ref={menuTriggerRef}
             type="button"
             className="navbar-menu-btn"
-            onClick={() => setIsOpen((open) => !open)}
+            onClick={() => {
+              setIsOpen(open => !open);
+              setGameOpen(false);
+            }}
             aria-label={isOpen ? (language === 'ko' ? '메뉴 닫기' : 'Close menu') : (language === 'ko' ? '메뉴 열기' : 'Open menu')}
             aria-expanded={isOpen}
             aria-controls="navbar-links"

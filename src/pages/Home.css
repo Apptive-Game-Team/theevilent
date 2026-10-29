@@ -16,7 +16,7 @@
 
 .home-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas: 'logo' 'chars' 'buttons';
   align-items: center;
   justify-items: center;
@@ -70,12 +70,15 @@
   grid-area: logo;
   margin: 0;
   line-height: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .home-hero-logo img {
   display: block;
   width: min(320px, 82vw);
   height: auto;
+  max-width: 100%;
 }
 
 .home-hero-buttons {
@@ -97,21 +100,23 @@
 .home-hero-stores {
   display: flex;
   gap: 12px;
+  width: 100%;
+  max-width: 358px;
 }
 
 .home-hero-stores .flat-btn {
-  width: 173px;
+  flex: 1;
   height: 52px;
   font-size: 17px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1101px) {
   .home-hero {
     min-height: 100vh;
   }
 
   .home-hero-grid {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: 'chars logo' 'chars buttons';
     justify-items: start;
     align-items: center;
@@ -173,10 +178,10 @@
 
   .home-hero-stores {
     gap: 16px;
+    max-width: 460px;
   }
 
   .home-hero-stores .flat-btn {
-    width: 222px;
     height: 60px;
     font-size: 20px;
   }

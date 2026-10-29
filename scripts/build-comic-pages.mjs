@@ -15,6 +15,7 @@ for (const locale of ['ko', 'en']) {
   const url = `${origin}/arcane-casters/comic/1/${locale}`;
   const fullTitle = `${title} | Arcane Casters | The Evil Ent`;
   const metadata = `
+    <meta name="robots" content="noindex, noimageindex" />
     <meta name="description" content="${escape(description)}" />
     <link rel="canonical" href="${url}" />
     <link rel="alternate" hreflang="ko" href="${origin}/arcane-casters/comic/1/ko" />
@@ -35,7 +36,7 @@ for (const locale of ['ko', 'en']) {
     <meta name="twitter:description" content="${escape(description)}" />
     <meta name="twitter:image" content="${origin}/arcane-casters/comic/001/cover.webp" />
   `;
-  const fallback = `<noscript><main lang="${locale}"><h1>${escape(fullTitle)}</h1><p>${escape(description)}</p><p><a href="/arcane-casters/comic/1/ko">한국어</a> · <a href="/arcane-casters/comic/1/en">English</a></p>${pages.map(page => `<figure><img src="/arcane-casters/comic/001/${locale}/page-${String(page.number).padStart(2,'0')}.webp" width="1024" height="1536" style="max-width:100%;height:auto" loading="lazy" alt="${escape(page[locale].title)}" /><figcaption>${page.number} / 20${page[locale].dialogue.map(line => `<p>${escape(line)}</p>`).join('')}</figcaption></figure>`).join('')}</main></noscript>`;
+  const fallback = `<noscript><main lang="${locale}"><h1>${escape(fullTitle)}</h1><p>${escape(description)}</p><p><a href="/arcane-casters/comic/1/ko">한국어</a> · <a href="/arcane-casters/comic/1/en">English</a></p>${pages.map(page => `<figure><img src="/arcane-casters/comic/001/${locale}/page-${String(page.number).padStart(2,'0')}.webp" width="1024" height="1536" style="max-width:100%;height:auto" loading="lazy" alt="${escape(page[locale].title)}" /><figcaption>${page[locale].dialogue.map(line => `<p>${escape(line)}</p>`).join('')}</figcaption></figure>`).join('')}</main></noscript>`;
   const html = template.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/, '')
     .replace(/<html lang="[^"]*">/, `<html lang="${locale}">`)
     .replace(/<title>.*?<\/title>/, `<title>${escape(fullTitle)}</title>`)

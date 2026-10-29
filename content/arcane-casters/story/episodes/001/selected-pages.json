@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "status": "draft",
   "tool": "built-in imagegen",
   "pages": [
@@ -499,7 +499,7 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-19.png"
+      "src": "art-v7/page-19-sketchbook.png"
     },
     {
       "number": 20,

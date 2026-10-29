@@ -1,44 +1,52 @@
-.comic-reader { background: #11130f; color: #f3eddf; min-width: 0; }
-.comic-intro { position: relative; isolation: isolate; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; scroll-margin-top: 90px; }
-.comic-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; z-index: -2; }
-.comic-intro::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(12,22,16,.8),rgba(12,22,16,.15)),linear-gradient(0deg,#11130f,transparent 90%); z-index: -1; }
-.comic-intro-copy { max-width: 1240px; width: 100%; margin: auto; padding: 100px 48px 58px; }
-.comic-eyebrow { font: 600 11px/1.5 var(--font-body, sans-serif); letter-spacing: .22em; color: #d8d7ae; }
-.comic-series { font-size: 15px; margin: 36px 0 8px; color: #d5d9c9; }
-.comic-intro h1 { font-family: var(--font-heading, serif); font-size: clamp(28px,4.2vw,54px); line-height: 1.25; margin: 0 0 22px; color: #fff8e9; }
-.comic-description { max-width: 470px; font-size: 16px; line-height: 1.8; color: #d9ddcf; }
-.comic-intro-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin: 30px 0; font-size: 13px; color: #b8beaa; }
-.comic-start { display: inline-flex; gap: 28px; align-items: center; background: #e9e3c9; color: #1a241a; padding: 14px 20px; font-weight: 700; text-decoration: none; border-radius: 2px; }
-.comic-languages { display: flex; gap: 4px; width: fit-content; padding: 3px; border: 1px solid #747d60; border-radius: 3px; }
-.comic-languages a { padding: 8px 18px; font-size: 13px; color: #e7e8dc; text-decoration: none; }
-.comic-languages a[aria-current] { background: #374432; color: #fff9e7; }
-.comic-pages { max-width: 900px; margin: 0 auto; padding-top: 28px; }
-.comic-page { margin: 0 0 24px; scroll-margin-top: 90px; }
-.comic-page > img { display: block; width: 100%; height: auto; background: #e4dfd2; }
-.comic-page figcaption { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; color: #a7ad9a; font-size: 12px; }
-.comic-page details { max-width: 76%; text-align: right; }
-.comic-page summary { cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-.comic-page details p { text-align: left; line-height: 1.7; color: #dddccd; }
-.comic-sharing { max-width: 900px; margin: 0 auto; padding: 56px 24px 72px; border-top: 1px solid #3d4535; }
-.comic-sharing h2 { font-size: clamp(22px,3vw,32px); line-height: 1.4; margin: 26px 0 32px; }
-.comic-share-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.comic-share-actions a,.comic-share-actions button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 44px; padding: 10px 16px; border: 1px solid #667056; border-radius: 3px; color: #efeedd; background: #1e261c; font: inherit; font-size: 13px; text-decoration: none; cursor: pointer; }
-.comic-share-actions a:hover,.comic-share-actions button:hover { background: #34402d; border-color: #b1be98; }
-.comic-external { color: #aeb89e; }
-.comic-share-status { min-height: 24px; font-size: 13px; color: #d5dfbf; }
-.comic-manual-link { display: block; font-size: 13px; }
-.comic-manual-link input { display: block; width: 100%; max-width: 560px; box-sizing: border-box; background: #12180f; border: 1px solid #778368; padding: 12px; color: #fff; margin-top: 8px; font: inherit; }
-.comic-end-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 36px; }
-.comic-end-links a { display: inline-flex; gap: 8px; align-items: center; color: #dedfc9; font-size: 13px; }
-.comic-reader :focus-visible { outline: 3px solid #f0db8a; outline-offset: 4px; }
-.comic-missing { padding: 100px 24px; text-align: center; }
-@media(max-width:600px) {
-  .comic-intro { min-height: 550px; }
-  .comic-intro-copy { padding: 72px 22px 38px; }
-  .comic-intro::after { background: linear-gradient(0deg,#11130f 0%,rgba(12,22,16,.8) 50%,rgba(12,22,16,.12) 100%); }
-  .comic-cover { object-position: 60% 20%; }
-  .comic-description { font-size: 14px; }
-  .comic-pages { padding-top: 0; }
-  .comic-page { margin-bottom: 16px; }
-  .comic-sharing { padding: 40px 20px 56px; }
+.comic-reader {
+  min-width: 0;
+  background: var(--color-ground);
+  color: var(--color-on-ground);
+  word-break: keep-all;
+}
+
+.comic-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+  padding-block: clamp(2rem, 5vw, 4rem);
+  scroll-margin-top: 6rem;
+}
+
+.comic-intro-copy { min-width: 0; }
+.comic-intro h1 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); margin-bottom: 1rem; }
+.comic-description { max-width: 32rem; color: var(--color-on-ground-soft); line-height: 1.8; }
+.comic-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--border-flat);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-flat-lg);
+}
+.comic-intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-block: 1.5rem; }
+.comic-start { gap: 1.5rem; }
+.comic-languages { display: flex; flex-wrap: wrap; gap: .75rem; }
+.comic-languages .flat-btn { min-height: 44px; padding-inline: 1rem; font-size: 1rem; }
+.comic-pages { max-width: 900px; margin-inline: auto; }
+.comic-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
+.comic-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }
+.comic-sharing { max-width: 900px; margin-inline: auto; padding: 2.5rem 1.5rem 3.5rem; border-top: var(--border-flat); }
+.comic-sharing h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1.5rem; }
+.comic-share-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.comic-share-actions .flat-btn { min-height: 44px; padding-inline: 1rem; font-size: 1rem; }
+.comic-external { color: var(--color-ink-muted); }
+.comic-share-status { min-height: 1.5rem; margin-top: 1rem; color: var(--color-on-ground-soft); }
+.comic-manual-link { display: block; max-width: 36rem; }
+.comic-manual-link input { display: block; width: 100%; margin-top: .5rem; }
+.comic-end-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
+.comic-end-links a { display: inline-flex; align-items: center; gap: .5rem; text-decoration: underline; text-underline-offset: .25rem; }
+.comic-missing { padding: 6rem 1.5rem; text-align: center; }
+
+@media (max-width: 767px) {
+  .comic-intro { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .comic-cover { max-width: 32rem; }
+  .comic-description { font-size: .95rem; }
+  .comic-sharing { padding: 2rem 1rem 3rem; }
 }
