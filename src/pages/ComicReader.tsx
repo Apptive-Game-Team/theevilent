@@ -61,7 +61,6 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
           <p className="comic-description">{copy.description}</p>
           <div className="comic-intro-actions">
             <a className="flat-btn flat-btn-primary comic-start" href="#comic-page-1">{copy.read}<ArrowDown size={18} aria-hidden="true" /></a>
-            <span>{copy.pages}</span>
           </div>
           <nav className="comic-languages" aria-label={copy.language}>
             {(['ko', 'en'] as const).map(language => (

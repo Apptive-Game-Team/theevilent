@@ -26,7 +26,6 @@
   box-shadow: var(--shadow-flat-lg);
 }
 .comic-intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-block: 1.5rem; }
-.comic-intro-actions > span { color: var(--color-on-ground-soft); }
 .comic-start { gap: 1.5rem; }
 .comic-languages { display: flex; flex-wrap: wrap; gap: .75rem; }
 .comic-languages .flat-btn { min-height: 44px; padding-inline: 1rem; font-size: 1rem; }
