@@ -3,7 +3,7 @@
 - 한국어: https://theevilent.com/arcane-casters/comic/1/ko
 - 영어: https://theevilent.com/arcane-casters/comic/1/en
 - 웹 리더는 공개된 1화 20페이지만 사용한다. 설정 문서와 제작 참고 이미지는 공개 자산으로 복사하지 않는다.
-- 사이트 메뉴에는 만화 링크를 표시하지 않고 직접 주소로만 접근한다.
+- 상단 메뉴에는 만화 링크를 표시하지 않는다. 푸터의 작은 ‘만화 보기’ 링크와 직접 주소로 접근한다.
 - 만화 HTML과 만화 경로 응답에 noindex, noimageindex를 지정한다.
 - 한국어는 selected-pages.json의 선택 이미지다. 영어는 같은 원화의 말풍선 안쪽 글자를 지우고 번역을 합성한 이미지다. 이미지 생성으로 다시 그린 영어 시안은 게시하지 않는다.
 - 선택 목록 v8은 19페이지의 잘못된 이중 스프링 제본을 한쪽 윗변 제본으로 고친다. 수정 원화와 프롬프트는 art-v7/page-19-sketchbook.png와 prompts-v7/page-19-sketchbook.txt다.
