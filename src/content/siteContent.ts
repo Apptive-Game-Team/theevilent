@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import { AtSign, Play, SquarePlay } from 'lucide-react';
 import type { Language } from '../i18n/language';
 
-export type TabId = 'home' | 'magic' | 'rankings' | 'team' | 'privacy' | 'terms' | 'news' | 'account' | 'comic';
+export type TabId = 'home' | 'magic' | 'rankings' | 'privacy' | 'terms' | 'news' | 'account' | 'comic';
 
 export interface NavigationItem {
   id: TabId;
@@ -18,20 +18,10 @@ export interface PlatformLink {
   Icon: LucideIcon;
 }
 
-export interface TeamMember {
-  name: string;
-  role: string;
-  accent: string;
-  avatarText: string;
-  github: string;
-  email: string;
-}
-
 // The home page is the game, so the menu carries only what sits beside it.
 export const navigationItems: NavigationItem[] = [
   { id: 'magic', label: { ko: '마법 도감', en: 'Magic Book' } },
   { id: 'rankings', label: { ko: '랭킹', en: 'Rankings' } },
-  { id: 'team', label: { ko: '팀', en: 'Team' } },
   { id: 'news', label: { ko: '소식', en: 'News' } },
 ];
 
@@ -83,22 +73,3 @@ export const aiArtworkNotice: Record<Language, string> = {
   ko: '이 사이트의 일부 그림은 생성형 인공지능으로 제작되었습니다.',
   en: 'Some artwork on this site was created with generative AI.',
 };
-
-export const teamMembers: TeamMember[] = [
-  {
-    name: 'monolong',
-    role: 'Unity · Backend',
-    accent: '#e61e2a',
-    avatarText: 'ML',
-    github: 'https://github.com/monolong',
-    email: 'tjdvlf0201@gmail.com',
-  },
-  {
-    name: 'yunseong',
-    role: 'Backend · Infra · Unity',
-    accent: '#dfb73c',
-    avatarText: 'YS',
-    github: 'https://github.com/dev-yunseong',
-    email: 'me@yunseong.dev',
-  },
-];

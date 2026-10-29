@@ -116,17 +116,6 @@ test('capture screenshots of all pages', async ({ page }, testInfo) => {
   await expect(page.getByRole('img', { name: /인간 비전 강하대/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /공중 프레임과 낙하산 없는 지상 프레임/ })).toBeVisible();
 
-  // Navigate to Team page
-  await page.goto('/team');
-  await page.waitForTimeout(1000);
-
-  // Take screenshot of Team page
-  await settlePage(page);
-  await page.screenshot({
-    path: testInfo.outputPath('screenshot_team.png'),
-    fullPage: true,
-  });
-  console.log('Saved screenshot_team.png');
 });
 
 test('old summon addresses land on the magic that summons them', async ({ page }) => {
@@ -172,14 +161,14 @@ test('magic compendium remains usable on mobile', async ({ page }, testInfo) => 
 });
 
 test('skip link keeps the active tab instead of resetting to home', async ({ page }) => {
-  await page.goto('/team');
-  await expect(page.getByRole('heading', { name: 'The Evil Ent', level: 1 })).toBeVisible();
+  await page.goto('/arcane-casters/news');
+  await expect(page.getByRole('heading', { name: '소식', level: 1 })).toBeVisible();
 
   await page.getByRole('link', { name: 'Skip To Main Content' }).focus();
   await page.keyboard.press('Enter');
 
-  await expect(page).toHaveURL(/\/team#main-content$/);
-  await expect(page.getByRole('heading', { name: 'The Evil Ent', level: 1 })).toBeVisible();
+  await expect(page).toHaveURL(/\/arcane-casters\/news#main-content$/);
+  await expect(page.getByRole('heading', { name: '소식', level: 1 })).toBeVisible();
 });
 
 // The redesign runs art to the edge of the viewport, which is exactly the shape
@@ -192,7 +181,7 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
   const routes: Array<[string, string]> = [
     ['/', 'home'],
     ['/arcane-casters/magic', 'magic'],
-    ['/team', 'team'],
+    ['/arcane-casters/news', 'news'],
     ['/privacy', 'privacy'],
     ['/terms', 'terms'],
   ];
@@ -206,7 +195,7 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
     );
     expect(overflow, `${path} overflows by ${overflow}px`).toBeLessThanOrEqual(0);
 
-    if (['home', 'magic', 'team'].includes(name)) {
+    if (['home', 'magic', 'news'].includes(name)) {
       await settlePage(page);
       await page.screenshot({
         path: testInfo.outputPath(`screenshot_mobile-${name}.png`),
@@ -219,7 +208,7 @@ test('no route scrolls sideways at phone width', async ({ page }, testInfo) => {
 // Every route reads the one token layer on :root; no page swaps in a theme of
 // its own any more.
 test('every route paints from the token layer', async ({ page }) => {
-  for (const path of ['/', '/arcane-casters/magic', '/team', '/privacy']) {
+  for (const path of ['/', '/arcane-casters/magic', '/arcane-casters/news', '/privacy']) {
     await page.goto(path);
     const ground = await page.evaluate(() =>
       getComputedStyle(document.documentElement).getPropertyValue('--color-ground').trim(),
