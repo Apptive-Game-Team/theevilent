@@ -1,0 +1,164 @@
+{
+  "version": 2,
+  "status": "draft-complete",
+  "tool": "built-in imagegen",
+  "pages": [
+    {
+      "number": 1,
+      "title": "운룡 소환",
+      "src": "art-v1/page-01.png",
+      "prompt": "prompts-v1/page-01.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": []
+    },
+    {
+      "number": 2,
+      "title": "구름 속의 습격",
+      "src": "art-v1/page-02.png",
+      "prompt": "prompts-v1/page-02.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": []
+    },
+    {
+      "number": 3,
+      "title": "핀을 발견하다",
+      "src": "art-v1/page-03-ground-legion.png",
+      "prompt": "prompts-v1/page-03-ground-legion-edit.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "핀…? 왜 그래?"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "덩굴과 방벽",
+      "src": "art-v2/page-04-continuity.png",
+      "prompt": "prompts-v2/page-04-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "공격해라.",
+        "핀. 내 말 들려?"
+      ],
+      "actingNote": "검붉은 바탕·밝은 글자·꼬리 없는 닫힌 말풍선. 핀의 시선과 몸짓은 군단을 향한다.",
+      "previousSource": "art-v1/page-04-ground-legion.png",
+      "previousPrompt": "prompts-v1/page-04-ground-legion-edit.txt"
+    },
+    {
+      "number": 5,
+      "title": "칼날이 만든 잔해",
+      "src": "art-v2/page-05-mira-clasp.png",
+      "prompt": "prompts-v2/page-05-mira-clasp.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [],
+      "previousSource": "art-v1/page-05-ground-legion.png",
+      "previousPrompt": "prompts-v1/page-05-ground-legion-edit.txt",
+      "editChain": [
+        "prompts-v2/page-05-continuity.txt",
+        "prompts-v2/page-05-mira-clasp.txt"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "돌 폭발",
+      "src": "art-v2/page-06-continuity.png",
+      "prompt": "prompts-v2/page-06-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": true,
+      "dialogue": [],
+      "previousSource": "art-v1/page-06-ground-only.png",
+      "previousPrompt": "prompts-v1/page-06-ground-only.txt"
+    },
+    {
+      "number": 7,
+      "title": "돌 굴리기",
+      "src": "art-v1/page-07-ground-legion.png",
+      "prompt": "prompts-v1/page-07-ground-legion-edit.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": []
+    },
+    {
+      "number": 8,
+      "title": "물 폭발로 뛰어오르다",
+      "src": "art-v2/page-08-continuity.png",
+      "prompt": "prompts-v2/page-08-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": true,
+      "dialogue": [],
+      "previousSource": "art-v1/page-08.png",
+      "previousPrompt": "prompts-v1/page-08-ground-legion.txt"
+    },
+    {
+      "number": 9,
+      "title": "위와 아래의 공격",
+      "src": "art-v2/page-09-continuity.png",
+      "prompt": "prompts-v2/page-09-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "멈추지 마라."
+      ],
+      "actingNote": "핀의 말처럼 보이지만 원래 의지로 확정하지 않는다.",
+      "previousSource": "art-v1/page-09-ground-legion.png",
+      "previousPrompt": "prompts-v1/page-09-ground-legion-edit.txt"
+    },
+    {
+      "number": 10,
+      "title": "리콜",
+      "src": "art-v1/page-10.png",
+      "prompt": "prompts-v1/page-10-ground-legion.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": []
+    },
+    {
+      "number": 11,
+      "title": "탑으로 돌아오다",
+      "src": "art-v2/page-11-continuity.png",
+      "prompt": "prompts-v2/page-11-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "헉… 헉…"
+      ],
+      "previousSource": "art-v1/page-11.png",
+      "previousPrompt": "prompts-v1/page-11.txt"
+    },
+    {
+      "number": 12,
+      "title": "익숙한 손이 떨린다",
+      "src": "art-v2/page-12-continuity.png",
+      "prompt": "prompts-v2/page-12-continuity.txt",
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "dialogue": [
+        "어떤 일이지!?",
+        "핀이… 저를 공격했습니다.",
+        "왜…?"
+      ],
+      "previousSource": "art-v1/page-12-urgent.png",
+      "previousPrompt": "prompts-v1/page-12-urgent.txt"
+    }
+  ],
+  "review": {
+    "date": "2026-10-30",
+    "status": "complete",
+    "pagesReviewed": 12,
+    "pagesRevised": [
+      4,
+      5,
+      6,
+      8,
+      9,
+      11,
+      12
+    ],
+    "notes": "REVIEW.md",
+    "publication": "local-only"
+  }
+}
