@@ -30,9 +30,11 @@
 .comic-languages { display: flex; flex-wrap: wrap; gap: .75rem; }
 .comic-languages .flat-btn { min-height: 44px; padding-inline: 1rem; font-size: 1rem; }
 .comic-pages { max-width: 900px; margin-inline: auto; }
-.comic-episodes { display: flex; flex-wrap: wrap; gap: .75rem; padding-bottom: 2rem; }
-.comic-episodes .flat-btn { white-space: normal; text-align: left; min-height: 44px; flex-wrap: wrap; gap: .5rem; font-size: 1rem; }
-.comic-reading-state { font-family: var(--font-body); font-size: .85rem; }
+.comic-reader-intro { display: block; max-width: 900px; padding-block: 1.5rem; }
+.comic-reader-intro .comic-intro-actions { margin-block: 1rem; }
+.comic-list-back { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .25rem; margin-bottom: .5rem; }
+.comic-episode-navigation { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; padding: 1.5rem 1rem 2rem; }
+.comic-episode-navigation .flat-btn { font-size: 1rem; min-height: 44px; }
 .comic-reading-end { height: 1px; }
 .comic-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
 .comic-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }

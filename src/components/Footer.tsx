@@ -1,7 +1,7 @@
 import React from 'react';
 import { aiArtworkNotice, legalLinks, platformLinks, type TabId } from '../content/siteContent';
 import { getTabPath } from '../routing';
-import { comicPath } from '../content/comic';
+import { comicListPath } from '../content/comic';
 import { useLanguage } from '../i18n/language';
 import './Footer.css';
 
@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateToTab }) => {
           ))}
         </nav>
 
-        <a className="footer-comic-link" href={comicPath(language)}>
+        <a className="footer-comic-link" href={comicListPath(language)}>
           {language === 'ko' ? '만화 보기' : 'Read the comic'}
         </a>
 

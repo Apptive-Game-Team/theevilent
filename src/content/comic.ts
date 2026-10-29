@@ -3,6 +3,7 @@ import secondPages from './comic-pages-002.json';
 import episodes from './comic-episodes.json';
 
 export type ComicLocale = 'ko' | 'en';
+export const comicListPath = (locale: ComicLocale) => `/arcane-casters/comic/${locale}`;
 export const comicPath = (locale: ComicLocale, episode = '1') => `/arcane-casters/comic/${episode}/${locale}`;
 export const comicUrl = (locale: ComicLocale, episode = '1') => `https://theevilent.com${comicPath(locale, episode)}`;
 export const comicPages = pages;

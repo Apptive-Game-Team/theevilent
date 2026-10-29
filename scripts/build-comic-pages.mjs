@@ -46,4 +46,27 @@ for (const locale of ['ko', 'en']) {
   await writeFile(path.join(directory, `${locale}.html`), html);
 }
 }
-console.log('Generated Korean and English comic entries with static social metadata.');
+const libraryDirectory = 'dist/arcane-casters/comic';
+await mkdir(libraryDirectory, { recursive: true });
+for (const locale of ['ko', 'en']) {
+  const title = `${locale === 'ko' ? '만화' : 'Comic'} | Arcane Casters | The Evil Ent`;
+  const url = `${origin}/arcane-casters/comic/${locale}`;
+  const metadata = `
+    <meta name="robots" content="noindex, noimageindex" />
+    <link rel="canonical" href="${url}" />
+    <link rel="alternate" hreflang="ko" href="${origin}/arcane-casters/comic/ko" />
+    <link rel="alternate" hreflang="en" href="${origin}/arcane-casters/comic/en" />
+    <meta property="og:title" content="${escape(title)}" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:image" content="${origin}/arcane-casters/comic/001/cover.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+  `;
+  const fallback = `<noscript><main lang="${locale}"><h1>${escape(title)}</h1><ol>${episodes.map(episode =>
+    `<li><a href="/arcane-casters/comic/${episode.id}/${locale}">${escape(episode[locale].title)}</a></li>`).join('')}</ol></main></noscript>`;
+  const html = template.replace(/<html lang="[^"]*">/, `<html lang="${locale}">`)
+    .replace(/<title>.*?<\/title>/, `<title>${escape(title)}</title>`)
+    .replace('</head>', `${metadata}</head>`)
+    .replace('<div id="root"></div>', `<div id="root"></div>${fallback}`);
+  await writeFile(path.join(libraryDirectory, `${locale}.html`), html);
+}
+console.log('Generated Korean and English comic library and episodes with static metadata.');

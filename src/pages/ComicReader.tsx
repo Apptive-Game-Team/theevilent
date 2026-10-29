@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, Copy, Share2 } from 'lucide-react';
-import { comicCopy, comicEpisodes, getComicEpisode, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
+import { comicCopy, comicEpisodes, getComicEpisode, comicListPath, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
 import { useComicReading } from '../content/comicReading';
 import './ComicReader.css';
 import { useLanguage } from '../i18n/language';
@@ -9,7 +9,11 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
   const { setLanguage } = useLanguage();
   const entry = getComicEpisode(episode);
   const copy = { ...comicCopy[locale], ...entry?.[locale] };
-  const { history, pagesRef, endRef, resumePage } = useComicReading(episode, entry?.pages.length ?? 0);
+  const { pagesRef, endRef, resumePage } = useComicReading(episode, entry?.pages.length ?? 0);
+  const index = comicEpisodes.findIndex(item => item.id === episode);
+  const previous = comicEpisodes[index - 1];
+  const next = comicEpisodes[index + 1];
+  const listLabel = locale === 'ko' ? '회차 목록' : 'Episode list';
   const [status, setStatus] = useState('');
   const [manualCopy, setManualCopy] = useState(false);
   const url = comicUrl(locale, episode);
@@ -54,14 +58,14 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
     }
   };
 
-  if (!entry) return <section className="comic-missing"><h1>{copy.missing}</h1><a href={comicPath(locale)}>{copy.first}</a></section>;
+  if (!entry) return <section className="comic-missing"><h1>{copy.missing}</h1><a href={comicListPath(locale)}>{listLabel}</a></section>;
 
   return (
     <article className="comic-reader" lang={locale}>
-      <header className="container comic-intro" id="comic-top">
+      <header className="container comic-intro comic-reader-intro" id="comic-top">
         <div className="comic-intro-copy">
+          <a className="comic-list-back" href={comicListPath(locale)}>← {listLabel}</a>
           <h1 className="text-title">{copy.title}</h1>
-          <p className="comic-description">{copy.description}</p>
           <div className="comic-intro-actions">
             <a className="flat-btn flat-btn-primary comic-start" href={`#comic-page-${resumePage}`}>{resumePage > 1 ? (locale === 'ko' ? '이어서 읽기' : 'Continue reading') : copy.read}<ArrowDown size={18} aria-hidden="true" /></a>
           </div>
@@ -75,20 +79,7 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
             ))}
           </nav>
         </div>
-        <img className="comic-cover" src={`/arcane-casters/comic/${entry.directory}/cover.webp`} width="1024" height="538" alt="" fetchPriority="high" />
       </header>
-
-      <nav className="container comic-episodes" aria-label={locale === 'ko' ? '회차 선택' : 'Episodes'}>
-        {comicEpisodes.map(item => (
-          <a className={`flat-btn${item.id === episode ? ' flat-btn-primary' : ''}`} key={item.id}
-            href={comicPath(locale, item.id)} aria-current={item.id === episode ? 'page' : undefined}>
-            {item[locale].title}
-            {history[item.id] && <span className="comic-reading-state">{history[item.id].completed
-              ? (locale === 'ko' ? '읽음' : 'Read')
-              : (locale === 'ko' ? '읽는 중' : 'In progress')}</span>}
-          </a>
-        ))}
-      </nav>
 
       <div className="comic-pages" aria-label={copy.title} ref={pagesRef}>
         {entry.pages.map(page => (
@@ -104,6 +95,11 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
         ))}
       </div>
       <div ref={endRef} className="comic-reading-end" aria-hidden="true" />
+      <nav className="comic-episode-navigation" aria-label={locale === 'ko' ? '회차 이동' : 'Episode navigation'}>
+        {previous && <a className="flat-btn" href={comicPath(locale, previous.id)}>← {locale === 'ko' ? '이전화' : 'Previous episode'}</a>}
+        <a className="flat-btn" href={comicListPath(locale)}>{listLabel}</a>
+        {next && <a className="flat-btn flat-btn-primary" href={comicPath(locale, next.id)}>{locale === 'ko' ? '다음화' : 'Next episode'} →</a>}
+      </nav>
 
       <section className="comic-sharing" aria-labelledby="comic-share-heading">
         <h2 id="comic-share-heading" className="text-outline">{copy.share}</h2>
@@ -117,10 +113,6 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
         <p role="status" className="comic-share-status">{status}</p>
         {manualCopy && <label className="comic-manual-link">{copy.link}<input readOnly value={url} onFocus={event => event.currentTarget.select()} /></label>}
         <div className="comic-end-links"><a href="#comic-top"><ArrowUp size={16} aria-hidden="true" />{copy.back}</a><a href="/arcane-casters">{copy.game} ↗</a></div>
-        <nav className="comic-end-links" aria-label={locale === 'ko' ? '다른 회차' : 'Other episodes'}>
-          {comicEpisodes.filter(item => item.id !== episode).map(item =>
-            <a key={item.id} href={comicPath(locale, item.id)}>{item[locale].title} →</a>)}
-        </nav>
       </section>
     </article>
   );

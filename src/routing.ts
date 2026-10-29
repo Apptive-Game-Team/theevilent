@@ -9,7 +9,7 @@ export interface AppRoute {
 
 const tabPaths: Record<TabId, string> = {
   home: '/',
-  comic: '/arcane-casters/comic/1/ko',
+  comic: '/arcane-casters/comic/ko',
   magic: '/arcane-casters/magic',
   rankings: '/arcane-casters/rankings',
   team: '/team',
@@ -55,6 +55,9 @@ export const getRouteFromPathname = (pathname: string): AppRoute => {
 
   if (segments.length === 0) return { tab: 'home' };
   if (segments[0] === 'arcane-casters' && segments[1] === 'comic') {
+    if (!segments[2] || segments[2] === 'ko' || segments[2] === 'en') {
+      return { tab: 'comic', slug: 'list', locale: segments[2] === 'en' ? 'en' : 'ko' };
+    }
     return { tab: 'comic', slug: segments[2] || '1', locale: segments[3] === 'en' ? 'en' : 'ko' };
   }
   if (segments[0] === 'team' && segments.length === 1) return { tab: 'team' };

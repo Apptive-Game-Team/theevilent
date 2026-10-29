@@ -6,7 +6,8 @@ test('episode two preserves language, uses its own assets and shares its own URL
   await page.goto('/arcane-casters/comic/2/ko');
   await expect(page.getByRole('heading', { name: '2화 · 문 너머', exact: true })).toBeVisible();
   await expect(page.locator('.comic-page > img')).toHaveCount(10);
-  await expect(page.getByRole('navigation', { name: '회차 선택', exact: true })).toBeVisible();
+  await expect(page.locator('.comic-list-back')).toHaveAttribute('href', '/arcane-casters/comic/ko');
+  await expect(page.locator('.comic-episodes')).toHaveCount(0);
   await page.getByRole('link', { name: 'English', exact: true }).click();
   await expect(page).toHaveURL(/\/comic\/2\/en$/);
   await expect(page.getByRole('heading', { name: 'Episode 2 · Beyond the Gate', exact: true })).toBeVisible();
@@ -25,7 +26,7 @@ test('episode two preserves language, uses its own assets and shares its own URL
   await page.setViewportSize({ width: 320, height: 750 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await page.screenshot({ path: info.outputPath('episode-two-mobile.png') });
-  await page.getByRole('navigation', { name: 'Episodes', exact: true }).getByRole('link', { name: /Episode 1/ }).click();
+  await page.getByRole('navigation', { name: 'Episode navigation', exact: true }).getByRole('link', { name: /Previous episode/ }).click();
   await expect(page).toHaveURL(/\/comic\/1\/en$/);
   await expect(page.locator('.comic-page > img')).toHaveCount(20);
 });
@@ -40,7 +41,6 @@ test('reading position survives reload and language changes without marking the 
   await expect(page.getByRole('link', { name: 'Continue reading', exact: true })).toHaveAttribute('href', '#comic-page-4');
   await page.getByRole('link', { name: 'Continue reading', exact: true }).click();
   await expect(page.locator('#comic-page-4')).toBeInViewport();
-  await expect(page.locator('.comic-reading-state')).toHaveText('In progress');
   expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['2'].completed, storageKey)).toBe(false);
 });
 
@@ -48,12 +48,13 @@ test('reaching the end marks only the current episode read and retains that stat
   await page.goto('/arcane-casters/comic/2/ko');
   await page.locator('.comic-reading-end').scrollIntoViewIfNeeded();
   await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['2']?.completed, storageKey)).toBe(true);
-  await page.reload();
-  const episodes = page.getByRole('navigation', { name: '회차 선택', exact: true });
+  await page.goto('/arcane-casters/comic/ko');
+  const episodes = page.getByRole('list', { name: '회차 목록', exact: true });
   await expect(episodes.getByRole('link', { name: /2화/ })).toContainText('읽음');
   await expect(episodes.getByRole('link', { name: /1화/ })).not.toContainText('읽음');
   await episodes.getByRole('link', { name: /1화/ }).click();
-  await expect(page.getByRole('navigation', { name: '회차 선택', exact: true }).getByRole('link', { name: /2화/ })).toContainText('읽음');
+  await page.locator('.comic-list-back').click();
+  await expect(page.getByRole('list', { name: '회차 목록', exact: true }).getByRole('link', { name: /2화/ })).toContainText('읽음');
 });
 
 for (const storage of ['corrupt', 'blocked']) {

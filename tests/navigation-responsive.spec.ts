@@ -74,7 +74,7 @@ for (const language of ['ko', 'en'] as const) {
       expect(Math.abs(popover!.x + popover!.width - trigger!.x - trigger!.width)).toBeLessThanOrEqual(2);
       await page.screenshot({ path: info.outputPath('navigation-home-900.png') });
       await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: language === 'ko' ? '만화' : 'Comic', exact: true }).click();
-      await expect(page).toHaveURL(new RegExp('/comic/1/' + language + '$'));
+      await expect(page).toHaveURL(new RegExp('/comic/' + language + '$'));
     });
   }
 }
