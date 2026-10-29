@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { comicEpisodes, comicListPath, comicPath, type ComicLocale } from '../content/comic';
+import { comicEpisodes, comicPath, type ComicLocale } from '../content/comic';
 import { useComicHistory } from '../content/comicReading';
 import { useLanguage } from '../i18n/language';
 import './ComicLibrary.css';
@@ -27,15 +27,6 @@ export default function ComicLibrary({ locale }: { locale: ComicLocale }) {
     <section className="container comic-library" lang={locale}>
       <header className="comic-library-header">
         <h1 className="text-title">{copy.title}</h1>
-        <nav className="comic-languages" aria-label={copy.language}>
-          {(['ko', 'en'] as const).map(language => (
-            <a key={language} className={`flat-btn${language === locale ? ' flat-btn-primary' : ''}`}
-              href={comicListPath(language)} hrefLang={language} lang={language}
-              aria-current={language === locale ? 'page' : undefined}>
-              {language === 'ko' ? '한국어' : 'English'}
-            </a>
-          ))}
-        </nav>
       </header>
       {ongoing && (
         <a className="flat-btn flat-btn-primary comic-library-resume"

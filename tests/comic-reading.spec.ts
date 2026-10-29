@@ -8,7 +8,9 @@ test('episode two preserves language, uses its own assets and shares its own URL
   await expect(page.locator('.comic-page > img')).toHaveCount(10);
   await expect(page.locator('.comic-list-back')).toHaveAttribute('href', '/arcane-casters/comic/ko');
   await expect(page.locator('.comic-episodes')).toHaveCount(0);
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'English', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: 'English', exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page).toHaveURL(/\/comic\/2\/en$/);
   await expect(page.getByRole('heading', { name: 'Episode 2 · Beyond the Gate', exact: true })).toBeVisible();
   const sources = await page.locator('.comic-page > img').evaluateAll(images => images.map(image => image.getAttribute('src')!));
@@ -37,7 +39,7 @@ test('reading position survives reload and language changes without marking the 
   await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['2']?.page, storageKey)).toBe(4);
   await page.reload();
   await expect(page.getByRole('link', { name: '이어서 읽기', exact: true })).toHaveAttribute('href', '#comic-page-4');
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page.getByRole('link', { name: 'Continue reading', exact: true })).toHaveAttribute('href', '#comic-page-4');
   await page.getByRole('link', { name: 'Continue reading', exact: true }).click();
   await expect(page.locator('#comic-page-4')).toBeInViewport();

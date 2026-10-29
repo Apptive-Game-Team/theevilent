@@ -69,15 +69,6 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
           <div className="comic-intro-actions">
             <a className="flat-btn flat-btn-primary comic-start" href={`#comic-page-${resumePage}`}>{resumePage > 1 ? (locale === 'ko' ? '이어서 읽기' : 'Continue reading') : copy.read}<ArrowDown size={18} aria-hidden="true" /></a>
           </div>
-          <nav className="comic-languages" aria-label={copy.language}>
-            {(['ko', 'en'] as const).map(language => (
-              <a key={language} href={comicPath(language, episode)} hrefLang={language} lang={language}
-                className={`flat-btn${locale === language ? ' flat-btn-primary' : ''}`}
-                aria-current={locale === language ? 'page' : undefined}>
-                {language === 'ko' ? '한국어' : 'English'}
-              </a>
-            ))}
-          </nav>
         </div>
       </header>
 

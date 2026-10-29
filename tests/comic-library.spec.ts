@@ -8,6 +8,8 @@ test('library shows thumbnails without reader pages and fits desktop and phone',
   await expect(page.locator('.comic-episode-row')).toHaveCount(2);
   await expect(page.locator('.comic-episode-row img')).toHaveCount(2);
   await expect(page.locator('.comic-page')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'English', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: 'English', exact: true })).toHaveCount(0);
   await expect(page.locator('.comic-library-resume')).toHaveCount(0);
   expect(await page.evaluate(name => localStorage.getItem(name), key)).toBeNull();
   const html = await (await request.get('/arcane-casters/comic/ko')).text();
@@ -17,7 +19,7 @@ test('library shows thumbnails without reader pages and fits desktop and phone',
   await page.setViewportSize({ width: 320, height: 750 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await page.screenshot({ path: info.outputPath('comic-library-mobile.png') });
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page).toHaveURL(/\/comic\/en$/);
   await expect(page.getByRole('list', { name: 'Episode list', exact: true }).getByRole('link', { name: /Episode 2/ })).toHaveAttribute('href', '/arcane-casters/comic/2/en');
 });
@@ -38,7 +40,7 @@ test('library restores old reading records and resumes at the saved page', async
   await expect(page.locator('#comic-page-4')).toBeInViewport();
   await page.locator('.comic-list-back').click();
   await expect(page).toHaveURL(/\/comic\/ko$/);
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page.locator('.comic-library-resume')).toHaveAttribute('href', '/arcane-casters/comic/2/en#comic-page-4');
 });
 

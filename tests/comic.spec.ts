@@ -4,7 +4,7 @@ test('comic language links preserve the episode and load all selected pages', as
   await page.goto('/arcane-casters/comic/1/ko');
   await expect(page.getByRole('heading', { name: '1화 · 첫 현장 연구', exact: true })).toBeVisible();
   await expect(page.locator('.comic-page > img')).toHaveCount(20);
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page).toHaveURL(/\/comic\/1\/en$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: 'Episode 1 · First Fieldwork', exact: true })).toBeVisible();
