@@ -16,9 +16,6 @@
 .comic-page { margin: 0 0 24px; scroll-margin-top: 90px; }
 .comic-page > img { display: block; width: 100%; height: auto; background: #e4dfd2; }
 .comic-page figcaption { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; color: #a7ad9a; font-size: 12px; }
-.comic-page details { max-width: 76%; text-align: right; }
-.comic-page summary { cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-.comic-page details p { text-align: left; line-height: 1.7; color: #dddccd; }
 .comic-sharing { max-width: 900px; margin: 0 auto; padding: 56px 24px 72px; border-top: 1px solid #3d4535; }
 .comic-sharing h2 { font-size: clamp(22px,3vw,32px); line-height: 1.4; margin: 26px 0 32px; }
 .comic-share-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
