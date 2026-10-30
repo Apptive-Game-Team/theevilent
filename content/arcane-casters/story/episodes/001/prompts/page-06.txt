@@ -1,0 +1,26 @@
+Create one finished page of a TEN-PAGE serialized fantasy COMIC, episode 1, about two adult graduate-research mages who are close friends. This is actual page artwork, not a storyboard diagram or character sheet. Tall portrait page, readable top-to-bottom then left-to-right. Use exact page panel count and Korean dialogue supplied below. No labels identifying speakers, no panel numbers, no explanatory notes copied from script, no title unless explicitly supplied. Only speech and sound effects designated in dialogue column are printed.
+STYLE: approved hand-inked American fantasy comic with bold variable-width black contours, large flat color fields, controlled cel shadows and restrained hatch/halftone. Expressive acting, drawn scenery. No realism, CGI, shiny 3D, manga screentone faces or polygon cut-paper sprite rendering. Irregular unequal panels with broad establishing views, angled borders and small hand/face insets. Not a uniform grid. Cream gutters and black borders. Keep dialogue large, legible Korean, not tiny dense paragraphs. A row containing two lines must show clear sequential speech balloons with correct tails.
+REFERENCE ROLES: image1 comic-style defines rendering ONLY, do NOT import its invasion story, wizard or layout. image2 corruption sheet defines LUCA identity using ONLY LEFTMOST HEALTHY figure. No red eyes, dark armor, corrupted skin or mini-rock on this episode. image3 defines THEO identity, translate sprite to adult comic anatomy. If image4 present it is the preceding page for outfit/location continuity, not a repeated scene. If image5 present it locks ORIN's appearance from page4.
+CAST:
+THEO (테오): young adult with long chestnut hair reaching below shoulders, BLUE cloak with hood down and gold diamond clasp, grey long tunic, brown belt/card pouch/boots, wood staff with BLUE crystal. Mature young adult facial proportions, not a child/chibi. Careful, dry humor, tired eyes, caring friendship. Natural dark eyes.
+LUCA (루카): young adult with SHORT tousled chestnut chin-length hair and one small side braid with a pale stone bead, SAGE GREEN short cape hood down and ROUND tan stone clasp, CREAM knee-length robe with simple hem motifs, terracotta sash, brown card pouch/boots, forked wooden staff cradling AMBER stone. Clearly different from Theo in hair length and costume. Not orange fire mage or corrupted. Natural dark eyes.
+ORIN (오린), only where script calls him: ELDERLY male wizard, long white hair and long full white beard, thick white brows, wrinkled hands, kindly sharp eyes and slightly stooped posture; plain weathered DUSTY PLUM robe, beige inner cuffs and simple wooden staff leaned at desk. No crown, glasses, horns, evil intent or confused senility. Calm old-grandfather speech.
+ACTING: Theo and Luca are comfortable close friends; subtle internal academic rivalry only in pauses and glances, no sneering, hostility, competitive declarations or plot of jealousy. They are competent at magic but tired and struggling with research. Show cards DRAWN FROM BELT POUCH, held toward target and magical effect where script requests magic; staffs are supporting props, not sole magic source. Cards have simple decorative emblem, no invented stat/cost/name text. Do not specify consumption/recharge rules. No modern computers, lab coats, machines or steampunk factory; laboratory uses stone, glass, wood and low-key magic.
+REVEAL BOUNDARY: this episode has NO demons, red eyes, psychic commands, portals, shadow mastermind, future-corruption teaser or speaking nature/rock creatures. They have not yet met mini-rock friend. Spirit/rock pictures in research documents are just drawings and cannot speak. No industrial human civilization. No narrator predicting tragedy. Warm weary everyday tone with grand natural world.
+Follow the page script below faithfully. Scene and acting notes guide illustration but are NOT printed as captions.
+
+PAGE 6 OF 10
+## 6페이지 — 직접 가서 봐
+
+구성: 두 목적지의 그림이 있는 자료를 크게 보여준다. 작은 지도는 상대적 방향만
+표시하고 대륙 전체의 확정 지리로 만들지 않는다.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 지도 마법사가 세계수와 돌골렘 마을의 현장 기록을 꺼낸다. | 오린: “세계수 근처와 돌골렘 마을에 머물 자리는 살펴 두었네.” |
+| 2 | 테오에게 세계수 자료를 건넨다. 자료에는 정령들이 서로 다른 높이에 모여 있다. | 오린: “같은 정령이 장소에 따라 달라지는지 직접 보고 오너라.” |
+| 3 | 루카에게 돌골렘 자료를 건넨다. 몸을 붙이는 돌골렘의 스케치가 있다. | 오린: “너는 움직일 때 마력이 어디로 흐르는지 살펴보거라.” |
+| 4 | 둘이 자료를 받은 채 잠깐 서로 본다. | 테오: “현장 연구요?” / 오린: “그래. 이번에는 자네들이 직접 본 것을 써 오게.” |
+
+연구생을 위험한 곳으로 쫓아내는 징벌로 그리지 않는다.
+지도 마법사가 방문을 조율한 정상적인 현장 연구다.

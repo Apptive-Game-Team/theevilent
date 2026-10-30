@@ -34,8 +34,9 @@
 .comic-episode-navigation { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; padding: 1.5rem 1rem 2rem; }
 .comic-episode-navigation .flat-btn { font-size: 1rem; min-height: 44px; }
 .comic-reading-end { height: 1px; }
-.comic-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
-.comic-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }
+.comic-page, .comic-context-page { margin: 0 0 1rem; scroll-margin-top: 6rem; }
+.comic-page > img, .comic-context-page > img { display: block; width: 100%; height: auto; background: var(--color-surface); }
+.comic-context { scroll-margin-top: 6rem; }
 .comic-sharing { max-width: 900px; margin-inline: auto; padding: 2.5rem 1.5rem 3.5rem; border-top: var(--border-flat); }
 .comic-sharing h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1.5rem; }
 .comic-share-actions { display: flex; flex-wrap: wrap; gap: .75rem; }

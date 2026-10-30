@@ -1,0 +1,25 @@
+Create one finished page of a TEN-PAGE serialized fantasy COMIC, episode 1, about two adult graduate-research mages who are close friends. This is actual page artwork, not a storyboard diagram or character sheet. Tall portrait page, readable top-to-bottom then left-to-right. Use exact page panel count and Korean dialogue supplied below. No labels identifying speakers, no panel numbers, no explanatory notes copied from script, no title unless explicitly supplied. Only speech and sound effects designated in dialogue column are printed.
+STYLE: approved hand-inked American fantasy comic with bold variable-width black contours, large flat color fields, controlled cel shadows and restrained hatch/halftone. Expressive acting, drawn scenery. No realism, CGI, shiny 3D, manga screentone faces or polygon cut-paper sprite rendering. Irregular unequal panels with broad establishing views, angled borders and small hand/face insets. Not a uniform grid. Cream gutters and black borders. Keep dialogue large, legible Korean, not tiny dense paragraphs. A row containing two lines must show clear sequential speech balloons with correct tails.
+REFERENCE ROLES: image1 comic-style defines rendering ONLY, do NOT import its invasion story, wizard or layout. image2 corruption sheet defines LUCA identity using ONLY LEFTMOST HEALTHY figure. No red eyes, dark armor, corrupted skin or mini-rock on this episode. image3 defines THEO identity, translate sprite to adult comic anatomy. If image4 present it is the preceding page for outfit/location continuity, not a repeated scene. If image5 present it locks ORIN's appearance from page4.
+CAST:
+THEO (테오): young adult with long chestnut hair reaching below shoulders, BLUE cloak with hood down and gold diamond clasp, grey long tunic, brown belt/card pouch/boots, wood staff with BLUE crystal. Mature young adult facial proportions, not a child/chibi. Careful, dry humor, tired eyes, caring friendship. Natural dark eyes.
+LUCA (루카): young adult with SHORT tousled chestnut chin-length hair and one small side braid with a pale stone bead, SAGE GREEN short cape hood down and ROUND tan stone clasp, CREAM knee-length robe with simple hem motifs, terracotta sash, brown card pouch/boots, forked wooden staff cradling AMBER stone. Clearly different from Theo in hair length and costume. Not orange fire mage or corrupted. Natural dark eyes.
+ORIN (오린), only where script calls him: ELDERLY male wizard, long white hair and long full white beard, thick white brows, wrinkled hands, kindly sharp eyes and slightly stooped posture; plain weathered DUSTY PLUM robe, beige inner cuffs and simple wooden staff leaned at desk. No crown, glasses, horns, evil intent or confused senility. Calm old-grandfather speech.
+ACTING: Theo and Luca are comfortable close friends; subtle internal academic rivalry only in pauses and glances, no sneering, hostility, competitive declarations or plot of jealousy. They are competent at magic but tired and struggling with research. Show cards DRAWN FROM BELT POUCH, held toward target and magical effect where script requests magic; staffs are supporting props, not sole magic source. Cards have simple decorative emblem, no invented stat/cost/name text. Do not specify consumption/recharge rules. No modern computers, lab coats, machines or steampunk factory; laboratory uses stone, glass, wood and low-key magic.
+REVEAL BOUNDARY: this episode has NO demons, red eyes, psychic commands, portals, shadow mastermind, future-corruption teaser or speaking nature/rock creatures. They have not yet met mini-rock friend. Spirit/rock pictures in research documents are just drawings and cannot speak. No industrial human civilization. No narrator predicting tragedy. Warm weary everyday tone with grand natural world.
+Follow the page script below faithfully. Scene and acting notes guide illustration but are NOT printed as captions.
+
+PAGE 2 OF 10
+## 2페이지 — 기록은 살았다
+
+구성: 손과 기록지의 빠른 삽입 컷, 둘의 표정을 함께 잡는 넓은 마지막 칸.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 루카는 장치의 마력을 끊고, 테오는 기록지를 연기 밖으로 들어 올린다. 사고 대응에 익숙하다. | 루카: “기록은?” |
+| 2 | 살짝 그을린 얼굴로 기록지를 보여주는 테오. | 테오: “살았어.” |
+| 3 | 루카는 안도하며 자기 얼굴의 그을음을 닦는다. | 루카: “그럼 됐네.” |
+| 4 | 테오가 책상 위 보고 일정 쪽지와 창밖의 아침빛을 번갈아 본다. | 테오: “보고까지 십 분 남았어.” |
+| 5 | 둘이 멈칫한 뒤 동시에 서류를 챙긴다. | 루카: “…우리 씻을 시간은?” / 테오: “걸으면서 털어.” |
+
+페이지 넘김: 보고를 앞둔 작은 위기. 큰 사건의 예고로 과장하지 않는다.

@@ -1,0 +1,18 @@
+Create a finished fantasy comic page matching the FIRST ATTACHED IMAGE's actual drawing style EXACTLY. This is our established comic, keep its specific simplified cartoon character design. Especially copy the BLUE MAGE's VERY SIMPLE BLACK VERTICAL OVAL EYES, tiny mouth, no visible nose or eyelashes, broad simplified face, chunky compact silhouette, geometric locks of hair. All characters share this visual grammar. About 3.5 heads tall. These are ADULT magical graduate researchers drawn in our established compact stylization. Do NOT elongate them to manga teen anatomy. NO detailed irises, NO anime eye shines, NO delicate eyelashes, NO realistic hands/skin/anatomy, NO glossy gacha illustration. Bold INKED variable black contours, graphic cel-colored shapes, strong simple silhouettes, spare drawn background detail and solid hard shadow shapes. Natural scenery may have epic scale but remains graphic illustrated ink. No fine painterly noise.
+REFERENCE ROLE: image1 is the PRIMARY FACE, BODY and RENDERING STYLE reference, especially its blue mage. Ignore its old story, speech, fire and battle. Image2 is the prologue, SECONDARY landscape, ink and color reference ONLY, ignore its grid and events. Any later image is our newly corrected continuity reference using the SAME original style. NEVER use the rejected anime-like episode pages or detailed corruption sheet.
+CAST identity, preserve at this compact graphic style: THEO long chestnut hair below shoulders, BLUE hood-down cloak, gold DIAMOND clasp, grey tunic, brown belt/card pouch/boots, staff with blue crystal. LUCA SHORT tousled chestnut hair with a single side braid and pale bead, SAGE GREEN hood-down cloak, ROUND sandstone clasp, CREAM tunic, terracotta sash, brown belt/card pouch/boots, forked wood staff with amber stone. Both eyes solid simple black ovals like image1. ORIN only if script features him: old grandfather male with long white hair and beard, bushy white brows, kind sharp eyes, slightly stooped, simple DUSTY PLUM robe beige cuffs, wooden staff by desk; same compact cartoon proportions.
+Unequal varied slanting panels, cream gutters, bold borders, clear reading top to bottom and left to right. Large Korean text, correct speech tails pointing at the named speaker. No speaker-name labels or script instructions printed. Only designated dialogue and sounds, NO additional text. No title unless script says. Background lab simple stone/wood/glass magical apparatus, NOT ornate steampunk gold machines. Close caring friends, tired researchers, academic rivalry only glances. Card spells show a physical card held toward target, not only staff waving. No extra card mechanics or stats. NO demons, portals, corruption/red eyes, mastermind foreshadowing or speaking creatures. Current page follows this exact script:
+PAGE 1 OF 10
+## 1페이지 — 세계수 아래의 대륙
+
+구성: 세계수와 대륙의 큰 전경에서 시작해 탑, 연구실로 점점 가까워진다.
+첫 페이지는 4칸이며 위의 전경이 가장 넓다. 지형은 분위기용 시안이다.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 워드 대륙의 강과 숲, 멀리 솟은 거대 세계수. 수관과 폭포가 아침 직전 빛을 받는다. | 대사 없음. |
+| 2 | 그 풍경 속 마법사의 탑으로 가까워진다. 한 창만 환하다. | 대사 없음. |
+| 3 | 창 안의 연구실. 루카가 카드 가방에서 꺼낸 카드를 향하자 작은 돌 조각이 측정틀 안에서 반응한다. 테오도 카드와 기록을 들고 측정 조건을 확인한다. | 테오: “이번에도 같은 조건이지?” / 루카: “응. 출력만 조금 낮췄어.” |
+| 4 | 작은 섬광과 흰 연기가 터지고 루카가 돌 조각을 막는다. 카드와 발동의 연속이 보인다. | 효과: “퐁!” |
+
+세계 설명이나 불길한 미래 해설은 넣지 않는다. 장엄한 전경에서 연구생의 일상으로 들어간다.

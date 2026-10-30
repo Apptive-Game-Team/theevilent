@@ -128,8 +128,8 @@
     {
       "number": 8,
       "title": "탑 쪽으로",
-      "src": "art-v3/page-08-approved-crystal-tower.png",
-      "prompt": "prompts-v3/page-08-approved-crystal-tower.txt",
+      "src": "art-continuity-v2/page-08.png",
+      "prompt": "prompts-continuity-v2/page-08.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
@@ -143,13 +143,15 @@
         "prompts-v3/page-08-tower-continuity.txt",
         "prompts-v3/page-08-approved-crystal-tower.txt"
       ],
-      "actingNote": "파열음 글자 없이 검붉게 갈라지는 기운만 표현한다. 망토의 불꽃·구멍·그을음이 계속 이어진다."
+      "actingNote": "파열음 글자 없이 검붉게 갈라지는 기운만 표현한다. 망토의 불꽃·구멍·그을음이 계속 이어진다.",
+      "previousSrc": "art-v3/page-08-approved-crystal-tower.png",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 9,
       "title": "손이 움직이지 않는다",
-      "src": "art-v3/page-09-single-visible-arm.png",
-      "prompt": "prompts-v3/page-09-single-visible-arm.txt",
+      "src": "art-continuity-v1/page-09.png",
+      "prompt": "prompts-continuity-v1/page-09.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
@@ -164,7 +166,9 @@
         "prompts-v2/page-09-sleeves.txt",
         "prompts-v3/page-09-single-visible-arm.txt"
       ],
-      "voiceNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리나 화살표 없이 닫힌 말풍선이다."
+      "voiceNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리나 화살표 없이 닫힌 말풍선이다.",
+      "previousSrc": "art-v3/page-09-single-visible-arm.png",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 10,
@@ -223,5 +227,11 @@
     "pagesReviewed": 12,
     "notes": "REVIEW.md",
     "publication": "pr-preview"
+  },
+  "continuityRevision": {
+    "date": "2026-10-30",
+    "status": "reviewed",
+    "pages": 2,
+    "notes": "../../references/defense-production-v1/CORRECTIONS.md"
   }
 }

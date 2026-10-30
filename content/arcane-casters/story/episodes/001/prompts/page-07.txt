@@ -1,0 +1,25 @@
+Create one finished page of a TEN-PAGE serialized fantasy COMIC, episode 1, about two adult graduate-research mages who are close friends. This is actual page artwork, not a storyboard diagram or character sheet. Tall portrait page, readable top-to-bottom then left-to-right. Use exact page panel count and Korean dialogue supplied below. No labels identifying speakers, no panel numbers, no explanatory notes copied from script, no title unless explicitly supplied. Only speech and sound effects designated in dialogue column are printed.
+STYLE: approved hand-inked American fantasy comic with bold variable-width black contours, large flat color fields, controlled cel shadows and restrained hatch/halftone. Expressive acting, drawn scenery. No realism, CGI, shiny 3D, manga screentone faces or polygon cut-paper sprite rendering. Irregular unequal panels with broad establishing views, angled borders and small hand/face insets. Not a uniform grid. Cream gutters and black borders. Keep dialogue large, legible Korean, not tiny dense paragraphs. A row containing two lines must show clear sequential speech balloons with correct tails.
+REFERENCE ROLES: image1 comic-style defines rendering ONLY, do NOT import its invasion story, wizard or layout. image2 corruption sheet defines LUCA identity using ONLY LEFTMOST HEALTHY figure. No red eyes, dark armor, corrupted skin or mini-rock on this episode. image3 defines THEO identity, translate sprite to adult comic anatomy. If image4 present it is the preceding page for outfit/location continuity, not a repeated scene. If image5 present it locks ORIN's appearance from page4.
+CAST:
+THEO (테오): young adult with long chestnut hair reaching below shoulders, BLUE cloak with hood down and gold diamond clasp, grey long tunic, brown belt/card pouch/boots, wood staff with BLUE crystal. Mature young adult facial proportions, not a child/chibi. Careful, dry humor, tired eyes, caring friendship. Natural dark eyes.
+LUCA (루카): young adult with SHORT tousled chestnut chin-length hair and one small side braid with a pale stone bead, SAGE GREEN short cape hood down and ROUND tan stone clasp, CREAM knee-length robe with simple hem motifs, terracotta sash, brown card pouch/boots, forked wooden staff cradling AMBER stone. Clearly different from Theo in hair length and costume. Not orange fire mage or corrupted. Natural dark eyes.
+ORIN (오린), only where script calls him: ELDERLY male wizard, long white hair and long full white beard, thick white brows, wrinkled hands, kindly sharp eyes and slightly stooped posture; plain weathered DUSTY PLUM robe, beige inner cuffs and simple wooden staff leaned at desk. No crown, glasses, horns, evil intent or confused senility. Calm old-grandfather speech.
+ACTING: Theo and Luca are comfortable close friends; subtle internal academic rivalry only in pauses and glances, no sneering, hostility, competitive declarations or plot of jealousy. They are competent at magic but tired and struggling with research. Show cards DRAWN FROM BELT POUCH, held toward target and magical effect where script requests magic; staffs are supporting props, not sole magic source. Cards have simple decorative emblem, no invented stat/cost/name text. Do not specify consumption/recharge rules. No modern computers, lab coats, machines or steampunk factory; laboratory uses stone, glass, wood and low-key magic.
+REVEAL BOUNDARY: this episode has NO demons, red eyes, psychic commands, portals, shadow mastermind, future-corruption teaser or speaking nature/rock creatures. They have not yet met mini-rock friend. Spirit/rock pictures in research documents are just drawings and cannot speak. No industrial human civilization. No narrator predicting tragedy. Warm weary everyday tone with grand natural world.
+Follow the page script below faithfully. Scene and acting notes guide illustration but are NOT printed as captions.
+
+PAGE 7 OF 10
+## 7페이지 — 누가 더 힘들까
+
+구성: 방을 나온 두 사람의 이동을 따라가며 자료 속 작은 그림을 삽입한다.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 복도에서 각자 받은 자료를 뒤적인다. 루카는 돌골렘 사진 대신 관찰 스케치에 관심을 보인다. | 루카: “넌 그래도 세계수잖아.” |
+| 2 | 루카의 자료에 그려진 여러 크기의 돌골렘. | 루카: “난 돌 움직이는 걸 하루 종일 봐야 해.” |
+| 3 | 테오의 자료에 서로 다른 종의 정령과 관찰 요청 항목이 이어진다. | 테오: “난 정령들한테 같은 부탁을 서른 번 해야 해.” |
+| 4 | 루카가 잠깐 상상하고 표정이 바뀐다. | 루카: “…네가 더 힘들겠다.” |
+| 5 | 테오는 투덜거리면서도 자료 속 작은 정령 그림에 시선이 머문다. | 테오: “안 도와줄 거잖아.” / 루카: “편지는 읽어줄게.” |
+
+새 종족을 낮춰 보는 성격으로 굳히지 않는다. 지친 상태에서 업무를 두고 하는 농담이다.

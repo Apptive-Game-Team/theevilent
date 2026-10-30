@@ -1,0 +1,94 @@
+{
+  "status": "in-progress",
+  "tool": "built-in imagegen",
+  "assets": [
+    {
+      "id": "mage-mira",
+      "title": "미라",
+      "kind": "mage",
+      "src": "mages/mira.png",
+      "prompt": "prompts/mage-mira.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "mage-finn",
+      "title": "핀",
+      "kind": "mage",
+      "src": "mages/finn.png",
+      "prompt": "prompts/mage-finn.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "mage-orin",
+      "title": "오린",
+      "kind": "mage",
+      "src": "mages/orin.png",
+      "prompt": "prompts/mage-orin.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "mage-defender-teal",
+      "title": "DEFENDER_TEAL",
+      "kind": "mage",
+      "src": "mages/defender-teal.png",
+      "prompt": "prompts/mage-defender-teal.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "mage-defender-plum",
+      "title": "DEFENDER_PLUM",
+      "kind": "mage",
+      "src": "mages/defender-plum.png",
+      "prompt": "prompts/mage-defender-plum.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "mage-defender-ochre",
+      "title": "DEFENDER_OCHRE",
+      "kind": "mage",
+      "src": "mages/defender-ochre.png",
+      "prompt": "prompts/mage-defender-ochre.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "unit-towerback",
+      "title": "TOWERBACK",
+      "kind": "unit",
+      "src": "units/towerback.png",
+      "prompt": "prompts/unit-towerback.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "unit-cannonback",
+      "title": "CANNONBACK",
+      "kind": "unit",
+      "src": "units/cannonback.png",
+      "prompt": "prompts/unit-cannonback.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "unit-lightning-towerback",
+      "title": "LIGHTNING TOWERBACK",
+      "kind": "unit",
+      "src": "units/lightning-towerback.png",
+      "prompt": "prompts/unit-lightning-towerback.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "unit-turret",
+      "title": "TURRET",
+      "kind": "unit",
+      "src": "units/turret.png",
+      "prompt": "prompts/unit-turret.txt",
+      "status": "drawn-awaiting-review"
+    },
+    {
+      "id": "unit-turretback",
+      "title": "TURRETBACK",
+      "kind": "unit",
+      "src": "units/turretback.png",
+      "prompt": "prompts/unit-turretback.txt",
+      "status": "drawn-awaiting-review"
+    }
+  ]
+}

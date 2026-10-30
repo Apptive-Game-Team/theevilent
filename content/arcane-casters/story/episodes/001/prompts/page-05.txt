@@ -1,0 +1,24 @@
+Create one finished page of a TEN-PAGE serialized fantasy COMIC, episode 1, about two adult graduate-research mages who are close friends. This is actual page artwork, not a storyboard diagram or character sheet. Tall portrait page, readable top-to-bottom then left-to-right. Use exact page panel count and Korean dialogue supplied below. No labels identifying speakers, no panel numbers, no explanatory notes copied from script, no title unless explicitly supplied. Only speech and sound effects designated in dialogue column are printed.
+STYLE: approved hand-inked American fantasy comic with bold variable-width black contours, large flat color fields, controlled cel shadows and restrained hatch/halftone. Expressive acting, drawn scenery. No realism, CGI, shiny 3D, manga screentone faces or polygon cut-paper sprite rendering. Irregular unequal panels with broad establishing views, angled borders and small hand/face insets. Not a uniform grid. Cream gutters and black borders. Keep dialogue large, legible Korean, not tiny dense paragraphs. A row containing two lines must show clear sequential speech balloons with correct tails.
+REFERENCE ROLES: image1 comic-style defines rendering ONLY, do NOT import its invasion story, wizard or layout. image2 corruption sheet defines LUCA identity using ONLY LEFTMOST HEALTHY figure. No red eyes, dark armor, corrupted skin or mini-rock on this episode. image3 defines THEO identity, translate sprite to adult comic anatomy. If image4 present it is the preceding page for outfit/location continuity, not a repeated scene. If image5 present it locks ORIN's appearance from page4.
+CAST:
+THEO (테오): young adult with long chestnut hair reaching below shoulders, BLUE cloak with hood down and gold diamond clasp, grey long tunic, brown belt/card pouch/boots, wood staff with BLUE crystal. Mature young adult facial proportions, not a child/chibi. Careful, dry humor, tired eyes, caring friendship. Natural dark eyes.
+LUCA (루카): young adult with SHORT tousled chestnut chin-length hair and one small side braid with a pale stone bead, SAGE GREEN short cape hood down and ROUND tan stone clasp, CREAM knee-length robe with simple hem motifs, terracotta sash, brown card pouch/boots, forked wooden staff cradling AMBER stone. Clearly different from Theo in hair length and costume. Not orange fire mage or corrupted. Natural dark eyes.
+ORIN (오린), only where script calls him: ELDERLY male wizard, long white hair and long full white beard, thick white brows, wrinkled hands, kindly sharp eyes and slightly stooped posture; plain weathered DUSTY PLUM robe, beige inner cuffs and simple wooden staff leaned at desk. No crown, glasses, horns, evil intent or confused senility. Calm old-grandfather speech.
+ACTING: Theo and Luca are comfortable close friends; subtle internal academic rivalry only in pauses and glances, no sneering, hostility, competitive declarations or plot of jealousy. They are competent at magic but tired and struggling with research. Show cards DRAWN FROM BELT POUCH, held toward target and magical effect where script requests magic; staffs are supporting props, not sole magic source. Cards have simple decorative emblem, no invented stat/cost/name text. Do not specify consumption/recharge rules. No modern computers, lab coats, machines or steampunk factory; laboratory uses stone, glass, wood and low-key magic.
+REVEAL BOUNDARY: this episode has NO demons, red eyes, psychic commands, portals, shadow mastermind, future-corruption teaser or speaking nature/rock creatures. They have not yet met mini-rock friend. Spirit/rock pictures in research documents are just drawings and cannot speak. No industrial human civilization. No narrator predicting tragedy. Warm weary everyday tone with grand natural world.
+Follow the page script below faithfully. Scene and acting notes guide illustration but are NOT printed as captions.
+
+PAGE 5 OF 10
+## 5페이지 — 돌과 돌골렘
+
+구성: 작은 실험물의 정물 컷과 인물 반응을 대비한다.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 루카가 실험 장치와 돌 시료를 꺼낸다. 살아 있는 미니록을 붙잡아 온 것이 아니다. | 루카: “돌 쪽은 마력 흐름이 다시 붙는 구간까지 재현했어요.” |
+| 2 | 오린이 시료를 살펴보고 기록을 한 장 넘긴다. 칭찬에 테오의 펜이 잠깐 멈췄다가 다시 움직인다. | 오린: “여기까지는 잘했구나. 그다음은?” |
+| 3 | 루카가 움직임이 멈춘 지점의 기록을 짚는다. | 루카: “형태가 바뀌면 끊겨요. 실제 돌골렘은 계속 움직이는데.” |
+| 4 | 지도 마법사가 두 사람의 보고서를 나란히 놓는다. | 오린: “너희 둘 다, 관찰할 대상을 여기서 대신 만들고 있구나.” |
+
+페이지 넘김: 훈계로 끝내지 않고 실제 해결 방향을 제시할 준비를 한다.
