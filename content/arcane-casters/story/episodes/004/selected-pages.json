@@ -1,29 +1,41 @@
 {
-  "version": 2,
+  "version": 3,
   "status": "draft-complete",
   "tool": "built-in imagegen",
   "pages": [
     {
       "number": 1,
       "title": "문 앞에 남은 핀",
-      "src": "art-v1/page-01.png",
-      "prompt": "prompts-v1/page-01.txt",
+      "src": "art-v3/page-01-portal-continuity.png",
+      "prompt": "prompts-v3/page-01-portal-continuity.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "조금 전, 차원문 앞.",
         "모크. 이리 와!"
+      ],
+      "previousSource": "art-v1/page-01.png",
+      "previousPrompt": "prompts-v1/page-01.txt",
+      "editChain": [
+        "prompts-v1/page-01.txt",
+        "prompts-v3/page-01-portal-continuity.txt"
       ]
     },
     {
       "number": 2,
       "title": "바람을 틀어 올리다",
-      "src": "art-v1/page-02.png",
-      "prompt": "prompts-v1/page-02.txt",
+      "src": "art-v3/page-02-tornado-demons.png",
+      "prompt": "prompts-v3/page-02-tornado-demons.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "윽…!"
+      ],
+      "previousSource": "art-v1/page-02.png",
+      "previousPrompt": "prompts-v1/page-02.txt",
+      "editChain": [
+        "prompts-v1/page-02.txt",
+        "prompts-v3/page-02-tornado-demons.txt"
       ]
     },
     {
@@ -133,53 +145,56 @@
     {
       "number": 9,
       "title": "손이 움직이지 않는다",
-      "src": "art-v2/page-09-sleeves.png",
-      "prompt": "prompts-v2/page-09-sleeves.txt",
+      "src": "art-v3/page-09-single-visible-arm.png",
+      "prompt": "prompts-v3/page-09-single-visible-arm.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "공격해라.",
         "그만…!"
       ],
-      "previousSource": "art-v1/page-09.png",
-      "previousPrompt": "prompts-v1/page-09.txt",
+      "previousSource": "art-v2/page-09-sleeves.png",
+      "previousPrompt": "prompts-v2/page-09-sleeves.txt",
       "editChain": [
         "prompts-v1/page-09.txt",
         "prompts-v2/page-09-burn-continuity.txt",
-        "prompts-v2/page-09-sleeves.txt"
+        "prompts-v2/page-09-sleeves.txt",
+        "prompts-v3/page-09-single-visible-arm.txt"
       ],
       "voiceNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리나 화살표 없이 닫힌 말풍선이다."
     },
     {
       "number": 10,
-      "title": "소리가 멎다",
-      "src": "art-v2/page-10-burn-continuity.png",
-      "prompt": "prompts-v2/page-10-burn-continuity.txt",
+      "title": "부서진 손",
+      "src": "art-v3/page-10-golem-destruction.png",
+      "prompt": "prompts-v3/page-10-golem-destruction.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "previousSource": "art-v1/page-10.png",
-      "previousPrompt": "prompts-v1/page-10.txt",
+      "previousSource": "art-v2/page-10-burn-continuity.png",
+      "previousPrompt": "prompts-v2/page-10-burn-continuity.txt",
       "editChain": [
         "prompts-v1/page-10.txt",
-        "prompts-v2/page-10-burn-continuity.txt"
+        "prompts-v2/page-10-burn-continuity.txt",
+        "prompts-v3/page-10-golem-destruction.txt"
       ]
     },
     {
       "number": 11,
       "title": "같은 방향",
-      "src": "art-v2/page-11-burn-continuity.png",
-      "prompt": "prompts-v2/page-11-burn-continuity.txt",
+      "src": "art-v3/page-11-golem-remains.png",
+      "prompt": "prompts-v3/page-11-golem-remains.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "세계수로 향해라."
       ],
-      "previousSource": "art-v1/page-11.png",
-      "previousPrompt": "prompts-v1/page-11.txt",
+      "previousSource": "art-v2/page-11-burn-continuity.png",
+      "previousPrompt": "prompts-v2/page-11-burn-continuity.txt",
       "editChain": [
         "prompts-v1/page-11.txt",
-        "prompts-v2/page-11-burn-continuity.txt"
+        "prompts-v2/page-11-burn-continuity.txt",
+        "prompts-v3/page-11-golem-remains.txt"
       ],
       "voiceNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리나 화살표 없이 닫힌 말풍선이다."
     },

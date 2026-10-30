@@ -6,6 +6,7 @@
 - 영어: /arcane-casters/comic/4/en
 - 회차 목록에 썸네일과 읽기 상태를 추가하고 3화의 다음화·4화의 이전화를 연결한다. 기존 브라우저 읽기 위치·완독 기록·언어 전환·공유 기능을 그대로 사용한다.
 - 선택 원고는 selected-pages.json을 따른다. 파열음 글자 없이 검붉은 기운만 남기고, 망토가 계속 불에 타면서 2단계 잠식 외형으로 이어지는 수정본을 사용한다.
+- 1·2·9·10·11장은 art-v3 수정본을 사용한다. 2화와 도입의 위치를 맞추고, 토네이도의 악마 타격·팔 자세·골렘 파괴와 잔해를 반영한다.
 - 영어판은 같은 원화의 말풍선 안 글자만 교체한다. tools/export-comic.py가 한영 lossless WebP와 표지를 생성하고 lettering-verification.json에 말풍선 밖 원화 픽셀 보존 결과를 기록한다.
 - 공개 자산은 public/arcane-casters/comic/004/에 둔다. 작가용 계획·이전 시안·흑막 설정은 공개 자산에 복사하지 않는다.
 - 회차와 장별 메타데이터는 src/content/comic-episodes.json 및 comic-pages-004.json에 있다. 기존과 같이 noindex·noimageindex, 한영 OG/X 메타데이터를 생성한다.

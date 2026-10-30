@@ -3,7 +3,7 @@
     "number": 1,
     "ko": {
       "title": "문 앞에 남은 핀",
-      "description": "군단과 잔해에 가로막힌 핀이 붉은 눈의 모크를 부른다.",
+      "description": "차원문 앞에서 핀이 모크를 부르다가 다가오는 악마의 공격에 밀린다.",
       "dialogue": [
         "조금 전, 차원문 앞.",
         "모크. 이리 와!"
@@ -11,7 +11,7 @@
     },
     "en": {
       "title": "Finn at the portal",
-      "description": "Blocked by the legion and falling rubble, Finn calls to the red-eyed Mok.",
+      "description": "Still in front of the portal, Finn calls to Mok and is driven back by an attacking demon.",
       "dialogue": [
         "Earlier, at the portal.",
         "Mok. Come here!"
@@ -22,14 +22,14 @@
     "number": 2,
     "ko": {
       "title": "바람을 틀어 올리다",
-      "description": "핀의 바람 카드가 토네이도를 일으키고 신전의 천장이 무너진다.",
+      "description": "핀의 토네이도가 가까운 악마들을 기둥에 내던지고, 무너지는 천장 위로 핀을 실어 올린다.",
       "dialogue": [
         "윽…!"
       ]
     },
     "en": {
       "title": "Turning the wind upward",
-      "description": "Finn casts a wind card. A tornado tears through the collapsing temple roof.",
+      "description": "Finn's tornado slams nearby demons into the pillars and carries him through the crumbling roof.",
       "dialogue": [
         "Ugh...!"
       ]
@@ -157,13 +157,13 @@
   {
     "number": 10,
     "ko": {
-      "title": "소리가 멎다",
-      "description": "골렘의 주먹이 멈춘다. 고개를 든 핀의 눈은 붉다.",
+      "title": "부서진 손",
+      "description": "붉은 눈으로 고개를 든 핀이 카드로 골렘을 쓰러뜨리고, 쓰러진 머리까지 부순다.",
       "dialogue": []
     },
     "en": {
-      "title": "The noise stops",
-      "description": "The golem's fist stops. Finn raises his head, his eyes now red.",
+      "title": "A shattered hand",
+      "description": "Finn raises his head, his eyes now red. He blasts the golem apart and strikes its fallen head again.",
       "dialogue": []
     }
   },
@@ -171,14 +171,14 @@
     "number": 11,
     "ko": {
       "title": "같은 방향",
-      "description": "핀과 돌부족이 군단에 합류해 세계수로 향한다.",
+      "description": "핀과 군단이 부서진 골렘의 잔해를 지나 세계수로 향한다.",
       "dialogue": [
         "세계수로 향해라."
       ]
     },
     "en": {
       "title": "The same direction",
-      "description": "Finn and the rock tribe join the legion and move toward the World Tree.",
+      "description": "Finn and the legion pass the shattered golem and march toward the World Tree.",
       "dialogue": [
         "Head for the World Tree."
       ]
