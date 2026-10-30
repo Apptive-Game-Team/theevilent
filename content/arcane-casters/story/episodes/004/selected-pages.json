@@ -41,17 +41,18 @@
     {
       "number": 3,
       "title": "지붕을 뚫고",
-      "src": "art-v2/page-03-burn-continuity.png",
-      "prompt": "prompts-v2/page-03-burn-continuity.txt",
+      "src": "art-v3/page-03-tornado-demons.png",
+      "prompt": "prompts-v3/page-03-tornado-demons.txt",
       "status": "draft-reviewed",
       "fullPage": true,
       "dialogue": [],
-      "previousSource": "art-v1/page-03.png",
-      "previousPrompt": "prompts-v1/page-03.txt",
+      "previousSource": "art-v2/page-03-burn-continuity.png",
+      "previousPrompt": "prompts-v2/page-03-burn-continuity.txt",
       "editChain": [
         "prompts-v1/page-03.txt",
         "prompts-v2/page-03-open-portal.txt",
-        "prompts-v2/page-03-burn-continuity.txt"
+        "prompts-v2/page-03-burn-continuity.txt",
+        "prompts-v3/page-03-tornado-demons.txt"
       ]
     },
     {
@@ -127,18 +128,19 @@
     {
       "number": 8,
       "title": "탑 쪽으로",
-      "src": "art-v2/page-08-burn-continuity.png",
-      "prompt": "prompts-v2/page-08-burn-continuity.txt",
+      "src": "art-v3/page-08-tower-continuity.png",
+      "prompt": "prompts-v3/page-08-tower-continuity.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "탑에… 알려야…"
       ],
-      "previousSource": "art-v1/page-08.png",
-      "previousPrompt": "prompts-v1/page-08.txt",
+      "previousSource": "art-v2/page-08-burn-continuity.png",
+      "previousPrompt": "prompts-v2/page-08-burn-continuity.txt",
       "editChain": [
         "prompts-v1/page-08.txt",
-        "prompts-v2/page-08-burn-continuity.txt"
+        "prompts-v2/page-08-burn-continuity.txt",
+        "prompts-v3/page-08-tower-continuity.txt"
       ],
       "actingNote": "파열음 글자 없이 검붉게 갈라지는 기운만 표현한다. 망토의 불꽃·구멍·그을음이 계속 이어진다."
     },
