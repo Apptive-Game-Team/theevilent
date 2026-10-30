@@ -13,7 +13,7 @@ for page in data['pages']:
     number = page['number']
     if number == 4:
         page['dialogue'] = ['공격해라.', '핀. 내 말 들려?']
-        page['actingNote'] = '검붉은 바탕·밝은 글자·꼬리 없는 닫힌 말풍선. 핀의 시선과 몸짓은 군단을 향한다.'
+        page['actingNote'] = '검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리 없이 핀의 시선과 몸짓은 군단을 향한다.'
     if number == 9:
         page['dialogue'] = ['멈추지 마라.']
         page['actingNote'] = '핀의 말처럼 보이지만 원래 의지로 확정하지 않는다.'

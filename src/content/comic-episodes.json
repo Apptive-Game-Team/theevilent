@@ -28,5 +28,20 @@
       "description": "Mira begins her notes beneath the World Tree. Finn follows Mok into an ancient temple hidden in a cave.",
       "coverAlt": "Mira meets the spirits beneath the World Tree"
     }
+  },
+  {
+    "id": "3",
+    "directory": "003",
+    "pages": "comic-pages-003.json",
+    "ko": {
+      "title": "3화 · 추락",
+      "description": "불길한 기운을 향해 운룡에 오른 미라. 현장에 다가가던 중 하늘에서 불길이 쏟아진다.",
+      "coverAlt": "운룡을 소환해 현장으로 떠나는 미라"
+    },
+    "en": {
+      "title": "Episode 3 · The Fall",
+      "description": "Mira rides a Cloud Dragon toward the ominous skies. As she approaches, fire rains down from above.",
+      "coverAlt": "Mira summons a Cloud Dragon and sets out"
+    }
   }
 ]

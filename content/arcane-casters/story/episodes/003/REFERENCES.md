@@ -23,3 +23,6 @@
 - 정확한 최신 파일은 selected-pages.json에 기록한다. prompts-v1/*-legion.txt는 군단 반영, page-04-apparent-command.txt와 page-09-apparent-command.txt는 핀의 지휘 대사처럼 보이는 연출, page-12-urgent.txt는 교수 대사 교체 프롬프트다.
 
 - 최신 군단은 낮은 군집 포식자와 육중한 네발 갑각 괴수만 쓴다. 인간형·기병·날개·부유형은 이번 3화에서 제외한다. 첫 핀 등장부터 같은 군단이 배경에 있다. *-ground-legion-edit.txt와 *-ground-legion.txt가 이를 반영한 최신 프롬프트다. 이전 *-legion.txt와 *-apparent-command.txt는 중간 생성 기록이며 그대로 재사용하지 않는다.
+
+
+2026-10-30 추가 수정: 머릿속 명령은 매끈한 둥근 상자가 아니라 찌직거리는 불규칙한 검붉은 말풍선이다. 발화자 꼬리는 없다. 4·9장 psychic-static 수정본을 선택했다. 사용자 요청에 따라 이 PR에 한국어·영어 3화 읽기 화면과 회차 목록 연결도 포함하며 병합·운영 배포는 보류한다.

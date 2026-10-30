@@ -40,6 +40,6 @@ status += f'선택 작화 {len(ready)}/{len(pages)}장. 사용자 최종 승인�
 status += '완성 파일: ' + ', '.join(str(page['number']) for page in ready) + '\n\n'
 status += '그림·프롬프트·검수 상태는 selected-pages.json을 따른다. 6·8장은 전면 그림이다.\n'
 status += '1~2장에서 핀을 숨기고 3장에서 처음 공개한다. 핀 옆에 군단이 밀집하며 명령은 그의 지시처럼 보인다. 미라는 정상적인 검은 눈이다.\n'
-status += '사이트에 게시하지 않는다. 로컬 검토용만 갱신한다.\n'
+status += '로컬 검토본과 한영 웹페이지를 PR 검토용으로 추가했다. 병합·운영 배포는 보류한다.\n'
 (root / 'WORK-STATUS.md').write_text(status, encoding='utf-8')
 print(f'Reader ready: {len(ready)}/{len(pages)} pages.')

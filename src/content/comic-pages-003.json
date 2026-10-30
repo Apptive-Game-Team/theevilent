@@ -1,0 +1,184 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "운룡 소환",
+      "description": "미라가 카드로 운룡을 소환하고 현장으로 향한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Summoning a Cloud Dragon",
+      "description": "Mira summons a Cloud Dragon with a card and rides toward the disturbance.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "구름 속의 습격",
+      "description": "유성우가 운룡을 덮치고 미라가 공중에서 떨어진다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "An attack in the clouds",
+      "description": "A meteor shower strikes the Cloud Dragon, throwing Mira into the air.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "핀을 발견하다",
+      "description": "미라가 바위 뒤로 몸을 피하고 군단 사이의 핀을 발견한다.",
+      "dialogue": [
+        "핀…? 왜 그래?"
+      ]
+    },
+    "en": {
+      "title": "Finding Finn",
+      "description": "Mira takes cover behind a rock and sees Finn among the legion.",
+      "dialogue": [
+        "Finn...? What is wrong?"
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "덩굴과 방벽",
+      "description": "미라가 덩굴로 핀을 묶지만 핀은 방벽 골렘을 소환한다.",
+      "dialogue": [
+        "공격해라.",
+        "핀. 내 말 들려?"
+      ]
+    },
+    "en": {
+      "title": "Vines and a wall",
+      "description": "Mira binds Finn with vines, but he summons a Wall Golem.",
+      "dialogue": [
+        "Attack.",
+        "Finn. Can you hear me?"
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "칼날이 만든 잔해",
+      "description": "미라의 바람 칼날이 방벽 골렘을 무너뜨리고 핀이 잔해에 카드를 겨눈다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Rubble from the blade",
+      "description": "Mira cuts through the Wall Golem with a wind blade. Finn aims a card at the rubble.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "돌 폭발",
+      "description": "골렘의 잔해가 폭발하며 미라의 퇴로를 막는다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Stone explosion",
+      "description": "The golem rubble erupts, blocking Mira with flying stone.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "돌 굴리기",
+      "description": "거석이 바위에 튕겨 미라를 다시 덮치고 미라가 발밑으로 카드를 향한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The rolling boulder",
+      "description": "A boulder ricochets toward Mira. She aims a card at the ground beneath her.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "물 폭발로 뛰어오르다",
+      "description": "미라가 물 폭발의 충격으로 튀어 올라 굴러오는 거석을 피한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Launched by water",
+      "description": "Mira uses the force of a water explosion to leap over the rolling boulder.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "위와 아래의 공격",
+      "description": "핀의 유성우가 공중의 미라를 덮친다. 탑에서는 오린이 카드를 준비한다.",
+      "dialogue": [
+        "멈추지 마라."
+      ]
+    },
+    "en": {
+      "title": "Danger above and below",
+      "description": "Finn sends meteors toward Mira in midair. At the tower, Orin readies a card.",
+      "dialogue": [
+        "Do not stop."
+      ]
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "리콜",
+      "description": "유성이 닿기 직전 미라가 푸른 빛으로 사라지고 공격이 빈자리를 때린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Recall",
+      "description": "Mira vanishes in blue light just before a meteor hits the empty space.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "탑으로 돌아오다",
+      "description": "미라가 오린의 연구실 바닥에 내려앉아 거친 숨을 몰아쉰다.",
+      "dialogue": [
+        "헉… 헉…"
+      ]
+    },
+    "en": {
+      "title": "Back at the tower",
+      "description": "Mira lands on the floor of Orin's office, gasping for breath.",
+      "dialogue": [
+        "Hah... Hah..."
+      ]
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "익숙한 손이 떨린다",
+      "description": "오린이 묻자 미라는 핀에게 공격받았다고 말한다. 카드를 쥔 손이 떨린다.",
+      "dialogue": [
+        "어떤 일이지!?",
+        "핀이… 저를 공격했습니다.",
+        "왜…?"
+      ]
+    },
+    "en": {
+      "title": "A familiar hand trembles",
+      "description": "Orin asks what happened. Mira tells him Finn attacked her, her hands trembling around a card.",
+      "dialogue": [
+        "What happened!?",
+        "Finn... attacked me.",
+        "Why...?"
+      ]
+    }
+  }
+]
