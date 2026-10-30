@@ -5,8 +5,8 @@ const key = 'arcane-casters:comic-reading:v1';
 test('library shows thumbnails without reader pages and fits desktop and phone', async ({ page, request }, info) => {
   await page.goto('/arcane-casters/comic/ko');
   await expect(page.getByRole('heading', { name: '만화', exact: true })).toBeVisible();
-  await expect(page.locator('.comic-episode-row')).toHaveCount(2);
-  await expect(page.locator('.comic-episode-row img')).toHaveCount(2);
+  await expect(page.locator('.comic-episode-row')).toHaveCount(3);
+  await expect(page.locator('.comic-episode-row img')).toHaveCount(3);
   await expect(page.locator('.comic-page')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'English', exact: true })).toHaveCount(1);
   await expect(page.getByRole('link', { name: 'English', exact: true })).toHaveCount(0);
