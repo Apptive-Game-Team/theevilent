@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "status": "draft-complete",
   "tool": "built-in imagegen",
   "pages": [
@@ -43,7 +43,7 @@
         "공격해라.",
         "핀. 내 말 들려?"
       ],
-      "actingNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리 없이 핀의 군단 지시처럼 보이게 연출한다.",
+      "actingNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리 없이 핀의 시선과 몸짓은 군단을 향한다.",
       "previousSource": "art-v1/page-04-ground-legion.png",
       "previousPrompt": "prompts-v1/page-04-ground-legion-edit.txt",
       "editChain": [
@@ -54,17 +54,19 @@
     {
       "number": 5,
       "title": "칼날이 만든 잔해",
-      "src": "art-v2/page-05-mira-clasp.png",
-      "prompt": "prompts-v2/page-05-mira-clasp.txt",
+      "src": "art-v2/page-05-staff-arm.png",
+      "prompt": "prompts-v2/page-05-staff-arm.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "previousSource": "art-v1/page-05-ground-legion.png",
-      "previousPrompt": "prompts-v1/page-05-ground-legion-edit.txt",
+      "previousSource": "art-v2/page-05-mira-clasp.png",
+      "previousPrompt": "prompts-v2/page-05-mira-clasp.txt",
       "editChain": [
         "prompts-v2/page-05-continuity.txt",
-        "prompts-v2/page-05-mira-clasp.txt"
-      ]
+        "prompts-v2/page-05-mira-clasp.txt",
+        "prompts-v2/page-05-staff-arm.txt"
+      ],
+      "actingNote": "중간 컷에서 미라의 지팡이 팔이 몸 옆으로 내려오고 소매·팔꿈치·손목이 자연스럽게 이어진다. 카드 팔은 앞으로 뻗고 두 팔·두 손을 유지한다."
     },
     {
       "number": 6,
@@ -107,7 +109,7 @@
       "dialogue": [
         "멈추지 마라."
       ],
-      "actingNote": "검붉은 바탕·밝은 글자·찌직거리는 불규칙한 테두리. 발화자 꼬리 없이 핀의 군단 지시처럼 보이게 연출한다.",
+      "actingNote": "핀의 말처럼 보이지만 원래 의지로 확정하지 않는다.",
       "previousSource": "art-v1/page-09-ground-legion.png",
       "previousPrompt": "prompts-v1/page-09-ground-legion-edit.txt",
       "editChain": [
