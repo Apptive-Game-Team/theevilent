@@ -18,7 +18,7 @@ Three panels Mira and WATER TRIBE enter from WEST REAR GATE, already established
 
 ## 3. 고립된 마법사 구조
 
-Three panels in INNER courtyard: slimes damp burning grass, WATER ARCHERS shoot low intruders; SEA SERPENT uses narrow water beam along enemy line directed toward EAST gate away from evacuees. BUBBLE SPIRITS hover/scout no ground attacks. Mira uses physical wind card to shift dangerous loose stone then pulls wounded TEAL mage clear. No water cure/tsunami, no castle icon or speech.
+Four sequential action panels INSIDE eastern courtyard: water archers and a narrow serpent beam hold low intruders at breached EAST gate; Mira with staff strapped on BACK uses a physical wind card to shift dangerous masonry; she stows card and grips wounded TEAL with both hands; she hauls TEAL up and drags the mage WEST toward tower cover. TEAL cyan staff remains at rescue site, not restored offscreen. Plain slimes damp flames and bubbles scout without ground attacks. No cure/tsunami/new walls/complete tower or text.
 
 인쇄 대사: 없음
 
