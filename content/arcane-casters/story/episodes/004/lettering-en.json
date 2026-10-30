@@ -1,0 +1,122 @@
+[
+  {
+    "number": 1,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Earlier, at the portal.",
+        "kind": "speech"
+      },
+      {
+        "region": 1,
+        "text": "Mok. Come here!",
+        "kind": "speech"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Ugh...!",
+        "kind": "speech",
+        "maxSize": 28
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "balloons": []
+  },
+  {
+    "number": 4,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "We're... back in the village.",
+        "kind": "speech"
+      },
+      {
+        "region": 2,
+        "text": "Mok is... in the cave—",
+        "kind": "speech"
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "What's that...?",
+        "kind": "speech"
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Wait! It's me!",
+        "kind": "speech"
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Move...!",
+        "kind": "speech",
+        "maxSize": 28
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "I have to... warn the tower...",
+        "kind": "speech"
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "balloons": [
+      {
+        "region": 1,
+        "text": "Attack.",
+        "kind": "psychic"
+      },
+      {
+        "region": 0,
+        "text": "Stop...!",
+        "kind": "speech",
+        "maxSize": 28
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "balloons": []
+  },
+  {
+    "number": 11,
+    "balloons": [
+      {
+        "region": 0,
+        "text": "Head for the World Tree.",
+        "kind": "psychic"
+      }
+    ]
+  },
+  {
+    "number": 12,
+    "balloons": []
+  }
+]

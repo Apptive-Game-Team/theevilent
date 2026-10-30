@@ -1,6 +1,7 @@
 import pages from './comic-pages.json';
 import secondPages from './comic-pages-002.json';
 import thirdPages from './comic-pages-003.json';
+import fourthPages from './comic-pages-004.json';
 import episodes from './comic-episodes.json';
 
 export type ComicLocale = 'ko' | 'en';
@@ -9,7 +10,7 @@ export const comicPath = (locale: ComicLocale, episode = '1') => `/arcane-caster
 export const comicUrl = (locale: ComicLocale, episode = '1') => `https://theevilent.com${comicPath(locale, episode)}`;
 export const comicPages = pages;
 export const comicEpisodes = episodes;
-const pagesByEpisode: Record<string, typeof pages> = { '1': pages, '2': secondPages, '3': thirdPages };
+const pagesByEpisode: Record<string, typeof pages> = { '1': pages, '2': secondPages, '3': thirdPages, '4': fourthPages };
 export const getComicEpisode = (id: string) => {
   const metadata = episodes.find(episode => episode.id === id);
   const episodePages = pagesByEpisode[id];

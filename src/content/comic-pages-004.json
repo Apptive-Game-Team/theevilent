@@ -1,0 +1,200 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "문 앞에 남은 핀",
+      "description": "차원문 앞에서 핀이 모크를 부르다가 다가오는 악마의 공격에 밀린다.",
+      "dialogue": [
+        "조금 전, 차원문 앞.",
+        "모크. 이리 와!"
+      ]
+    },
+    "en": {
+      "title": "Finn at the portal",
+      "description": "Still in front of the portal, Finn calls to Mok and is driven back by an attacking demon.",
+      "dialogue": [
+        "Earlier, at the portal.",
+        "Mok. Come here!"
+      ]
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "바람을 틀어 올리다",
+      "description": "핀의 토네이도가 가까운 악마들을 기둥에 내던지고, 무너지는 천장 위로 핀을 실어 올린다.",
+      "dialogue": [
+        "윽…!"
+      ]
+    },
+    "en": {
+      "title": "Turning the wind upward",
+      "description": "Finn's tornado slams nearby demons into the pillars and carries him through the crumbling roof.",
+      "dialogue": [
+        "Ugh...!"
+      ]
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "지붕을 뚫고",
+      "description": "핀은 잔해와 함께 지상으로 휩쓸린다. 아래의 차원문은 여전히 열려 있다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Through the roof",
+      "description": "Finn is swept above ground with the debris. The portal remains open below.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "익숙한 마을",
+      "description": "마을에 떨어진 핀에게 골렘이 손을 내민다.",
+      "dialogue": [
+        "여긴… 마을이잖아.",
+        "동굴 안에… 모크가—"
+      ]
+    },
+    "en": {
+      "title": "A familiar village",
+      "description": "A golem offers Finn a hand after he lands in the village.",
+      "dialogue": [
+        "We're... back in the village.",
+        "Mok is... in the cave—"
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "갈라지는 기운",
+      "description": "검붉은 기운이 번지며 골렘들의 눈이 붉어진다.",
+      "dialogue": [
+        "무슨 소리…?"
+      ]
+    },
+    "en": {
+      "title": "A spreading presence",
+      "description": "Dark crimson energy spreads. The golems' eyes turn red.",
+      "dialogue": [
+        "What's that...?"
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "내밀었던 손",
+      "description": "핀을 도우려던 손이 주먹으로 바뀌어 땅을 내려친다.",
+      "dialogue": [
+        "잠깐! 나야!"
+      ]
+    },
+    "en": {
+      "title": "The offered hand",
+      "description": "The hand that offered help curls into a fist and strikes the ground.",
+      "dialogue": [
+        "Wait! It's me!"
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "도망길을 막는 돌",
+      "description": "핀은 바람으로 공격을 흘리며 골렘들 사이를 빠져나간다.",
+      "dialogue": [
+        "비켜…!"
+      ]
+    },
+    "en": {
+      "title": "Stone blocks the way",
+      "description": "Finn deflects a blow with wind and scrambles between the golems.",
+      "dialogue": [
+        "Move...!"
+      ]
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "탑 쪽으로",
+      "description": "탑으로 달리려는 핀을 검붉은 기운이 덮친다. 망토는 계속 타들어 간다.",
+      "dialogue": [
+        "탑에… 알려야…"
+      ]
+    },
+    "en": {
+      "title": "Toward the tower",
+      "description": "Dark crimson energy overwhelms Finn as he tries to reach the tower. His cloak keeps burning.",
+      "dialogue": [
+        "I have to... warn the tower..."
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "손이 움직이지 않는다",
+      "description": "명령이 울리고 핀의 손과 몸이 뜻대로 움직이지 않는다.",
+      "dialogue": [
+        "공격해라.",
+        "그만…!"
+      ]
+    },
+    "en": {
+      "title": "His hand will not move",
+      "description": "A command rings out. Finn struggles to move his hand and body.",
+      "dialogue": [
+        "Attack.",
+        "Stop...!"
+      ]
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "부서진 손",
+      "description": "붉은 눈으로 고개를 든 핀이 카드로 골렘을 쓰러뜨리고, 쓰러진 머리까지 부순다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "A shattered hand",
+      "description": "Finn raises his head, his eyes now red. He blasts the golem apart and strikes its fallen head again.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "같은 방향",
+      "description": "핀과 군단이 부서진 골렘의 잔해를 지나 세계수로 향한다.",
+      "dialogue": [
+        "세계수로 향해라."
+      ]
+    },
+    "en": {
+      "title": "The same direction",
+      "description": "Finn and the legion pass the shattered golem and march toward the World Tree.",
+      "dialogue": [
+        "Head for the World Tree."
+      ]
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "하늘의 작은 구름",
+      "description": "운룡이 다가오자 핀이 붉은 카드를 꺼내 하늘을 겨눈다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "A small cloud above",
+      "description": "As a Cloud Dragon approaches, Finn draws a red card and aims at the sky.",
+      "dialogue": []
+    }
+  }
+]
