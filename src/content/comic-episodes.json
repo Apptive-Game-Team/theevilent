@@ -43,5 +43,20 @@
       "description": "Mira rides a Cloud Dragon toward the ominous skies. As she approaches, fire rains down from above.",
       "coverAlt": "Mira summons a Cloud Dragon and sets out"
     }
+  },
+  {
+    "id": "4",
+    "directory": "004",
+    "pages": "comic-pages-004.json",
+    "ko": {
+      "title": "4화 · 소리가 멎은 뒤",
+      "description": "핀은 토네이도로 무너지는 신전을 벗어난다. 익숙한 골렘 마을에도 불길한 기운이 번진다.",
+      "coverAlt": "열린 차원문 앞에서 모크를 부르는 핀"
+    },
+    "en": {
+      "title": "Episode 4 · When the Noise Stops",
+      "description": "Finn escapes the crumbling temple on a tornado. An ominous presence spreads through the familiar golem village.",
+      "coverAlt": "Finn calls to Mok in front of the open portal"
+    }
   }
 ]
