@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "status": "continuity-review-required",
+  "tool": "built-in imagegen",
+  "episode": 7,
+  "plannedPages": 14,
+  "pages": [
+    {
+      "number": 1,
+      "title": "탑 앞의 마지막 방어",
+      "src": "art-v1/page-01.png",
+      "prompt": "prompts-v1/page-01.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "corrupt"
+    },
+    {
+      "number": 2,
+      "title": "옆길에서 온 지원",
+      "src": "art-v1/page-02.png",
+      "prompt": "prompts-v1/page-02.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 3,
+      "title": "고립된 마법사 구조",
+      "src": "art-v1/page-03.png",
+      "prompt": "prompts-v1/page-03.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 4,
+      "title": "오린과 합류",
+      "src": "art-v1/page-04.png",
+      "prompt": "prompts-v1/page-04.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [
+        "도와주러 왔습니다.",
+        "저 길로 이동해라."
+      ],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 5,
+      "title": "안쪽의 적 제압",
+      "src": "art-v1/page-05.png",
+      "prompt": "prompts-v1/page-05.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 6,
+      "title": "다시 이어진 진지",
+      "src": "art-v1/page-06.png",
+      "prompt": "prompts-v1/page-06.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 7,
+      "title": "반격의 포격",
+      "src": "art-v1/page-07.png",
+      "prompt": "prompts-v1/page-07.txt",
+      "status": "pending",
+      "fullPage": true,
+      "dialogue": [],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 8,
+      "title": "앞으로",
+      "src": "art-v1/page-08.png",
+      "prompt": "prompts-v1/page-08.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [
+        "앞으로."
+      ],
+      "referenceGroup": "slimebattle"
+    },
+    {
+      "number": 9,
+      "title": "익숙한 지팡이",
+      "src": "art-v1/page-09.png",
+      "prompt": "prompts-v1/page-09.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "finn"
+    },
+    {
+      "number": 10,
+      "title": "군단 속의 핀",
+      "src": "art-v1/page-10.png",
+      "prompt": "prompts-v1/page-10.txt",
+      "status": "pending",
+      "fullPage": true,
+      "dialogue": [],
+      "referenceGroup": "finn"
+    },
+    {
+      "number": 11,
+      "title": "흩어져",
+      "src": "art-v1/page-11.png",
+      "prompt": "prompts-v1/page-11.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [
+        "핀.",
+        "흩어져!"
+      ],
+      "referenceGroup": "finn"
+    },
+    {
+      "number": 12,
+      "title": "붉어진 하늘",
+      "src": "art-v1/page-12.png",
+      "prompt": "prompts-v1/page-12.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "finn"
+    },
+    {
+      "number": 13,
+      "title": "반격을 덮친 유성우",
+      "src": "art-v1/page-13.png",
+      "prompt": "prompts-v1/page-13.txt",
+      "status": "pending",
+      "fullPage": true,
+      "dialogue": [],
+      "referenceGroup": "finn"
+    },
+    {
+      "number": 14,
+      "title": "다음 카드를 드는 핀",
+      "src": "art-v1/page-14.png",
+      "prompt": "prompts-v1/page-14.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "finn"
+    }
+  ],
+  "readyPages": 1
+}

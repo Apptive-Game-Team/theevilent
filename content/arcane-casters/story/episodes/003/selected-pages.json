@@ -6,11 +6,14 @@
     {
       "number": 1,
       "title": "운룡 소환",
-      "src": "art-v1/page-01.png",
-      "prompt": "prompts-v1/page-01.txt",
+      "src": "art-continuity-v1/page-01.png",
+      "prompt": "prompts-continuity-v1/page-01.txt",
       "status": "draft-reviewed",
       "fullPage": false,
-      "dialogue": []
+      "dialogue": [],
+      "previousSrc": "art-v1/page-01.png",
+      "previousPrompt": "prompts-v1/page-01.txt",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 2,
@@ -170,5 +173,11 @@
     ],
     "notes": "REVIEW.md",
     "publication": "pr-preview"
+  },
+  "continuityRevision": {
+    "date": "2026-10-30",
+    "status": "reviewed",
+    "pages": 1,
+    "notes": "../../references/defense-production-v1/CORRECTIONS.md"
   }
 }

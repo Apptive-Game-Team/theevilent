@@ -16,6 +16,18 @@ export const getComicEpisode = (id: string) => {
   const episodePages = pagesByEpisode[id];
   return metadata && episodePages ? { ...metadata, pages: episodePages } : undefined;
 };
+
+const contextByEpisode: Record<string, { episode: string; page: number }[]> = {
+  '3': [{ episode: '2', page: 10 }],
+  '4': [{ episode: '2', page: 6 }, { episode: '2', page: 7 }],
+};
+
+export const getComicContextPages = (id: string) =>
+  (contextByEpisode[id] ?? []).flatMap(reference => {
+    const episode = getComicEpisode(reference.episode);
+    const page = episode?.pages.find(page => page.number === reference.page);
+    return episode && page ? [{ episode: reference.episode, directory: episode.directory, page }] : [];
+  });
 export const comicCopy = {
   ko: {
     title: '1화 · 첫 현장 연구',

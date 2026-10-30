@@ -13,7 +13,7 @@ This document describes the AI Agentic development workflow, architectural struc
 
 ## 🛠️ Project Architecture & Design Philosophy
 
-The main design goal was to craft a premium, high-impact landing page and showcase for the game team **The Evil Ent** based on their official logo. 
+The main design goal was to craft a premium, high-impact landing page and showcase for the game team **The Evil Ent** based on their official logo.
 
 ### 1. Visual & Aesthetic Identity
 
@@ -135,6 +135,26 @@ We have created an automated visual verification skill script:
 This script automates the complete validation process:
 1. **Compilation Check**: Runs `npm run build` to verify TypeScript type-checks and Vite compilation.
 2. **Visual Verification**: Launches the local dev server and runs Playwright tests (`npx playwright test`) to capture full-page layout screenshots of the Home, Magic, and Team pages.
+
+## Arcane Casters Comic and Story Authoring
+
+- For comic scripts, dialogue, panel layouts, illustration or comic setting art,
+  use the repository's [comic-authoring skill](.agents/skills/comic-authoring/SKILL.md).
+  It connects the current story sources with the composition and dialogue workflow.
+
+- Keep comic lore, scripts, source artwork and references in this repository
+  under `content/arcane-casters/story/` until the user requests extraction.
+- Before any Arcane Casters comic, campaign-story, character or lore work, follow
+  [story authoring instructions](content/arcane-casters/story/AGENTS.md), read
+  [current world lore](content/arcane-casters/story/WORLD.md), follow
+  [comic style](content/arcane-casters/story/COMIC-STYLE.md), and inspect the
+  relevant [character references](content/arcane-casters/story/CHARACTERS.md).
+  This applies to reader-page copy and episode metadata as well as source files.
+- Use these local story documents for current narrative decisions; do not
+  restore rejected premises from older game-art catalogs or generated concepts.
+- Keep author-only spoilers and drafts outside served assets. Copy only
+  publication-ready episodes into website assets and keep their routes under
+  `/arcane-casters`. Do not treat reference storage as permission to publish.
 
 ## Arcane Casters Content Sources
 

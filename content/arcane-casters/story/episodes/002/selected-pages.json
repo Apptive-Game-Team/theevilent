@@ -6,24 +6,28 @@
     {
       "number": 1,
       "title": "정령들이 맞이하는 세계수",
-      "src": "art-v6/page-01.png",
-      "prompt": "prompts-v6/page-01.txt",
+      "src": "art-continuity-v1/page-01.png",
+      "prompt": "prompts-continuity-v1/page-01.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "revisionNotes": "REFERENCES-v6.md"
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인.",
+      "previousSrc": "art-v6/page-01.png",
+      "previousPrompt": "prompts-v6/page-01.txt"
     },
     {
       "number": 2,
       "title": "무릎 위의 정령",
-      "src": "art-v6/page-02.png",
-      "prompt": "prompts-v6/page-02.txt",
+      "src": "art-continuity-v1/page-02.png",
+      "prompt": "prompts-continuity-v1/page-02.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "옆에 있어."
       ],
-      "revisionNotes": "REFERENCES-v6.md"
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인.",
+      "previousSrc": "art-v6/page-02.png",
+      "previousPrompt": "prompts-v6/page-02.txt"
     },
     {
       "number": 3,
@@ -91,40 +95,54 @@
     {
       "number": 8,
       "title": "기록을 멈춘 소리",
-      "src": "art-v6/page-08-single-staff.png",
-      "prompt": "prompts-v6/page-08-single-staff.txt",
+      "src": "art-continuity-v1/page-08.png",
+      "prompt": "prompts-continuity-v1/page-08.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "쾅"
       ],
-      "revisionNotes": "REFERENCES-v6.md",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인.",
       "baseSource": "art-v2/page-06.png",
-      "basePrompt": "prompts-v6/page-08.txt"
+      "basePrompt": "prompts-v6/page-08.txt",
+      "previousSrc": "art-v6/page-08-single-staff.png",
+      "previousPrompt": "prompts-v6/page-08-single-staff.txt"
     },
     {
       "number": 9,
       "title": "멀리 번지는 사악한 기운",
-      "src": "art-v3/page-07.png",
-      "prompt": "prompts-v3/page-07.txt",
+      "src": "art-continuity-v1/page-09.png",
+      "prompt": "prompts-continuity-v1/page-09.txt",
       "status": "draft-reviewed",
       "fullPage": true,
       "dialogue": [],
       "baseSource": "art-v2/page-07.png",
-      "previousNumber": 7
+      "previousNumber": 7,
+      "previousSrc": "art-v3/page-07.png",
+      "previousPrompt": "prompts-v3/page-07.txt",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 10,
       "title": "핀이 간 방향",
-      "src": "art-v3/page-08.png",
-      "prompt": "prompts-v3/page-08.txt",
+      "src": "art-continuity-v1/page-10.png",
+      "prompt": "prompts-continuity-v1/page-10.txt",
       "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "어… 핀이 간 곳인데."
       ],
       "baseSource": "art-v2/page-08.png",
-      "previousNumber": 8
+      "previousNumber": 8,
+      "previousSrc": "art-v3/page-08.png",
+      "previousPrompt": "prompts-v3/page-08.txt",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     }
-  ]
+  ],
+  "continuityRevision": {
+    "date": "2026-10-30",
+    "status": "reviewed",
+    "pages": 5,
+    "notes": "../../references/defense-production-v1/CORRECTIONS.md"
+  }
 }

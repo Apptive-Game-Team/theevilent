@@ -1,0 +1,19 @@
+Create a finished fantasy comic page matching the FIRST ATTACHED IMAGE's actual drawing style EXACTLY. This is our established comic, keep its specific simplified cartoon character design. Especially copy the BLUE MAGE's VERY SIMPLE BLACK VERTICAL OVAL EYES, tiny mouth, no visible nose or eyelashes, broad simplified face, chunky compact silhouette, geometric locks of hair. All characters share this visual grammar. About 3.5 heads tall. These are ADULT magical graduate researchers drawn in our established compact stylization. Do NOT elongate them to manga teen anatomy. NO detailed irises, NO anime eye shines, NO delicate eyelashes, NO realistic hands/skin/anatomy, NO glossy gacha illustration. Bold INKED variable black contours, graphic cel-colored shapes, strong simple silhouettes, spare drawn background detail and solid hard shadow shapes. Natural scenery may have epic scale but remains graphic illustrated ink. No fine painterly noise.
+REFERENCE ROLE: image1 is the PRIMARY FACE, BODY and RENDERING STYLE reference, especially its blue mage. Ignore its old story, speech, fire and battle. Image2 is the prologue, SECONDARY landscape, ink and color reference ONLY, ignore its grid and events. Any later image is our newly corrected continuity reference using the SAME original style. NEVER use the rejected anime-like episode pages or detailed corruption sheet.
+CAST identity, preserve at this compact graphic style: THEO long chestnut hair below shoulders, BLUE hood-down cloak, gold DIAMOND clasp, grey tunic, brown belt/card pouch/boots, staff with blue crystal. LUCA SHORT tousled chestnut hair with a single side braid and pale bead, SAGE GREEN hood-down cloak, ROUND sandstone clasp, CREAM tunic, terracotta sash, brown belt/card pouch/boots, forked wood staff with amber stone. Both eyes solid simple black ovals like image1. ORIN only if script features him: old grandfather male with long white hair and beard, bushy white brows, kind sharp eyes, slightly stooped, simple DUSTY PLUM robe beige cuffs, wooden staff by desk; same compact cartoon proportions.
+Unequal varied slanting panels, cream gutters, bold borders, clear reading top to bottom and left to right. Large Korean text, correct speech tails pointing at the named speaker. No speaker-name labels or script instructions printed. Only designated dialogue and sounds, NO additional text. No title unless script says. Background lab simple stone/wood/glass magical apparatus, NOT ornate steampunk gold machines. Close caring friends, tired researchers, academic rivalry only glances. Card spells show a physical card held toward target, not only staff waving. No extra card mechanics or stats. NO demons, portals, corruption/red eyes, mastermind foreshadowing or speaking creatures. Current page follows this exact script:
+PAGE 4 OF 10
+## 4페이지 — 같은 마법인데
+
+구성: 세 사람이 있는 넓은 책상 컷으로 시작하고, 도표·손·표정으로 시점을 바꾼다.
+
+| 칸 | 그림과 동작 | 대사·효과 |
+|---|---|---|
+| 1 | 지도 마법사는 이미 전 보고서를 펼쳐놓았다. 두 연구생이 마주 앉는다. | 오린: “이번 주에는 무엇을 보았느냐?” |
+| 2 | 테오가 마력 반응 도표와 오래된 관찰 기록을 펼친다. 도표는 그림으로 읽히고 빽빽한 본문은 쓰지 않는다. | 테오: “조건을 맞춰도 기록마다 반응이 달라요.” |
+| 3 | 루카가 도표가 말리지 않게 손으로 눌러준다. 테오는 계속 설명한다. 루카는 잠깐 도표를 유심히 본 뒤 다시 받쳐준다. | 테오: “종류 때문인지, 주변 마력 때문인지 나눠 보려고 했는데…” |
+| 4 | 지도 마법사가 문헌의 관찰 위치를 짚는다. | 오린: “이 정령들은 어디에 있었느냐?” |
+| 5 | 테오의 시선이 서로 다른 장소 표기를 따라간다. | 테오: “…전부 다른 곳이네요.” |
+
+인물을 멍청하게 만들지 않는다. 문헌의 한계를 알고 있었지만 지금은
+측정 조건만으로 차이를 분리할 수 없다는 문제가 드러나는 장면이다.

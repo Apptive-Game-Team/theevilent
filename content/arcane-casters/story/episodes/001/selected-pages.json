@@ -18,7 +18,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-01.png"
+      "src": "art-continuity-v1/page-01.png",
+      "previousSrc": "art-v6/page-01.png",
+      "prompt": "prompts-continuity-v1/page-01.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 2,
@@ -45,7 +49,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-02.png"
+      "src": "art-continuity-v1/page-02.png",
+      "previousSrc": "art-v6/page-02.png",
+      "prompt": "prompts-continuity-v1/page-02.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 3,
@@ -72,7 +80,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-03.png"
+      "src": "art-continuity-v1/page-03.png",
+      "previousSrc": "art-v6/page-03.png",
+      "prompt": "prompts-continuity-v1/page-03.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 4,
@@ -99,7 +111,11 @@
           "dialogue": "미라: “손 놔도 돼.” / 핀: “고마워.”"
         }
       ],
-      "src": "art-v6/page-04.png"
+      "src": "art-continuity-v1/page-04.png",
+      "previousSrc": "art-v6/page-04.png",
+      "prompt": "prompts-continuity-v1/page-04.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 5,
@@ -126,7 +142,11 @@
           "dialogue": "오린: “식사 후 내 방에서 보겠다.”"
         }
       ],
-      "src": "art-v6/page-05-formal.png"
+      "src": "art-continuity-v1/page-05.png",
+      "previousSrc": "art-v6/page-05-formal.png",
+      "prompt": "prompts-continuity-v1/page-05.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 6,
@@ -234,7 +254,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-09.png"
+      "src": "art-continuity-v2/page-09.png",
+      "previousSrc": "art-v6/page-09.png",
+      "prompt": "prompts-continuity-v2/page-09.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 10,
@@ -256,7 +280,11 @@
           "dialogue": "대사 없음. 회차 끝 문구를 넣지 않는다."
         }
       ],
-      "src": "art-v6/page-10.png"
+      "src": "art-continuity-v2/page-10.png",
+      "previousSrc": "art-v6/page-10.png",
+      "prompt": "prompts-continuity-v2/page-10.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 11,
@@ -283,7 +311,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-11-approach.png"
+      "src": "art-continuity-v1/page-11.png",
+      "previousSrc": "art-v6/page-11-approach.png",
+      "prompt": "prompts-continuity-v1/page-11.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 12,
@@ -310,7 +342,11 @@
           "dialogue": "핀: “궁금해?”"
         }
       ],
-      "src": "art-v6/page-12.png"
+      "src": "art-continuity-v1/page-12.png",
+      "previousSrc": "art-v6/page-12.png",
+      "prompt": "prompts-continuity-v1/page-12.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 13,
@@ -337,7 +373,11 @@
           "dialogue": "효과: “또르륵”"
         }
       ],
-      "src": "art-v6/page-13.png"
+      "src": "art-continuity-v1/page-13.png",
+      "previousSrc": "art-v6/page-13.png",
+      "prompt": "prompts-continuity-v1/page-13.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 14,
@@ -364,7 +404,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-14.png"
+      "src": "art-continuity-v1/page-14.png",
+      "previousSrc": "art-v6/page-14.png",
+      "prompt": "prompts-continuity-v1/page-14.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 15,
@@ -391,7 +435,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-15.png"
+      "src": "art-continuity-v1/page-15.png",
+      "previousSrc": "art-v6/page-15.png",
+      "prompt": "prompts-continuity-v1/page-15.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 16,
@@ -418,7 +466,11 @@
           "dialogue": "핀: “됐다.”"
         }
       ],
-      "src": "art-v6/page-16.png"
+      "src": "art-continuity-v1/page-16.png",
+      "previousSrc": "art-v6/page-16.png",
+      "prompt": "prompts-continuity-v1/page-16.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 17,
@@ -445,7 +497,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-17.png"
+      "src": "art-continuity-v1/page-17.png",
+      "previousSrc": "art-v6/page-17.png",
+      "prompt": "prompts-continuity-v1/page-17.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 18,
@@ -472,7 +528,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v6/page-18.png"
+      "src": "art-continuity-v1/page-18.png",
+      "previousSrc": "art-v6/page-18.png",
+      "prompt": "prompts-continuity-v1/page-18.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 19,
@@ -499,7 +559,11 @@
           "dialogue": "대사 없음."
         }
       ],
-      "src": "art-v7/page-19-sketchbook.png"
+      "src": "art-continuity-v1/page-19.png",
+      "previousSrc": "art-v7/page-19-sketchbook.png",
+      "prompt": "prompts-continuity-v1/page-19.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     },
     {
       "number": 20,
@@ -526,7 +590,17 @@
           "dialogue": "핀: “어디 가?”"
         }
       ],
-      "src": "art-v6/page-20-no-caption.png"
+      "src": "art-continuity-v2/page-20.png",
+      "previousSrc": "art-v6/page-20-no-caption.png",
+      "prompt": "prompts-continuity-v2/page-20.txt",
+      "status": "draft-reviewed",
+      "revisionNotes": "2026-10-30 공간 연속성 수정: 새 탑, 지도에 따른 가시 여부, 출발 방향, 세계수 크기 확인."
     }
-  ]
+  ],
+  "continuityRevision": {
+    "date": "2026-10-30",
+    "status": "reviewed",
+    "pages": 17,
+    "notes": "../../references/defense-production-v1/CORRECTIONS.md"
+  }
 }

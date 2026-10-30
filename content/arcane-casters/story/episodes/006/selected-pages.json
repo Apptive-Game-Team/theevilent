@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "status": "continuity-review-required",
+  "tool": "built-in imagegen",
+  "episode": 6,
+  "plannedPages": 14,
+  "pages": [
+    {
+      "number": 1,
+      "title": "포격을 뚫는 군단",
+      "src": "art-v1/page-01.png",
+      "prompt": "prompts-v1/page-01.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "battle"
+    },
+    {
+      "number": 2,
+      "title": "비전 보병의 전열",
+      "src": "art-v1/page-02.png",
+      "prompt": "prompts-v1/page-02.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "battle"
+    },
+    {
+      "number": 3,
+      "title": "대포를 지키는 포탑등이",
+      "src": "art-v1/page-03.png",
+      "prompt": "prompts-v1/page-03.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "towerback"
+    },
+    {
+      "number": 4,
+      "title": "대피의 마지막 무리",
+      "src": "art-v1/page-04.png",
+      "prompt": "prompts-v1/page-04.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "summon"
+    },
+    {
+      "number": 5,
+      "title": "물 슬라임 마을 도착",
+      "src": "art-v2/page-05.png",
+      "prompt": "prompts-v2/page-05.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "여기도 위험해."
+      ],
+      "referenceGroup": "slime"
+    },
+    {
+      "number": 6,
+      "title": "대피를 알리는 미라",
+      "src": "art-v2/page-06.png",
+      "prompt": "prompts-v2/page-06.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "마법사의 탑으로 가자."
+      ],
+      "referenceGroup": "slime"
+    },
+    {
+      "number": 7,
+      "title": "뒤처진 슬라임",
+      "src": "art-v2/page-07.png",
+      "prompt": "prompts-v2/page-07.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "slime"
+    },
+    {
+      "number": 8,
+      "title": "첫 공세를 막아내다",
+      "src": "art-v1/page-08.png",
+      "prompt": "prompts-v1/page-08.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "추격하지 마라. 자리를 지켜라."
+      ],
+      "referenceGroup": "battle"
+    },
+    {
+      "number": 9,
+      "title": "멈춰 선 포탑등이",
+      "src": "art-v1/page-09.png",
+      "prompt": "prompts-v1/page-09.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "towerback"
+    },
+    {
+      "number": 10,
+      "title": "붉어지는 눈",
+      "src": "art-v1/page-10.png",
+      "prompt": "prompts-v1/page-10.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "공격해라."
+      ],
+      "referenceGroup": "corrupt"
+    },
+    {
+      "number": 11,
+      "title": "진지 안의 공격",
+      "src": "art-v1/page-11.png",
+      "prompt": "prompts-v1/page-11.txt",
+      "status": "pending",
+      "fullPage": false,
+      "dialogue": [],
+      "referenceGroup": "corrupt"
+    },
+    {
+      "number": 12,
+      "title": "방어선 붕괴",
+      "src": "art-v1/page-12.png",
+      "prompt": "prompts-v1/page-12.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": true,
+      "dialogue": [],
+      "referenceGroup": "corrupt"
+    },
+    {
+      "number": 13,
+      "title": "탑으로 후퇴",
+      "src": "art-v1/page-13.png",
+      "prompt": "prompts-v1/page-13.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "탑 쪽으로 물러나라!"
+      ],
+      "referenceGroup": "corrupt"
+    },
+    {
+      "number": 14,
+      "title": "함께 돌아가는 물 슬라임",
+      "src": "art-v1/page-14.png",
+      "prompt": "prompts-v1/page-14.txt",
+      "status": "drawn-awaiting-review",
+      "fullPage": false,
+      "dialogue": [
+        "너희까지 싸울 필요는 없어."
+      ],
+      "referenceGroup": "slime"
+    }
+  ],
+  "readyPages": 13
+}

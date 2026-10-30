@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, Copy, Share2 } from 'lucide-react';
-import { comicCopy, comicEpisodes, getComicEpisode, comicListPath, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
+import { comicCopy, comicEpisodes, getComicEpisode, getComicContextPages, comicListPath, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
 import { useComicReading } from '../content/comicReading';
 import './ComicReader.css';
 import { useLanguage } from '../i18n/language';
@@ -10,6 +10,8 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
   const entry = getComicEpisode(episode);
   const copy = { ...comicCopy[locale], ...entry?.[locale] };
   const { pagesRef, endRef, resumePage } = useComicReading(episode, entry?.pages.length ?? 0);
+  const contextPages = getComicContextPages(episode);
+  const startTarget = resumePage === 1 && contextPages.length ? '#comic-context-start' : `#comic-page-${resumePage}`;
   const index = comicEpisodes.findIndex(item => item.id === episode);
   const previous = comicEpisodes[index - 1];
   const next = comicEpisodes[index + 1];
@@ -67,11 +69,25 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
           <a className="comic-list-back" href={comicListPath(locale)}>← {listLabel}</a>
           <h1 className="text-title">{copy.title}</h1>
           <div className="comic-intro-actions">
-            <a className="flat-btn flat-btn-primary comic-start" href={`#comic-page-${resumePage}`}>{resumePage > 1 ? (locale === 'ko' ? '이어서 읽기' : 'Continue reading') : copy.read}<ArrowDown size={18} aria-hidden="true" /></a>
+            <a className="flat-btn flat-btn-primary comic-start" href={startTarget}>{resumePage > 1 ? (locale === 'ko' ? '이어서 읽기' : 'Continue reading') : copy.read}<ArrowDown size={18} aria-hidden="true" /></a>
+            {contextPages.length > 0 && resumePage === 1 && <a className="flat-btn" href="#comic-page-1">{locale === 'ko' ? '본문부터 읽기' : 'Start this episode'}</a>}
           </div>
         </div>
       </header>
 
+      {contextPages.length > 0 && <div className="comic-context comic-pages" id="comic-context-start" aria-label={locale === 'ko' ? '앞선 장면' : 'Earlier scenes'}>
+        {contextPages.map(({ episode: sourceEpisode, directory, page }) => (
+          <figure className="comic-context-page" key={`${sourceEpisode}-${page.number}`}>
+            <img src={`/arcane-casters/comic/${directory}/${locale}/page-${String(page.number).padStart(2, '0')}.webp`}
+              alt={`${locale === 'ko' ? `${sourceEpisode}화` : `Episode ${sourceEpisode}`} · ${copy.page} ${page.number}. ${page[locale].title}`}
+              width="1024" height="1536" loading="lazy" decoding="async" />
+            <figcaption className="visually-hidden">
+              <p>{page[locale].description}</p>
+              {page[locale].dialogue.map((line, index) => <p key={index}>{line}</p>)}
+            </figcaption>
+          </figure>
+        ))}
+      </div>}
       <div className="comic-pages" aria-label={copy.title} ref={pagesRef}>
         {entry.pages.map(page => (
           <figure className="comic-page" id={`comic-page-${page.number}`} data-page={page.number} key={page.number}>
