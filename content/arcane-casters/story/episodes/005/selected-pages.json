@@ -133,12 +133,18 @@
     {
       "number": 9,
       "title": "세계수 아래의 대피",
-      "src": "art-v1/page-09.png",
-      "prompt": "prompts-v1/page-09.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-09.png",
+      "prompt": "prompts-revised-v3/page-09.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v1/page-09.png"
+      ],
+      "previousSrc": "art-v1/page-09.png",
+      "referenceMetadata": "prompts-revised-v3/page-09.references.json",
+      "revisionNotes": "거대한 뿌리에서 정령이 빠져나와 운룡에 타고 서쪽으로 대피, 천둥 사슴은 동쪽 추격군을 마주봄 확인. 탑·보통 크기 세계수와 안전로의 적 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 10,
@@ -158,12 +164,18 @@
     {
       "number": 11,
       "title": "도열한 방어군",
-      "src": "art-v1/page-11.png",
-      "prompt": "prompts-v1/page-11.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-11-unit-identity.png",
+      "prompt": "prompts-revised-v3/page-11-unit-identity.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "defense"
+      "referenceGroup": "defense",
+      "sourceHistory": [
+        "art-v1/page-11.png"
+      ],
+      "previousSrc": "art-v1/page-11.png",
+      "referenceMetadata": "prompts-revised-v3/page-11-unit-identity.references.json",
+      "revisionNotes": "동문 안 보병·보루의 검은 눈 골렘·성밖 먼 적군의 전투 전 거리 확인. TEAL 망토와 황동 잠금장치를 교정하고 골렘을 둥근 돌 외형·등 장비로 수정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 12,

@@ -94,6 +94,19 @@
     },
     {
       "episode": 5,
+      "page": 9,
+      "src": "episodes/005/art-revised-v3/page-09.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-09.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-10.png",
+        "references/tower-defense-v1/CloudDragon.png"
+      ],
+      "review": "거대한 뿌리에서 정령이 빠져나와 운룡에 타고 서쪽으로 대피, 천둥 사슴은 동쪽 추격군을 마주봄 확인. 탑·보통 크기 세계수와 안전로의 적 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
       "page": 10,
       "src": "episodes/005/art-revised-v2/page-10.png",
       "prompt": "episodes/005/prompts-revised-v2/page-10.txt",
@@ -107,6 +120,19 @@
     },
     {
       "episode": 5,
+      "page": 11,
+      "src": "episodes/005/art-revised-v3/page-11-unit-identity.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-11-unit-identity.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v3/page-11.png",
+        "references/defense-production-v1/scenes/unit-lineup.png"
+      ],
+      "review": "동문 안 보병·보루의 검은 눈 골렘·성밖 먼 적군의 전투 전 거리 확인. TEAL 망토와 황동 잠금장치를 교정하고 골렘을 둥근 돌 외형·등 장비로 수정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
       "page": 12,
       "src": "episodes/005/art-revised-v2/page-12.png",
       "prompt": "episodes/005/prompts-revised-v2/page-12.txt",
@@ -117,6 +143,117 @@
         "references/tower-defense-v1/ArcaneInfantry.png"
       ],
       "review": "오린의 명령과 성벽 포대의 첫 발사를 연결했다. 병력은 성벽 안쪽 보루에 있고 공격은 성 밖으로 향하며, 구형 탑이나 별도 안뜰이 없다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 1,
+      "src": "episodes/006/art-revised-v3/page-01-toward-gate.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-01-toward-gate.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-01.png",
+        "episodes/005/art-revised-v3/page-11-unit-identity.png"
+      ],
+      "review": "성벽 안 포격과 성문을 향하는 적의 뒷모습 연결, 동일 청색·금색 동문과 닫힌 문 유지 확인. 성밖 아군 도열 제거. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 2,
+      "src": "episodes/006/art-revised-v3/page-02.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-02.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "episodes/005/art-revised-v3/page-11-unit-identity.png",
+        "references/defense-production-v1/mages/defender-plum.png"
+      ],
+      "review": "동문 틈으로 진입하는 적과 문 안쪽 비전 보병의 두 청록 마력 칼날 방어, PLUM의 물리 카드 지원 연결 확인. 성밖 도열과 새 성벽 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 3,
+      "src": "episodes/006/art-revised-v3/page-03-high-wall.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-03-high-wall.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-03.png"
+      ],
+      "review": "검은 눈 포탑등이의 근접 보호와 TEAL의 고정 포대 복구 동작 확인. 성벽 뒤의 잘못된 세계수를 제거하고 높은 외벽을 화면 위로 잘라 동일 축척 유지. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 4,
+      "src": "episodes/006/art-revised-v3/page-04.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-04.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-10.png",
+        "references/tower-defense-v1/CloudDragon.png"
+      ],
+      "review": "거대 뿌리에서 정령·찌릿쥐가 서쪽으로 대피하고 천둥 사슴이 동쪽 추격군을 막은 뒤 되돌아 도약하는 동작 확인. 운룡은 위에서 이동을 엄호하며 탑·사람 배경 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 5,
+      "src": "episodes/006/art-revised-v3/page-05-water-ink.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-05-water-ink.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-05.png",
+        "episodes/007/art-revised-v3/page-02.png"
+      ],
+      "review": "미라의 달려온 도착·여기도 위험해. 경고·대피 방향 지시를 확인. 물가에 탑·인공 건물 없음. 물 부족의 과도한 삼각 면을 넓은 물 색면과 만화 선으로 교정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 6,
+      "src": "episodes/006/art-revised-v3/page-06-text-water-hand.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-06-text-water-hand.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-06.png"
+      ],
+      "review": "마법사의 탑으로 가자. 대사와 작은 슬라임을 돌보며 출발하는 대피 행렬 확인. 탑 글자를 명확히 교정하고 물 궁수 손을 청록 물 신체로 수정. 탑 배경·모집 명령 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 7,
+      "src": "episodes/006/art-revised-v3/page-07.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-07.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-06-text-water-hand.png"
+      ],
+      "review": "진흙에 뒤처진 작은 슬라임을 발견·들어 올림·큰 슬라임 곁에 두고 계속 이동하는 세 동작 확인. 휴식·수면 없이 대피를 계속하며 물가에 탑·세계수 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 8,
+      "src": "episodes/006/art-revised-v3/page-08-inner-court.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-08-inner-court.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-08.png",
+        "episodes/006/art-revised-v3/page-02.png"
+      ],
+      "review": "문 안에서 좁은 동문 틈을 막는 보병과 안뜰의 부상병 이송, 오린의 추격 금지 대사 확인. 성밖처럼 열렸던 모서리를 연속 외벽으로 교정했고 골렘은 아직 검은 눈. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 9,
+      "src": "episodes/006/art-revised-v3/page-09-no-terraces.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-09-no-terraces.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-09.png"
+      ],
+      "review": "멈춘 발·TEAL의 반응·검은 눈 가장자리의 붉은 기운 순서 확인. 중복 정원 담장과 별도 문을 제거하고 높은 외벽 한 겹과 열린 지면으로 교정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "episode": 6,

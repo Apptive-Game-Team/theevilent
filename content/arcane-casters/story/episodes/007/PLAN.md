@@ -48,7 +48,7 @@ ONE FULL-PAGE COUNTERFIRE SPLASH. From INSIDE EAST wall/bastion: surviving canno
 
 ## 8. 앞으로
 
-Three panels same reclaimed INNER EAST sector: infantry form behind gate, artillery platforms secured, Mira's card hand steadier beside Orin on elevated walkway. '앞으로.' They advance to INNER firing positions, not charge beyond wall. Looking EAST over parapet and open field, central tower WEST behind camera ABSENT. Water tribe varied roster still supports, no Finn yet.
+Three panels in the reclaimed INNER EAST sector: arcane infantry RUN along an OPEN courtyard lane toward inner positions; Mira steadies her physical card beside Orin on the wall walk, with her staff strapped on BACK; they step forward on the same walkway while infantry pass on its inner side and Orin says 앞으로. Only ONE low outer parapet with outside plain below, no inner partition walls, gun maze or added gate. Central tower WEST behind camera, World Tree and Finn ABSENT. This is an advance to inner firing positions, not a charge beyond the fortress.
 
 인쇄 대사: 앞으로.
 

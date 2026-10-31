@@ -30,7 +30,7 @@ Three unequal panels: Orin takes animal-emblem CARDS, summons golden spiny elect
 
 ## 5. 세계수로 향하는 소환수
 
-Two wide panels following animals from BEHIND heading EAST to WORLD TREE. Golden mice and deer on grass, white cloud dragon overhead; destination worldtree HUGE ahead beyond plain. Mage fortress WEST BEHIND CAMERA and must NOT appear. Bottom arrive under gigantic ROOTS, small green spirits emerge. No people or enemy in safe lane, no text.
+Two wide movement panels: animals RUN EAST along the safe northern woodland route, then arrive at the gigantic WORLD TREE root face. Side/rear-three-quarter tracking makes forward travel clear. Root ridges dwarf deer and tiny green spirits emerge only in the arrival panel. Fortress WEST behind camera ABSENT; no people, enemy in safe lane or printed text. Never fit the whole world tree into a small ordinary tree.
 
 인쇄 대사: 없음
 

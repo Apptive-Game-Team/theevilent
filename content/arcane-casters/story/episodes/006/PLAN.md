@@ -24,7 +24,7 @@ Three panels INSIDE EAST court at bastion stair/ramp base. Small beast that slip
 
 ## 4. 대피의 마지막 무리
 
-Three panels WORLD TREE western escape fringe. Cloud dragon ferries last green spirits across huge natural root, mice guide westward, deer strike EAST pursuers then retreat WEST. No enemy ahead in safe lane. Vast roots/trunk cropped, no tower through dense woodland, no humans or speech.
+Three action panels at WORLD TREE western roots. Cloud dragon escorts the last green spirits from above while mice guide them WEST across a colossal root. Golden deer turns EAST to strike pursuers, then bounds BACK WEST to join the retreat. Foes remain east behind them, never on the safe route ahead. Only huge cropped roots/trunk, no whole little tree, fortress, humans or text.
 
 인쇄 대사: 없음
 
@@ -54,7 +54,7 @@ Three panels INSIDE EAST sector after first wave held: infantry keep damaged gat
 
 ## 9. 멈춰 선 포탑등이
 
-Three quiet panels in INNER EAST lane. TEAL grey-haired colleague directs small towerback with palm; it stays rigid. Close planted stone foot/harness, then mostly BLACK eye with thin crimson edge and faint jagged psychic interference. No text/printed sound. Huge artillery golems further INSIDE or on bastions not field. No Mira/Orin/Finn, no central tower outside crop.
+Three quiet panels in INNER EAST lane. TEAL grey-haired colleague gestures to small Towerback, which freezes with a stone foot raised. Middle close TEAL leans toward its face; the mostly BLACK oval eye begins to show a thin crimson edge. Final closeup emphasizes that red rim and faint jagged psychic cracks, not a solid red eye yet. ONE tall ivory outerwall fills the cropped background above frame, no terraced gardenwalls, extra gates, central tower or World Tree. No Mira, Orin, Finn, printed text or sound effects.
 
 인쇄 대사: 없음
 

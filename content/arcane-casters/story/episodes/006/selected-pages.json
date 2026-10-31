@@ -8,98 +8,152 @@
     {
       "number": 1,
       "title": "포격을 뚫는 군단",
-      "src": "art-v1/page-01.png",
-      "prompt": "prompts-v1/page-01.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-01-toward-gate.png",
+      "prompt": "prompts-revised-v3/page-01-toward-gate.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "battle"
+      "referenceGroup": "battle",
+      "sourceHistory": [
+        "art-v1/page-01.png"
+      ],
+      "previousSrc": "art-v1/page-01.png",
+      "referenceMetadata": "prompts-revised-v3/page-01-toward-gate.references.json",
+      "revisionNotes": "성벽 안 포격과 성문을 향하는 적의 뒷모습 연결, 동일 청색·금색 동문과 닫힌 문 유지 확인. 성밖 아군 도열 제거. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 2,
       "title": "비전 보병의 전열",
-      "src": "art-v1/page-02.png",
-      "prompt": "prompts-v1/page-02.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-02.png",
+      "prompt": "prompts-revised-v3/page-02.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "battle"
+      "referenceGroup": "battle",
+      "sourceHistory": [
+        "art-v1/page-02.png"
+      ],
+      "previousSrc": "art-v1/page-02.png",
+      "referenceMetadata": "prompts-revised-v3/page-02.references.json",
+      "revisionNotes": "동문 틈으로 진입하는 적과 문 안쪽 비전 보병의 두 청록 마력 칼날 방어, PLUM의 물리 카드 지원 연결 확인. 성밖 도열과 새 성벽 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 3,
       "title": "대포를 지키는 포탑등이",
-      "src": "art-v1/page-03.png",
-      "prompt": "prompts-v1/page-03.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-03-high-wall.png",
+      "prompt": "prompts-revised-v3/page-03-high-wall.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "towerback"
+      "referenceGroup": "towerback",
+      "sourceHistory": [
+        "art-v1/page-03.png"
+      ],
+      "previousSrc": "art-v1/page-03.png",
+      "referenceMetadata": "prompts-revised-v3/page-03-high-wall.references.json",
+      "revisionNotes": "검은 눈 포탑등이의 근접 보호와 TEAL의 고정 포대 복구 동작 확인. 성벽 뒤의 잘못된 세계수를 제거하고 높은 외벽을 화면 위로 잘라 동일 축척 유지. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 4,
       "title": "대피의 마지막 무리",
-      "src": "art-v1/page-04.png",
-      "prompt": "prompts-v1/page-04.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-04.png",
+      "prompt": "prompts-revised-v3/page-04.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v1/page-04.png"
+      ],
+      "previousSrc": "art-v1/page-04.png",
+      "referenceMetadata": "prompts-revised-v3/page-04.references.json",
+      "revisionNotes": "거대 뿌리에서 정령·찌릿쥐가 서쪽으로 대피하고 천둥 사슴이 동쪽 추격군을 막은 뒤 되돌아 도약하는 동작 확인. 운룡은 위에서 이동을 엄호하며 탑·사람 배경 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 5,
       "title": "물 슬라임 마을 도착",
-      "src": "art-v2/page-05.png",
-      "prompt": "prompts-v2/page-05.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-05-water-ink.png",
+      "prompt": "prompts-revised-v3/page-05-water-ink.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "여기도 위험해."
       ],
-      "referenceGroup": "slime"
+      "referenceGroup": "slime",
+      "sourceHistory": [
+        "art-v2/page-05.png"
+      ],
+      "previousSrc": "art-v2/page-05.png",
+      "referenceMetadata": "prompts-revised-v3/page-05-water-ink.references.json",
+      "revisionNotes": "미라의 달려온 도착·여기도 위험해. 경고·대피 방향 지시를 확인. 물가에 탑·인공 건물 없음. 물 부족의 과도한 삼각 면을 넓은 물 색면과 만화 선으로 교정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 6,
       "title": "대피를 알리는 미라",
-      "src": "art-v2/page-06.png",
-      "prompt": "prompts-v2/page-06.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-06-text-water-hand.png",
+      "prompt": "prompts-revised-v3/page-06-text-water-hand.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "마법사의 탑으로 가자."
       ],
-      "referenceGroup": "slime"
+      "referenceGroup": "slime",
+      "sourceHistory": [
+        "art-v2/page-06.png"
+      ],
+      "previousSrc": "art-v2/page-06.png",
+      "referenceMetadata": "prompts-revised-v3/page-06-text-water-hand.references.json",
+      "revisionNotes": "마법사의 탑으로 가자. 대사와 작은 슬라임을 돌보며 출발하는 대피 행렬 확인. 탑 글자를 명확히 교정하고 물 궁수 손을 청록 물 신체로 수정. 탑 배경·모집 명령 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 7,
       "title": "뒤처진 슬라임",
-      "src": "art-v2/page-07.png",
-      "prompt": "prompts-v2/page-07.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-07.png",
+      "prompt": "prompts-revised-v3/page-07.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "slime"
+      "referenceGroup": "slime",
+      "sourceHistory": [
+        "art-v2/page-07.png"
+      ],
+      "previousSrc": "art-v2/page-07.png",
+      "referenceMetadata": "prompts-revised-v3/page-07.references.json",
+      "revisionNotes": "진흙에 뒤처진 작은 슬라임을 발견·들어 올림·큰 슬라임 곁에 두고 계속 이동하는 세 동작 확인. 휴식·수면 없이 대피를 계속하며 물가에 탑·세계수 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 8,
       "title": "첫 공세를 막아내다",
-      "src": "art-v1/page-08.png",
-      "prompt": "prompts-v1/page-08.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-08-inner-court.png",
+      "prompt": "prompts-revised-v3/page-08-inner-court.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "추격하지 마라. 자리를 지켜라."
       ],
-      "referenceGroup": "battle"
+      "referenceGroup": "battle",
+      "sourceHistory": [
+        "art-v1/page-08.png"
+      ],
+      "previousSrc": "art-v1/page-08.png",
+      "referenceMetadata": "prompts-revised-v3/page-08-inner-court.references.json",
+      "revisionNotes": "문 안에서 좁은 동문 틈을 막는 보병과 안뜰의 부상병 이송, 오린의 추격 금지 대사 확인. 성밖처럼 열렸던 모서리를 연속 외벽으로 교정했고 골렘은 아직 검은 눈. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 9,
       "title": "멈춰 선 포탑등이",
-      "src": "art-v1/page-09.png",
-      "prompt": "prompts-v1/page-09.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-09-no-terraces.png",
+      "prompt": "prompts-revised-v3/page-09-no-terraces.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "towerback"
+      "referenceGroup": "towerback",
+      "sourceHistory": [
+        "art-v1/page-09.png"
+      ],
+      "previousSrc": "art-v1/page-09.png",
+      "referenceMetadata": "prompts-revised-v3/page-09-no-terraces.references.json",
+      "revisionNotes": "멈춘 발·TEAL의 반응·검은 눈 가장자리의 붉은 기운 순서 확인. 중복 정원 담장과 별도 문을 제거하고 높은 외벽 한 겹과 열린 지면으로 교정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 10,
