@@ -1,0 +1,528 @@
+{
+  "pathBase": "../../",
+  "status": "draft-reviewed",
+  "approval": "사용자 최종 승인 전 수정 원고",
+  "coverage": {
+    "selectedPages": 40,
+    "newPages": 14,
+    "correctedExistingPages": 25,
+    "retainedOfficePages": 1
+  },
+  "assets": [
+    {
+      "episode": 5,
+      "page": 6,
+      "variant": "geometry",
+      "src": "episodes/005/art-revised-v3/page-06.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-06.txt",
+      "selected": false,
+      "references": [
+        "references/comic-character-style.png",
+        "references/mage-tower-approved-20261030.png",
+        "episodes/005/art-revised-v2/page-06.png"
+      ],
+      "review": "원형 구조는 교정했으나 포대 방향과 정적인 준비 컷을 추가 수정했다."
+    },
+    {
+      "episode": 5,
+      "page": 2,
+      "src": "episodes/005/art-revised-v3/page-02-farewell-focus.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-02-farewell-focus.txt",
+      "selected": true,
+      "references": [
+        "episodes/005/art-revised-v3/page-02-no-extra-mages.png",
+        "references/defense-production-v1/mages/orin.png"
+      ],
+      "review": "미라가 서문을 등지고 관객 쪽으로 출발하는 방향과 작별 대사 유지 확인. 뾰족모자 마법사와 전경의 불필요한 검병을 정리하고 오린 지팡이 머리를 목제 나뭇결로 통일. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 3,
+      "src": "episodes/005/art-revised-v2/page-03.png",
+      "prompt": "episodes/005/prompts-revised-v2/page-03.txt",
+      "selected": true,
+      "references": [
+        "references/defense-production-v1/mages/orin.png",
+        "references/defense-production-v1/mages/defender-teal.png",
+        "references/defense-production-v1/mages/defender-plum.png",
+        "references/defense-production-v1/mages/defender-ochre.png"
+      ],
+      "review": "서문 안쪽의 지시·카드 준비·돌아서는 반응을 확인했다. 하나의 문과 현지 성벽만 보이고 미라·세계수·중앙 탑은 시야 밖이다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 4,
+      "src": "episodes/005/art-revised-v3/page-04.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-04.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-03.png",
+        "references/tower-defense-v1/ZapMouse.png",
+        "references/tower-defense-v1/StormStag.png",
+        "references/tower-defense-v1/CloudDragon.png"
+      ],
+      "review": "소환 카드·운룡/천둥 사슴/찌릿쥐 소환·열린 서문 밖으로 달려나감 확인. 중앙 탑과 세계수의 잘못된 배경을 제거하고 오린만 남김. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 5,
+      "src": "episodes/005/art-revised-v3/page-05-arrival.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-05-arrival.txt",
+      "selected": true,
+      "references": [
+        "episodes/005/art-revised-v3/page-05.png"
+      ],
+      "review": "동쪽으로 달리는 소환수와 거대한 뿌리 아래 도착 연결 확인. 출발 컷의 아직 만나지 않은 정령을 제거했고 탑·작은 세계수 배경 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 6,
+      "src": "episodes/005/art-revised-v3/page-06-teal-units.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-06-teal-units.txt",
+      "selected": true,
+      "references": [
+        "episodes/005/art-revised-v3/page-06-action.png"
+      ],
+      "review": "원형 외벽과 중앙 탑·동문 배치를 유지한 채 TEAL 망토·원형 황동 장식과 번개 장비의 금빛 구체를 통일. 선택 전경의 카메라는 남동 성벽에서 북·북서쪽을 보며 탑 기단 왼쪽·동문 오른쪽이 되는 구도로 검토. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 7,
+      "src": "episodes/005/art-revised-v3/page-07-single-wall.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-07-single-wall.txt",
+      "selected": true,
+      "references": [
+        "episodes/005/art-revised-v3/page-07.png"
+      ],
+      "review": "회색 머리 동료와 위를 향한 포탑등이, 정령의 서문 안쪽 진입 확인. 문 너머 중복 성벽을 숲으로 제거하여 외벽 한 겹 유지. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 8,
+      "src": "episodes/005/art-revised-v3/page-08.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-08.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-08.png"
+      ],
+      "review": "달리기·도약·착지 후 계속 달리기. 머리와 망토의 방향, 카드 가방·지팡이 연속성 및 배경 가시 여부를 확인했다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 9,
+      "src": "episodes/005/art-revised-v3/page-09.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-09.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-10.png",
+        "references/tower-defense-v1/CloudDragon.png"
+      ],
+      "review": "거대한 뿌리에서 정령이 빠져나와 운룡에 타고 서쪽으로 대피, 천둥 사슴은 동쪽 추격군을 마주봄 확인. 탑·보통 크기 세계수와 안전로의 적 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 10,
+      "src": "episodes/005/art-revised-v2/page-10.png",
+      "prompt": "episodes/005/prompts-revised-v2/page-10.txt",
+      "selected": true,
+      "references": [
+        "references/tower-defense-v1/CloudDragon.png",
+        "references/tower-defense-v1/StormStag.png",
+        "references/tower-defense-v1/ZapMouse.png"
+      ],
+      "review": "사슴의 돌진·방향 전환·후퇴 엄호를 확인했다. 정령은 서쪽으로 피하고 쥐는 안내하며, 운룡은 뒤쪽 추격을 막는다. 거대한 뿌리와 줄기 일부만 보인다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 11,
+      "src": "episodes/005/art-revised-v3/page-11-unit-identity.png",
+      "prompt": "episodes/005/prompts-revised-v3/page-11-unit-identity.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v3/page-11.png",
+        "references/defense-production-v1/scenes/unit-lineup.png"
+      ],
+      "review": "동문 안 보병·보루의 검은 눈 골렘·성밖 먼 적군의 전투 전 거리 확인. TEAL 망토와 황동 잠금장치를 교정하고 골렘을 둥근 돌 외형·등 장비로 수정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 5,
+      "page": 12,
+      "src": "episodes/005/art-revised-v2/page-12.png",
+      "prompt": "episodes/005/prompts-revised-v2/page-12.txt",
+      "selected": true,
+      "references": [
+        "references/defense-production-v1/mages/orin.png",
+        "references/defense-production-v1/scenes/unit-lineup.png",
+        "references/tower-defense-v1/ArcaneInfantry.png"
+      ],
+      "review": "오린의 명령과 성벽 포대의 첫 발사를 연결했다. 병력은 성벽 안쪽 보루에 있고 공격은 성 밖으로 향하며, 구형 탑이나 별도 안뜰이 없다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 1,
+      "src": "episodes/006/art-revised-v3/page-01-toward-gate.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-01-toward-gate.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-01.png",
+        "episodes/005/art-revised-v3/page-11-unit-identity.png"
+      ],
+      "review": "성벽 안 포격과 성문을 향하는 적의 뒷모습 연결, 동일 청색·금색 동문과 닫힌 문 유지 확인. 성밖 아군 도열 제거. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 2,
+      "src": "episodes/006/art-revised-v3/page-02.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-02.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "episodes/005/art-revised-v3/page-11-unit-identity.png",
+        "references/defense-production-v1/mages/defender-plum.png"
+      ],
+      "review": "동문 틈으로 진입하는 적과 문 안쪽 비전 보병의 두 청록 마력 칼날 방어, PLUM의 물리 카드 지원 연결 확인. 성밖 도열과 새 성벽 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 3,
+      "src": "episodes/006/art-revised-v3/page-03-high-wall.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-03-high-wall.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-03.png"
+      ],
+      "review": "검은 눈 포탑등이의 근접 보호와 TEAL의 고정 포대 복구 동작 확인. 성벽 뒤의 잘못된 세계수를 제거하고 높은 외벽을 화면 위로 잘라 동일 축척 유지. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 4,
+      "src": "episodes/006/art-revised-v3/page-04.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-04.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/005/art-revised-v2/page-10.png",
+        "references/tower-defense-v1/CloudDragon.png"
+      ],
+      "review": "거대 뿌리에서 정령·찌릿쥐가 서쪽으로 대피하고 천둥 사슴이 동쪽 추격군을 막은 뒤 되돌아 도약하는 동작 확인. 운룡은 위에서 이동을 엄호하며 탑·사람 배경 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 5,
+      "src": "episodes/006/art-revised-v3/page-05-water-ink.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-05-water-ink.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-05.png",
+        "episodes/007/art-revised-v3/page-02.png"
+      ],
+      "review": "미라의 달려온 도착·여기도 위험해. 경고·대피 방향 지시를 확인. 물가에 탑·인공 건물 없음. 물 부족의 과도한 삼각 면을 넓은 물 색면과 만화 선으로 교정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 6,
+      "src": "episodes/006/art-revised-v3/page-06-text-water-hand.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-06-text-water-hand.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-06.png"
+      ],
+      "review": "마법사의 탑으로 가자. 대사와 작은 슬라임을 돌보며 출발하는 대피 행렬 확인. 탑 글자를 명확히 교정하고 물 궁수 손을 청록 물 신체로 수정. 탑 배경·모집 명령 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 7,
+      "src": "episodes/006/art-revised-v3/page-07.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-07.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-06-text-water-hand.png"
+      ],
+      "review": "진흙에 뒤처진 작은 슬라임을 발견·들어 올림·큰 슬라임 곁에 두고 계속 이동하는 세 동작 확인. 휴식·수면 없이 대피를 계속하며 물가에 탑·세계수 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 8,
+      "src": "episodes/006/art-revised-v3/page-08-inner-court.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-08-inner-court.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/006/art-revised-v3/page-08.png",
+        "episodes/006/art-revised-v3/page-02.png"
+      ],
+      "review": "문 안에서 좁은 동문 틈을 막는 보병과 안뜰의 부상병 이송, 오린의 추격 금지 대사 확인. 성밖처럼 열렸던 모서리를 연속 외벽으로 교정했고 골렘은 아직 검은 눈. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 9,
+      "src": "episodes/006/art-revised-v3/page-09-no-terraces.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-09-no-terraces.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-09.png"
+      ],
+      "review": "멈춘 발·TEAL의 반응·검은 눈 가장자리의 붉은 기운 순서 확인. 중복 정원 담장과 별도 문을 제거하고 높은 외벽 한 겹과 열린 지면으로 교정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 10,
+      "src": "episodes/006/art-revised-v3/page-10-curved-wall.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-10-curved-wall.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-10.png"
+      ],
+      "review": "잠식이 대형 골렘으로 퍼지고 포신이 안쪽으로 향하는 장면과 꼬리 없는 공격해라. 심리 말풍선 확인. 잘못된 배경 중앙 탑·교차 벽을 제거하고 원형 외벽으로 교정. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 11,
+      "src": "episodes/006/art-revised-v3/page-11.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-11.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/defense-production-v1/units/towerback.png",
+        "references/defense-production-v1/units/cannonback.png",
+        "references/defense-production-v1/mages/defender-teal.png",
+        "episodes/005/art-revised-v3/page-06-action.png"
+      ],
+      "review": "포탑등이의 충돌·대포 방향 전환·퇴로 차단이 이어진다. 마법사는 검은 눈, 골렘은 붉은 눈을 유지하며 성벽 안쪽 전투와 하나의 동문을 확인했다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 12,
+      "src": "episodes/006/art-revised-v3/page-12.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-12.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/mage-tower-approved-20261030.png",
+        "episodes/006/art-revised-v3/page-11.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "references/defense-production-v1/mages/orin.png"
+      ],
+      "review": "원형 외벽 안에서 붉은 골렘이 포대를 부수고 보병이 중앙 탑 기단 쪽으로 후퇴하는 대형 장면 확인. 탑은 크게 잘린 기단만 보이며 동문은 오른쪽, 오린은 실제 카드로 가까운 후퇴 병력을 보호. 유성우·미라·핀 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 13,
+      "src": "episodes/006/art-revised-v3/page-13.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-13.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/defense-production-v1/mages/orin.png",
+        "episodes/006/art-revised-v3/page-12.png",
+        "references/tower-defense-v1/ArcaneInfantry.png"
+      ],
+      "review": "탑 쪽으로 물러나라! 대사와 방패 카드 보호막, 부상병을 부축해 같은 중앙 탑 계단으로 후퇴하는 동작 확인. 붉은 골렘과 적은 동쪽 뒤편, 외벽 한 겹·잘린 탑 기단 유지. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 6,
+      "page": 14,
+      "src": "episodes/006/art-revised-v3/page-14-court-view.png",
+      "prompt": "episodes/006/prompts-revised-v3/page-14-court-view.txt",
+      "selected": true,
+      "references": [
+        "episodes/006/art-revised-v3/page-14-water-only.png",
+        "episodes/005/art-revised-v3/page-06-action.png"
+      ],
+      "review": "서문을 향해 들어가는 미라·작은 슬라임·물 궁수·거품 정령·수룡의 귀환 확인. 인간 피난민·두건 마법사를 제거하고 문 너머를 동일한 열린 안뜰·탑 기단·생활관 일부로 연결. 자발적 동행과 정확한 대사 유지. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 1,
+      "src": "episodes/007/art-revised-v3/page-01-infantry.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-01-infantry.txt",
+      "selected": true,
+      "references": [
+        "episodes/007/art-revised-v3/page-01.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "references/comic-character-style.png"
+      ],
+      "review": "중앙 탑 밑에서 부상자를 끌어내며 잔해를 막는 연속 동작이다. 비전 보병의 방패·강철검을 없애고 양손 마력 칼날과 기존 갑옷으로 수정했다. 원형 외벽의 파손된 동문만 유지했다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 2,
+      "src": "episodes/007/art-revised-v3/page-02.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-02.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/tower-defense-v1/SeaSerpent.png",
+        "references/tower-defense-v1/AquaArcher.png",
+        "references/tower-defense-v1/BubbleSpirit.png",
+        "episodes/005/art-revised-v3/page-06-action.png"
+      ],
+      "review": "슬라임의 가로막기와 충돌 뒤 서문으로 들어오는 지원군을 공개한다. 미라는 달리고, 물 궁수·거품 정령·수룡은 기존 생김새를 유지하며 새 성벽을 추가하지 않았다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 3,
+      "src": "episodes/007/art-revised-v3/page-03.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-03.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-02.png",
+        "references/defense-production-v1/mages/defender-teal.png"
+      ],
+      "review": "물 궁수와 수룡이 추격을 막고, 미라는 실물 카드의 바람으로 잔해를 비킨 뒤 TEAL을 일으킨다. 미라 지팡이는 등에 고정했고 TEAL 지팡이는 구조 지점에 남는다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 4,
+      "src": "episodes/007/art-revised-v3/page-04-wounded-infantry.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-04-wounded-infantry.txt",
+      "selected": true,
+      "references": [
+        "episodes/007/art-revised-v3/page-04.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "references/comic-character-style.png"
+      ],
+      "review": "미라가 TEAL을 부축해 도착하고 오린이 물 슬라임들이 확보한 내부 이동로를 확인해 이동을 지시한다. 중간 컷 부상자는 별도의 비전 보병으로 교정해 TEAL 중복을 없앴다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 5,
+      "src": "episodes/007/art-revised-v3/page-05.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-05.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/tower-defense-v1/ArcaneInfantry.png",
+        "references/defense-production-v1/units/towerback.png",
+        "episodes/007/art-revised-v3/page-03.png",
+        "episodes/005/art-revised-v3/page-06-action.png"
+      ],
+      "review": "비전 보병이 포탑등이 가죽 끈을 끊고 PLUM의 카드 바람으로 넘어뜨린다. 붉은 눈을 유지해 잠식 해제로 보이지 않게 했고 내부 이동로를 확보했다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 6,
+      "src": "episodes/007/art-revised-v3/page-06-wall-platform.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-06-wall-platform.txt",
+      "selected": true,
+      "references": [
+        "episodes/007/art-revised-v3/page-06.png",
+        "references/mage-tower-approved-20261030.png",
+        "references/comic-character-style.png"
+      ],
+      "review": "잔해 제거·대포 회전·사격 준비가 이어진다. 고정 대포와 같은 보루의 가슴 높이 난간만 보여 별도 내부 성벽이 생기지 않게 했고, 잠식된 골렘을 아군으로 되돌리지 않았다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 7,
+      "src": "episodes/007/art-revised-v3/page-07-inner-gate.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-07-inner-gate.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "references/mage-tower-approved-20261030.png",
+        "references/tower-defense-v1/Cannon.png",
+        "references/tower-defense-v1/RockTurret.png",
+        "episodes/007/art-revised-v3/page-03.png"
+      ],
+      "review": "지상 안뜰에서 동문 밖을 보는 시점으로 다시 구성했다. 물 슬라임 진영과 비전 보병은 문 안쪽에 남고 대포·투석·물 공격만 문 밖 적진으로 나간다. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 8,
+      "src": "episodes/007/art-revised-v3/page-08-open-lane.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-08-open-lane.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-08.png",
+        "references/tower-defense-v1/ArcaneInfantry.png"
+      ],
+      "review": "내부 지그재그 벽과 포대 미로를 제거하고 열린 이동로와 단일 외측 난간으로 교정. 비전 보병의 달리기, 미라의 등 지팡이와 카드, 오린 대사 앞으로. 확인. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 9,
+      "src": "episodes/007/art-revised-v3/page-09.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-09.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-08-open-lane.png",
+        "episodes/003/art-v1/page-03-two-hands.png"
+      ],
+      "review": "동쪽 성벽 위 미라와 성밖 핀의 높이·거리 분리, 익숙한 등 지팡이와 갈라진 원형 잠금장치 관찰, 핀 눈과 전신 확대 공개 전 가림 확인. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 10,
+      "src": "episodes/007/art-revised-v3/page-10.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-10.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/003/art-v1/page-03-two-hands.png",
+        "episodes/007/art-revised-v3/page-09.png"
+      ],
+      "review": "성밖 핀 전신 공개, 붉은 타원 눈·갈라진 원형 잠금장치·한쪽 잠식 팔과 등 지팡이·두 팔 확인. 미소·추가 성·인간형 군단 없음. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 11,
+      "src": "episodes/007/art-revised-v3/page-11-separate-sides.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-11-separate-sides.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-11.png"
+      ],
+      "review": "미라 성벽 안·핀 성밖 배경 분리 교정, 첫 컷 유성 제거로 시전 순서 정리, 미라 등 지팡이와 두 팔·대사 핀./흩어져! 확인. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 12,
+      "src": "episodes/007/art-revised-v3/page-12.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-12.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-11-separate-sides.png",
+        "references/tower-defense-v1/ArcaneInfantry.png"
+      ],
+      "review": "유성 접근과 아직 충돌하지 않은 하늘, 동쪽 성벽에서 부상병·물 궁수를 끌어내는 동작, 오린의 방어 카드 교체, 사람 검은 눈 확인. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 13,
+      "src": "episodes/007/art-revised-v3/page-13-shield-open-court.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-13-shield-open-court.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-13.png"
+      ],
+      "review": "중앙 탑 기단의 큰 축척과 동쪽 포대 유성 충돌 확인. 오린 카드를 방패와 국소 보호막으로 교정하고 안뜰 내부 추가 벽을 잔해·열린 지면으로 제거. 사용자 최종 승인 전 수정 원고."
+    },
+    {
+      "episode": 7,
+      "page": 14,
+      "src": "episodes/007/art-revised-v3/page-14-no-banners.png",
+      "prompt": "episodes/007/prompts-revised-v3/page-14-no-banners.txt",
+      "selected": true,
+      "references": [
+        "references/comic-character-style.png",
+        "episodes/007/art-revised-v3/page-14.png"
+      ],
+      "review": "피격 뒤 미라·오린과 무너진 안쪽 포대, 문 너머 성밖 핀의 다음 카드 연결 확인. 군단의 설정에 없는 깃발을 모든 컷에서 제거. 사용자 최종 승인 전 수정 원고."
+    }
+  ]
+}

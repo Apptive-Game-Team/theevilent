@@ -1,0 +1,4 @@
+Precise small edit of this THREE-panel page. Preserve all layout/Mira/creature poses/woodlandpool colors and ink EXACTLY. TWO corrections ONLY:
+1 TOP speech balloon must say EXACT Korean: 마법사의 탑으로 가자. Current second line's firstglyph looks like 밥, WRONG. Replace entire balloon lettering with clearly legible EXACT 마법사의 탑으로 가자. The tower word is 탑 (ㅌ+ㅏ+ㅂ), never 밥. Use clean bold Korean font, two lines 마법사의 / 탑으로 가자. with final period. Balloon tail still points to Mira. No other letters.
+2 MIDDLE PANEL aquaarcher holding the smallblueSLIME has an erroneous PEACH HUMAN hand. Recolor/reshape that one hand to same CYAN WATER hand/flipper consistent with its waterarm and rest of tribe, no human skin/glove. Keep the lifting gesture and slime position.
+Everything else unchanged: no addedcastle/people/dialogue/extra arm, smoothwatercreatures no facets. Portrait1024x1536.

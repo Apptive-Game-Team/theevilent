@@ -10,135 +10,202 @@
       "title": "쉬지 않고 떠나는 미라",
       "src": "art-v2/page-01.png",
       "prompt": "prompts-v2/page-01.txt",
-      "status": "drawn-awaiting-review",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "미라는 좀 쉬고 있어라.",
         "물슬라임 부족을 이 탑으로 대피시키겠습니다."
       ],
-      "referenceGroup": "office"
+      "referenceGroup": "office",
+      "revisionNotes": "사무실 보고 직후 미라가 쉬지 않고 물 슬라임 부족 대피를 맡겠다고 답한 뒤 바로 일어나는 세 컷 확인. 원래 사무실 원고를 유지했고 수면·휴식·탑 외관 추가 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 2,
       "title": "보고 직후 출발",
-      "src": "art-revised-v1/page-02.png",
-      "prompt": "prompts-revised-v1/page-02.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-02-farewell-focus.png",
+      "prompt": "prompts-revised-v3/page-02-farewell-focus.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "위험하면 돌아와라.",
         "다녀오겠습니다."
       ],
       "referenceGroup": "mira",
-      "previousSrc": "art-v1/page-02.png",
-      "revisionNotes": "2026-10-30 서문을 등지고 관객 쪽으로 출발. 중앙 탑·세계수는 시야 밖. 사용자 최종 승인 전 수정 초안."
+      "previousSrc": "art-revised-v1/page-02.png",
+      "revisionNotes": "미라가 서문을 등지고 관객 쪽으로 출발하는 방향과 작별 대사 유지 확인. 뾰족모자 마법사와 전경의 불필요한 검병을 정리하고 오린 지팡이 머리를 목제 나뭇결로 통일. 사용자 최종 승인 전 수정 원고.",
+      "sourceHistory": [
+        "art-v1/page-02.png",
+        "art-revised-v1/page-02.png"
+      ],
+      "referenceMetadata": "prompts-revised-v3/page-02-farewell-focus.references.json"
     },
     {
       "number": 3,
       "title": "탑의 마법사들",
-      "src": "art-v3/page-03.png",
-      "prompt": "prompts-v3/page-03.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v2/page-03.png",
+      "prompt": "prompts-revised-v2/page-03.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "정령들을 여기로 대피시켜라."
       ],
-      "referenceGroup": "tower"
+      "referenceGroup": "tower",
+      "sourceHistory": [
+        "art-v3/page-03.png"
+      ],
+      "previousSrc": "art-v3/page-03.png",
+      "revisionNotes": "서문 안쪽의 지시·카드 준비·돌아서는 반응을 확인했다. 하나의 문과 현지 성벽만 보이고 미라·세계수·중앙 탑은 시야 밖이다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v2/page-03.references.json"
     },
     {
       "number": 4,
       "title": "오린의 소환",
-      "src": "art-v3/page-04.png",
-      "prompt": "prompts-v3/page-04.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-04.png",
+      "prompt": "prompts-revised-v3/page-04.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "세계수로 가서 정령들을 도와라."
       ],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v3/page-04.png"
+      ],
+      "previousSrc": "art-v3/page-04.png",
+      "referenceMetadata": "prompts-revised-v3/page-04.references.json",
+      "revisionNotes": "소환 카드·운룡/천둥 사슴/찌릿쥐 소환·열린 서문 밖으로 달려나감 확인. 중앙 탑과 세계수의 잘못된 배경을 제거하고 오린만 남김. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 5,
       "title": "세계수로 향하는 소환수",
-      "src": "art-v1/page-05.png",
-      "prompt": "prompts-v1/page-05.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-05-arrival.png",
+      "prompt": "prompts-revised-v3/page-05-arrival.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v1/page-05.png"
+      ],
+      "previousSrc": "art-v1/page-05.png",
+      "referenceMetadata": "prompts-revised-v3/page-05-arrival.references.json",
+      "revisionNotes": "동쪽으로 달리는 소환수와 거대한 뿌리 아래 도착 연결 확인. 출발 컷의 아직 만나지 않은 정령을 제거했고 탑·작은 세계수 배경 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 6,
       "title": "방어 진지 구축",
-      "src": "art-v4/page-06.png",
-      "prompt": "prompts-v4/page-06.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-06-teal-units.png",
+      "prompt": "prompts-revised-v3/page-06-teal-units.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "defense"
+      "referenceGroup": "defense",
+      "sourceHistory": [
+        "art-v4/page-06.png",
+        "art-revised-v3/page-06-action.png"
+      ],
+      "previousSrc": "art-revised-v3/page-06-action.png",
+      "revisionNotes": "원형 외벽과 중앙 탑·동문 배치를 유지한 채 TEAL 망토·원형 황동 장식과 번개 장비의 금빛 구체를 통일. 선택 전경의 카메라는 남동 성벽에서 북·북서쪽을 보며 탑 기단 왼쪽·동문 오른쪽이 되는 구도로 검토. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v3/page-06-teal-units.references.json"
     },
     {
       "number": 7,
       "title": "길을 내주는 포탑등이",
-      "src": "art-v1/page-07.png",
-      "prompt": "prompts-v1/page-07.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-07-single-wall.png",
+      "prompt": "prompts-revised-v3/page-07-single-wall.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "towerback"
+      "referenceGroup": "towerback",
+      "sourceHistory": [
+        "art-v1/page-07.png"
+      ],
+      "previousSrc": "art-v1/page-07.png",
+      "referenceMetadata": "prompts-revised-v3/page-07-single-wall.references.json",
+      "revisionNotes": "회색 머리 동료와 위를 향한 포탑등이, 정령의 서문 안쪽 진입 확인. 문 너머 중복 성벽을 숲으로 제거하여 외벽 한 겹 유지. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 8,
       "title": "물 슬라임 마을로",
-      "src": "art-v1/page-08.png",
-      "prompt": "prompts-v1/page-08.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-08.png",
+      "prompt": "prompts-revised-v3/page-08.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "mira"
+      "referenceGroup": "mira",
+      "sourceHistory": [
+        "art-v1/page-08.png"
+      ],
+      "previousSrc": "art-v1/page-08.png",
+      "revisionNotes": "달리기·도약·착지 후 계속 달리기. 머리와 망토의 방향, 카드 가방·지팡이 연속성 및 배경 가시 여부를 확인했다. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 9,
       "title": "세계수 아래의 대피",
-      "src": "art-v1/page-09.png",
-      "prompt": "prompts-v1/page-09.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-09.png",
+      "prompt": "prompts-revised-v3/page-09.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v1/page-09.png"
+      ],
+      "previousSrc": "art-v1/page-09.png",
+      "referenceMetadata": "prompts-revised-v3/page-09.references.json",
+      "revisionNotes": "거대한 뿌리에서 정령이 빠져나와 운룡에 타고 서쪽으로 대피, 천둥 사슴은 동쪽 추격군을 마주봄 확인. 탑·보통 크기 세계수와 안전로의 적 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 10,
       "title": "막으며 물러나다",
-      "src": "art-v1/page-10.png",
-      "prompt": "prompts-v1/page-10.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v2/page-10.png",
+      "prompt": "prompts-revised-v2/page-10.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "summon"
+      "referenceGroup": "summon",
+      "sourceHistory": [
+        "art-v1/page-10.png"
+      ],
+      "previousSrc": "art-v1/page-10.png",
+      "revisionNotes": "사슴의 돌진·방향 전환·후퇴 엄호를 확인했다. 정령은 서쪽으로 피하고 쥐는 안내하며, 운룡은 뒤쪽 추격을 막는다. 거대한 뿌리와 줄기 일부만 보인다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v2/page-10.references.json"
     },
     {
       "number": 11,
       "title": "도열한 방어군",
-      "src": "art-v1/page-11.png",
-      "prompt": "prompts-v1/page-11.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-11-unit-identity.png",
+      "prompt": "prompts-revised-v3/page-11-unit-identity.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [],
-      "referenceGroup": "defense"
+      "referenceGroup": "defense",
+      "sourceHistory": [
+        "art-v1/page-11.png"
+      ],
+      "previousSrc": "art-v1/page-11.png",
+      "referenceMetadata": "prompts-revised-v3/page-11-unit-identity.references.json",
+      "revisionNotes": "동문 안 보병·보루의 검은 눈 골렘·성밖 먼 적군의 전투 전 거리 확인. TEAL 망토와 황동 잠금장치를 교정하고 골렘을 둥근 돌 외형·등 장비로 수정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 12,
       "title": "첫 포격",
-      "src": "art-v1/page-12.png",
-      "prompt": "prompts-v1/page-12.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v2/page-12.png",
+      "prompt": "prompts-revised-v2/page-12.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "쏴라."
       ],
-      "referenceGroup": "defense"
+      "referenceGroup": "defense",
+      "sourceHistory": [
+        "art-v1/page-12.png"
+      ],
+      "previousSrc": "art-v1/page-12.png",
+      "revisionNotes": "오린의 명령과 성벽 포대의 첫 발사를 연결했다. 병력은 성벽 안쪽 보루에 있고 공격은 성 밖으로 향하며, 구형 탑이나 별도 안뜰이 없다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v2/page-12.references.json"
     }
   ],
-  "readyPages": 12
+  "readyPages": 12,
+  "draftReviewedPages": 12
 }

@@ -1,0 +1,9 @@
+{
+  "pathBase": "../../..",
+  "referenceImages": [
+    "references/comic-character-style.png",
+    "references/defense-production-v1/mages/defender-teal.png",
+    "references/defense-production-v1/units/towerback.png",
+    "episodes/005/art-revised-v2/page-03.png"
+  ]
+}

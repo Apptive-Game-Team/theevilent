@@ -12,13 +12,13 @@ Three panels in wood OFFICE after previous report. Orin: '미라는 좀 쉬고 �
 
 ## 2. 보고 직후 출발
 
-Three panels: Orin at office doorway says '위험하면 돌아와라.' Mira already leaving: '다녀오겠습니다.' Last at WEST REFUGE GATE outside: camera WEST of fortress looking EAST BACK toward doorway, show Mira FRONT/three-quarter WALKING TOWARD VIEWER away from gate BEHIND HER BACK. Crop architecture to gate/wall, no whole tower icon or worldtree needed. Never Mira back walking toward visible fortress. Orin only firstpanel, no clones.
+Three panels: Orin at the office doorway says 위험하면 돌아와라. Mira immediately leaves and answers 다녀오겠습니다. Middle and final shots are outside the WEST REFUGE gate, camera WEST looking EAST back toward the doorway. Mira moves FRONT/three-quarter TOWARD viewer AWAY from the gate behind her. Orin can remain inside the gate in the background before the next page, one figure per panel; only arcane infantry guards accompany him, no pointed-hat wizard lookalikes. Crop to local curved ivory wall/gate, no whole central tower or World Tree. Do not reverse her departure direction.
 
 인쇄 대사: 위험하면 돌아와라. / 다녀오겠습니다.
 
 ## 3. 탑의 마법사들
 
-Three panels at INNER WEST gate courtyard. Orin addresses TEAL/PLUM/OCHRE colleagues: '정령들을 여기로 대피시켜라.' They stay INSIDE to clear incoming rear lane and ready cards, not marching away. Camera toward WEST interior gate/wall, CENTRAL TOWER BEHIND CAMERA ABSENT. Cast Orin and three colleagues ONLY, Mira already gone.
+One wide command panel at INNER WEST gate, then three small colleague reaction/card-preparation panels, then one wide turn toward closed west gate. Orin tells TEAL/PLUM/OCHRE EXACTLY: 정령들을 여기로 대피시켜라. They remain INSIDE to clear arrival lane and ready cards, not leaving to evacuate themselves. Same ONE west gate/local ivory curved wall and grass; central tower behind camera/outside crop and WORLD TREE absent. Mira already left and ABSENT. Only one speech balloon in first panel.
 
 인쇄 대사: 정령들을 여기로 대피시켜라.
 
@@ -30,13 +30,13 @@ Three unequal panels: Orin takes animal-emblem CARDS, summons golden spiny elect
 
 ## 5. 세계수로 향하는 소환수
 
-Two wide panels following animals from BEHIND heading EAST to WORLD TREE. Golden mice and deer on grass, white cloud dragon overhead; destination worldtree HUGE ahead beyond plain. Mage fortress WEST BEHIND CAMERA and must NOT appear. Bottom arrive under gigantic ROOTS, small green spirits emerge. No people or enemy in safe lane, no text.
+Two wide movement panels: animals RUN EAST along the safe northern woodland route, then arrive at the gigantic WORLD TREE root face. Side/rear-three-quarter tracking makes forward travel clear. Root ridges dwarf deer and tiny green spirits emerge only in the arrival panel. Fortress WEST behind camera ABSENT; no people, enemy in safe lane or printed text. Never fit the whole world tree into a small ordinary tree.
 
 인쇄 대사: 없음
 
 ## 6. 방어 진지 구축
 
-Three panels INSIDE EAST defensive sector. Card closeups as short-haired teal/plum/ochre mages prepare bluegrey/gold guns and sling turrets on BROAD WALL BASTION platforms. Largest high view from central tower side looking EAST: infantry rows on INNER COURTYARD ground behind CLOSED EAST gate, mobile cannon/lightning/slings golems on large NE/SE bastions or inner reserve, NO troops outside. Wall10m vs people1.7m; chest-high parapet is on elevated8.8m deck. Only NE/SE residence edges visible, central tower BEHIND CAMERA ABSENT. No speech. Orin/colleagues, no Mira/Finn.
+Two small ACTION panels: TEAL takes a physical cannon-emblem card from satchel; PLUM and OCHRE use cards to install defense equipment. ONE large interior establishing panel follows, with some infantry jogging into formation. Camera on SOUTHEAST wall walk looking NORTH/NORTHWEST, central tower base LEFT foreground/midground cropped above frame at correct65m scale; closed EAST gate middle-right in ONE continuous circular100m outer wall10m tall. WEST gate behind camera ABSENT. Open grass courtyard, one tower-to-east-gate path, four perimeter bastions and only physically visible fragments of four low residences. NO inner cross-walls, square court, double concentric walls or extra gateways. Infantry rows INSIDE east gate; guns/golems on broad east bastions face OUT EAST. Orin and teal/plum/ochre colleagues handle physical defense cards. No Mira, enemy, world tree or printed text.
 
 인쇄 대사: 없음
 
@@ -48,7 +48,7 @@ Three panels at INNER WEST refugee gate lane: TEAL grey-haired colleague gesture
 
 ## 8. 물 슬라임 마을로
 
-Three panels Mira walks briskly SOUTHWEST on shaded natural stream path toward reed pools. Camera looks DOWNSTREAM/SW; fortress NE behind camera and tree EAST behind woodland, BOTH ABSENT. Show dirty boots, shift staff/card pouch, determined face, no sitting/rest/sleep. Last pool habitat ahead, natural stones not human houses. No speech.
+Three sequential ACTION panels: Mira RUNS southwest downstream to warn the water tribe. Panel1 low side tracking shot: torso leaned forward, one knee driving up and opposite foot pushing hard off muddy path, free arm pumping, blue cloak and hair streaming backward. Panel2 she LEAPS a narrow side channel between stones, both feet airborne, staff angled tightly along body and card pouch secured; one continuous direction LEFT to RIGHT. Panel3 rear three-quarter low shot she LANDS and keeps RUNNING toward reed pools, no standing scenic pause. Show visible urgency and movement arcs, no calm walking poses or relaxed portrait. Camera looks southwest/downstream; fortress northeast behind camera and world tree east behind woodland are BOTH ABSENT. Dirty/scuffed robe and boots stay continuous. No speech or human buildings.
 
 인쇄 대사: 없음
 
