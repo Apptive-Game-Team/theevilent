@@ -18,7 +18,8 @@
         "art-v1/page-01.png"
       ],
       "previousSrc": "art-v1/page-01.png",
-      "revisionNotes": "중앙 탑 밑에서 부상자를 끌어내며 잔해를 막는 연속 동작이다. 비전 보병의 방패·강철검을 없애고 양손 마력 칼날과 기존 갑옷으로 수정했다. 원형 외벽의 파손된 동문만 유지했다. 사용자 최종 승인 전 수정 원고."
+      "revisionNotes": "중앙 탑 밑에서 부상자를 끌어내며 잔해를 막는 연속 동작이다. 비전 보병의 방패·강철검을 없애고 양손 마력 칼날과 기존 갑옷으로 수정했다. 원형 외벽의 파손된 동문만 유지했다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v3/page-01-infantry.references.json"
     },
     {
       "number": 2,
@@ -29,7 +30,8 @@
       "fullPage": false,
       "dialogue": [],
       "referenceGroup": "slimebattle",
-      "revisionNotes": "슬라임의 가로막기와 충돌 뒤 서문으로 들어오는 지원군을 공개한다. 미라는 달리고, 물 궁수·거품 정령·수룡은 기존 생김새를 유지하며 새 성벽을 추가하지 않았다. 사용자 최종 승인 전 수정 원고."
+      "revisionNotes": "슬라임의 가로막기와 충돌 뒤 서문으로 들어오는 지원군을 공개한다. 미라는 달리고, 물 궁수·거품 정령·수룡은 기존 생김새를 유지하며 새 성벽을 추가하지 않았다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v3/page-02.references.json"
     },
     {
       "number": 3,
@@ -40,7 +42,8 @@
       "fullPage": false,
       "dialogue": [],
       "referenceGroup": "slimebattle",
-      "revisionNotes": "물 궁수와 수룡이 추격을 막고, 미라는 실물 카드의 바람으로 잔해를 비킨 뒤 TEAL을 일으킨다. 미라 지팡이는 등에 고정했고 TEAL 지팡이는 구조 지점에 남는다. 사용자 최종 승인 전 수정 원고."
+      "revisionNotes": "물 궁수와 수룡이 추격을 막고, 미라는 실물 카드의 바람으로 잔해를 비킨 뒤 TEAL을 일으킨다. 미라 지팡이는 등에 고정했고 TEAL 지팡이는 구조 지점에 남는다. 사용자 최종 승인 전 수정 원고.",
+      "referenceMetadata": "prompts-revised-v3/page-03.references.json"
     },
     {
       "number": 4,
@@ -193,5 +196,6 @@
       "revisionNotes": "피격 뒤 미라·오린과 무너진 안쪽 포대, 문 너머 성밖 핀의 다음 카드 연결 확인. 군단의 설정에 없는 깃발을 모든 컷에서 제거. 사용자 최종 승인 전 수정 원고."
     }
   ],
-  "readyPages": 14
+  "readyPages": 14,
+  "draftReviewedPages": 14
 }

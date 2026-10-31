@@ -12,7 +12,7 @@ Three panels in wood OFFICE after previous report. Orin: '미라는 좀 쉬고 �
 
 ## 2. 보고 직후 출발
 
-Three panels: Orin at office doorway says '위험하면 돌아와라.' Mira already leaving: '다녀오겠습니다.' Last at WEST REFUGE GATE outside: camera WEST of fortress looking EAST BACK toward doorway, show Mira FRONT/three-quarter WALKING TOWARD VIEWER away from gate BEHIND HER BACK. Crop architecture to gate/wall, no whole tower icon or worldtree needed. Never Mira back walking toward visible fortress. Orin only firstpanel, no clones.
+Three panels: Orin at the office doorway says 위험하면 돌아와라. Mira immediately leaves and answers 다녀오겠습니다. Middle and final shots are outside the WEST REFUGE gate, camera WEST looking EAST back toward the doorway. Mira moves FRONT/three-quarter TOWARD viewer AWAY from the gate behind her. Orin can remain inside the gate in the background before the next page, one figure per panel; only arcane infantry guards accompany him, no pointed-hat wizard lookalikes. Crop to local curved ivory wall/gate, no whole central tower or World Tree. Do not reverse her departure direction.
 
 인쇄 대사: 위험하면 돌아와라. / 다녀오겠습니다.
 
@@ -36,7 +36,7 @@ Two wide movement panels: animals RUN EAST along the safe northern woodland rout
 
 ## 6. 방어 진지 구축
 
-Two small ACTION panels: TEAL takes a physical cannon-emblem card from satchel; PLUM and OCHRE use cards to install defense equipment. ONE large interior establishing panel follows, with some infantry jogging into formation. Camera on NORTH wall walk looking SOUTHEAST, central tower base LEFT foreground/midground cropped above frame at correct65m scale; closed EAST gate middle-right in ONE continuous circular100m outer wall10m tall. WEST gate behind camera ABSENT. Open grass courtyard, one tower-to-east-gate path, four perimeter bastions and only physically visible fragments of four low residences. NO inner cross-walls, square court, double concentric walls or extra gateways. Infantry rows INSIDE east gate; guns/golems on broad east bastions face OUT EAST. Orin and teal/plum/ochre colleagues handle physical defense cards. No Mira, enemy, world tree or printed text.
+Two small ACTION panels: TEAL takes a physical cannon-emblem card from satchel; PLUM and OCHRE use cards to install defense equipment. ONE large interior establishing panel follows, with some infantry jogging into formation. Camera on SOUTHEAST wall walk looking NORTH/NORTHWEST, central tower base LEFT foreground/midground cropped above frame at correct65m scale; closed EAST gate middle-right in ONE continuous circular100m outer wall10m tall. WEST gate behind camera ABSENT. Open grass courtyard, one tower-to-east-gate path, four perimeter bastions and only physically visible fragments of four low residences. NO inner cross-walls, square court, double concentric walls or extra gateways. Infantry rows INSIDE east gate; guns/golems on broad east bastions face OUT EAST. Orin and teal/plum/ochre colleagues handle physical defense cards. No Mira, enemy, world tree or printed text.
 
 인쇄 대사: 없음
 

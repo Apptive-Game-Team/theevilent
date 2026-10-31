@@ -72,13 +72,13 @@ Three panels INSIDE: RED-eyed Towerback shoves TEAL mage aside and blocks INNER 
 
 ## 12. 방어선 붕괴
 
-ONE FULL-PAGE splash of INTERNAL COLLAPSE. High view inside EAST half court: red-eyed golems attack inward from bastions and reserves, soldiers/mages split between gate gap and possessed allies; enemy quadrupeds now push damaged EAST gate. WEST rear refuge lane still on opposite side, not random new doors. Two nearest residence edges and central tower BASE may be seen because camera above east wall looking WEST; top/crown outside crop rather than tiny next to people. No text/Mira/Finn.
+ONE FULL-PAGE internal collapse splash, from the SOUTHEAST inner wall walk looking NORTH/NORTHWEST across the eastern open courtyard. The massive central tower BASE is LEFT, upper65m tower cropped far above frame; its east-facing doorway is visible from this eastern camera, and the breached EAST outer gate is RIGHT. RED-eyed stone golems attack inward, smash static gun positions and scatter two-cyan-blade infantry toward the tower doorway, while low quadrupeds push in through the gate. Orin protects nearby retreaters with a physical card and wooden staff. Keep ONE round ivory outerwall and open court, no maze, inner crosswalls, extra exits or miniature blue-cone keep. World Tree EAST is outside this northern view. No Mira, water tribe, Finn, meteors, red sky, total tower destruction or printed text.
 
 인쇄 대사: 없음
 
 ## 13. 탑으로 후퇴
 
-Three panels retreat INSIDE courtyard from EAST gate toward CENTRAL TOWER's EAST-facing doorway. Orin holds real card and shields wounded colleagues: '탑 쪽으로 물러나라!' Infantry cover retreat, red stone artillery behind threatens from east. Visible local angular ivory tower base doorway and court, upper65m tower extends off TOP; not whole miniature tower. No Mira/Finn or troopers outside wall.
+Three sequential action panels retreating through the INNER EAST courtyard to the same central tower east-facing doorway. Orin holds a physical BLUE SHIELD card and wooden knob staff, intercepts falling masonry with a compact cyan barrier, and shouts 탑 쪽으로 물러나라! Infantry then support wounded defenders up the tower steps while others cover the retreat. RED-eyed golems and quadrupeds push through wrecked gun positions behind them to the EAST. Same enormous ivory tower base cropped above frame, same single round outerwall in the distance; no miniature tower, new gates or maze. No Mira, Finn or water tribe yet.
 
 인쇄 대사: 탑 쪽으로 물러나라!
 

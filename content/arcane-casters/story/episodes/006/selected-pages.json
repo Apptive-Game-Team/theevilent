@@ -158,14 +158,20 @@
     {
       "number": 10,
       "title": "붉어지는 눈",
-      "src": "art-v1/page-10.png",
-      "prompt": "prompts-v1/page-10.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-10-curved-wall.png",
+      "prompt": "prompts-revised-v3/page-10-curved-wall.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "공격해라."
       ],
-      "referenceGroup": "corrupt"
+      "referenceGroup": "corrupt",
+      "sourceHistory": [
+        "art-v1/page-10.png"
+      ],
+      "previousSrc": "art-v1/page-10.png",
+      "referenceMetadata": "prompts-revised-v3/page-10-curved-wall.references.json",
+      "revisionNotes": "잠식이 대형 골렘으로 퍼지고 포신이 안쪽으로 향하는 장면과 꼬리 없는 공격해라. 심리 말풍선 확인. 잘못된 배경 중앙 탑·교차 벽을 제거하고 원형 외벽으로 교정. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 11,
@@ -181,37 +187,56 @@
     {
       "number": 12,
       "title": "방어선 붕괴",
-      "src": "art-v1/page-12.png",
-      "prompt": "prompts-v1/page-12.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-12.png",
+      "prompt": "prompts-revised-v3/page-12.txt",
+      "status": "draft-reviewed",
       "fullPage": true,
       "dialogue": [],
-      "referenceGroup": "corrupt"
+      "referenceGroup": "corrupt",
+      "sourceHistory": [
+        "art-v1/page-12.png"
+      ],
+      "previousSrc": "art-v1/page-12.png",
+      "referenceMetadata": "prompts-revised-v3/page-12.references.json",
+      "revisionNotes": "원형 외벽 안에서 붉은 골렘이 포대를 부수고 보병이 중앙 탑 기단 쪽으로 후퇴하는 대형 장면 확인. 탑은 크게 잘린 기단만 보이며 동문은 오른쪽, 오린은 실제 카드로 가까운 후퇴 병력을 보호. 유성우·미라·핀 없음. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 13,
       "title": "탑으로 후퇴",
-      "src": "art-v1/page-13.png",
-      "prompt": "prompts-v1/page-13.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-13.png",
+      "prompt": "prompts-revised-v3/page-13.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "탑 쪽으로 물러나라!"
       ],
-      "referenceGroup": "corrupt"
+      "referenceGroup": "corrupt",
+      "sourceHistory": [
+        "art-v1/page-13.png"
+      ],
+      "previousSrc": "art-v1/page-13.png",
+      "referenceMetadata": "prompts-revised-v3/page-13.references.json",
+      "revisionNotes": "탑 쪽으로 물러나라! 대사와 방패 카드 보호막, 부상병을 부축해 같은 중앙 탑 계단으로 후퇴하는 동작 확인. 붉은 골렘과 적은 동쪽 뒤편, 외벽 한 겹·잘린 탑 기단 유지. 사용자 최종 승인 전 수정 원고."
     },
     {
       "number": 14,
       "title": "함께 돌아가는 물 슬라임",
-      "src": "art-v1/page-14.png",
-      "prompt": "prompts-v1/page-14.txt",
-      "status": "drawn-awaiting-review",
+      "src": "art-revised-v3/page-14-court-view.png",
+      "prompt": "prompts-revised-v3/page-14-court-view.txt",
+      "status": "draft-reviewed",
       "fullPage": false,
       "dialogue": [
         "너희까지 싸울 필요는 없어."
       ],
-      "referenceGroup": "slime"
+      "referenceGroup": "slime",
+      "sourceHistory": [
+        "art-v1/page-14.png"
+      ],
+      "previousSrc": "art-v1/page-14.png",
+      "referenceMetadata": "prompts-revised-v3/page-14-court-view.references.json",
+      "revisionNotes": "서문을 향해 들어가는 미라·작은 슬라임·물 궁수·거품 정령·수룡의 귀환 확인. 인간 피난민·두건 마법사를 제거하고 문 너머를 동일한 열린 안뜰·탑 기단·생활관 일부로 연결. 자발적 동행과 정확한 대사 유지. 사용자 최종 승인 전 수정 원고."
     }
   ],
-  "readyPages": 14
+  "readyPages": 14,
+  "draftReviewedPages": 14
 }
