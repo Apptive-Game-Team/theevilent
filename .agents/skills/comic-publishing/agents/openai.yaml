@@ -1,0 +1,4 @@
+interface:
+  display_name: "만화 회차 게시"
+  short_description: "선택 원고를 만화 목록과 본문에 연결하고 PR 미리보기까지 확인해요"
+  default_prompt: "$comic-publishing 스킬로 선택한 회차를 만화 목록과 본문에 등록하고 PR 미리보기까지 확인해줘."

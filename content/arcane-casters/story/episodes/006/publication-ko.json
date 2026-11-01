@@ -1,0 +1,137 @@
+{
+  "episode": 6,
+  "locale": "ko",
+  "manifest": "selected-pages.json",
+  "pages": [
+    {
+      "number": 1,
+      "source": "art-revised-v3/page-01-toward-gate.png",
+      "sourceSha256": "7ee150e1514fa72c74998feb830963f52fc84d6c47639e4f868a8242655a2bfe",
+      "asset": "arcane-casters/comic/006/ko/page-01.webp",
+      "assetSha256": "31b049a080f8b1b033372448a06e3aa34b1ba098a5b113eef8b130940a437976",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 2,
+      "source": "art-revised-v3/page-02.png",
+      "sourceSha256": "12a4f0f078d19921e7188e559ca5559bbf811dcace74aace0a9193b4969adfa8",
+      "asset": "arcane-casters/comic/006/ko/page-02.webp",
+      "assetSha256": "23e0736af114c80dae13b413ef0b2777906d3b7532587cbe721b5104fcedd057",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 3,
+      "source": "art-revised-v3/page-03-high-wall.png",
+      "sourceSha256": "fe8b3c9fd7ba3b12658a97a0f2fbe10b991b08be361bcc47389dbd5040b684a8",
+      "asset": "arcane-casters/comic/006/ko/page-03.webp",
+      "assetSha256": "b25f9fd487945b12458bcd834a393c7c8b8dd47682fbfcc237876b1d9c3a61bb",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 4,
+      "source": "art-revised-v3/page-04.png",
+      "sourceSha256": "d88c6aa7971d8734d707c8aa958ea50f09a43a01a6cb0ade62657afff26638a2",
+      "asset": "arcane-casters/comic/006/ko/page-04.webp",
+      "assetSha256": "7f602bc1810e6b85a71d5aaed8b02abb36b03c555ad4dff667ef3f71cd8e4e13",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 5,
+      "source": "art-revised-v3/page-05-water-ink.png",
+      "sourceSha256": "618abbcc7c940616fc8154909657bdf47598b5947d0e1f75d7da3312e3da1ff1",
+      "asset": "arcane-casters/comic/006/ko/page-05.webp",
+      "assetSha256": "95c579a74dc1c9b5bcbbb9f47c48d605c2e33bd3abae0f3d153f145c6d8c996c",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 6,
+      "source": "art-revised-v3/page-06-text-water-hand.png",
+      "sourceSha256": "cd5182f0c0057446a1ef0dea547079bf1ca35c7579f18029907dd3ae1b085e0d",
+      "asset": "arcane-casters/comic/006/ko/page-06.webp",
+      "assetSha256": "ada4dc044db7e43d8a9d4c8a228e6c0e14da3748e2f95a47b628b3e94702b34c",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 7,
+      "source": "art-revised-v3/page-07.png",
+      "sourceSha256": "36888e7f7654eca06920095da6531c8977861bf418e484756fcf2d158e3a0ad5",
+      "asset": "arcane-casters/comic/006/ko/page-07.webp",
+      "assetSha256": "e64bc7dbd5a82782c8fadfe8431a70c601ea8485fa088d0a378bd1739ec79779",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 8,
+      "source": "art-revised-v3/page-08-inner-court.png",
+      "sourceSha256": "b9b54e77da4ba9679a26774b85d51e1bd0764a6b3f2e7eb3b7f97b1c031c3979",
+      "asset": "arcane-casters/comic/006/ko/page-08.webp",
+      "assetSha256": "f98bc9d028a1bab11f145137eebe0bffea5991130d935598f88360e5f01362e3",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 9,
+      "source": "art-revised-v3/page-09-no-terraces.png",
+      "sourceSha256": "bbab157de84c4d91ff1bef9d8f771d69380c4445a7a4e7745c895d4e447dfeb3",
+      "asset": "arcane-casters/comic/006/ko/page-09.webp",
+      "assetSha256": "f3c9fdadf6ccdf306e121f7e6be27c56baf5b4a8719414a0278328fe869ef57b",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 10,
+      "source": "art-revised-v3/page-10-curved-wall.png",
+      "sourceSha256": "f833d9972c2f9630bf578c6fa753ee377386932648e31a1cc14578bf9a41b7f4",
+      "asset": "arcane-casters/comic/006/ko/page-10.webp",
+      "assetSha256": "8f5bc2ca3a3d3aba18e24cefd34fa5edc78fe26f54af2286f21f05a12de1a179",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 11,
+      "source": "art-revised-v3/page-11.png",
+      "sourceSha256": "fd865a41cdb08b5a9d82be9d1d1e6fee4628c0b956020aaba8b77164e214f5db",
+      "asset": "arcane-casters/comic/006/ko/page-11.webp",
+      "assetSha256": "21bfaa58ad198ff52472635207b01f552ca3391f5620ff2f3d49c1ab70d0d296",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 12,
+      "source": "art-revised-v3/page-12.png",
+      "sourceSha256": "bb05ef9cfd5867e3d1536e537e4f0fdad1093054bf32face3c8aa9585f638653",
+      "asset": "arcane-casters/comic/006/ko/page-12.webp",
+      "assetSha256": "ffd81ca5b40273b66efd90291aa2541bd73ec4ecc908f954a15df21f91e1fdc0",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 13,
+      "source": "art-revised-v3/page-13.png",
+      "sourceSha256": "586291946e9db58851972ba10fbb67e903a857bee38afc801e96c443e035b11a",
+      "asset": "arcane-casters/comic/006/ko/page-13.webp",
+      "assetSha256": "f12cd4ffe3c86b0f99ce5d29600386aeddda04ef66c8146a78bbfe9fb2d5cfe6",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 14,
+      "source": "art-revised-v3/page-14-court-view.png",
+      "sourceSha256": "29fe9f09fd2947eb4aebb13b8d3fd93be632e461bbe6ca61dfaa538eb73734b4",
+      "asset": "arcane-casters/comic/006/ko/page-14.webp",
+      "assetSha256": "477b03ee28633ca1b36de178847465529bbaa3f476c8c98f656cfff5b8f256cd",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "cover": {
+    "asset": "arcane-casters/comic/006/cover.webp",
+    "sha256": "6f0281642b91d572a1a50b3aa78f3193a6f07adf6eb7a293ea78249428da641d"
+  }
+}

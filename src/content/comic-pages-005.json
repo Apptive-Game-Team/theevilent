@@ -1,0 +1,182 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "쉬지 않고 떠나는 미라",
+      "description": "오린의 휴식 권유를 들은 미라는 물 슬라임 부족의 대피를 맡겠다고 답하고 바로 일어난다.",
+      "dialogue": [
+        "미라는 좀 쉬고 있어라.",
+        "물슬라임 부족을 이 탑으로 대피시키겠습니다."
+      ]
+    },
+    "en": {
+      "title": "Leaving without rest",
+      "description": "Mira volunteers to evacuate the Water Slime tribe and gets up immediately.",
+      "dialogue": [
+        "Rest a while, Mira.",
+        "I’ll bring the Water Slime tribe here to safety."
+      ]
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "보고 직후 출발",
+      "description": "오린에게 인사한 미라가 서문을 등지고 물가로 출발한다.",
+      "dialogue": [
+        "위험하면 돌아와라.",
+        "다녀오겠습니다."
+      ]
+    },
+    "en": {
+      "title": "Setting out",
+      "description": "Mira says goodbye to Orin and heads away from the west gate toward the stream.",
+      "dialogue": [
+        "Come back if it is dangerous.",
+        "I’ll be back."
+      ]
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "탑의 마법사들",
+      "description": "오린이 동료들에게 정령을 탑으로 대피시키라고 지시한다.",
+      "dialogue": [
+        "정령들을 여기로 대피시켜라."
+      ]
+    },
+    "en": {
+      "title": "The tower mages",
+      "description": "Orin orders his colleagues to bring the spirits to safety at the tower.",
+      "dialogue": [
+        "Bring the spirits here to safety."
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "오린의 소환",
+      "description": "오린이 카드로 찌릿쥐와 천둥 사슴, 운룡을 소환해 세계수로 보낸다.",
+      "dialogue": [
+        "세계수로 가서 정령들을 도와라."
+      ]
+    },
+    "en": {
+      "title": "Orin summons help",
+      "description": "Orin summons electric mice, thunder deer and a Cloud Dragon and sends them to the World Tree.",
+      "dialogue": [
+        "Go to the World Tree and help the spirits."
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "세계수로 향하는 소환수",
+      "description": "달려온 소환수들이 거대한 세계수 뿌리 아래에서 정령들을 만난다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Reaching the World Tree",
+      "description": "The summoned creatures reach the enormous roots and find the spirits.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "방어 진지 구축",
+      "description": "마법사들이 카드로 포대를 설치하고 비전 보병들이 동문 안쪽에 도열한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Preparing the defense",
+      "description": "Mages install artillery with cards while arcane infantry assemble inside the east gate.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "길을 내주는 포탑등이",
+      "description": "동료의 신호를 받은 포탑등이가 비켜서 정령들의 대피 길을 내준다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Making room",
+      "description": "A Towerback steps aside to let the spirits enter through the refuge gate.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "물 슬라임 마을로",
+      "description": "미라가 물가를 달리고 좁은 물길을 뛰어넘어 물 부족 마을로 향한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Running to the village",
+      "description": "Mira races along the stream and leaps across a channel toward the Water Slime village.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "세계수 아래의 대피",
+      "description": "찌릿쥐가 정령들을 이끌고 운룡이 작은 정령들을 태운다. 천둥 사슴은 뒤를 경계한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Evacuating the spirits",
+      "description": "Electric mice guide the spirits, the Cloud Dragon carries the smallest, and the deer guard their retreat.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "막으며 물러나다",
+      "description": "천둥 사슴이 추격군을 막은 뒤 뒤로 도약하고 운룡이 대피 행렬을 엄호한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Holding back the pursuit",
+      "description": "The deer strike the pursuers and bound back while the Cloud Dragon covers the retreat.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "도열한 방어군",
+      "description": "성벽 안의 방어군이 자리를 잡고 먼 숲에서 다가오는 군단을 바라본다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The waiting defenders",
+      "description": "The defenders take their positions inside the fortress and watch the distant horde.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "첫 포격",
+      "description": "오린의 명령에 성벽 위 포대들이 바깥의 군단을 향해 첫 포격을 가한다.",
+      "dialogue": [
+        "쏴라."
+      ]
+    },
+    "en": {
+      "title": "The first volley",
+      "description": "At Orin’s command, the artillery fires its first volley over the wall.",
+      "dialogue": [
+        "Fire."
+      ]
+    }
+  }
+]

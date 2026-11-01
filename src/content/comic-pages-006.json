@@ -1,0 +1,208 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "포격을 뚫는 군단",
+      "description": "성벽의 포격이 군단을 덮치지만 살아남은 적들이 닫힌 동문으로 달려든다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Through the bombardment",
+      "description": "Surviving beasts race toward the closed east gate through the artillery fire.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "비전 보병의 전열",
+      "description": "문틈으로 밀고 들어오는 적을 비전 보병이 마력 칼날로 막고 동료 마법사가 지원한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Holding the gate",
+      "description": "Arcane infantry block a beast at the broken door while a mage supports them with a card.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "대포를 지키는 포탑등이",
+      "description": "포탑등이가 돌 주먹으로 적을 막아 동료가 포대를 복구할 시간을 번다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Protecting the gun crew",
+      "description": "A Towerback blocks a beast with its stone arm, buying time to restore the gun position.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "대피의 마지막 무리",
+      "description": "마지막 정령들이 거대한 뿌리를 넘어 대피하고 천둥 사슴이 추격군을 막으며 물러난다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The last group",
+      "description": "The last spirits cross the roots as the deer fend off the pursuers and retreat.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "물 슬라임 마을 도착",
+      "description": "물 부족 마을에 도착한 미라가 작은 슬라임에게 이곳도 위험하다고 알린다.",
+      "dialogue": [
+        "여기도 위험해."
+      ]
+    },
+    "en": {
+      "title": "At the Water Slime village",
+      "description": "Mira reaches the village and warns a small slime that the danger is spreading.",
+      "dialogue": [
+        "It is dangerous here too."
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "대피를 알리는 미라",
+      "description": "미라가 탑으로 향하자고 손짓한다. 물 부족이 작은 슬라임들을 돌보며 출발한다.",
+      "dialogue": [
+        "마법사의 탑으로 가자."
+      ]
+    },
+    "en": {
+      "title": "Time to evacuate",
+      "description": "Mira points out the route to the tower, and the tribe helps the smallest slimes set out.",
+      "dialogue": [
+        "Let’s go to the mages’ tower."
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "뒤처진 슬라임",
+      "description": "뒤처진 작은 슬라임을 발견한 미라가 들어 올려 돕고 다시 대피 행렬을 이끈다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The little straggler",
+      "description": "Mira lifts a struggling little slime to safety and keeps guiding the group.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "첫 공세를 막아내다",
+      "description": "보병들이 문 안쪽에서 자리를 지키고 부상병을 옮긴다. 오린은 추격을 막는다.",
+      "dialogue": [
+        "추격하지 마라. 자리를 지켜라."
+      ]
+    },
+    "en": {
+      "title": "Holding their ground",
+      "description": "The infantry hold the gate and move the wounded while Orin orders them not to pursue.",
+      "dialogue": [
+        "Do not pursue. Hold your positions."
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "멈춰 선 포탑등이",
+      "description": "동료의 손짓에도 포탑등이가 멈춰 선다. 검은 눈 가장자리에 붉은 기운이 생긴다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The frozen Towerback",
+      "description": "A Towerback stops responding, and a red glow appears at the edge of its dark eye.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "붉어지는 눈",
+      "description": "붉은 기운이 큰 골렘들에게 퍼진다. 목소리의 명령과 함께 포신들이 안쪽으로 돌아선다.",
+      "dialogue": [
+        "공격해라."
+      ]
+    },
+    "en": {
+      "title": "Eyes turning red",
+      "description": "The corruption spreads to the larger golems, and their weapons turn inward at a voice’s command.",
+      "dialogue": [
+        "Attack."
+      ]
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "진지 안의 공격",
+      "description": "잠식된 포탑등이가 동료를 밀쳐 쓰러뜨린다. 대형 포대도 안쪽의 병력을 겨눈다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Attacked from within",
+      "description": "A possessed Towerback knocks down a mage as the larger artillery turns on its own defenders.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "방어선 붕괴",
+      "description": "붉은 눈의 골렘들이 진지를 부수고 동문으로 적들이 밀려들면서 방어선이 무너진다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The defense collapses",
+      "description": "Red-eyed golems wreck the inner positions as beasts push through the east gate.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 13,
+    "ko": {
+      "title": "탑으로 후퇴",
+      "description": "오린이 방어 카드로 잔해를 막고 부상병과 보병들을 중앙 탑 쪽으로 물린다.",
+      "dialogue": [
+        "탑 쪽으로 물러나라!"
+      ]
+    },
+    "en": {
+      "title": "Retreat to the tower",
+      "description": "Orin shields the defenders from falling rubble and calls them back to the tower.",
+      "dialogue": [
+        "Fall back to the tower!"
+      ]
+    }
+  },
+  {
+    "number": 14,
+    "ko": {
+      "title": "함께 돌아가는 물 슬라임",
+      "description": "미라가 작은 슬라임들을 서문으로 이끈다. 물 궁수와 거품 정령, 수룡도 자발적으로 따라온다.",
+      "dialogue": [
+        "너희까지 싸울 필요는 없어."
+      ]
+    },
+    "en": {
+      "title": "Returning together",
+      "description": "Mira leads the little slimes to the west gate, with water archers, bubble spirits and a sea serpent following.",
+      "dialogue": [
+        "You do not have to fight too."
+      ]
+    }
+  }
+]

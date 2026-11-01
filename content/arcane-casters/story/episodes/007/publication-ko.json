@@ -1,0 +1,137 @@
+{
+  "episode": 7,
+  "locale": "ko",
+  "manifest": "selected-pages.json",
+  "pages": [
+    {
+      "number": 1,
+      "source": "art-revised-v3/page-01-infantry.png",
+      "sourceSha256": "ffd0c4ebb0bdb607f17cb4eae33c33e7ebf9d68637ac758d2e56fa514be444b3",
+      "asset": "arcane-casters/comic/007/ko/page-01.webp",
+      "assetSha256": "2cfe6d8c898f8be7b3775da29ee771e60d46c64295e64ee3b4a9ef227e838005",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 2,
+      "source": "art-revised-v3/page-02.png",
+      "sourceSha256": "eed1f77898240462be803f3d51ce26e8060cef23dd2675a1025f64a1224cc16a",
+      "asset": "arcane-casters/comic/007/ko/page-02.webp",
+      "assetSha256": "ab279360dc80d971033ffc9b3ae10cca2a7e152aa9bd343701741717c142e24a",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 3,
+      "source": "art-revised-v3/page-03.png",
+      "sourceSha256": "65d6eb54fafdc2a08d4b9cf8f08ec1aebddd016ba1c3f4269800b9e2e628540f",
+      "asset": "arcane-casters/comic/007/ko/page-03.webp",
+      "assetSha256": "21da93fddd8f5d3792b810df239fcbaddc3c2e09bf4156a4b4d5a56607a6eeca",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 4,
+      "source": "art-revised-v3/page-04-wounded-infantry.png",
+      "sourceSha256": "36f3293b66a427eb563c01bc08c2a9c0e3e6af4d0e95ac9e0868f9f522ed72e2",
+      "asset": "arcane-casters/comic/007/ko/page-04.webp",
+      "assetSha256": "f0abe66526e81895b63e2752380fc817475640572ea02de35254747da843d216",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 5,
+      "source": "art-revised-v3/page-05.png",
+      "sourceSha256": "c384c4dbaa660a53f0a1aff86418ff1aa7f15c40ec0740e7fbd65f3c30b292b8",
+      "asset": "arcane-casters/comic/007/ko/page-05.webp",
+      "assetSha256": "17cedeeb5b94b3ca58f71faf59148da2a8a69f231ec2f9ffbf99afb574d62f27",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 6,
+      "source": "art-revised-v3/page-06-wall-platform.png",
+      "sourceSha256": "135d1f42d4295770b0671ee73d43282c80fe62acc8b37ad3d4f3654fa3063fdd",
+      "asset": "arcane-casters/comic/007/ko/page-06.webp",
+      "assetSha256": "70e07c5a3d206046453927f2d7542ae28ee747ef02226c15e272adb5eaf17e38",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 7,
+      "source": "art-revised-v3/page-07-inner-gate.png",
+      "sourceSha256": "0384a2d077e33dba743acde8814a7b7c8e601463de492b54f01c6007f32296f7",
+      "asset": "arcane-casters/comic/007/ko/page-07.webp",
+      "assetSha256": "6ad680cbf6311d895263377161ed037751be20aba0de01f59dad0b5a941ea636",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 8,
+      "source": "art-revised-v3/page-08-open-lane.png",
+      "sourceSha256": "08a5b3790d7502032660c06d5fa1238d505b0b1d4fb64d89fe4c410c3357d971",
+      "asset": "arcane-casters/comic/007/ko/page-08.webp",
+      "assetSha256": "ecdd59ffad014aadd68beb2b655b977877ed5bf3d8af5394e5e092b85d20e312",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 9,
+      "source": "art-revised-v3/page-09.png",
+      "sourceSha256": "03ad6a7af11820c34da49c67ae76b40ab2fc81c29ac62b6c538bb3a0e4a039c1",
+      "asset": "arcane-casters/comic/007/ko/page-09.webp",
+      "assetSha256": "c44ca2954c2bf774d7942692ecee348c14f408216c956f0165e56fe754cabad8",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 10,
+      "source": "art-revised-v3/page-10.png",
+      "sourceSha256": "a4f7ecef9db1f7ca9959ef6c3f0f78190093f9680c9f46303151ed1f375ab796",
+      "asset": "arcane-casters/comic/007/ko/page-10.webp",
+      "assetSha256": "067ad0df15dcf8a03ebc7f0e080333c34c1a4d0a9fc20bc2a9305cfa4779bfeb",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 11,
+      "source": "art-revised-v3/page-11-separate-sides.png",
+      "sourceSha256": "9efc0714fbbd9c10e7bd4ebce5bf9e916e2cec82c984d176474793a29228eac8",
+      "asset": "arcane-casters/comic/007/ko/page-11.webp",
+      "assetSha256": "e4a306a2c5e20b26446ed80382c21da4dcae36bf3b3b193079fdcdc73bf87a38",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 12,
+      "source": "art-revised-v3/page-12.png",
+      "sourceSha256": "760702e6df2cd7dd3a5f330cdb1c41cfa8fd4c0ad4fbf906e86a19e348528dc1",
+      "asset": "arcane-casters/comic/007/ko/page-12.webp",
+      "assetSha256": "458e8897d28f4d579f459e0cff209433d9e555a2cc8e86a4fd006322dbdee943",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 13,
+      "source": "art-revised-v3/page-13-shield-open-court.png",
+      "sourceSha256": "d1fcf6b1117887d4c292c256a00223da446e15ded157a1578525a6b2ac13f480",
+      "asset": "arcane-casters/comic/007/ko/page-13.webp",
+      "assetSha256": "7afea22efd2aa11e272ebf021b00d92095333bc1d8b9c3e222930eef3ec4f9a3",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 14,
+      "source": "art-revised-v3/page-14-no-banners.png",
+      "sourceSha256": "036c81f400d1849ee35bbc90ed869f017af065741418b373e333b02cdeaf5fea",
+      "asset": "arcane-casters/comic/007/ko/page-14.webp",
+      "assetSha256": "78f432146aeb945f514d7d58498331b208e253b986cd6d44bd2e10a90ce588be",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "cover": {
+    "asset": "arcane-casters/comic/007/cover.webp",
+    "sha256": "565c2d0b95f842381bb8847a8d4cc64a73372cba00f2b83f8ba2583bddaafae1"
+  }
+}

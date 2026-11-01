@@ -1,7 +1,4 @@
 import pages from './comic-pages.json';
-import secondPages from './comic-pages-002.json';
-import thirdPages from './comic-pages-003.json';
-import fourthPages from './comic-pages-004.json';
 import episodes from './comic-episodes.json';
 
 export type ComicLocale = 'ko' | 'en';
@@ -10,11 +7,13 @@ export const comicPath = (locale: ComicLocale, episode = '1') => `/arcane-caster
 export const comicUrl = (locale: ComicLocale, episode = '1') => `https://theevilent.com${comicPath(locale, episode)}`;
 export const comicPages = pages;
 export const comicEpisodes = episodes;
-const pagesByEpisode: Record<string, typeof pages> = { '1': pages, '2': secondPages, '3': thirdPages, '4': fourthPages };
-export const getComicEpisode = (id: string) => {
+const pagesByFile = import.meta.glob<typeof pages>('./comic-pages*.json', { eager: true, import: 'default' });
+export const getComicEpisodes = (locale: ComicLocale) => episodes.filter(episode => episode.locales.includes(locale));
+export const getComicEpisode = (id: string, locale?: ComicLocale) => {
   const metadata = episodes.find(episode => episode.id === id);
-  const episodePages = pagesByEpisode[id];
-  return metadata && episodePages ? { ...metadata, pages: episodePages } : undefined;
+  const episodePages = metadata && pagesByFile[`./${metadata.pages}`];
+  return metadata && episodePages && (!locale || metadata.locales.includes(locale))
+    ? { ...metadata, pages: episodePages } : undefined;
 };
 
 const contextByEpisode: Record<string, { episode: string; page: number }[]> = {
@@ -22,9 +21,9 @@ const contextByEpisode: Record<string, { episode: string; page: number }[]> = {
   '4': [{ episode: '2', page: 6 }, { episode: '2', page: 7 }],
 };
 
-export const getComicContextPages = (id: string) =>
+export const getComicContextPages = (id: string, locale?: ComicLocale) =>
   (contextByEpisode[id] ?? []).flatMap(reference => {
-    const episode = getComicEpisode(reference.episode);
+    const episode = getComicEpisode(reference.episode, locale);
     const page = episode?.pages.find(page => page.number === reference.page);
     return episode && page ? [{ episode: reference.episode, directory: episode.directory, page }] : [];
   });
@@ -38,6 +37,7 @@ export const comicCopy = {
     link: '공유할 주소', page: '페이지',
     back: '맨 위로', game: '게임 살펴보기',
     missing: '아직 공개되지 않은 회차입니다.', first: '1화 읽기',
+    unavailable: '아직 한국어판이 준비되지 않았어요.', available: 'English로 읽기',
   },
   en: {
     title: 'Episode 1 · First Fieldwork',
@@ -48,6 +48,7 @@ export const comicCopy = {
     link: 'Link to share', page: 'Page',
     back: 'Back to top', game: 'Explore the game',
     missing: 'This episode has not been published yet.', first: 'Read episode 1',
+    unavailable: 'The English edition is not available yet.', available: 'Read in Korean',
   },
 } as const;
 

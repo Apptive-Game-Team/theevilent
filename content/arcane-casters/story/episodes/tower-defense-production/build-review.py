@@ -43,7 +43,7 @@ for episode, pages in data["episodes"].items():
     style = "body{margin:0;background:#102335;color:#eef3f8;font-family:system-ui,sans-serif}header,main{max-width:900px;margin:auto}header{padding:24px 16px}figure{margin:0 0 22px}figcaption{padding:10px 16px}img{display:block;width:100%;height:auto}a{color:#9bdcff}"
     html = f'<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,noimageindex"><title>{episode}화 검토</title><style>{style}</style><header><h1>{episode}화 작화 검토</h1><p>{len(ready)}/{len(pages)}장 · 최종 승인 전 원고</p><a href="../tower-defense-production/index.html">전체 회차</a></header><main>{figures}</main></html>'
     (root / "index.html").write_text(html, encoding="utf-8")
-    (root / "WORK-STATUS.md").write_text(f"# {episode}화 작화 상태\n\n선택 작화 {len(ready)}/{len(pages)}장. 공간 연속성 미승인 초안. 사용자 최종 승인을 뜻하지 않는다.\n\n사용자 요청으로 공간 교정을 재개했다. ../tower-defense-production/PRODUCTION-HOLD.md의 작업 재개 항목을 따른다.\n\n{common}\n\nPR 검토용 초안이며 사이트 게시와 배포는 수행하지 않는다.\n", encoding="utf-8")
+    (root / "WORK-STATUS.md").write_text(f"# {episode}화 작화 상태\n\n선택 작화 {len(ready)}/{len(pages)}장. 공간 연속성 미승인 초안. 사용자 최종 승인을 뜻하지 않는다.\n\n사용자 요청으로 공간 교정을 재개했다. ../tower-defense-production/PRODUCTION-HOLD.md의 작업 재개 항목을 따른다.\n\n{common}\n\n원화 검토와 사이트 연결 상태는 별도다. 사이트 연결은 publication-ko.json, src/content/comic-episodes.json 및 실제 PR 미리보기로 확인한다. 운영 사이트 반영은 PR 머지와 배포 범위다.\n", encoding="utf-8")
     if ready:
         thumb_w, thumb_h, label_h = 256, 384, 28
         sheet = Image.new("RGB", (thumb_w * 4, (thumb_h + label_h) * ((len(ready)+3)//4)), "#102335")

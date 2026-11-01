@@ -48,6 +48,7 @@
 .comic-end-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
 .comic-end-links a { display: inline-flex; align-items: center; gap: .5rem; text-decoration: underline; text-underline-offset: .25rem; }
 .comic-missing { padding: 6rem 1.5rem; text-align: center; }
+.comic-missing .comic-intro-actions { justify-content: center; }
 
 @media (max-width: 767px) {
   .comic-intro { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
