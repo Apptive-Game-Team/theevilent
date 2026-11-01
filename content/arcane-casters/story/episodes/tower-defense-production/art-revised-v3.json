@@ -1,5 +1,6 @@
 {
   "pathBase": "../../",
+  "snapshot": "2026-11-01 지도 장면 추가 전 40쪽 검토 기록. 현재 쪽수와 선택본은 각 회차 selected-pages.json을 따른다.",
   "status": "draft-reviewed",
   "approval": "사용자 최종 승인 전 수정 원고",
   "coverage": {

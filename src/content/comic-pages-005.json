@@ -2,24 +2,53 @@
   {
     "number": 1,
     "ko": {
-      "title": "쉬지 않고 떠나는 미라",
-      "description": "오린의 휴식 권유를 들은 미라는 물 슬라임 부족의 대피를 맡겠다고 답하고 바로 일어난다.",
+      "title": "지도 위의 군단",
+      "description": "미라가 지옥불 군단의 접근을 보고한다. 오린은 낡은 지도를 펼쳐 세계수와 물 슬라임 마을의 위험을 확인하고 탑으로의 대피와 방어 준비를 결정한다.",
       "dialogue": [
-        "미라는 좀 쉬고 있어라.",
-        "물슬라임 부족을 이 탑으로 대피시키겠습니다."
+        "지옥불 군단이 계속 밀려오고 있습니다.",
+        "이대로라면 마법사의 탑까지….",
+        "정령들도, 물 슬라임 부족도 위험하군.",
+        "모두 이 탑으로 대피시켜야겠다.",
+        "마법사들을 불러라. 방어 준비를 시작한다."
       ]
     },
     "en": {
-      "title": "Leaving without rest",
-      "description": "Mira volunteers to evacuate the Water Slime tribe and gets up immediately.",
+      "title": "The horde on the map",
+      "description": "Mira reports the advancing infernal horde. Orin studies an old map and orders the nearby peoples evacuated to the tower while the mages prepare its defenses.",
       "dialogue": [
-        "Rest a while, Mira.",
-        "I’ll bring the Water Slime tribe here to safety."
+        "The infernal horde keeps advancing.",
+        "At this rate, it will reach the mage tower…",
+        "The spirits and the Water Slime tribe are both in danger.",
+        "We must bring them all here to safety.",
+        "Call the mages. Begin preparing our defenses."
       ]
     }
   },
   {
     "number": 2,
+    "ko": {
+      "title": "대피를 맡는 미라",
+      "description": "오린은 세계수에 소환수들을 보내기로 하고 미라에게 쉬라고 한다. 미라는 지도 위 물가를 짚으며 물 슬라임 부족의 대피를 맡겠다고 답하고 바로 출발한다.",
+      "dialogue": [
+        "세계수에는 소환수들을 보내겠다.",
+        "미라는 좀 쉬고 있어라.",
+        "물 슬라임 부족에게는 제가 가겠습니다.",
+        "이 탑으로 대피시키겠습니다."
+      ]
+    },
+    "en": {
+      "title": "Mira takes the evacuation",
+      "description": "Orin plans to send summons to the World Tree and tells Mira to rest. She points to the water settlement, volunteers to lead its people to safety, and leaves immediately.",
+      "dialogue": [
+        "I will send summons to the World Tree.",
+        "Rest a while, Mira.",
+        "I will go to the Water Slime tribe.",
+        "I will bring them here to safety."
+      ]
+    }
+  },
+  {
+    "number": 3,
     "ko": {
       "title": "보고 직후 출발",
       "description": "오린에게 인사한 미라가 서문을 등지고 물가로 출발한다.",
@@ -38,7 +67,7 @@
     }
   },
   {
-    "number": 3,
+    "number": 4,
     "ko": {
       "title": "탑의 마법사들",
       "description": "오린이 동료들에게 정령을 탑으로 대피시키라고 지시한다.",
@@ -55,7 +84,7 @@
     }
   },
   {
-    "number": 4,
+    "number": 5,
     "ko": {
       "title": "오린의 소환",
       "description": "오린이 카드로 찌릿쥐와 천둥 사슴, 운룡을 소환해 세계수로 보낸다.",
@@ -72,7 +101,7 @@
     }
   },
   {
-    "number": 5,
+    "number": 6,
     "ko": {
       "title": "세계수로 향하는 소환수",
       "description": "달려온 소환수들이 거대한 세계수 뿌리 아래에서 정령들을 만난다.",
@@ -85,7 +114,7 @@
     }
   },
   {
-    "number": 6,
+    "number": 7,
     "ko": {
       "title": "방어 진지 구축",
       "description": "마법사들이 카드로 포대를 설치하고 비전 보병들이 동문 안쪽에 도열한다.",
@@ -98,7 +127,7 @@
     }
   },
   {
-    "number": 7,
+    "number": 8,
     "ko": {
       "title": "길을 내주는 포탑등이",
       "description": "동료의 신호를 받은 포탑등이가 비켜서 정령들의 대피 길을 내준다.",
@@ -111,7 +140,7 @@
     }
   },
   {
-    "number": 8,
+    "number": 9,
     "ko": {
       "title": "물 슬라임 마을로",
       "description": "미라가 물가를 달리고 좁은 물길을 뛰어넘어 물 부족 마을로 향한다.",
@@ -124,7 +153,7 @@
     }
   },
   {
-    "number": 9,
+    "number": 10,
     "ko": {
       "title": "세계수 아래의 대피",
       "description": "찌릿쥐가 정령들을 이끌고 운룡이 작은 정령들을 태운다. 천둥 사슴은 뒤를 경계한다.",
@@ -137,7 +166,7 @@
     }
   },
   {
-    "number": 10,
+    "number": 11,
     "ko": {
       "title": "막으며 물러나다",
       "description": "천둥 사슴이 추격군을 막은 뒤 뒤로 도약하고 운룡이 대피 행렬을 엄호한다.",
@@ -150,7 +179,7 @@
     }
   },
   {
-    "number": 11,
+    "number": 12,
     "ko": {
       "title": "도열한 방어군",
       "description": "성벽 안의 방어군이 자리를 잡고 먼 숲에서 다가오는 군단을 바라본다.",
@@ -163,7 +192,7 @@
     }
   },
   {
-    "number": 12,
+    "number": 13,
     "ko": {
       "title": "첫 포격",
       "description": "오린의 명령에 성벽 위 포대들이 바깥의 군단을 향해 첫 포격을 가한다.",

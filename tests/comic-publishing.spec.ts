@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const historyKey = 'arcane-casters:comic-reading:v1';
 const episodes = [
-  { id: '5', directory: '005', pages: 12, title: '5화 · 대피' },
+  { id: '5', directory: '005', pages: 13, title: '5화 · 대피' },
   { id: '6', directory: '006', pages: 14, title: '6화 · 무너진 방어선' },
   { id: '7', directory: '007', pages: 14, title: '7화 · 반격' },
 ];

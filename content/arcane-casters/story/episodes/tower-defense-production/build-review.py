@@ -6,6 +6,7 @@ from PIL import Image, ImageOps, ImageDraw
 here = Path(__file__).resolve().parent
 episodes_root = here.parent
 data = json.loads((here / "production.json").read_text(encoding="utf-8"))
+planned_total = sum(len(pages) for pages in data["episodes"].values())
 total = 0
 for episode, pages in data["episodes"].items():
     root = episodes_root / episode.zfill(3)
@@ -34,7 +35,8 @@ for episode, pages in data["episodes"].items():
     manifest["readyPages"] = len(ready)
     (root / "selected-pages.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     common = "미라는 보고 직후 쉬지 않고 물 슬라임 마을로 바로 출발한다. 소환과 진지 구축 장면에 미라는 없다. 세계수의 소환수는 정령을 도우며 탑으로 대피시킨다. 대포와 전기 타워를 얹은 큰 돌 골렘, 포탑등이, 비전 보병, 마법사들이 빽빽하게 탑을 지킨다. 잠식으로 내부 붕괴가 일어나고, 물 슬라임 합류로 반격한 뒤 핀이 등장한다."
-    plan = f"# {episode}화 작화 구성\n\n2026-10-30 최신 사용자 수정 반영.\n\n{common}\n\n"
+    updated = "2026-11-01 지도 보고 장면 추가 반영." if episode == "5" else "2026-10-30 최신 사용자 수정 반영."
+    plan = f"# {episode}화 작화 구성\n\n{updated}\n\n{common}\n\n"
     for index, page in enumerate(pages):
         plan += f"## {index + 1}. {page[0]}\n\n{page[1]}\n\n인쇄 대사: " + (" / ".join(page[2]) or "없음") + "\n\n"
     plan += "## 제작과 공개\n\n원화와 정확한 프롬프트는 selected-pages.json 기준이다. PR에서 초안을 검토하며 사이트 게시와 배포는 별도다. 물에 의한 잠식 해제나 마법사의 면역은 확정하지 않는다.\n"
@@ -58,5 +60,5 @@ for episode, pages in data["episodes"].items():
     total += len(ready)
     print(f"Episode {episode}: {len(ready)}/{len(pages)} pages")
 links = "".join(f'<li><a href="../{ep.zfill(3)}/index.html">{ep}화 · {len(pages)}장</a></li>' for ep,pages in data["episodes"].items())
-(here / "index.html").write_text(f'<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="robots" content="noindex"><title>탑 방어전 원고 검토</title><style>{style}</style><header><h1>5~7화 탑 방어전 원고</h1><p>{total}/40장 · 검토용</p><ul>{links}</ul><p>미라는 보고 직후 쉬지 않고 물 슬라임 마을로 출발합니다.</p></header></html>', encoding="utf-8")
-print(f"Total: {total}/40 pages")
+(here / "index.html").write_text(f'<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="robots" content="noindex"><title>탑 방어전 원고 검토</title><style>{style}</style><header><h1>5~7화 탑 방어전 원고</h1><p>{total}/{planned_total}장 · 검토용</p><ul>{links}</ul><p>미라는 보고 직후 쉬지 않고 물 슬라임 마을로 출발합니다.</p></header></html>', encoding="utf-8")
+print(f"Total: {total}/{planned_total} pages")
