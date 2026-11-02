@@ -12,7 +12,11 @@
       "title": "Episode 1 · First Fieldwork",
       "description": "An ordinary morning at the magic tower. Finn and Mira set out on their first field assignment.",
       "coverAlt": "Morning over the World Tree and the grasslands"
-    }
+    },
+    "locales": [
+      "ko",
+      "en"
+    ]
   },
   {
     "id": "2",
@@ -27,7 +31,11 @@
       "title": "Episode 2 · Beyond the Gate",
       "description": "Mira begins her notes beneath the World Tree. Finn follows Mok into an ancient temple hidden in a cave.",
       "coverAlt": "Mira meets the spirits beneath the World Tree"
-    }
+    },
+    "locales": [
+      "ko",
+      "en"
+    ]
   },
   {
     "id": "3",
@@ -42,7 +50,11 @@
       "title": "Episode 3 · The Fall",
       "description": "Mira rides a Cloud Dragon toward the ominous skies. As she approaches, fire rains down from above.",
       "coverAlt": "Mira summons a Cloud Dragon and sets out"
-    }
+    },
+    "locales": [
+      "ko",
+      "en"
+    ]
   },
   {
     "id": "4",
@@ -57,6 +69,64 @@
       "title": "Episode 4 · When the Noise Stops",
       "description": "Finn escapes the crumbling temple on a tornado. An ominous presence spreads through the familiar golem village.",
       "coverAlt": "Finn calls to Mok in front of the open portal"
+    },
+    "locales": [
+      "ko",
+      "en"
+    ]
+  },
+  {
+    "id": "5",
+    "directory": "005",
+    "pages": "comic-pages-005.json",
+    "locales": [
+      "ko"
+    ],
+    "ko": {
+      "title": "5화 · 대피",
+      "description": "지옥불 군단의 접근을 보고한 미라. 오린은 낡은 지도 위에서 대피와 탑 방어를 결정하고, 미라는 물 슬라임 부족에게 달려간다.",
+      "coverAlt": "낡은 지도를 꺼내는 오린에게 지옥불 군단의 접근을 보고하는 미라"
+    },
+    "en": {
+      "title": "Episode 5 · The Evacuation",
+      "description": "Mira reports the advancing infernal horde. Over an old map, Orin orders an evacuation and prepares the tower while Mira sets out to warn the Water Slime tribe.",
+      "coverAlt": "Mira reports the advancing horde as Orin takes out a worn map"
+    }
+  },
+  {
+    "id": "6",
+    "directory": "006",
+    "pages": "comic-pages-006.json",
+    "locales": [
+      "ko"
+    ],
+    "ko": {
+      "title": "6화 · 무너진 방어선",
+      "description": "첫 공세를 막아낸 탑. 믿고 있던 돌 골렘들에게 이상한 변화가 나타난다.",
+      "coverAlt": "성벽 위의 대포가 다가오는 군단을 향해 발사되는 모습"
+    },
+    "en": {
+      "title": "Episode 6 · A Broken Defense",
+      "description": "The tower holds back the first assault. Then the trusted stone golems begin to change.",
+      "coverAlt": "Cannons fire from the wall at the approaching horde"
+    }
+  },
+  {
+    "id": "7",
+    "directory": "007",
+    "pages": "comic-pages-007.json",
+    "locales": [
+      "ko"
+    ],
+    "ko": {
+      "title": "7화 · 반격",
+      "description": "궁지에 몰린 방어군에게 물 부족이 도착한다. 미라와 오린은 무너진 진지를 되찾아 반격에 나선다.",
+      "coverAlt": "중앙 탑 기단에서 부상병을 지키는 오린과 방어군"
+    },
+    "en": {
+      "title": "Episode 7 · The Counterattack",
+      "description": "The Water Slime tribe reaches the besieged defenders. Mira and Orin reclaim their positions and strike back.",
+      "coverAlt": "Orin and the defenders protect the wounded at the tower base"
     }
   }
 ]

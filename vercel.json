@@ -40,6 +40,21 @@
       "source": "/arcane-casters/comic/4",
       "destination": "/arcane-casters/comic/4/ko",
       "permanent": false
+    },
+    {
+      "source": "/arcane-casters/comic/5",
+      "destination": "/arcane-casters/comic/5/ko",
+      "permanent": false
+    },
+    {
+      "source": "/arcane-casters/comic/6",
+      "destination": "/arcane-casters/comic/6/ko",
+      "permanent": false
+    },
+    {
+      "source": "/arcane-casters/comic/7",
+      "destination": "/arcane-casters/comic/7/ko",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -82,6 +97,18 @@
     {
       "source": "/arcane-casters/comic/4/en",
       "destination": "/arcane-casters/comic/4/en.html"
+    },
+    {
+      "source": "/arcane-casters/comic/5/ko",
+      "destination": "/arcane-casters/comic/5/ko.html"
+    },
+    {
+      "source": "/arcane-casters/comic/6/ko",
+      "destination": "/arcane-casters/comic/6/ko.html"
+    },
+    {
+      "source": "/arcane-casters/comic/7/ko",
+      "destination": "/arcane-casters/comic/7/ko.html"
     },
     {
       "source": "/(.*)",

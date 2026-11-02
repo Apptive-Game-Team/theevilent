@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, Copy, Share2 } from 'lucide-react';
-import { comicCopy, comicEpisodes, getComicEpisode, getComicContextPages, comicListPath, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
+import { comicCopy, getComicEpisodes, getComicEpisode, getComicContextPages, comicListPath, comicPath, comicUrl, getShareLinks, type ComicLocale } from '../content/comic';
 import { useComicReading } from '../content/comicReading';
 import './ComicReader.css';
 import { useLanguage } from '../i18n/language';
 
 export default function ComicReader({ locale, episode }: { locale: ComicLocale; episode: string }) {
   const { setLanguage } = useLanguage();
-  const entry = getComicEpisode(episode);
-  const copy = { ...comicCopy[locale], ...entry?.[locale] };
+  const knownEntry = getComicEpisode(episode);
+  const entry = getComicEpisode(episode, locale);
+  const copy = { ...comicCopy[locale], ...knownEntry?.[locale] };
   const { pagesRef, endRef, resumePage } = useComicReading(episode, entry?.pages.length ?? 0);
-  const contextPages = getComicContextPages(episode);
+  const contextPages = getComicContextPages(episode, locale);
   const startTarget = resumePage === 1 && contextPages.length ? '#comic-context-start' : `#comic-page-${resumePage}`;
-  const index = comicEpisodes.findIndex(item => item.id === episode);
-  const previous = comicEpisodes[index - 1];
-  const next = comicEpisodes[index + 1];
+  const episodes = getComicEpisodes(locale);
+  const index = episodes.findIndex(item => item.id === episode);
+  const previous = episodes[index - 1];
+  const next = episodes[index + 1];
   const listLabel = locale === 'ko' ? '회차 목록' : 'Episode list';
   const [status, setStatus] = useState('');
   const [manualCopy, setManualCopy] = useState(false);
@@ -60,7 +62,13 @@ export default function ComicReader({ locale, episode }: { locale: ComicLocale; 
     }
   };
 
-  if (!entry) return <section className="comic-missing"><h1>{copy.missing}</h1><a href={comicListPath(locale)}>{listLabel}</a></section>;
+  if (!entry) return <section className="comic-missing">
+    <h1>{knownEntry ? copy.unavailable : copy.missing}</h1>
+    <div className="comic-intro-actions">
+      {knownEntry && <a className="flat-btn flat-btn-primary" href={`${comicPath(locale === 'ko' ? 'en' : 'ko', episode)}#comic-page-${resumePage}`}>{copy.available}</a>}
+      <a className="flat-btn" href={comicListPath(locale)}>{listLabel}</a>
+    </div>
+  </section>;
 
   return (
     <article className="comic-reader" lang={locale}>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { comicEpisodes, comicPath, type ComicLocale } from '../content/comic';
+import { getComicEpisodes, comicPath, type ComicLocale } from '../content/comic';
 import { useComicHistory } from '../content/comicReading';
 import { useLanguage } from '../i18n/language';
 import './ComicLibrary.css';
@@ -8,10 +8,11 @@ import './ComicLibrary.css';
 export default function ComicLibrary({ locale }: { locale: ComicLocale }) {
   const { setLanguage } = useLanguage();
   const history = useComicHistory();
+  const episodes = getComicEpisodes(locale);
   const copy = locale === 'ko'
     ? { title: '만화', list: '회차 목록', language: '읽기 언어', resume: '이어서 읽기', read: '읽음', reading: '읽는 중', unread: '읽기 전' }
     : { title: 'Comic', list: 'Episode list', language: 'Reading language', resume: 'Continue reading', read: 'Read', reading: 'In progress', unread: 'Unread' };
-  const ongoing = comicEpisodes.filter(item => history[item.id] && !history[item.id].completed)
+  const ongoing = episodes.filter(item => history[item.id] && !history[item.id].completed)
     .sort((a, b) => history[b.id].updatedAt - history[a.id].updatedAt)[0];
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function ComicLibrary({ locale }: { locale: ComicLocale }) {
         </a>
       )}
       <ol className="comic-episode-list" aria-label={copy.list}>
-        {comicEpisodes.map(episode => (
+        {episodes.map(episode => (
           <li key={episode.id}>
             <a className="flat-card comic-episode-row" href={comicPath(locale, episode.id)}>
               <img src={`/arcane-casters/comic/${episode.directory}/cover.webp`}

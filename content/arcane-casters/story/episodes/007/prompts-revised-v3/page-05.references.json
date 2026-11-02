@@ -1,0 +1,10 @@
+{
+  "pathBase": "../../..",
+  "referenceImages": [
+    "references/comic-character-style.png",
+    "references/tower-defense-v1/ArcaneInfantry.png",
+    "references/defense-production-v1/units/towerback.png",
+    "episodes/007/art-revised-v3/page-03.png",
+    "episodes/005/art-revised-v3/page-06-action.png"
+  ]
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "탑 앞의 마지막 방어",
+      "description": "중앙 탑 기단에 몰린 방어군이 부상병을 지키며 잠식된 골렘들을 막는다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The last defense",
+      "description": "The defenders protect the wounded at the tower base and hold off the possessed golems.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "옆길에서 온 지원",
+      "description": "물 슬라임이 고립된 동료를 향한 공격을 가로막고 미라와 물 부족이 안뜰로 들어온다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Help from the side",
+      "description": "A Water Slime intercepts an attack as Mira and the tribe enter the courtyard.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "고립된 마법사 구조",
+      "description": "물 부족이 적을 막는 사이 미라가 카드로 잔해를 치우고 다친 동료를 끌어낸다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Rescuing the wounded mage",
+      "description": "Mira shifts rubble with a card and pulls a wounded mage clear while the tribe holds the attackers back.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "오린과 합류",
+      "description": "미라가 다친 동료를 오린에게 데려온다. 오린은 열린 길을 따라 병력을 이동시킨다.",
+      "dialogue": [
+        "도와주러 왔습니다.",
+        "저 길로 이동해라."
+      ]
+    },
+    "en": {
+      "title": "Rejoining Orin",
+      "description": "Mira brings the wounded mage to Orin, who directs the defenders along the cleared route.",
+      "dialogue": [
+        "We came to help.",
+        "Move along that path."
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "안쪽의 적 제압",
+      "description": "비전 보병이 포탑등이의 장비 끈을 끊고 동료의 카드 마법으로 골렘을 쓰러뜨린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Disabling the golem",
+      "description": "Infantry cut a Towerback’s harness, and a mage’s card spell topples the golem.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "다시 이어진 진지",
+      "description": "방어군이 잔해를 치우고 살아남은 고정 포대를 다시 바깥쪽으로 돌린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Restoring the position",
+      "description": "The defenders clear the rubble and turn a surviving stationary cannon outward.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "반격의 포격",
+      "description": "포격과 물 부족의 지원 공격이 이어져 적들이 동문 밖으로 밀려난다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Counterfire",
+      "description": "Artillery and the Water Slime tribe drive the attackers back through the east gate.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "앞으로",
+      "description": "보병들이 안쪽 진지로 달려간다. 카드를 고쳐 쥔 미라와 오린이 다시 전진한다.",
+      "dialogue": [
+        "앞으로."
+      ]
+    },
+    "en": {
+      "title": "Forward",
+      "description": "The infantry rush to the inner positions as Mira steadies her card and advances with Orin.",
+      "dialogue": [
+        "Forward."
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "익숙한 지팡이",
+      "description": "성벽 위의 미라가 성밖 연기 사이에서 익숙한 지팡이와 장식을 발견한다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "A familiar staff",
+      "description": "From the wall, Mira notices a familiar staff and clasp among the smoke outside.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "군단 속의 핀",
+      "description": "붉은 눈과 그을린 망토의 핀이 군단 속에 서 있다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Finn among the horde",
+      "description": "Finn stands among the horde with red eyes and a scorched cloak.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "흩어져",
+      "description": "미라가 핀을 부르지만 핀은 카드를 들어 올린다. 미라가 동료들에게 흩어지라고 외친다.",
+      "dialogue": [
+        "핀.",
+        "흩어져!"
+      ]
+    },
+    "en": {
+      "title": "Scatter",
+      "description": "Finn raises a card without answering Mira, and she calls for the defenders to scatter.",
+      "dialogue": [
+        "Finn.",
+        "Scatter!"
+      ]
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "붉어진 하늘",
+      "description": "하늘이 붉어지고 유성이 다가온다. 오린은 방어 카드를 꺼내고 미라는 동료를 끌어낸다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The reddening sky",
+      "description": "Meteors approach as Orin readies a defensive card and Mira pulls an ally to cover.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 13,
+    "ko": {
+      "title": "반격을 덮친 유성우",
+      "description": "유성우가 되찾은 포대와 안뜰을 강타한다. 물 부족과 방어군이 충격에 흩어진다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The meteor barrage",
+      "description": "Meteors shatter the reclaimed artillery and courtyard, scattering the defenders and the tribe.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 14,
+    "ko": {
+      "title": "다음 카드를 드는 핀",
+      "description": "잔해 속에서 일어난 미라가 문 너머의 핀을 바라본다. 핀은 이미 다음 카드를 꺼내고 있다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The next card",
+      "description": "Mira rises among the rubble and sees Finn already drawing another card beyond the gate.",
+      "dialogue": []
+    }
+  }
+]

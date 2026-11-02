@@ -141,6 +141,11 @@ This script automates the complete validation process:
 - For comic scripts, dialogue, panel layouts, illustration or comic setting art,
   use the repository's [comic-authoring skill](.agents/skills/comic-authoring/SKILL.md).
   It connects the current story sources with the composition and dialogue workflow.
+- For adding/uploading an episode, a completed-episode PR, or an episode missing
+  from the website list, follow the [comic-publishing skill](.agents/skills/comic-publishing/SKILL.md).
+  Include reader assets, registration, routes and actual PR preview verification;
+  source-only delivery must be explicitly scoped as such. Preview integration
+  does not itself authorize a production merge or deployment.
 
 - Keep comic lore, scripts, source artwork and references in this repository
   under `content/arcane-casters/story/` until the user requests extraction.

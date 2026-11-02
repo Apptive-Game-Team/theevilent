@@ -1,0 +1,11 @@
+{
+  "pathBase": "../../..",
+  "referenceImages": [
+    "references/comic-character-style.png",
+    "references/tower-defense-v1/SeaSerpent.png",
+    "references/tower-defense-v1/AquaArcher.png",
+    "references/tower-defense-v1/BubbleSpirit.png",
+    "episodes/005/art-revised-v3/page-06-action.png"
+  ],
+  "roles": "배열 순서는 이미지 생성 호출의 첨부 순서다. 그림체·정체성·구조의 역할은 같은 이름의 .txt 프롬프트를 따른다."
+}

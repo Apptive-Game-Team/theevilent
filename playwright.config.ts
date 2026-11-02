@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 // A second checkout running the suite at the same time needs its own port,
 // so this reads it from the environment instead of hardcoding 4174.
 const PORT = Number(process.env.PLAYWRIGHT_PORT) || 4174;
+const previewBaseURL = process.env.PLAYWRIGHT_BASE_URL;
 
 export default defineConfig({
   testDir: './tests',
@@ -13,7 +14,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: `http://127.0.0.1:${PORT}`,
+    baseURL: previewBaseURL || `http://127.0.0.1:${PORT}`,
     // The site picks Korean or English from the browser language. The tests
     // assert Korean copy, so the browser has to ask for it.
     locale: 'ko-KR',
@@ -25,7 +26,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
-  webServer: {
+  webServer: previewBaseURL ? undefined : {
     // Vite's dev server compiles a route the first time it is requested. These
     // tests enter routes directly and run in parallel, so those first requests
     // outran the 60s test timeout and a different test failed on every run —

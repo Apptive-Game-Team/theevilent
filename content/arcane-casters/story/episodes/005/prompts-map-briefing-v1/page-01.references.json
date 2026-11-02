@@ -1,0 +1,33 @@
+{
+  "tool": "built-in imagegen",
+  "episode": 5,
+  "page": 1,
+  "profileVersion": "CHARACTERS.md v5",
+  "generationPrompt": "prompts-map-briefing-v1/page-01.txt",
+  "finalEditPrompt": "prompts-map-briefing-v1/page-01-route-cleanup.txt",
+  "references": [
+    {
+      "path": "content/arcane-casters/story/episodes/005/art-v2/page-01.png",
+      "role": "Primary office rendering, Mira/Orin identity and furniture continuity; old speech superseded."
+    },
+    {
+      "path": "content/arcane-casters/story/episodes/005/art-revised-v3/page-02-farewell-focus.png",
+      "role": "Compact black-oval-eye face construction, costumes and subsequent departure continuity."
+    },
+    {
+      "path": "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+      "role": "Fortress structure only; geographic orientation comes from SPATIAL-PLAN.md, not old sheet compass."
+    }
+  ],
+  "geographySource": "content/arcane-casters/story/references/defense-production-v1/SPATIAL-PLAN.md",
+  "initialOutput": "art-map-briefing-v1/page-01-initial.png",
+  "finalOutput": "art-map-briefing-v1/page-01.png",
+  "editTarget": "art-map-briefing-v1/page-01-initial.png",
+  "review": {
+    "status": "draft-reviewed",
+    "lettering": "All intended Korean balloons and tails checked visually.",
+    "identities": "Same Mira/Orin faces, clothes, normal black eyes and study.",
+    "geography": "Tower west of World Tree, water pools southwest; single circular wall and crystal tower. No exterior architecture introduced.",
+    "action": "Map report establishes danger, evacuation and defense before departure."
+  }
+}

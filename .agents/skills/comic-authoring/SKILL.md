@@ -83,8 +83,11 @@ When the user steers the work, update affected scripts/prompts and status, then
 continue the authorized scope. Report exact page coverage and remaining work;
 never describe partial pages as a finished episode.
 
-Keep source art, maps and author spoilers outside served assets. Drawing an
-episode does not authorize publication, deployment, or posting elsewhere.
+Keep source art, maps and author spoilers outside served assets. Drawing-only
+work does not imply reader integration. For an instruction to add/upload an episode
+or deliver a completed-episode PR, follow [comic-publishing](../comic-publishing/SKILL.md)
+to include the selected pages in the website and verify its branch preview.
+Production merging/deployment and posting elsewhere remain separate from that PR.
 
 ## Sources and maintenance
 
