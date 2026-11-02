@@ -31,14 +31,11 @@ jobs:
         run: |
           bash deploy/web/build-image.sh website-check dist
           bash deploy/web/check-image.sh website-check dist
-      - name: Save verified image
-        if: github.event_name != 'pull_request'
-        run: docker save website-check | gzip > website-image.tar.gz
       - uses: actions/upload-artifact@v4
         if: github.event_name != 'pull_request'
         with:
-          name: website-image
-          path: website-image.tar.gz
+          name: website-dist
+          path: dist/
           retention-days: 1
   publish:
     needs: check
@@ -48,9 +45,13 @@ jobs:
       contents: read
       packages: write
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: website-image
+          name: website-dist
+          path: dist/
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -59,16 +60,13 @@ jobs:
       - name: Publish verified image
         env:
           IMAGE: ghcr.io/${{ github.repository_owner }}/theevilent
+          PUSH_IMAGE: 'true'
         run: |
           set -euo pipefail
           image="${IMAGE,,}"
-          gunzip -c website-image.tar.gz | docker load
-          docker tag website-check "$image:sha-$GITHUB_SHA"
-          docker push "$image:sha-$GITHUB_SHA"
-          docker tag website-check "$image:$GITHUB_REF_NAME"
-          docker push "$image:$GITHUB_REF_NAME"
+          tags=("$image:$GITHUB_REF_NAME")
           if [ "$GITHUB_REF_NAME" = deploy ]; then
-            docker tag website-check "$image:latest"
-            docker push "$image:latest"
+            tags+=("$image:latest")
           fi
+          bash deploy/web/build-image.sh "$image:sha-$GITHUB_SHA" dist "${tags[@]}"
           echo "Website image: \`$image:sha-$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"

@@ -7,9 +7,9 @@
 - `dev`: dev 브랜치의 최근 게시 이미지.
 - `deploy`, `latest`: deploy 브랜치의 최근 게시 이미지. dev 빌드는 이 태그를 변경하지 않습니다.
 - `sha-<전체 커밋 SHA>`: 서버 배포 및 롤백용 태그. Actions summary에서 확인합니다.
-- 플랫폼: `linux/amd64`.
+- 플랫폼: `linux/amd64`, `linux/arm64`. 게시 시 buildx로 두 아키텍처를 함께 빌드합니다.
 
-서버 자동 갱신 기능은 포함하지 않습니다. dev 병합 후 기존 승격 절차로 deploy에도
+서버 갱신은 기존 Watchtower에 맡깁니다. dev 병합 후 기존 승격 절차로 deploy에도
 이 workflow를 반영해야 deploy 이미지 게시가 실행됩니다.
 
 빌드 결과 `dist/`만 이미지에 복사합니다. `content/`의 작가용 원고·원본 이미지와
@@ -32,15 +32,15 @@ Docker Compose가 설치된 서버에 `compose.yaml`을 복사하고 게시된 S
 export WEBSITE_IMAGE_TAG=sha-<전체-커밋-SHA>
 docker compose -f compose.yaml pull
 docker compose -f compose.yaml up -d
-curl -I http://127.0.0.1:8082/
+docker compose -f compose.yaml exec -T website wget --spider -q http://127.0.0.1:8080/
 ```
 
-서버 Nginx의 `theevilent.com` HTTPS virtual host에서 컨테이너로 전달합니다.
+서버의 기존 external Docker 네트워크 `net`에 연결합니다. 컨테이너 이름은 `theevilent`이고 Nginx 내부 포트는 `8080`입니다. 호스트 포트는 공개하지 않습니다. Nginx Proxy Manager에서 `http`, `theevilent`, `8080`으로 전달합니다.
 인증서 갱신과 DNS는 서버에서 별도로 관리합니다.
 
 ```nginx
 location / {
-    proxy_pass http://127.0.0.1:8082;
+    proxy_pass http://theevilent:8080;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -67,3 +67,5 @@ bash deploy/web/check-image.sh website-local dist
 
 롤백은 `WEBSITE_IMAGE_TAG`를 이전 게시 SHA로 바꾸고 pull/up을 다시 실행합니다.
 운영에 사용한 이전 태그는 GHCR에서 삭제하지 않습니다.
+
+Compose는 기본으로 latest를 사용하고 Watchtower 갱신 라벨과 healthcheck를 포함합니다. SHA 태그로 고정하면 해당 태그를 사용하는 동안 최신 운영 태그로 자동 전환되지 않습니다.
