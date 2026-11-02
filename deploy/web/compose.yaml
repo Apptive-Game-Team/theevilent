@@ -1,0 +1,6 @@
+services:
+  website:
+    image: ghcr.io/apptive-game-team/theevilent:${WEBSITE_IMAGE_TAG:?Set WEBSITE_IMAGE_TAG to sha-<full commit SHA>}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8082:80"
