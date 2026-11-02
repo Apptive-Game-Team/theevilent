@@ -1,12 +1,16 @@
 # 홈페이지 Nginx 이미지 게시
 
-`dev`에 push하면 `npm ci`, `npm run build`, lint를 실행한 뒤 Nginx 이미지를 검사하고
-`ghcr.io/apptive-game-team/theevilent`에 게시합니다. `workflow_dispatch`도 `dev`에서만
+`dev` 또는 `deploy`에 push하면 `npm ci`, `npm run build`, lint를 실행한 뒤 Nginx 이미지를 검사하고
+`ghcr.io/apptive-game-team/theevilent`에 게시합니다. `workflow_dispatch`도 두 브랜치에서만
 게시합니다. PR에서는 같은 이미지 검사를 실행하되 GHCR에 게시하지 않습니다.
 
-- `dev`: 최근 게시 이미지. 서버 자동 갱신 기능은 포함하지 않습니다.
+- `dev`: dev 브랜치의 최근 게시 이미지.
+- `deploy`, `latest`: deploy 브랜치의 최근 게시 이미지. dev 빌드는 이 태그를 변경하지 않습니다.
 - `sha-<전체 커밋 SHA>`: 서버 배포 및 롤백용 태그. Actions summary에서 확인합니다.
 - 플랫폼: `linux/amd64`.
+
+서버 자동 갱신 기능은 포함하지 않습니다. dev 병합 후 기존 승격 절차로 deploy에도
+이 workflow를 반영해야 deploy 이미지 게시가 실행됩니다.
 
 빌드 결과 `dist/`만 이미지에 복사합니다. `content/`의 작가용 원고·원본 이미지와
 저장소, node_modules는 포함하지 않습니다. Vercel 설정과 기존 배포는 유지합니다.
