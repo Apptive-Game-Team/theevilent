@@ -5,7 +5,7 @@ const episodes = [
   { id: '5', directory: '005', pages: 13, title: '5화 · 대피' },
   { id: '6', directory: '006', pages: 14, title: '6화 · 무너진 방어선' },
   { id: '7', directory: '007', pages: 14, title: '7화 · 반격' },
-  { id: '8', directory: '008', pages: 18, title: '8화 · 수정의 마력' },
+  { id: '8', directory: '008', pages: 14, title: '8화 · 탑의 붕괴' },
 ];
 
 for (const episode of episodes) {
@@ -101,7 +101,7 @@ test('8화 영어 주소는 한국어 마지막 읽기 위치로 안내하고 7�
   });
   await page.goto('/arcane-casters/comic/7/ko');
   await page.getByRole('navigation', { name: '회차 이동', exact: true }).getByRole('link', { name: /다음화/ }).click();
-  await expect(page.getByRole('heading', { name: '8화 · 수정의 마력', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '8화 · 탑의 붕괴', exact: true })).toBeVisible();
   await page.locator('#comic-page-12').scrollIntoViewIfNeeded();
   await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['8']?.page, historyKey)).toBe(12);
   await page.getByRole('button', { name: 'English', exact: true }).click();

@@ -16,13 +16,13 @@ if ($RequireAll -and $missingPages.Count -gt 0) { throw ('Missing pages: ' + ($m
 $labelFont = [System.Drawing.Font]::new('Arial', 18)
 $labelBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::White)
 try {
-    for ($sheetIndex = 0; $sheetIndex -lt 3; $sheetIndex++) {
+    for ($sheetIndex = 0; $sheetIndex -lt [math]::Ceiling($pageEntries.Count / 6); $sheetIndex++) {
         $sheetImage = [System.Drawing.Bitmap]::new(960, 1040)
         $sheetGraphics = [System.Drawing.Graphics]::FromImage($sheetImage)
         try {
             $sheetGraphics.Clear([System.Drawing.Color]::FromArgb(16, 35, 53))
             $sheetGraphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-            for ($cellIndex = 0; $cellIndex -lt 6; $cellIndex++) {
+            for ($cellIndex = 0; $cellIndex -lt 6 -and ($sheetIndex * 6 + $cellIndex) -lt $pageEntries.Count; $cellIndex++) {
                 $pageEntry = $pageEntries[$sheetIndex * 6 + $cellIndex]
                 $columnIndex = $cellIndex % 3
                 $rowIndex = [math]::Floor($cellIndex / 3)

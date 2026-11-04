@@ -1,128 +1,100 @@
 [
   {
     "number": 1,
-    "src": "art-v4/page-01-staff.png",
+    "src": "art-v5/page-01-continuity.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "15f5fd5ae2793274a9fef63d08b274783dd79c88e7accc2915cbfcadc9d203a8"
+    "sha256": "34c8d2be6b09bab36dac6a26d0d883dec31d85aef61dfbc38ef5dcd0470dd79d"
   },
   {
     "number": 2,
-    "src": "art-v4/page-02-visible-background.png",
+    "src": "art-v5/page-02.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "46fa35cd459ff54a8a4777709084b91ca66ec7ec8b0294e75e008e0fc57c95f9"
+    "sha256": "dad50327dd1a014da0acaec11fb7a9d77e47c6915d55367ffe4a1ca40b07c31d"
   },
   {
     "number": 3,
-    "src": "art-v4/page-03.png",
+    "src": "art-v5/page-03-ochre-awake.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "6196cfa5b570d9725ff6186db6a06028aa17af51882fe759a5de4d00f2d81968"
+    "sha256": "4664b58aff463bf1102e14ce4f9e78e61c4d3254a7ea934e6f5156854f3abf02"
   },
   {
     "number": 4,
-    "src": "art-v4/page-04.png",
+    "src": "art-v5/page-04-refuge-spirits.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "cdfec172671335f01f6fe8936596a022f12ab66839bc5952b551bab64f09a432"
+    "sha256": "8f2065cbbc9830ef48187116aea8c46a6c249feeb2f6611d94025627b58cb854"
   },
   {
     "number": 5,
-    "src": "art-v4/page-05-continuity.png",
+    "src": "art-v5/page-05-combat-gate.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "f511da137a9bb8e84a4f92ed8a52c20d9781afdc33b1c58df0f96275083a23c5"
+    "sha256": "86d3dff88efd27f875d39eb6393d17bcc244260bf8dc9a47f3fee85e06dbeb4d"
   },
   {
     "number": 6,
-    "src": "art-v4/page-06-fixed-camera.png",
+    "src": "art-v5/page-06.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "7d1f13d0e3ef383ba738fecf7b92dbfd76b7f5c4d87cf8c5fd03b8c261ae9e51"
+    "sha256": "f2c39328bc552b3bac3f3f1f6b965755d565349081b91b586146fba27e9e9391"
   },
   {
     "number": 7,
-    "src": "art-v4/page-07.png",
+    "src": "art-v5/page-07.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "59d6cdbf1f7b09e0db7f916a7c76b47d1d6985f3ef1c472f6143e37dba5091bb"
+    "sha256": "2881015fbe6e43faa6f4d2bd8d4a89df8de02318993e3c04985f8215334153ad"
   },
   {
     "number": 8,
-    "src": "art-v4/page-08-fallen-poses.png",
+    "src": "art-v5/page-08-distant-orin.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "a919f528d2cb170bc8715ae35c246fef24644daa25c211b4284544063c6c79f4"
+    "sha256": "64ef94e81632cc2a89205d013c1a168475523ccb6a2f24ad0369265383abd5da"
   },
   {
     "number": 9,
-    "src": "art-v4/page-09-fallen-poses.png",
+    "src": "art-v5/page-09-refugees.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "4990b0018f43b120979118a25d75aaa4d7674df79291dc50f225648e6202986d"
+    "sha256": "25ae61e8df3ed78ba8b6d31512cb23df06fa4652b5a6794b5954943cf9daee48"
   },
   {
     "number": 10,
-    "src": "art-v4/page-10.png",
+    "src": "art-v5/page-10-after-collapse.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "799e0477b8ff5fc91248fa6d618c38fc85fda6a0738f6de8f5eea572f357e84d"
+    "sha256": "78f9de21ada90220f2c1965f0584d9a57ee11d65de592d5a428940ee6c0fdfdd"
   },
   {
     "number": 11,
-    "src": "art-v4/page-11.png",
+    "src": "art-v5/page-11.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "291df395c969381b78459771d11fa8a13f3caeee80357346ccf5b57a8001f008"
+    "sha256": "59c5ff27d25fe94a7732a6f7423b42dad713ed8c2c291bb37b603149f95e4cfd"
   },
   {
     "number": 12,
-    "src": "art-v4/page-12-distant-allies.png",
+    "src": "art-v5/page-12.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "1b3f708a64791ddc35ad020ece9da1f12fcb1019176e905f42c444ac846ae0ff"
+    "sha256": "9a611d268394b67413bbdaec0b3ef7c3a175eeb765b840552ec7af8d6507594b"
   },
   {
     "number": 13,
-    "src": "art-v4/page-13-smoke.png",
+    "src": "art-v5/page-13.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "44e568978b7b2154ce9f4a19eb6f53a52289e0e452d5b42d6be3d5437c139d05"
+    "sha256": "08805993370774ee95d3e7e78ae1095434b0c89acea85edd265dabaebe3c4111"
   },
   {
     "number": 14,
-    "src": "art-v4/page-14-smoke.png",
+    "src": "art-v5/page-14-distant-allies.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "3aa55d5087490dc5753a943c37a4a5e6b25ee2d4d9c0e1e0b96f965d98adaa6a"
-  },
-  {
-    "number": 15,
-    "src": "art-v4/page-15-smoke.png",
-    "width": 1024,
-    "height": 1536,
-    "sha256": "0122efa765d2d9b6d0bfc42a83cbb3f9bc149c07c3335c7546fbc0cd4a282e62"
-  },
-  {
-    "number": 16,
-    "src": "art-v4/page-16-unconscious.png",
-    "width": 1024,
-    "height": 1536,
-    "sha256": "c0c050f4bf5165b7dc4604f7244e6636acf39cdefcbead031857fd321b012222"
-  },
-  {
-    "number": 17,
-    "src": "art-v4/page-17.png",
-    "width": 1024,
-    "height": 1536,
-    "sha256": "94921e1aee69ad6f63e41a7e9c659be2a3776c093b248ec32e7afa008a42b1cb"
-  },
-  {
-    "number": 18,
-    "src": "art-v4/page-18.png",
-    "width": 1024,
-    "height": 1536,
-    "sha256": "4c5c06001993d871996629ea7e88d56ebe3759c6ff7a0e479031630dab9c6771"
+    "sha256": "382ab609feb846fa9c780597d39a586b7d0258cd62a075be04b1c2e901207ded"
   }
 ]

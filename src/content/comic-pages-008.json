@@ -2,285 +2,208 @@
   {
     "number": 1,
     "ko": {
-      "title": "첫 유성우 이후의 구조",
-      "description": "파편이 쏟아지는 가운데 미라가 물 궁수를 끌어내린다. 방금 지나온 자리에 잔해가 떨어진다.",
+      "title": "무너진 동문의 전선",
+      "description": "무너진 동문에서 방어군이 시신 사이로 물러난다. 적은 뚫린 문을 계속 밀고 들어온다.",
       "dialogue": [
-        "엎드려!",
-        "안쪽으로!"
+        "물러서!"
       ]
     },
     "en": {
-      "title": "After the first volley",
-      "description": "Mira drags a wounded Water Archer clear as falling rubble strikes the ground they just crossed.",
-      "dialogue": [
-        "Get down!",
-        "Further inside!"
-      ]
-    }
-  },
-  {
-    "number": 2,
-    "ko": {
-      "title": "수정 마력의 방어 사용",
-      "description": "오린과 동료들이 수정의 마력을 끌어와 밀려드는 공격을 막는다.",
-      "dialogue": [
-        "수정의 마력을 쓰겠다.",
-        "양옆을 받쳐라."
-      ]
-    },
-    "en": {
-      "title": "The crystal shield",
-      "description": "Orin and the other mages draw on the tower crystal to hold back the attackers.",
-      "dialogue": [
-        "I will draw on the crystal. Support both sides."
-      ]
-    }
-  },
-  {
-    "number": 3,
-    "ko": {
-      "title": "핀의 유성우 재발동",
-      "description": "핀의 카드가 다시 하늘을 붉힌다. 미라가 머리 위의 공격을 알린다.",
-      "dialogue": [
-        "선생님, 위입니다!"
-      ]
-    },
-    "en": {
-      "title": "Another meteor volley",
-      "description": "Finn raises another card. Mira warns the defenders of the meteors overhead.",
-      "dialogue": [
-        "Master, above us!"
-      ]
-    }
-  },
-  {
-    "number": 4,
-    "ko": {
-      "title": "무너지는 방어",
-      "description": "미라의 탄두가 유성 하나를 깨뜨리지만, 남은 유성들이 방어막을 뚫는다.",
-      "dialogue": [
-        "뒤로 물러나라!"
-      ]
-    },
-    "en": {
-      "title": "The shield breaks",
-      "description": "Mira destroys one meteor, but the remaining volley breaks through the shield.",
+      "title": "The breached gate",
+      "description": "The defenders retreat past fallen comrades as beasts press through the broken gate.",
       "dialogue": [
         "Fall back!"
       ]
     }
   },
   {
+    "number": 2,
+    "ko": {
+      "title": "놓고 가야 하는 손",
+      "description": "물결 궁수를 옮기던 미라는 쓰러진 병사의 손을 붙잡지만, 아무 반응도 돌아오지 않는다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "A hand left behind",
+      "description": "While dragging a wounded Water Archer to shelter, Mira reaches for a soldier who can no longer respond.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "숨은 정령들",
+      "description": "부상자들이 모인 잔해 뒤에서 겁먹은 정령 하나가 미라의 망토를 붙잡는다.",
+      "dialogue": [
+        "여기 있어."
+      ]
+    },
+    "en": {
+      "title": "Spirits in hiding",
+      "description": "A frightened spirit catches Mira's cloak among the wounded in the rear shelter.",
+      "dialogue": [
+        "Stay here."
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "겨우 메운 틈",
+      "description": "마법사들과 물 부족이 서로 다른 마법과 공격으로 방어선의 틈을 메운다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Holding the gap",
+      "description": "The mages and Water Slime allies combine shields, wind and water attacks to hold the line.",
+      "dialogue": []
+    }
+  },
+  {
     "number": 5,
     "ko": {
-      "title": "주탑의 전도 시작",
-      "description": "유성이 주탑 밑부분을 강타하고 거대한 탑이 기울기 시작한다.",
+      "title": "문밖의 다음 카드",
+      "description": "핀은 동문 밖에서 다음 카드를 들어 올린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The next card",
+      "description": "Outside the east gate, Finn raises his next card.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "밀려나는 방어",
+      "description": "유성우를 막으려는 오린의 방어면 아래로 파편이 뚫고 들어온다.",
+      "dialogue": [
+        "내 뒤로!"
+      ]
+    },
+    "en": {
+      "title": "A failing shield",
+      "description": "Fragments pierce the edge of Orin's shield as he struggles against the meteors.",
+      "dialogue": [
+        "Behind me!"
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "방어선이 찢어진다",
+      "description": "방어선이 무너지고 양측 전투원이 쓰러진다. 미라는 피난처 밖으로 나온 정령을 끌어당긴다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The line breaks",
+      "description": "The bombardment scatters both armies. Mira pulls a frightened spirit back behind the wreckage.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "기울어지는 주탑",
+      "description": "주탑의 거대한 벽면이 기울어진다. 미라는 쓰러진 오린을 향해 손을 뻗다가 충격에 넘어간다.",
       "dialogue": [
         "선생님!"
       ]
     },
     "en": {
-      "title": "The tower begins to fall",
-      "description": "A meteor strikes the base of the main tower, and the enormous shaft begins to lean.",
+      "title": "The tower leans",
+      "description": "The tower begins to lean. Mira reaches toward Orin before another shock throws her down.",
       "dialogue": [
         "Master!"
       ]
     }
   },
   {
-    "number": 6,
-    "ko": {
-      "title": "중앙 탑의 붕괴",
-      "description": "주탑이 성벽 쪽으로 넘어지며 안뜰 전체를 충격과 먼지가 덮는다.",
-      "dialogue": []
-    },
-    "en": {
-      "title": "The fallen tower",
-      "description": "The tower falls toward the perimeter wall, filling the courtyard with dust and debris.",
-      "dialogue": []
-    }
-  },
-  {
-    "number": 7,
-    "ko": {
-      "title": "움직이지 않는 방어군",
-      "description": "오린과 동료들, 물 부족과 방어군이 쓰러진 안뜰에서 미라만 몸을 일으킨다.",
-      "dialogue": [
-        "선생님…?"
-      ]
-    },
-    "en": {
-      "title": "The silent defenders",
-      "description": "Mira struggles upright in a courtyard filled with fallen companions and defenders.",
-      "dialogue": [
-        "Master…?"
-      ]
-    }
-  },
-  {
-    "number": 8,
-    "ko": {
-      "title": "수정 마력의 유출",
-      "description": "깨진 수정에서 마력이 새어 나온다. 미라는 잔해를 기어 수정으로 향한다.",
-      "dialogue": []
-    },
-    "en": {
-      "title": "Power escaping the crystal",
-      "description": "Power leaks from the shattered crystal. Mira crawls through the rubble toward it.",
-      "dialogue": []
-    }
-  },
-  {
     "number": 9,
     "ko": {
-      "title": "마력의 수용",
-      "description": "미라가 수정에 손을 대자 거센 마력이 팔을 타고 흐른다.",
-      "dialogue": [
-        "으윽…."
-      ]
+      "title": "탑이 무너진 전장",
+      "description": "중앙 탑이 북쪽으로 넘어져 외벽을 부순다. 동문에는 적군이, 남서쪽에는 피난 정령들이 남아 있다.",
+      "dialogue": []
     },
     "en": {
-      "title": "Taking in the power",
-      "description": "Mira touches the broken crystal, and its power surges through her arm.",
-      "dialogue": [
-        "Ngh…."
-      ]
+      "title": "The tower falls",
+      "description": "The tower falls through the north wall. The enemy remains at the east gate, with evacuees still sheltering southwest.",
+      "dialogue": []
     }
   },
   {
     "number": 10,
     "ko": {
-      "title": "상어 쏘기의 불완전한 방출",
-      "description": "미라가 카드로 마력을 내보내려 하지만 불안정한 탄두와 반동에 자세가 무너진다.",
+      "title": "돌아오지 않는 대답",
+      "description": "미라가 기어서 오린에게 다가가 부르지만 대답은 없다.",
       "dialogue": [
-        "하… 하…."
+        "선생님.",
+        "선생님."
       ]
     },
     "en": {
-      "title": "An unstable release",
-      "description": "Mira tries to release the power through her card, struggling with unstable warheads and recoil.",
+      "title": "No answer",
+      "description": "Mira crawls to Orin and calls to him, but he does not answer.",
       "dialogue": [
-        "Hah… hah…."
+        "Master.",
+        "Master."
       ]
     }
   },
   {
     "number": 11,
     "ko": {
-      "title": "핀의 추가 유성우 발동",
-      "description": "핀은 쓰러진 방어군을 향해 또 한 번 유성우를 발동한다.",
+      "title": "잔해 뒤의 생존자",
+      "description": "잔해에 깔린 정령을 발견한 미라가 피난처로 돌아가 무거운 돌을 밀어낸다.",
       "dialogue": []
     },
     "en": {
-      "title": "Finn casts again",
-      "description": "Finn sends another meteor volley toward the fallen defenders.",
+      "title": "Still alive",
+      "description": "Mira returns to the shelter and struggles to free a spirit trapped under rubble.",
       "dialogue": []
     }
   },
   {
     "number": 12,
     "ko": {
-      "title": "미라의 자세 유지",
-      "description": "미라는 쓰러진 동료들을 돌아본 뒤 떨리는 팔로 카드를 다시 겨눈다.",
+      "title": "숨길 곳이 없다",
+      "description": "엄폐물은 무너졌고 부상자들은 움직이지 못한다. 미라는 정령들 앞에 몸을 세우려 한다.",
       "dialogue": [
-        "이번엔 막아야 해."
+        "뒤로… 가 있어."
       ]
     },
     "en": {
-      "title": "Holding her ground",
-      "description": "Mira looks back at her companions and lifts her trembling card hand again.",
+      "title": "No shelter left",
+      "description": "With cover gone and the wounded unable to move, Mira tries to place herself in front of the spirits.",
       "dialogue": [
-        "I have to stop it this time."
+        "Stay… behind me."
       ]
     }
   },
   {
     "number": 13,
     "ko": {
-      "title": "수정 마력의 집속과 각성",
-      "description": "수정의 마력이 카드로 모이고, 선명한 상어 형태의 탄두들이 솟구친다.",
+      "title": "다시 드리운 붉은 빛",
+      "description": "핀의 새 카드가 하늘을 다시 붉힌다. 정령이 미라의 망토를 당기며 위를 올려다본다.",
       "dialogue": []
     },
     "en": {
-      "title": "Power gathers in the card",
-      "description": "The crystal's power gathers in the card, forming a stream of shark-shaped warheads.",
+      "title": "The red light returns",
+      "description": "The sky reddens again as Finn prepares another attack. A spirit tugs Mira's cloak and looks up.",
       "dialogue": []
     }
   },
   {
     "number": 14,
     "ko": {
-      "title": "첫 유성의 격추",
-      "description": "상어형 탄두가 유성을 추적해 폭발한다. 미라는 반동을 버티며 발사를 이어간다.",
+      "title": "정령들 앞에 남은 미라",
+      "description": "카드의 작은 빛마저 꺼진다. 미라는 정령들 앞에서 떨리는 팔을 들고 내려오는 유성을 바라본다.",
       "dialogue": []
     },
     "en": {
-      "title": "The first interception",
-      "description": "A homing shark warhead intercepts a meteor. Mira braces against the recoil and keeps firing.",
-      "dialogue": []
-    }
-  },
-  {
-    "number": 15,
-    "ko": {
-      "title": "상어 떼의 유성우 요격",
-      "description": "무너진 탑 앞에서 미라가 쏘아 올린 탄두들이 하늘의 유성들을 각각 추적한다.",
-      "dialogue": []
-    },
-    "en": {
-      "title": "Warheads against meteors",
-      "description": "Above the fallen tower, Mira's warheads fan out to intercept the descending meteors.",
-      "dialogue": []
-    }
-  },
-  {
-    "number": 16,
-    "ko": {
-      "title": "마지막 유성의 격추",
-      "description": "마지막 유성을 향한 탄두가 솟구친다. 충돌 뒤 하늘에서 붉은 궤적이 사라진다.",
-      "dialogue": [
-        "아직…!"
-      ]
-    },
-    "en": {
-      "title": "The last meteor",
-      "description": "One final warhead reaches the last meteor, leaving no descending streaks in the sky.",
-      "dialogue": [
-        "Not yet…!"
-      ]
-    }
-  },
-  {
-    "number": 17,
-    "ko": {
-      "title": "마력 방출 종료와 미라의 탈진",
-      "description": "마력이 가라앉고 미라는 잔해에 주저앉는다. 동료들은 여전히 쓰러져 있다.",
-      "dialogue": [
-        "하아…",
-        "하아…",
-        "선생님…"
-      ]
-    },
-    "en": {
-      "title": "After the counterattack",
-      "description": "As the power subsides, Mira sinks onto the rubble. Her companions remain fallen.",
-      "dialogue": [
-        "Hah…",
-        "Hah…",
-        "Master…"
-      ]
-    }
-  },
-  {
-    "number": 18,
-    "ko": {
-      "title": "쓰러진 탑 너머 핀과의 대치",
-      "description": "유성은 모두 사라졌지만 핀은 동문 밖에 남아 있다. 미라가 지친 몸으로 다시 위협을 향해 고개를 돌린다.",
-      "dialogue": []
-    },
-    "en": {
-      "title": "Finn beyond the gate",
-      "description": "The meteors are gone, but Finn remains outside the east gate. Exhausted, Mira turns toward the remaining threat.",
+      "title": "The last defender",
+      "description": "Even the light in her card fades. Mira raises a trembling arm before the spirits as meteors descend.",
       "dialogue": []
     }
   }

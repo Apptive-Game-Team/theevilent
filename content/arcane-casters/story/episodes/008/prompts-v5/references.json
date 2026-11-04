@@ -1,0 +1,138 @@
+{
+  "pathBase": "repository root",
+  "roleRules": "Architecture sheet for design, episode7 for prior state, comic-character-style for rendering only, individual creature/mage sheets and checked page11 for identity. Supporting page11 does not impose later unconscious states on earlier panels. Corrections identify edit targets and reference roles in their saved prompts.",
+  "pages": [
+    {
+      "page": 1,
+      "references": [
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/episodes/007/art-revised-v3/page-14-no-banners.png",
+        "content/arcane-casters/story/references/tower-defense-v1/ArcaneInfantry.png"
+      ]
+    },
+    {
+      "page": 2,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/tower-defense-v1/AquaArcher.png",
+        "content/arcane-casters/story/references/tower-defense-v1/ArcaneInfantry.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 3,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/episodes/008/art-v5/page-11.png",
+        "content/arcane-casters/story/references/tower-defense-v1/AquaArcher.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png"
+      ]
+    },
+    {
+      "page": 4,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/orin.png",
+        "content/arcane-casters/story/episodes/007/art-revised-v3/page-13-shield-open-court.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/defender-plum.png"
+      ]
+    },
+    {
+      "page": 5,
+      "references": [
+        "content/arcane-casters/story/episodes/007/art-revised-v3/page-10.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 6,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/orin.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/defender-plum.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/references/tower-defense-v1/StormStag.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 7,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/episodes/008/art-v5/page-11.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/orin.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png"
+      ]
+    },
+    {
+      "page": 8,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/orin.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 9,
+      "references": [
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/episodes/007/art-revised-v3/page-14-no-banners.png",
+        "content/arcane-casters/story/references/tower-defense-v1/ArcaneInfantry.png"
+      ]
+    },
+    {
+      "page": 10,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/orin.png",
+        "content/arcane-casters/story/references/defense-production-v1/mages/defender-plum.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 11,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/subjects/vine-spirit.png",
+        "public/game-assets/wind-spirit.webp",
+        "public/game-assets/thunder-spirit.webp",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 12,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/comic-character-style.png",
+        "content/arcane-casters/story/episodes/008/art-v5/page-11.png",
+        "content/arcane-casters/story/geography/mage-tower-redesign-v1/tower-design-v2-residences.png",
+        "content/arcane-casters/story/episodes/008/art-v5/page-09-refugees.png"
+      ]
+    },
+    {
+      "page": 13,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/episodes/007/art-revised-v3/page-10.png",
+        "content/arcane-casters/story/references/subjects/vine-spirit.png",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    },
+    {
+      "page": 14,
+      "references": [
+        "content/arcane-casters/story/references/defense-production-v1/mages/mira.png",
+        "content/arcane-casters/story/references/subjects/vine-spirit.png",
+        "public/game-assets/wind-spirit.webp",
+        "public/game-assets/thunder-spirit.webp",
+        "content/arcane-casters/story/references/comic-character-style.png"
+      ]
+    }
+  ]
+}
