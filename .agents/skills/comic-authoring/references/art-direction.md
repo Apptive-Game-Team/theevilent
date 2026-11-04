@@ -2,7 +2,39 @@
 
 Read for pages, background revision, comic character art or setting maps.
 
-## Separate reference roles
+## Continuity record before generation
+
+Before a new episode or substantial redraw, create or update an episode-local
+continuity record alongside its script. This is required preparation, not an
+additional user approval gate. Apply current user decisions over older records.
+
+1. Read the preceding episode's current selection and inspect its final pages.
+   Record surviving actions, injuries, dropped equipment, opened/broken gates,
+   structures and unresolved threats. Do not reset them between episodes.
+2. List the actual cast by faction, species and role, with reference paths and
+   current state. Distinguish combatants, evacuees, casualties and unconscious
+   named characters. Do not substitute generic soldiers or cute creatures for
+   established units, or silently change species and allegiance.
+3. Lock a single scene layout against the approved architecture. Mark gates,
+   bastions, residences, damage, opponents, defenders and shelter; track changes
+   caused by visible events. A collapse must preserve who is outside/inside and
+   show why the affected positions are hit. Do not erase armies for a clean view.
+4. For each environment-bearing panel, record camera position/height/direction,
+   subject positions and movement, visible distances and occlusion. Include only
+   landmarks actually in view; use cropped mass for nearby huge structures.
+5. Choose spells by the immediate problem and established repertoire, using real
+   cards and source-backed effects. Do not repeat the requested climax spell in
+   every encounter or spend its payoff before the approved story beat.
+6. Review each finished page against the record and adjoining selected pages.
+   Check shapes and counts of buildings, scale, army locations, distinct casualty
+   poses, costumes, props, lettering, tension and cause/effect at reading size.
+   Reject observable contradictions. Textual constraints and geometry guides do
+   not certify the output, and a previous unapproved generation is not canon.
+
+Keep episode-specific coordinates, spell choices, page counts and injury states
+in the episode record; do not promote them into universal rules.
+
+## Reference roles
 
 Inspect relevant local images and assign roles:
 

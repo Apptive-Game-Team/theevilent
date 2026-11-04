@@ -1,0 +1,100 @@
+[
+  {
+    "number": 1,
+    "src": "art-v5/page-01-continuity.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "34c8d2be6b09bab36dac6a26d0d883dec31d85aef61dfbc38ef5dcd0470dd79d"
+  },
+  {
+    "number": 2,
+    "src": "art-v5/page-02.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "dad50327dd1a014da0acaec11fb7a9d77e47c6915d55367ffe4a1ca40b07c31d"
+  },
+  {
+    "number": 3,
+    "src": "art-v5/page-03-ochre-awake.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "4664b58aff463bf1102e14ce4f9e78e61c4d3254a7ea934e6f5156854f3abf02"
+  },
+  {
+    "number": 4,
+    "src": "art-v5/page-04-refuge-spirits.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "8f2065cbbc9830ef48187116aea8c46a6c249feeb2f6611d94025627b58cb854"
+  },
+  {
+    "number": 5,
+    "src": "art-v5/page-05-combat-gate.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "86d3dff88efd27f875d39eb6393d17bcc244260bf8dc9a47f3fee85e06dbeb4d"
+  },
+  {
+    "number": 6,
+    "src": "art-v5/page-06.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "f2c39328bc552b3bac3f3f1f6b965755d565349081b91b586146fba27e9e9391"
+  },
+  {
+    "number": 7,
+    "src": "art-v5/page-07.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "2881015fbe6e43faa6f4d2bd8d4a89df8de02318993e3c04985f8215334153ad"
+  },
+  {
+    "number": 8,
+    "src": "art-v5/page-08-distant-orin.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "64ef94e81632cc2a89205d013c1a168475523ccb6a2f24ad0369265383abd5da"
+  },
+  {
+    "number": 9,
+    "src": "art-v5/page-09-refugees.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "25ae61e8df3ed78ba8b6d31512cb23df06fa4652b5a6794b5954943cf9daee48"
+  },
+  {
+    "number": 10,
+    "src": "art-v5/page-10-after-collapse.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "78f9de21ada90220f2c1965f0584d9a57ee11d65de592d5a428940ee6c0fdfdd"
+  },
+  {
+    "number": 11,
+    "src": "art-v5/page-11.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "59c5ff27d25fe94a7732a6f7423b42dad713ed8c2c291bb37b603149f95e4cfd"
+  },
+  {
+    "number": 12,
+    "src": "art-v5/page-12.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "9a611d268394b67413bbdaec0b3ef7c3a175eeb765b840552ec7af8d6507594b"
+  },
+  {
+    "number": 13,
+    "src": "art-v5/page-13.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "08805993370774ee95d3e7e78ae1095434b0c89acea85edd265dabaebe3c4111"
+  },
+  {
+    "number": 14,
+    "src": "art-v5/page-14-distant-allies.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "382ab609feb846fa9c780597d39a586b7d0258cd62a075be04b1c2e901207ded"
+  }
+]

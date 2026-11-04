@@ -1,0 +1,210 @@
+[
+  {
+    "number": 1,
+    "ko": {
+      "title": "무너진 동문의 전선",
+      "description": "무너진 동문에서 방어군이 시신 사이로 물러난다. 적은 뚫린 문을 계속 밀고 들어온다.",
+      "dialogue": [
+        "물러서!"
+      ]
+    },
+    "en": {
+      "title": "The breached gate",
+      "description": "The defenders retreat past fallen comrades as beasts press through the broken gate.",
+      "dialogue": [
+        "Fall back!"
+      ]
+    }
+  },
+  {
+    "number": 2,
+    "ko": {
+      "title": "놓고 가야 하는 손",
+      "description": "물결 궁수를 옮기던 미라는 쓰러진 병사의 손을 붙잡지만, 아무 반응도 돌아오지 않는다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "A hand left behind",
+      "description": "While dragging a wounded Water Archer to shelter, Mira reaches for a soldier who can no longer respond.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 3,
+    "ko": {
+      "title": "숨은 정령들",
+      "description": "부상자들이 모인 잔해 뒤에서 겁먹은 정령 하나가 미라의 망토를 붙잡는다.",
+      "dialogue": [
+        "여기 있어."
+      ]
+    },
+    "en": {
+      "title": "Spirits in hiding",
+      "description": "A frightened spirit catches Mira's cloak among the wounded in the rear shelter.",
+      "dialogue": [
+        "Stay here."
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "ko": {
+      "title": "겨우 메운 틈",
+      "description": "마법사들과 물 부족이 서로 다른 마법과 공격으로 방어선의 틈을 메운다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Holding the gap",
+      "description": "The mages and Water Slime allies combine shields, wind and water attacks to hold the line.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 5,
+    "ko": {
+      "title": "문밖의 다음 카드",
+      "description": "핀은 동문 밖에서 다음 카드를 들어 올린다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The next card",
+      "description": "Outside the east gate, Finn raises his next card.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 6,
+    "ko": {
+      "title": "밀려나는 방어",
+      "description": "유성우를 막으려는 오린의 방어면 아래로 파편이 뚫고 들어온다.",
+      "dialogue": [
+        "내 뒤로!"
+      ]
+    },
+    "en": {
+      "title": "A failing shield",
+      "description": "Fragments pierce the edge of Orin's shield as he struggles against the meteors.",
+      "dialogue": [
+        "Behind me!"
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "ko": {
+      "title": "방어선이 찢어진다",
+      "description": "방어선이 무너지고 양측 전투원이 쓰러진다. 미라는 피난처 밖으로 나온 정령을 끌어당긴다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The line breaks",
+      "description": "The bombardment scatters both armies. Mira pulls a frightened spirit back behind the wreckage.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 8,
+    "ko": {
+      "title": "기울어지는 주탑",
+      "description": "주탑의 거대한 벽면이 기울어진다. 미라는 쓰러진 오린을 향해 손을 뻗다가 충격에 넘어간다.",
+      "dialogue": [
+        "선생님!"
+      ]
+    },
+    "en": {
+      "title": "The tower leans",
+      "description": "The tower begins to lean. Mira reaches toward Orin before another shock throws her down.",
+      "dialogue": [
+        "Master!"
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "ko": {
+      "title": "탑이 무너진 전장",
+      "description": "중앙 탑이 북쪽으로 넘어져 외벽을 부순다. 동문에는 적군이, 남서쪽에는 피난 정령들이 남아 있다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The tower falls",
+      "description": "The tower falls through the north wall. The enemy remains at the east gate, with evacuees still sheltering southwest.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 10,
+    "ko": {
+      "title": "돌아오지 않는 대답",
+      "description": "미라가 기어서 오린에게 다가가 부르지만 대답은 없다.",
+      "dialogue": [
+        "선생님.",
+        "선생님."
+      ]
+    },
+    "en": {
+      "title": "No answer",
+      "description": "Mira crawls to Orin and calls to him, but he does not answer.",
+      "dialogue": [
+        "Master.",
+        "Master."
+      ]
+    }
+  },
+  {
+    "number": 11,
+    "ko": {
+      "title": "잔해 뒤의 생존자",
+      "description": "잔해에 깔린 정령을 발견한 미라가 피난처로 돌아가 무거운 돌을 밀어낸다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "Still alive",
+      "description": "Mira returns to the shelter and struggles to free a spirit trapped under rubble.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 12,
+    "ko": {
+      "title": "숨길 곳이 없다",
+      "description": "엄폐물은 무너졌고 부상자들은 움직이지 못한다. 미라는 정령들 앞에 몸을 세우려 한다.",
+      "dialogue": [
+        "뒤로… 가 있어."
+      ]
+    },
+    "en": {
+      "title": "No shelter left",
+      "description": "With cover gone and the wounded unable to move, Mira tries to place herself in front of the spirits.",
+      "dialogue": [
+        "Stay… behind me."
+      ]
+    }
+  },
+  {
+    "number": 13,
+    "ko": {
+      "title": "다시 드리운 붉은 빛",
+      "description": "핀의 새 카드가 하늘을 다시 붉힌다. 정령이 미라의 망토를 당기며 위를 올려다본다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The red light returns",
+      "description": "The sky reddens again as Finn prepares another attack. A spirit tugs Mira's cloak and looks up.",
+      "dialogue": []
+    }
+  },
+  {
+    "number": 14,
+    "ko": {
+      "title": "정령들 앞에 남은 미라",
+      "description": "카드의 작은 빛마저 꺼진다. 미라는 정령들 앞에서 떨리는 팔을 들고 내려오는 유성을 바라본다.",
+      "dialogue": []
+    },
+    "en": {
+      "title": "The last defender",
+      "description": "Even the light in her card fades. Mira raises a trembling arm before the spirits as meteors descend.",
+      "dialogue": []
+    }
+  }
+]

@@ -1,0 +1,137 @@
+{
+  "episode": 8,
+  "locale": "ko",
+  "manifest": "selected-pages.json",
+  "pages": [
+    {
+      "number": 1,
+      "source": "art-v5/page-01-continuity.png",
+      "sourceSha256": "34c8d2be6b09bab36dac6a26d0d883dec31d85aef61dfbc38ef5dcd0470dd79d",
+      "asset": "arcane-casters/comic/008/ko/page-01.webp",
+      "assetSha256": "742cad305e5c4e269052c44552d9a6cf4a837c36a59b9766d1cfaffc940d3177",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 2,
+      "source": "art-v5/page-02.png",
+      "sourceSha256": "dad50327dd1a014da0acaec11fb7a9d77e47c6915d55367ffe4a1ca40b07c31d",
+      "asset": "arcane-casters/comic/008/ko/page-02.webp",
+      "assetSha256": "abb641da778b9685af2345dc2c18a2e945ca47375eef9dfafbadfdea724971d2",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 3,
+      "source": "art-v5/page-03-ochre-awake.png",
+      "sourceSha256": "4664b58aff463bf1102e14ce4f9e78e61c4d3254a7ea934e6f5156854f3abf02",
+      "asset": "arcane-casters/comic/008/ko/page-03.webp",
+      "assetSha256": "e8acafe353dd8427f92afce205b57325dbad7a78a1dce4c6692f82dc2e6c6aa8",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 4,
+      "source": "art-v5/page-04-refuge-spirits.png",
+      "sourceSha256": "8f2065cbbc9830ef48187116aea8c46a6c249feeb2f6611d94025627b58cb854",
+      "asset": "arcane-casters/comic/008/ko/page-04.webp",
+      "assetSha256": "e3cab4ec323f2f74dbe8148a899390c4165d062786faf074e5f2ecd4e3f646d9",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 5,
+      "source": "art-v5/page-05-combat-gate.png",
+      "sourceSha256": "86d3dff88efd27f875d39eb6393d17bcc244260bf8dc9a47f3fee85e06dbeb4d",
+      "asset": "arcane-casters/comic/008/ko/page-05.webp",
+      "assetSha256": "49493716e409844bfabb9ef9f44178098fcacddee9ce8eedefc6bbc7ee74a261",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 6,
+      "source": "art-v5/page-06.png",
+      "sourceSha256": "f2c39328bc552b3bac3f3f1f6b965755d565349081b91b586146fba27e9e9391",
+      "asset": "arcane-casters/comic/008/ko/page-06.webp",
+      "assetSha256": "434c7149ab6ee37ba4ec05332be57cec8b699c6b64272e5f4d79ec0bf7417d6e",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 7,
+      "source": "art-v5/page-07.png",
+      "sourceSha256": "2881015fbe6e43faa6f4d2bd8d4a89df8de02318993e3c04985f8215334153ad",
+      "asset": "arcane-casters/comic/008/ko/page-07.webp",
+      "assetSha256": "caa17d634ef98ca306402329cc00c0874942be57dce1414d8f7bb8baadd0dc83",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 8,
+      "source": "art-v5/page-08-distant-orin.png",
+      "sourceSha256": "64ef94e81632cc2a89205d013c1a168475523ccb6a2f24ad0369265383abd5da",
+      "asset": "arcane-casters/comic/008/ko/page-08.webp",
+      "assetSha256": "4ceef2962e57598b21c697f52e99d12f7cc9daef77fea72676e6f750b1fff179",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 9,
+      "source": "art-v5/page-09-refugees.png",
+      "sourceSha256": "25ae61e8df3ed78ba8b6d31512cb23df06fa4652b5a6794b5954943cf9daee48",
+      "asset": "arcane-casters/comic/008/ko/page-09.webp",
+      "assetSha256": "21686eb6b1a49ae54647740e88671b18c0d1f1e627ec66423887ed2934350400",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 10,
+      "source": "art-v5/page-10-after-collapse.png",
+      "sourceSha256": "78f9de21ada90220f2c1965f0584d9a57ee11d65de592d5a428940ee6c0fdfdd",
+      "asset": "arcane-casters/comic/008/ko/page-10.webp",
+      "assetSha256": "b05896eca5f71d535443649f4d31e9e822bfd785ca0bf56bcaa34f54eab3029e",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 11,
+      "source": "art-v5/page-11.png",
+      "sourceSha256": "59c5ff27d25fe94a7732a6f7423b42dad713ed8c2c291bb37b603149f95e4cfd",
+      "asset": "arcane-casters/comic/008/ko/page-11.webp",
+      "assetSha256": "ba17093999c205aaa8611b4853ac0db597cf29c3e067f0179473de675f7f811d",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 12,
+      "source": "art-v5/page-12.png",
+      "sourceSha256": "9a611d268394b67413bbdaec0b3ef7c3a175eeb765b840552ec7af8d6507594b",
+      "asset": "arcane-casters/comic/008/ko/page-12.webp",
+      "assetSha256": "c9935c10131069c08ae26d19aa4f66ba82f16b10c2f29a2c8ae3e74138360b53",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 13,
+      "source": "art-v5/page-13.png",
+      "sourceSha256": "08805993370774ee95d3e7e78ae1095434b0c89acea85edd265dabaebe3c4111",
+      "asset": "arcane-casters/comic/008/ko/page-13.webp",
+      "assetSha256": "808ec8755cd0ace5666e84b2b434dee307c63bd3e4f5967baad7f4da57e11122",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "number": 14,
+      "source": "art-v5/page-14-distant-allies.png",
+      "sourceSha256": "382ab609feb846fa9c780597d39a586b7d0258cd62a075be04b1c2e901207ded",
+      "asset": "arcane-casters/comic/008/ko/page-14.webp",
+      "assetSha256": "45d32b089b00f4e6279451af20d42d573de2999121bbc33750ae4d9bfdc649a2",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "cover": {
+    "asset": "arcane-casters/comic/008/cover.webp",
+    "sha256": "c3dcc83bbda6b7f0b63e5e3f0a6e9b597285bc44b38873ce6415895fd5b14e1c"
+  }
+}

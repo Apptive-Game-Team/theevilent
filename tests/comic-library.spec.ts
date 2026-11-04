@@ -5,8 +5,8 @@ const key = 'arcane-casters:comic-reading:v1';
 test('library shows thumbnails without reader pages and fits desktop and phone', async ({ page, request }, info) => {
   await page.goto('/arcane-casters/comic/ko');
   await expect(page.getByRole('heading', { name: '만화', exact: true })).toBeVisible();
-  await expect(page.locator('.comic-episode-row')).toHaveCount(7);
-  await expect(page.locator('.comic-episode-row img')).toHaveCount(7);
+  await expect(page.locator('.comic-episode-row')).toHaveCount(8);
+  await expect(page.locator('.comic-episode-row img')).toHaveCount(8);
   await expect(page.locator('.comic-page')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'English', exact: true })).toHaveCount(1);
   await expect(page.getByRole('link', { name: 'English', exact: true })).toHaveCount(0);
@@ -38,7 +38,9 @@ test('library restores old reading records and resumes at the saved page', async
   await expect(page.locator('.comic-library-resume')).toHaveAttribute('href', '/arcane-casters/comic/2/ko#comic-page-4');
   await page.locator('.comic-library-resume').click();
   await expect(page.locator('#comic-page-4')).toBeInViewport();
-  await page.locator('.comic-list-back').click();
+  await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['2']?.page, key)).toBe(4);
+  // 헤더 링크로의 자동 스크롤이 읽기 위치를 바꾸지 않도록 현재 위치에서 이동한다.
+  await page.locator('.comic-list-back').evaluate((link: HTMLAnchorElement) => link.click());
   await expect(page).toHaveURL(/\/comic\/ko$/);
   await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(page.locator('.comic-library-resume')).toHaveAttribute('href', '/arcane-casters/comic/2/en#comic-page-4');

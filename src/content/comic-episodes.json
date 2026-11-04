@@ -128,5 +128,23 @@
       "description": "The Water Slime tribe reaches the besieged defenders. Mira and Orin reclaim their positions and strike back.",
       "coverAlt": "Orin and the defenders protect the wounded at the tower base"
     }
+  },
+  {
+    "id": "8",
+    "directory": "008",
+    "pages": "comic-pages-008.json",
+    "locales": [
+      "ko"
+    ],
+    "ko": {
+      "title": "8화 · 탑의 붕괴",
+      "description": "유성우가 마지막 방어선을 무너뜨린다. 쓰러진 동료들 뒤에는 아직 피하지 못한 정령들이 남아 있다.",
+      "coverAlt": "중앙 주탑과 파괴된 동문 앞에서 싸우는 방어군과 적군"
+    },
+    "en": {
+      "title": "Episode 8 · The Tower Falls",
+      "description": "Meteors shatter the last defense. Behind the fallen defenders, frightened spirits still need shelter.",
+      "coverAlt": "The central tower and defenders fighting the enemy at the breached east gate"
+    }
   }
 ]

@@ -1,0 +1,168 @@
+{
+  "episode": 8,
+  "plannedPages": 14,
+  "illustratedPages": 14,
+  "draftReviewedPages": 14,
+  "status": "draft-reviewed-v5",
+  "userApproved": false,
+  "continuity": "CONTINUITY-v5.md",
+  "revisionReason": "8화는 절망과 붕괴로 마무리하며 각성·상어 쏘기 반격은9화로 이동. 이전 화 상태와 종족·전장 배치·컷별 시야를 대조한 재작화.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "무너진 동문의 전선",
+      "src": "art-v5/page-01-continuity.png",
+      "prompt": "prompts-v5/page-01.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-01-continuity.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 2,
+      "title": "놓고 가야 하는 손",
+      "src": "art-v5/page-02.png",
+      "prompt": "prompts-v5/page-02.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 3,
+      "title": "숨은 정령들",
+      "src": "art-v5/page-03-ochre-awake.png",
+      "prompt": "prompts-v5/page-03-rerun.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-03-ochre-awake.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 4,
+      "title": "겨우 메운 틈",
+      "src": "art-v5/page-04-refuge-spirits.png",
+      "prompt": "prompts-v5/page-04-rerun.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-04-refuge-spirits.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 5,
+      "title": "문밖의 다음 카드",
+      "src": "art-v5/page-05-combat-gate.png",
+      "prompt": "prompts-v5/page-05.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-05-combat-gate.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 6,
+      "title": "밀려나는 방어",
+      "src": "art-v5/page-06.png",
+      "prompt": "prompts-v5/page-06.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 7,
+      "title": "방어선이 찢어진다",
+      "src": "art-v5/page-07.png",
+      "prompt": "prompts-v5/page-07-rerun.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 8,
+      "title": "기울어지는 주탑",
+      "src": "art-v5/page-08-distant-orin.png",
+      "prompt": "prompts-v5/page-08.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-08-distant-orin.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 9,
+      "title": "탑이 무너진 전장",
+      "src": "art-v5/page-09-refugees.png",
+      "prompt": "prompts-v5/page-09.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-09-refugees.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": true,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 10,
+      "title": "돌아오지 않는 대답",
+      "src": "art-v5/page-10-after-collapse.png",
+      "prompt": "prompts-v5/page-10.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-10-after-collapse.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 11,
+      "title": "잔해 뒤의 생존자",
+      "src": "art-v5/page-11.png",
+      "prompt": "prompts-v5/page-11.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 12,
+      "title": "숨길 곳이 없다",
+      "src": "art-v5/page-12.png",
+      "prompt": "prompts-v5/page-12-rerun.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 13,
+      "title": "다시 드리운 붉은 빛",
+      "src": "art-v5/page-13.png",
+      "prompt": "prompts-v5/page-13.txt",
+      "revisionPrompts": [],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    },
+    {
+      "number": 14,
+      "title": "정령들 앞에 남은 미라",
+      "src": "art-v5/page-14-distant-allies.png",
+      "prompt": "prompts-v5/page-14.txt",
+      "revisionPrompts": [
+        "prompts-v5/page-14-distant-allies.txt"
+      ],
+      "status": "draft-reviewed",
+      "fullPage": false,
+      "reviewNotes": "이전 화 상태·시야·종족·공격과 결과를 직접 원고와 대조. 발견한 사람형 정령·추가 문·부상 상태 초기화·탑 재등장·거리 오류를 별도 수정. 사용자 최종 작화 승인 전."
+    }
+  ]
+}
