@@ -24,6 +24,16 @@ Update the central profile before changing a recurring trait, and record each
 episode's ending state in its author notes instead of silently resetting it.
 Keep undecided names, ages, identities and future outcomes undecided.
 
+## Episode continuity before illustration
+
+Before generating episode art, follow the mandatory continuity preparation and
+shot checks in [art direction](../../../.agents/skills/comic-authoring/references/art-direction.md#continuity-record-before-generation).
+Read the preceding episode's selected ending pages and record the actual cast,
+injuries, equipment, factions, building state and positions. Resolve camera,
+movement, distance and occlusion per panel before drawing. Do not make the user
+restate this context, or treat a detailed prompt as evidence that the rendered
+page follows it. Recheck the actual images and correct failures before selection.
+
 These are local files and must work in a standalone checkout of theevilent.
 Do not depend on absolute workstation paths, another checkout or Codex's
 generated-image directory.
