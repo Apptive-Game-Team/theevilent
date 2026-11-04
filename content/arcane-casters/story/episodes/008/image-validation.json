@@ -1,128 +1,128 @@
 [
   {
     "number": 1,
-    "src": "art-v3-scale/page-01.png",
+    "src": "art-v4/page-01-staff.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "19931d8dd4d9b3e1c6181c803d1dde3960895994d7b048cee9f93c2618b41ff6"
+    "sha256": "15f5fd5ae2793274a9fef63d08b274783dd79c88e7accc2915cbfcadc9d203a8"
   },
   {
     "number": 2,
-    "src": "art-v3-scale/page-02.png",
+    "src": "art-v4/page-02-visible-background.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "5a38fe58416221de65e72765c41b952d3eb76832845c1f8cd46014d80dc224f6"
+    "sha256": "46fa35cd459ff54a8a4777709084b91ca66ec7ec8b0294e75e008e0fc57c95f9"
   },
   {
     "number": 3,
-    "src": "art-v3-scale/page-03-no-extra-door.png",
+    "src": "art-v4/page-03.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "294e39f72bed2ed3ced40995c64c3372e1ce9d1e4d44978135b77332639879e2"
+    "sha256": "6196cfa5b570d9725ff6186db6a06028aa17af51882fe759a5de4d00f2d81968"
   },
   {
     "number": 4,
-    "src": "art-v3-scale/page-04.png",
+    "src": "art-v4/page-04.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "488a77e3826fd7fb52ddb15e5d621cd0097b3411c473b818d9083ab677a20ec4"
+    "sha256": "cdfec172671335f01f6fe8936596a022f12ab66839bc5952b551bab64f09a432"
   },
   {
     "number": 5,
-    "src": "art-v3-scale/page-05-crop-leaning-shaft.png",
+    "src": "art-v4/page-05-continuity.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "0ceb76f3851592249cd87c82cdd3357956a6741a5f209cc68d61dc668b8a2459"
+    "sha256": "f511da137a9bb8e84a4f92ed8a52c20d9781afdc33b1c58df0f96275083a23c5"
   },
   {
     "number": 6,
-    "src": "art-v3-scale/page-06.png",
+    "src": "art-v4/page-06-fixed-camera.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "b2ecc1e66573ccb7eb0969e2d54d588189b5fbe95fd3d6a7358e45cec35c9cd2"
+    "sha256": "7d1f13d0e3ef383ba738fecf7b92dbfd76b7f5c4d87cf8c5fd03b8c261ae9e51"
   },
   {
     "number": 7,
-    "src": "art-v3-scale/page-07.png",
+    "src": "art-v4/page-07.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "8642f7d33199785f7e049f7bb573bf2f41496ae21716a3343d4f7f6c58a6f1e0"
+    "sha256": "59d6cdbf1f7b09e0db7f916a7c76b47d1d6985f3ef1c472f6143e37dba5091bb"
   },
   {
     "number": 8,
-    "src": "art-v3-scale/page-08.png",
+    "src": "art-v4/page-08-fallen-poses.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "d0b38c3b189c13ef52188d0eab14c6bdf7b54d599362e9365238d2c827c8de0f"
+    "sha256": "a919f528d2cb170bc8715ae35c246fef24644daa25c211b4284544063c6c79f4"
   },
   {
     "number": 9,
-    "src": "art-v3-scale/page-09.png",
+    "src": "art-v4/page-09-fallen-poses.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "d5ff6423eab0522601e795200a58979db4ce18c06e218a06705a9fc2f16664f4"
+    "sha256": "4990b0018f43b120979118a25d75aaa4d7674df79291dc50f225648e6202986d"
   },
   {
     "number": 10,
-    "src": "art-v3-scale/page-10-no-extra-arch.png",
+    "src": "art-v4/page-10.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "25055e242c838db35c529238c6690f75fb1f2a97aab55b822c01f966050d4c01"
+    "sha256": "799e0477b8ff5fc91248fa6d618c38fc85fda6a0738f6de8f5eea572f357e84d"
   },
   {
     "number": 11,
-    "src": "art-v3-scale/page-11.png",
+    "src": "art-v4/page-11.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "7a6d22f83e598e3f907d2adccc86519029e2ad5ede3009437765b02680fdc6d3"
+    "sha256": "291df395c969381b78459771d11fa8a13f3caeee80357346ccf5b57a8001f008"
   },
   {
     "number": 12,
-    "src": "art-v3-scale/page-12.png",
+    "src": "art-v4/page-12-distant-allies.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "31d8578535379842386ffe3da9ec4672b037a911fb79f9246b9173caa82bd4a0"
+    "sha256": "1b3f708a64791ddc35ad020ece9da1f12fcb1019176e905f42c444ac846ae0ff"
   },
   {
     "number": 13,
-    "src": "art-v3-scale/page-13.png",
+    "src": "art-v4/page-13-smoke.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "25cc65992dbc2bbaeb71cdc923e3085718b3332294cd85d6ce98ebf560d530a0"
+    "sha256": "44e568978b7b2154ce9f4a19eb6f53a52289e0e452d5b42d6be3d5437c139d05"
   },
   {
     "number": 14,
-    "src": "art-v3-scale/page-14.png",
+    "src": "art-v4/page-14-smoke.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "cb849349240aa999d1b588e66a984e4702025969e7cfe8d08d5c011ecdf8dd7c"
+    "sha256": "3aa55d5087490dc5753a943c37a4a5e6b25ee2d4d9c0e1e0b96f965d98adaa6a"
   },
   {
     "number": 15,
-    "src": "art-v3-scale/page-15-no-standing-guards.png",
+    "src": "art-v4/page-15-smoke.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "e159ec968e773058053d1a1ea8962b830f781d5f82657b57424dc010a857eb8f"
+    "sha256": "0122efa765d2d9b6d0bfc42a83cbb3f9bc149c07c3335c7546fbc0cd4a282e62"
   },
   {
     "number": 16,
-    "src": "art-v3-scale/page-16.png",
+    "src": "art-v4/page-16-unconscious.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "54bcbae232dc7308c0c02ce9fa33cbd3c5c924ad290fdb515abdcaa7a3dcce3a"
+    "sha256": "c0c050f4bf5165b7dc4604f7244e6636acf39cdefcbead031857fd321b012222"
   },
   {
     "number": 17,
-    "src": "art-v3-scale/page-17.png",
+    "src": "art-v4/page-17.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "2462f08bd76d81408af414e7249bbcae86d193045ff860aa9f73d5cee5e38fe5"
+    "sha256": "94921e1aee69ad6f63e41a7e9c659be2a3776c093b248ec32e7afa008a42b1cb"
   },
   {
     "number": 18,
-    "src": "art-v3-scale/page-18.png",
+    "src": "art-v4/page-18.png",
     "width": 1024,
     "height": 1536,
-    "sha256": "84a82eb51a87dc5f97a4b97cb62d7fe5f1f411a38f8b5c6c05f0bc935486f8c2"
+    "sha256": "4c5c06001993d871996629ea7e88d56ebe3759c6ff7a0e479031630dab9c6771"
   }
 ]

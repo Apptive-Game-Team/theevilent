@@ -29,10 +29,10 @@ $readerTemplate = @'
 $readerHtml = $readerTemplate.Replace('__NAV__', ($navigationLinks -join '')).Replace('__PAGES__', ($pageFigures -join "`n"))
 [System.IO.File]::WriteAllText((Join-Path $episodeDirectory 'index.html'), $readerHtml, [System.Text.UTF8Encoding]::new($false))
 $validationRows | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $episodeDirectory 'image-validation.json') -Encoding utf8
-$archivePath = Join-Path $episodeDirectory 'episode-008-reader-v3.zip'
+$archivePath = Join-Path $episodeDirectory 'episode-008-reader-v4.zip'
 $archiveVersion = 2
 while (Test-Path -LiteralPath $archivePath) {
-    $archivePath = Join-Path $episodeDirectory ('episode-008-reader-v3-{0}.zip' -f $archiveVersion)
+    $archivePath = Join-Path $episodeDirectory ('episode-008-reader-v4-{0}.zip' -f $archiveVersion)
     $archiveVersion++
 }
 $readerArchive = [System.IO.Compression.ZipFile]::Open($archivePath, [System.IO.Compression.ZipArchiveMode]::Create)

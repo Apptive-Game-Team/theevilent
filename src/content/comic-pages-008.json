@@ -3,18 +3,18 @@
     "number": 1,
     "ko": {
       "title": "첫 유성우 이후의 구조",
-      "description": "미라가 다친 물 궁수를 옮기는 동안 남은 마법사들이 동문을 지킨다.",
+      "description": "파편이 쏟아지는 가운데 미라가 물 궁수를 끌어내린다. 방금 지나온 자리에 잔해가 떨어진다.",
       "dialogue": [
-        "천천히.",
-        "이쪽입니다."
+        "엎드려!",
+        "안쪽으로!"
       ]
     },
     "en": {
       "title": "After the first volley",
-      "description": "Mira carries a wounded Water Archer to shelter while the remaining mages defend the east gate.",
+      "description": "Mira drags a wounded Water Archer clear as falling rubble strikes the ground they just crossed.",
       "dialogue": [
-        "Slowly.",
-        "Over here."
+        "Get down!",
+        "Further inside!"
       ]
     }
   },
@@ -24,7 +24,8 @@
       "title": "수정 마력의 방어 사용",
       "description": "오린과 동료들이 수정의 마력을 끌어와 밀려드는 공격을 막는다.",
       "dialogue": [
-        "수정의 마력을 쓰겠다. 양옆을 받쳐라."
+        "수정의 마력을 쓰겠다.",
+        "양옆을 받쳐라."
       ]
     },
     "en": {
@@ -274,12 +275,12 @@
     "number": 18,
     "ko": {
       "title": "쓰러진 탑 너머 핀과의 대치",
-      "description": "유성이 사라진 하늘 아래, 미라는 동문 밖의 핀을 바라본다.",
+      "description": "유성은 모두 사라졌지만 핀은 동문 밖에 남아 있다. 미라가 지친 몸으로 다시 위협을 향해 고개를 돌린다.",
       "dialogue": []
     },
     "en": {
       "title": "Finn beyond the gate",
-      "description": "Beneath a sky clear of meteors, Mira watches Finn beyond the east gate.",
+      "description": "The meteors are gone, but Finn remains outside the east gate. Exhausted, Mira turns toward the remaining threat.",
       "dialogue": []
     }
   }
