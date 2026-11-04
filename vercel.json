@@ -55,6 +55,11 @@
       "source": "/arcane-casters/comic/7",
       "destination": "/arcane-casters/comic/7/ko",
       "permanent": false
+    },
+    {
+      "source": "/arcane-casters/comic/8",
+      "destination": "/arcane-casters/comic/8/ko",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -109,6 +114,10 @@
     {
       "source": "/arcane-casters/comic/7/ko",
       "destination": "/arcane-casters/comic/7/ko.html"
+    },
+    {
+      "source": "/arcane-casters/comic/8/ko",
+      "destination": "/arcane-casters/comic/8/ko.html"
     },
     {
       "source": "/(.*)",

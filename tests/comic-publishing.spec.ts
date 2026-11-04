@@ -5,6 +5,7 @@ const episodes = [
   { id: '5', directory: '005', pages: 13, title: '5화 · 대피' },
   { id: '6', directory: '006', pages: 14, title: '6화 · 무너진 방어선' },
   { id: '7', directory: '007', pages: 14, title: '7화 · 반격' },
+  { id: '8', directory: '008', pages: 18, title: '8화 · 수정의 마력' },
 ];
 
 for (const episode of episodes) {
@@ -34,8 +35,9 @@ for (const episode of episodes) {
     expect(share.searchParams.get('url')).toBe(`https://theevilent.com/arcane-casters/comic/${episode.id}/ko`);
     const navigation = page.getByRole('navigation', { name: '회차 이동', exact: true });
     await expect(navigation.getByRole('link', { name: /이전화/ })).toHaveAttribute('href', `/arcane-casters/comic/${Number(episode.id) - 1}/ko`);
-    if (episode.id !== '7') await expect(navigation.getByRole('link', { name: /다음화/ })).toHaveAttribute('href', `/arcane-casters/comic/${Number(episode.id) + 1}/ko`);
+    if (episode.id !== '8') await expect(navigation.getByRole('link', { name: /다음화/ })).toHaveAttribute('href', `/arcane-casters/comic/${Number(episode.id) + 1}/ko`);
     else await expect(navigation.getByRole('link', { name: /다음화/ })).toHaveCount(0);
+    if (episode.id === '8') await page.screenshot({ path: info.outputPath('episode-8-desktop.png') });
     await page.setViewportSize({ width: 320, height: 750 });
     for (let number = 1; number <= episode.pages; number++) {
       const image = page.locator(`#comic-page-${number} > img`);
@@ -65,7 +67,7 @@ for (const episode of episodes) {
 test('미준비 영어판은 이미지 요청 없이 안내하고 한국어 진행 위치를 유지한다', async ({ page }, info) => {
   const missingImages: string[] = [];
   page.on('request', request => {
-    if (/\/comic\/00[567]\/en\/.*\.webp/.test(request.url())) missingImages.push(request.url());
+    if (/\/comic\/00[5678]\/en\/.*\.webp/.test(request.url())) missingImages.push(request.url());
   });
   await page.goto('/arcane-casters/comic/5/ko');
   await page.locator('#comic-page-4').scrollIntoViewIfNeeded();
@@ -90,4 +92,24 @@ test('미준비 영어판은 이미지 요청 없이 안내하고 한국어 진�
   await page.getByRole('navigation', { name: '회차 이동', exact: true }).getByRole('link', { name: /다음화/ }).click();
   await expect(page.getByRole('heading', { name: '5화 · 대피', exact: true })).toBeVisible();
   expect(missingImages).toEqual([]);
+});
+
+test('8화 영어 주소는 한국어 마지막 읽기 위치로 안내하고 7화에서 이어진다', async ({ page }) => {
+  const englishPageRequests: string[] = [];
+  page.on('request', request => {
+    if (/\/comic\/008\/en\/.*\.webp/.test(request.url())) englishPageRequests.push(request.url());
+  });
+  await page.goto('/arcane-casters/comic/7/ko');
+  await page.getByRole('navigation', { name: '회차 이동', exact: true }).getByRole('link', { name: /다음화/ }).click();
+  await expect(page.getByRole('heading', { name: '8화 · 수정의 마력', exact: true })).toBeVisible();
+  await page.locator('#comic-page-12').scrollIntoViewIfNeeded();
+  await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}')['8']?.page, historyKey)).toBe(12);
+  await page.getByRole('button', { name: 'English', exact: true }).click();
+  await expect(page).toHaveURL(/\/comic\/8\/en/);
+  await expect(page.getByRole('heading', { name: 'The English edition is not available yet.', exact: true })).toBeVisible();
+  await expect(page.locator('.comic-page')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Read in Korean', exact: true })).toHaveAttribute('href', '/arcane-casters/comic/8/ko#comic-page-12');
+  await page.getByRole('link', { name: 'Read in Korean', exact: true }).click();
+  await expect(page.locator('#comic-page-12')).toBeInViewport();
+  expect(englishPageRequests).toEqual([]);
 });

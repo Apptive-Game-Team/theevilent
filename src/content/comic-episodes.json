@@ -128,5 +128,23 @@
       "description": "The Water Slime tribe reaches the besieged defenders. Mira and Orin reclaim their positions and strike back.",
       "coverAlt": "Orin and the defenders protect the wounded at the tower base"
     }
+  },
+  {
+    "id": "8",
+    "directory": "008",
+    "pages": "comic-pages-008.json",
+    "locales": [
+      "ko"
+    ],
+    "ko": {
+      "title": "8화 · 수정의 마력",
+      "description": "유성우에 탑과 방어군이 무너진다. 홀로 일어선 미라는 깨진 수정에서 흘러나오는 마력을 받아낸다.",
+      "coverAlt": "다친 물 궁수를 부축하는 미라와 거대한 탑 기단"
+    },
+    "en": {
+      "title": "Episode 8 · The Crystal's Power",
+      "description": "Meteors bring down the tower and its defenders. Alone on her feet, Mira reaches for the power escaping the shattered crystal.",
+      "coverAlt": "Mira helps a wounded Water Archer beside the immense tower base"
+    }
   }
 ]

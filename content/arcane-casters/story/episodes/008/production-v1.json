@@ -1,0 +1,232 @@
+{
+  "episode": 8,
+  "plannedPages": 18,
+  "status": "illustrated-draft-reviewed",
+  "pages": [
+    {
+      "number": 1,
+      "title": "첫 유성우 이후의 구조",
+      "src": "art-v1/page-01.png",
+      "prompt": "prompts-v1/page-01.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 2,
+      "title": "수정 마력의 방어 사용",
+      "src": "art-v1/page-02.png",
+      "prompt": "prompts-v1/page-02.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 3,
+      "title": "핀의 유성우 재발동",
+      "src": "art-v1/page-03.png",
+      "prompt": "prompts-v1/page-03.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png",
+        "../../episodes/007/art-revised-v3/page-10.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 4,
+      "title": "무너지는 방어",
+      "src": "art-v1/page-04.png",
+      "prompt": "prompts-v1/page-04.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png",
+        "../../../../../public/game-assets/tidal-warhead.webp"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 5,
+      "title": "주탑의 전도 시작",
+      "src": "art-v1/page-05.png",
+      "prompt": "prompts-v1/page-05.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 6,
+      "title": "중앙 탑의 붕괴",
+      "src": "art-v1/page-06.png",
+      "prompt": "prompts-v1/page-06.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/007/art-revised-v3/page-03.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../references/mage-tower-approved-20261030.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 7,
+      "title": "움직이지 않는 방어군",
+      "src": "art-v1/page-07.png",
+      "prompt": "prompts-v1/page-07.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 8,
+      "title": "수정 마력의 유출",
+      "src": "art-v1/page-08.png",
+      "prompt": "prompts-v1/page-08.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 9,
+      "title": "마력의 수용",
+      "src": "art-v1/page-09.png",
+      "prompt": "prompts-v1/page-09.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 10,
+      "title": "상어 쏘기의 불완전한 방출",
+      "src": "art-v1/page-10.png",
+      "prompt": "prompts-v1/page-10.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../../../../public/game-assets/tidal-warhead.webp"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 11,
+      "title": "핀의 추가 유성우 발동",
+      "src": "art-v1/page-11.png",
+      "prompt": "prompts-v1/page-11.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../episodes/007/art-revised-v3/page-10.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 12,
+      "title": "미라의 자세 유지",
+      "src": "art-v1/page-12.png",
+      "prompt": "prompts-v1/page-12.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 13,
+      "title": "수정 마력의 집속과 각성",
+      "src": "art-v1/page-13.png",
+      "prompt": "prompts-v1/page-13.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../../../../public/game-assets/tidal-warhead.webp"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 14,
+      "title": "첫 유성의 격추",
+      "src": "art-v1/page-14.png",
+      "prompt": "prompts-v1/page-14.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../../../../public/game-assets/tidal-warhead.webp"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 16,
+      "title": "마지막 유성의 격추",
+      "src": "art-v1/page-16.png",
+      "prompt": "prompts-v1/page-16.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../../../../public/game-assets/tidal-warhead.webp"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 17,
+      "title": "마력 방출 종료와 미라의 탈진",
+      "src": "art-v1/page-17.png",
+      "prompt": "prompts-v1/page-17.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png"
+      ],
+      "status": "superseded-by-scale-review"
+    },
+    {
+      "number": 18,
+      "title": "쓰러진 탑 너머 핀과의 대치",
+      "src": "art-v1/page-18.png",
+      "prompt": "prompts-v1/page-18.txt",
+      "refs": [
+        "../../references/defense-production-v1/mages/mira.png",
+        "../../episodes/008/art-v1/shark-interception-splash.png",
+        "../../references/defense-production-v1/mages/orin.png",
+        "../../episodes/007/art-revised-v3/page-10.png"
+      ],
+      "status": "superseded-by-scale-review"
+    }
+  ],
+  "splash": {
+    "number": 15,
+    "src": "art-v1/shark-interception-splash.png",
+    "prompt": "prompts-v1/shark-interception-splash.txt",
+    "status": "superseded-by-scale-review"
+  },
+  "selectedPages": "selected-pages.json"
+}
