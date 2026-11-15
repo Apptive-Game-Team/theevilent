@@ -107,12 +107,16 @@ export const requestRefresh = async (): Promise<string> =>
   readAccessToken(
     await fetch(`${accountBaseUrl}/api/auth/refresh`, {
       method: 'POST',
+      signal: AbortSignal.timeout(10_000),
       ...cookieDelivery,
     }),
   );
 
 export const requestLogout = async (): Promise<void> => {
-  await fetch(`${accountBaseUrl}/api/auth/logout`, { method: 'POST', ...cookieDelivery });
+  const response = await fetch(`${accountBaseUrl}/api/auth/logout`, {
+    method: 'POST', signal: AbortSignal.timeout(10_000), ...cookieDelivery,
+  });
+  if (!response.ok) throw new ApiError(response.status);
 };
 
 export const accountUrl = (path: string) => `${accountBaseUrl}${path}`;

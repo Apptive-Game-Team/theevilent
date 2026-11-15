@@ -66,6 +66,7 @@ const copy = {
     colResult: '결과',
     logout: '로그아웃',
     loggingOut: '로그아웃하는 중…',
+    logoutFailed: '로그아웃하지 못했어요. 다시 시도해 주세요.',
     dangerTitle: '계정 삭제',
     dangerBody: '계정과 게임 데이터를 지워요. 한 번 지우면 되돌릴 수 없어요.',
     deleteOpen: '계정 삭제',
@@ -137,6 +138,7 @@ const copy = {
     colResult: 'Result',
     logout: 'Log out',
     loggingOut: 'Logging out…',
+    logoutFailed: 'Could not log out. Try again.',
     dangerTitle: 'Delete account',
     dangerBody: 'This deletes your account and game data. It cannot be undone.',
     deleteOpen: 'Delete account',
@@ -540,8 +542,7 @@ const DeleteDialog: React.FC<{
     }
 
     onDeleted();
-    // The refresh token is dead with the account, so the logout call may fail.
-    await logout();
+    await logout(true);
   };
 
   return (
@@ -595,6 +596,7 @@ const DeleteDialog: React.FC<{
 const Profile: React.FC<{ t: Copy; onDeleted: () => void }> = ({ t, onDeleted }) => {
   const { member, logout } = useAccount();
   const [loggingOut, setLoggingOut] = useState(false);
+  const [logoutFailed, setLogoutFailed] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   if (!member) return null;
@@ -621,11 +623,16 @@ const Profile: React.FC<{ t: Copy; onDeleted: () => void }> = ({ t, onDeleted })
           disabled={loggingOut}
           onClick={() => {
             setLoggingOut(true);
-            void logout();
+            setLogoutFailed(false);
+            void logout().catch(() => {
+              setLogoutFailed(true);
+              setLoggingOut(false);
+            });
           }}
         >
           {loggingOut ? t.loggingOut : t.logout}
         </button>
+        {logoutFailed && <p className="account-error" role="alert">{t.logoutFailed}</p>}
       </section>
 
       <Stats t={t} />

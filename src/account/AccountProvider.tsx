@@ -115,12 +115,12 @@ const AccountProvider: React.FC<{ children: React.ReactNode }> = ({ children }) 
     [startSession],
   );
 
-  const logout = useCallback(async () => {
+  const logout = useCallback(async (accountDeleted = false) => {
     try {
       await requestLogout();
-    } catch {
-      // The server may already have forgotten the token; the local session
-      // ends either way.
+    } catch (error) {
+      // 계정 삭제가 완료되면 서버에서도 해당 갱신 토큰이 사라진다.
+      if (!accountDeleted) throw error;
     }
     clearSession();
   }, [clearSession]);
