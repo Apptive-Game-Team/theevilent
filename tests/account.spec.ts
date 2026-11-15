@@ -1,11 +1,14 @@
 import { test, expect, type Page, type Route } from '@playwright/test';
 
 const ACCOUNT = 'https://account.theevilent.com';
+const SITE = 'https://theevilent.com';
 const LOBBY = 'https://lobby.ac.theevilent.com';
 const SHOTS = '/tmp/claude-1000';
 
 interface MockOptions {
   signedIn?: boolean;
+  browserCookie?: boolean;
+  logoutStatuses?: number[];
   lobbyDelete?: number;
   accountDelete?: number | number[];
   games?: unknown[];
@@ -25,7 +28,7 @@ const mockServers = async (page: Page, options: MockOptions = {}) => {
     joinBodies: [] as unknown[],
   };
 
-  const reply = (route: Route, status: number, body?: unknown) => {
+  const reply = (route: Route, status: number, body?: unknown, cookie?: string) => {
     const origin = route.request().headers()['origin'] ?? '';
     return route.fulfill({
       status,
@@ -35,6 +38,7 @@ const mockServers = async (page: Page, options: MockOptions = {}) => {
         'Access-Control-Allow-Credentials': 'true',
         'Access-Control-Allow-Headers': 'authorization, content-type, x-token-delivery, accept-language',
         'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+        ...(cookie ? { 'Set-Cookie': cookie } : {}),
       },
       body: body === undefined ? '' : JSON.stringify(body),
     });
@@ -49,12 +53,18 @@ const mockServers = async (page: Page, options: MockOptions = {}) => {
     const bearer = request.headers()['authorization'];
 
     if (side === 'account') {
+      const sendSession = () => reply(route, 200,
+        { jwt: `access-${++state.accessSeq}`, expiresIn: 3600 },
+        options.browserCookie
+          ? 'refreshToken=browser-session; Path=/api/auth; Max-Age=5184000; HttpOnly; Secure; SameSite=Lax'
+          : undefined);
+      const cookie = options.browserCookie ? await request.headerValue('cookie') : null;
       if (key === 'POST /api/members/login') {
         const credentials = request.postDataJSON() as { email: string; password: string };
         expect(request.headers()['x-token-delivery']).toBe('cookie');
         if (credentials.password !== 'correct-horse') return reply(route, 401);
         state.signedIn = true;
-        return reply(route, 200, { jwt: `access-${++state.accessSeq}`, expiresIn: 3600 });
+        return sendSession();
       }
       if (key === 'POST /api/members') {
         expect(request.headers()['x-token-delivery']).toBe('cookie');
@@ -76,14 +86,22 @@ const mockServers = async (page: Page, options: MockOptions = {}) => {
       }
       if (key === 'POST /api/auth/refresh') {
         expect(request.headers()['x-token-delivery']).toBe('cookie');
-        if (!state.signedIn) return reply(route, 401);
-        return reply(route, 200, { jwt: `access-${++state.accessSeq}`, expiresIn: 3600 });
+        if (options.browserCookie ? cookie !== 'refreshToken=browser-session' : !state.signedIn) {
+          return reply(route, 401);
+        }
+        return sendSession();
       }
       if (key === 'POST /api/auth/logout') {
+        const status = options.logoutStatuses?.shift() ?? 204;
+        if (status !== 204) return reply(route, status);
         state.signedIn = false;
-        return reply(route, 204);
+        if (options.browserCookie) expect(cookie).toBe('refreshToken=browser-session');
+        return reply(route, 204, undefined, options.browserCookie
+          ? 'refreshToken=; Path=/api/auth; Max-Age=0; HttpOnly; Secure; SameSite=Lax'
+          : undefined);
       }
       if (key === 'GET /api/members/me') {
+        if (options.browserCookie) expect(cookie).toBeNull();
         if (state.expireNextAccess) {
           state.expireNextAccess = false;
           return reply(route, 401);
@@ -179,15 +197,50 @@ test('a failed network call is a normal login error', async ({ page }) => {
   await expect(page.getByRole('alert').filter({ hasText: '지금은 로그인할 수 없어요' })).toBeVisible();
 });
 
-test('a reload restores the session from the refresh cookie', async ({ page }) => {
-  const state = await mockServers(page);
-  await page.goto('/arcane-casters/account');
+test('a new browser context restores the persistent cookie until logout', async ({ browser, baseURL }) => {
+  if (!baseURL) throw new Error('Missing preview URL');
+  const setup = async (page: Page, logoutStatuses?: number[]) => {
+    await page.route(`${SITE}/**`, async route => {
+      if (route.request().resourceType() === 'image') {
+        await route.abort();
+        return;
+      }
+      const { pathname, search } = new URL(route.request().url());
+      const response = await route.fetch({ url: new URL(pathname + search, baseURL).href });
+      await route.fulfill({ response });
+    });
+    return mockServers(page, { browserCookie: true, logoutStatuses });
+  };
+  const first = await browser.newContext({ locale: 'ko-KR' });
+  const page = await first.newPage();
+  await setup(page);
+  await page.goto(`${SITE}/arcane-casters/account`);
   await logIn(page);
   await expect(page.getByRole('heading', { name: '내 정보', level: 1 })).toBeVisible();
+  const storageState = await first.storageState();
+  const refresh = storageState.cookies.find(cookie => cookie.name === 'refreshToken');
+  expect(refresh).toMatchObject({ path: '/api/auth', httpOnly: true, secure: true, sameSite: 'Lax' });
+  expect(refresh?.expires ?? 0).toBeGreaterThan(Date.now() / 1000);
+  await page.unrouteAll({ behavior: 'wait' });
+  await first.close();
 
-  await page.reload();
-  await expect(page.getByRole('heading', { name: '내 정보', level: 1 })).toBeVisible();
+  const reopened = await browser.newContext({ locale: 'ko-KR', storageState });
+  const reopenedPage = await reopened.newPage();
+  const state = await setup(reopenedPage, [503, 204]);
+  await reopenedPage.goto(`${SITE}/arcane-casters/account`);
+  await expect(reopenedPage.getByRole('heading', { name: '내 정보', level: 1 })).toBeVisible();
   expect(state.calls).toContain('POST /api/auth/refresh');
+  expect(state.calls).not.toContain('POST /api/members/login');
+  await reopenedPage.getByRole('button', { name: '로그아웃' }).click();
+  await expect(reopenedPage.getByText('로그아웃하지 못했어요. 다시 시도해 주세요.', { exact: true })).toBeVisible();
+  await expect(reopenedPage.getByRole('heading', { name: '내 정보', level: 1 })).toBeVisible();
+  await reopenedPage.getByRole('button', { name: '로그아웃' }).click();
+  await expect(reopenedPage.getByRole('heading', { name: '로그인', level: 1 })).toBeVisible();
+  expect((await reopened.cookies()).some(cookie => cookie.name === 'refreshToken')).toBe(false);
+  await reopenedPage.reload();
+  await expect(reopenedPage.getByRole('heading', { name: '로그인', level: 1 })).toBeVisible();
+  await reopenedPage.unrouteAll({ behavior: 'wait' });
+  await reopened.close();
 });
 
 test('an expired access token is refreshed once and the call retried', async ({ page }) => {

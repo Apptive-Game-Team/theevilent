@@ -10,7 +10,7 @@ export interface AccountContextValue {
   login: (email: string, password: string) => Promise<void>;
   /** Creates the account, then signs in with the tokens it returns. */
   signUp: (email: string, name: string, password: string, captchaToken: string) => Promise<void>;
-  logout: () => Promise<void>;
+  logout: (accountDeleted?: boolean) => Promise<void>;
   /**
    * Fetch with the in-memory access token. A 401 triggers one refresh and one
    * retry; a second 401 ends the session.

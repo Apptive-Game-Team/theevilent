@@ -2,7 +2,7 @@
 // actually do:
 //   - account server `member` table: email, name (nickname), BCrypt password hash
 //   - game database `users` / `statistic_games` / `user_*`: rating and progress
-//   - one auth cookie, `accessToken`, set by account PageController
+//   - the account server's refreshToken cookie for website and WebGL login
 //   - guest sign-up generates its own email, password and nickname, so a guest
 //     hands over nothing
 //   - no third party analytics, ads or crash reporting: every service in
@@ -83,7 +83,7 @@ const korean: LegalDocumentContent = {
     {
       heading: '6. 쿠키',
       paragraphs: [
-        '웹 브라우저로 게임을 실행할 때 accessToken 쿠키 하나를 사용합니다. 로그인 상태를 유지하는 용도이고, 광고나 이용 행태 분석에는 쓰지 않습니다. 브라우저 설정에서 이 쿠키를 막으면 로그인이 유지되지 않습니다.',
+        '홈페이지와 브라우저 게임에서 로그인 상태를 유지하기 위해 계정 서버의 refreshToken 쿠키를 사용합니다. 이 쿠키는 로그인 상태를 갱신하거나 로그아웃할 때 사용하며, 광고나 이용 행태 분석에는 쓰지 않습니다. 브라우저에서 이 쿠키를 차단하면 로그인 상태가 유지되지 않습니다.',
         '팀은 광고 식별자를 쓰지 않으며, 제3자 분석 도구나 광고 SDK를 게임에 넣지 않았습니다.',
       ],
     },
@@ -197,7 +197,7 @@ const english: LegalDocumentContent = {
     {
       heading: '6. Cookies',
       paragraphs: [
-        'When you play in a web browser we set one cookie, accessToken. It keeps you signed in. We do not use it for advertising or behavioural analytics. If you block it in your browser settings, you will not stay signed in.',
+        'The website and browser game use the account server’s refreshToken cookie to keep you signed in. It is used to renew your session or sign you out. We do not use it for advertising or behavioural analytics. If you block it in your browser settings, you will not stay signed in.',
         'We do not use advertising identifiers, and the game contains no third-party analytics or advertising SDKs.',
       ],
     },
