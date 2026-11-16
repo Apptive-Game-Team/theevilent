@@ -36,6 +36,56 @@ export const newsAnchorId = (version: string) => version.replace(/\./g, '-');
 
 export const newsReleases: NewsRelease[] = [
   {
+    version: 'v1.7.1',
+    date: '2026-11-09',
+    ko: {
+      title: 'v1.7.1 업데이트',
+      items: [
+        '새 플레이어는 인트로 만화 뒤에 불타는 군단과 세계수 정령 중 하나를 골라요. 세력마다 실습 전투와 시작 카드가 달라요.',
+        '대전과 봇 연습으로 XP를 얻고, 레벨 보상은 보상 화면에서 직접 받을 수 있어요.',
+        '하루 첫 랭크전 승리에 25 XP를 더 받아요. 경기 결과에서 기본 XP와 첫 승 보너스를 따로 볼 수 있어요.',
+        '봇 대전에서 난이도 5개 중 하나를 고르고, 난이도별 최근 전적을 볼 수 있어요.',
+        '새 마법 돌 가고일은 공중에서 지상 적에게 강하하고, 전기 창병은 가까운 지상 적을 공격해요. 비전 보병과 돌골렘의 마나 비용은 35로 조정됐어요.',
+        '마법서의 제목, 탭, 마법 이름과 설명이 다시 보여요. 매칭을 취소한 뒤 대기 창이 닫히지 않던 문제도 고쳤어요.',
+        '유닛이 첫 공격을 바로 해요. 다음 공격부터는 공격 간격을 기다려요.',
+        '모험은 잠시 닫혀 있어요.',
+      ],
+    },
+    en: {
+      title: 'v1.7.1 Update',
+      items: [
+        'New players choose the Hellfire Legion or the World Tree Spirits after the intro comic. Each faction has its own tutorial battles and starting cards.',
+        'Earn XP in matches and bot practice, then claim level rewards from the Rewards screen.',
+        'Your first ranked win of the day earns 25 bonus XP. Match results show base XP and the first-win bonus separately.',
+        'Choose from five Bot Battle difficulties and see your recent record at each one.',
+        'Stone Gargoyle dives at ground enemies, and Electric Spearman attacks ground enemies at close range. Arcane Infantry and Rock Golem now cost 35 mana.',
+        'Titles, tabs, magic names and descriptions show up again in the Magic Book. The waiting window also closes when you cancel matchmaking.',
+        'Units make their first attack immediately, then wait for their attack cooldown between attacks.',
+        'Adventures are temporarily unavailable.',
+      ],
+    },
+    images: [
+      {
+        src: '/news/v1.7.1/faction-selection.webp',
+        width: 1280,
+        height: 720,
+        alt: {
+          ko: '불타는 군단과 세계수 정령을 고르는 세력 선택 화면',
+          en: 'Faction selection screen showing the Hellfire Legion and World Tree Spirits',
+        },
+      },
+      {
+        src: '/news/v1.7.1/growth-reward.webp',
+        width: 1280,
+        height: 720,
+        alt: {
+          ko: '성장 보상에서 상자를 여는 장면',
+          en: 'A growth reward chest opening',
+        },
+      },
+    ],
+  },
+  {
     version: 'v1.6.0',
     date: '2026-10-26',
     ko: {
