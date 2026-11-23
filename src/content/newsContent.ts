@@ -36,6 +36,34 @@ export const newsAnchorId = (version: string) => version.replace(/\./g, '-');
 
 export const newsReleases: NewsRelease[] = [
   {
+    version: 'v1.8.0',
+    date: '2026-11-23',
+    ko: {
+      title: 'v1.8.0 업데이트',
+      items: [
+        '마그마 폭발을 쓰면 땅에 빛나는 균열이 생겨요. 3초 뒤 그 자리에서 마그마가 터져요.',
+        '돌 폭발을 조준하면 돌무더기마다 피해 범위가 원으로 보여요. 큰 돌무더기일수록 더 넓은 범위에 피해를 줘요.',
+        '대전에서는 두 플레이어가 모두 준비되면 카운트다운이 시작돼요.',
+        '외형 선택 화면에서 보유한 스킨이 먼저 보여요.',
+      ],
+    },
+    en: {
+      title: 'v1.8.0 Update',
+      items: [
+        'Magma Explosion opens glowing cracks in the ground. Three seconds later, magma erupts from that spot.',
+        'When you aim Rock Blast, a circle around each rock remnant shows how far its explosion will reach. Larger remnants have a wider blast radius.',
+        'The match countdown starts once both players are ready.',
+        'Skins you own appear first on the appearance selection screen.',
+      ],
+    },
+    images: [{
+      src: '/news/v1.8.0/magma-warning.webp',
+      width: 768,
+      height: 768,
+      alt: { ko: '마그마 폭발 직전 땅에 난 빛나는 균열', en: 'Glowing cracks in the ground before Magma Explosion erupts' },
+    }],
+  },
+  {
     version: 'v1.7.1',
     date: '2026-11-09',
     ko: {
