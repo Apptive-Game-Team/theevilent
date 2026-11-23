@@ -57,10 +57,10 @@ export const newsReleases: NewsRelease[] = [
       ],
     },
     images: [{
-      src: '/news/v1.8.0/magma-warning.webp',
-      width: 768,
-      height: 768,
-      alt: { ko: '마그마 폭발 직전 땅에 난 빛나는 균열', en: 'Glowing cracks in the ground before Magma Explosion erupts' },
+      src: '/game-assets/magma-explosion-strike-2.webp',
+      width: 217,
+      height: 256,
+      alt: { ko: '마그마 폭발로 불꽃과 바위가 솟는 모습', en: 'Flames and rocks bursting from the ground during Magma Explosion' },
     }],
   },
   {
